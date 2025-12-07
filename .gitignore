@@ -3,3 +3,7 @@
 *.fdb_latexmk
 *.fls
 *.gz
+*.bbl
+*.bcf
+*.blg
+*.run.xml
