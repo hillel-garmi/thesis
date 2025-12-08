@@ -1,0 +1,72 @@
+%! TEX root = ../main.tex 
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\section{Random Facts}
+\begin{lemma}
+  If $n \geq 4$ is even then 
+\[
+  v_2\left( d_n \right) = n - 2
+\]
+\end{lemma}
+\begin{proof}
+  By \cite{MARTIN2004213} 
+  \[
+    d_n = \frac{
+      \left( -1 \right)^{\binom{n}{2}}\left( n^n - 2^n \left( n - 1 \right)^{ n - 1 } \right)
+    }{
+      \left( n - 2 \right)^2
+    }
+  \]
+  Let $m = v_2\left( n - 2 \right)$.
+  If $m = 1$, then 
+  \[
+    v_2\left( n^n \right) \geq 2n > v_2\left( 2^n \left(  n - 1 \right)^{ n - 1 } \right)
+  \]
+  and hence 
+  \[
+    v_2\left( n^n - 2^n \left( n - 1 \right)^{ n - 1 } \right) = n 
+  \]
+  and hence 
+\[
+  v_2\left( d_n \right) = n - 2
+\]
+
+Assume that $m \geq ?$.
+Then 
+\[
+  v_2\left( d_n \right) = n - 2m + v_2\left( \left( \frac{n}{2} \right)^n - \left( n - 1 \right)^{ n - 1 } \right)
+\]
+So it suffices to show that 
+\[
+  v_2\left( \left( \frac{n}{2} \right)^n - \left( n - 1 \right)^{ n - 1 } \right) = 
+  2m - n + n - 2 = 2m - 2
+\]
+Indeed,
+\[
+  n - 2 \equiv \epsilon 2^m \mod 2^{2m-1}
+\]
+for some odd $\epsilon$, and hence 
+\[
+  n \equiv \epsilon 2^m + 2 \mod 2^{2m-1}
+\]
+so 
+\begin{align*}
+  & \left( \frac{n}{2} \right)^n - \left( n - 1 \right)^{n - 1} \equiv \\
+  & \left( \epsilon 2^{m - 1} + 1 \right)^n - \left( \epsilon 2^m + 1 \right)^{ n - 1 } \equiv \\
+  & \binom{n}{2} \epsilon^2 2^{2m - 2} + n\epsilon 2^{m - 1} + 1 - \left( n - 1 \right) \epsilon 2^m - 1 \equiv \\ 
+  & \binom{n}{2} \epsilon^2 2^{2m - 2} + 
+  \epsilon 2^m \left(  
+  \frac{n}{2} - \left( n - 1 \right)
+  \right) \equiv \\ 
+  & \binom{n}{2} \epsilon^2 2^{2m - 2} + 
+  \epsilon 2^m \left(  
+    \epsilon 2^{m - 1} + 1 - \epsilon 2^m - 1
+  \right) \equiv \\
+  & \binom{n}{2} \epsilon^2 2^{2m - 2} + \epsilon 2^m \left( -\epsilon 2^{m-1} \right) \equiv \\
+  & \binom{n}{2} \epsilon^2 2^{2m - 2} - \epsilon^2 2^{2m - 1} \equiv \\
+  & \left( \binom{n}{2} - 2 \right) \epsilon^2 2^{2m - 2} \mod 2^{2m}
+\end{align*}
+and in particular its $v_2$ is $2m - 2$ as required.
+\end{proof}
+
+\end{document}

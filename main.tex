@@ -1,7 +1,22 @@
 \documentclass[oneside, 12pt]{article}
 \usepackage{subfiles}
-\usepackage{biblatex}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{natbib}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\F}{\mathbb{F}}
+
+\newtheorem{thm}{Theorem}[section] 
+\newtheorem{lemma}[thm]{Lemma}
 
 \begin{document}
 \subfile{reduction_to_a_2_adic_question/reduction_to_a_2_adic_question.tex}
+\subfile{random_facts/random_facts.tex}
+
+\bibliographystyle{plain}
+\bibliography{refs}
 \end{document}
