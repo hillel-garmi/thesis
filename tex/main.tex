@@ -1,0 +1,49 @@
+\documentclass[oneside, 14pt]{article}
+\usepackage{extsizes}
+\usepackage{subfiles}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{natbib}
+\usepackage{xcolor}
+\usepackage{setspace}
+
+\doublespacing
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\F}{\mathbb{F}}
+\def\O{\mathcal{O}}
+\def\P{\mathfrak{P}}
+\def\p{\mathfrak{p}}
+\def\Gal{\text{Gal}}
+\def\alg{\text{alg}}
+\def\ord{\text{ord}}
+\def\un{\text{un}}
+
+\newcommand{\justification}[1]{
+  \textcolor{lightgray}{ \backslash #1}
+}
+\newcommand{\editorial}[1]{
+  {\color{red}#1}
+  % \textcolor{gray}{#1}
+}
+
+\newtheorem{thm}{Theorem}[section] 
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{corollary}[thm]{Corollary}
+\newtheorem{remark}[thm]{Remark}
+\newtheorem{definition}[thm]{Definition}
+
+\begin{document}
+
+  \subfile{background/background.tex}
+  \subfile{reduction_to_a_2_adic_question/reduction_to_a_2_adic_question.tex}
+  \subfile{random_facts/random_facts.tex}
+  \subfile{random_calculations/random_calculations.tex}
+
+  \bibliographystyle{plain}
+  \bibliography{refs}
+
+\end{document}

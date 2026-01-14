@@ -1,0 +1,131 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\section{Random Calculations}
+\subsection{The case $\left( n = 3 \right)$}
+This case is the just the classic Golden Ratio calculation. 
+Explicitly, 
+\[
+  f_3\left( x \right) = x^2 - x - 1 = 0
+\]
+its roots are given by
+\[
+  \alpha = \frac{ 1 + \sqrt{5} }{ 2 }, \quad 
+  \beta = \frac{ 1 - \sqrt{5} }{ 2 }
+\]
+The difference between them is $\sqrt{5}$ which indeed generates the unique prime ideal above $5$ in $\O_{\mathbb{Q}(\sqrt{5})}$ and thus the unique element of $G\left( f_3 \right)$ is ramified above $5$ as expected.
+Explicitly, both solutions are mapped to $3 \in \F_5$ and hence the unique of $G\left( f_3 \right)$ acts trivially on the residue field.
+
+In a more modern (but maybe in this case redundant) language, we could note that $\alpha$ generates $\O_{\Q_5(\sqrt{5})}$ over $\O_{\Q_5}$.
+Indeed, following the procedure presented in Serre's proof of \cite[III \S 6 Proposition 12]{SerreLocalFields}, we can note that 
+\[
+  v_5\left( \alpha + 2 \right) = 
+  v_5\left( \frac{ 5 + \sqrt{5} }{ 2 } \right) = 1
+\]
+and hence 
+\[
+  1, \alpha, \alpha + 2, \alpha^2 + 2\alpha
+\]
+generate $\O_{\Q_5(\sqrt{5})}$ over $\O_{\Q_5}$ as a module [maybe I need to show it explicitly at some point].
+Hence the fact that the unique element of $G\left( f_3 \right)$ maps $\alpha$ to $\beta$ which is in the same $\left( \sqrt{5} \right)$ coset, implies that it belongs to the ramification group.
+
+\subsection{The case $\left( n = 5 \right)$}
+First off, a direct calculation shows that 
+\[
+  d_5 = \pm 563
+\]
+in particular, it ramifies only above $563$.
+Moreover, in $\F_{563}$, the unique double root is 
+\[
+  \alpha := \frac{2 \cdot 4}{5} \equiv 
+  8 * 338 \equiv 452 \mod 563
+\]
+
+\subsection{The Case $n = 10$}
+Let $L$ be the splitting field of $f_{10}$ over $\Q_2$.
+\begin{lemma}
+  $L$ is ramified over $\left( 2 \right)$.
+\end{lemma}
+\begin{proof}
+
+  It suffices to show that $\O_L$ contains an element of fractional valuation.
+  Note that over $\F_2$,
+  \[
+    \overline{g_{10}}\left( x \right) = x^{10} + 1 = \left( x^5 + 1 \right)^2 = \left( x + 1 \right)^2 \left( x^4 + x^3 + x^2 + x + 1 \right)^2 
+  \]
+  Therefore, the roots of $g_{10}$ over $\Q_2$ are given by two lifts of $1$ and two lifts of each root of $x^4 + x^3 + x^2 + x + 1$ over $\F_{2^4}$.
+  Choose $\overline{\beta}$ to be a root of $x^4 + x^3 + x^2 + x + 1$ in $\F_{2^4}$.
+  Let $\beta \in \O_{L}$ be a lift of $\overline{\beta}$ (not necessarily a root of $g_{10}$).
+  Consider the polynomial, 
+  \[
+    f_{10}\left( x + \beta \right)
+  \]
+  Its roots are given by $\alpha_i - \beta$ where $\alpha_i$ are the roots of $f_{10}$. 
+  Therefore, if we fix a prime $\P \subseteq \O_L$ lying over $(2)$, by Lemma \ref{lem:structure-of-roots}, $f_{10}\left( x + \beta \right)$ has exactly two roots in $\P$.
+\end{proof}
+
+We will show that $G_{10}$ is primitive.
+Let $\alpha_1, \ldots, \alpha_9$ be the roots of $f_{10}$.
+Then in $\F_2$,
+\begin{align*}
+  & \overline{\left( x - 1 \right) \prod_{i=1}^{9} \left( x - \alpha_i \right)} = \\
+  & \overline{g_{10}}\left( x \right) = \\
+  & x^{10} - 2x^9 + 1 = \\
+  & x^{10} + 1 = \\
+  & \left( x^5 + 1 \right)^2 = \\
+  & \left( x + 1 \right)^2 \left( x^4 + x^3 + x^2 + x + 1 \right)^2 
+\end{align*}
+
+\subsection{The case $n = 2p$ for $p$ an odd prime}
+
+We will show that $G_n$ is primitive.
+Assume towards contradiction that there is a partition of the $n - 1$ roots of $f_n$ into blocks respceted by $G_n$.
+Since $G_n$ acts transitively on the roots, all blocks must be of the same size, say $d$, and denote the blocks by $B_1, \ldots, B_k$ where $k = \frac{ n - 1 }{ d }$.
+
+Note now that over $\F_2$, $g_n$ factors as
+\[
+  g_n = x^n + 1 = \left( x^p + 1 \right)^2 = 
+  \left( x + 1 \right)^2 \left( \sum_{i=0}^{p-1} x^i \right)^2
+\]
+and hence 
+\[
+  \overline{f_n} = \overline{\frac{ g_n }{ x - 1 }} = 
+  \left( x + 1 \right) \left( \sum_{i=0}^{p-1} x^i \right)^2
+\]
+
+Fix a prime $Q$ of $\O_{L_n}$ lying over $(2)$.
+Let $\alpha$ be the unique root of $f_n$ that projects to $1$ and assume WLOG that $\alpha \in B_1$.
+Since it forms its own decomposition block, the decomposition group at $Q$ stabilizes $\alpha$.
+In particular, it stabilizes $B_1$.
+Therefore, since by lemma [will be added later], the inertia group at $Q$ acts transitively on each inertia block, the rest of $B_1$ is a union of $\frac{d - 1}{2}$ inertia blocks.
+Therefore, since the frobenious automorphism at $Q$ acts on the set of inertia blocks as a cycle of length $\ord_p\left( 2 \right)$, it follows that $\ord_p\left( 2 \right) \mid \frac{d - 1}{2}$.
+
+Now, fix $1 < i \leq k$.
+Since $\#B_i = d$ is odd, $B_i$ cannot be a union of inertia blocks, and hence it must contain at least one root, $\alpha$ such that there is at least one automorphism $\sigma$ that maps $\alpha$ to a root in $B_j$ for some $j \neq i$.
+However, since $G$ respects the block structure, $\sigma$ must map the entire block $B_i$ to $B_j$.
+Therefore, for each root $\beta \in B_i$, the unique other root that shares its inertia block must also be in $B_j$.
+
+Let $\phi \in D\left( \P \right)$ be the frobenious.
+Then one of two options must hold:
+\begin{enumerate}
+  \item $\phi\left( B_i \right) = B_i$. But this implies that $\ord_p\left( 2 \right) \mid d$ which is impossible since then $\ord_p\left( 2 \right) \mid \gcd\left( d, \frac{d - 1}{2} \right) = 1$.
+  \item There is $\alpha \in B_i$ such that $\phi\left( \alpha \right) \in B_j$ for some $j \neq i$.
+\end{enumerate}
+
+
+and denote by $I \leq G_n$ the inertia group 
+corresponding to $Q$.
+Then the map $\pi_Q$ reduces to a surjective $2$ to $1$ map from the roots of $g_n$ to the $\mu_{p - 1} \subseteq \overline{\F_{2}}$ and the action of $I$ stabilizes the fibers of this map.
+
+In particular, the set of roots of $g_n$ includes exactly two lifts of $1$ which the action of $I$ either fixes or swaps.
+However, $1 \in \Q$ must be one of these two lifts, and hence $I$ must fix both of them.
+Denote the second lift of $1$ by $\alpha$ and denote by $B_1$ the block containing $\alpha$.
+Then since $G_n$ respects the block structure, $I$ must stabilize $B_1$.
+
+By lemma [will be added later], the action of $I$ on each inertia block is transitive.
+Therefore,
+
+\subsection{The case $n = 2^d$}
+
+
+\end{document}

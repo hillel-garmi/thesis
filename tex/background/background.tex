@@ -1,0 +1,82 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\section{Background} 
+\begin{lemma}
+  \label{lem:structure-of-roots}
+  Let $f \in \Z\left[ x \right]$, and let $L$ be its splitting field over $\Q$.
+  Assume that over $\F_p$, the polynomial $\overline{f}$ decomposes as
+  \[
+    \overline{f}\left( x \right) = \prod_{i=1}^{k} \overline{f_i}\left( x \right)^{e_i}
+  \]
+  where the $\overline{f_i}$ are distinct monic irreducible polynomials.
+  Let $\P$ be a prime of $\O_L$ lying over $\left( p \right) \subseteq \Z$.
+  Then there is a partition, of the set of roots of $f$ into disjoint subsets $S_1, \ldots, S_k$ such that: 
+  \begin{enumerate}
+    \item for each $1 \leq i \leq k$, $\left| S_i \right| = e_i \deg\left( \overline{f_i} \right)$
+    \item The map 
+    \[
+      \pi_{\P} : \O_L \to \O_L / \P
+    \]
+    reduces to a surjective $e_i$ to $1$ map from $S_i$ onto the set of roots of $\overline{f_i}$ over $\F_p$.
+    \item The decomposition group at $\P$, $D\left( \P \right)$, preserves each $S_i$ 
+    \item The decomposition group at $\P$ acts on $S_i$ in a way that respects the partition into fibers of $\pi_{\P}$.
+    \item The inertia group at $\P$ acts trivially on the set of fibers of $\pi_{\P}$.
+    \item The preimage of the frobenious automorphism $\phi : x \mapsto x^p$ under $\pi_{\P}$ acts on $S_i$ that respects the partition into fibers of $\pi_{\P}$, and induces on the set of fibers a cycle of length $\deg\left( \overline{f_i} \right)$.
+  \end{enumerate}
+\end{lemma}
+\begin{proof}
+  By Hensel's lemma there are $f_1, \dots, f_k \in \Z_p\left[ x \right]$ such that for each $1 \leq i \leq k$, $\left( \overline{f_i} \right)^{e_i}$ is the image of $f_i$ under the cannonical map $\Z_p\left[ x \right] \to \F_p\left[ x \right]$, and
+  \[
+    f\left( x \right) = \prod_{i=1}^{k} f_i\left( x \right)
+  \]
+  over $\Z_p$.
+  Set $S_i$ to be the set of roots of $f_i$ in $L$.
+
+  Fix $1 \leq i \leq k$ and let $\beta_1, \ldots, \beta_{\deg\left( \overline{f_i} \right)}$ be the roots of $\overline{f_i}$ over $\F_p$.
+  Then 
+  \begin{equation}
+    \label{eq:projections_of_roots}
+    \begin{aligned}
+      & \prod_{\alpha \in S_i} \left( x - \pi_{\P}\left( \alpha \right) \right) = \\
+      & \pi_{\P}\left( \prod_{\alpha \in S_i} \left( x - \alpha \right) \right) = \\
+      & \pi_{\P}\left( f_i\left( x \right) \right) = \\
+      & \overline{f_i}\left( x \right)^{e_i} = \\
+      & \prod_{j=1}^{\deg\left( \overline{f_i} \right)} \left( x - \beta_j \right)^{e_i}
+    \end{aligned}
+  \end{equation}
+  and hence, since $\F_p^\alg\left[ x \right]$ is a unique factorization domain, for each $1 \leq j \leq \deg\left( \overline{f_i} \right)$, there are exactly $e_i$ elements $\alpha \in S_i$ such that $\pi_{\P}\left( \alpha \right) = \beta_j$.
+  This proves (2) and in particular it implies (1).
+
+  Let $\sigma \in D\left( \P \right)$.
+  Then $\sigma$ extends to an automorphism $\widehat{\sigma}$ of the completion of $L$ with respect the $\P$-valuation $v_\P$.
+  We shall denote this completion by $\widehat{L}$.
+  Since $\widehat{\sigma}$ fixes $\Q$, it also fixes its closure with respec to $v_\P$, a closure which is also known as $\Q_p$.
+  In particular, the automorphism it induces on $\widehat{L}\left[ x \right]$ fixes $\Z_p\left[ x \right]$ and thus it fixes $f_i$ and consequently so does the automorphism that $\sigma$ it induces $L\left[ x \right]$.
+  Therefore,  
+  \begin{align*}
+    & \prod_{\alpha \in S_i} \left( x - \sigma\left( \alpha \right) \right) = \\
+    & \sigma\left( \prod_{\alpha \in S_i} \left( x - \alpha \right) \right) = \\
+    & \sigma\left( f_i \right) = \\
+    & f_i = \\
+    & \prod_{\alpha \in S_i} \left( x - \alpha \right)
+  \end{align*}
+  and hence, since $L\left[ x \right]$ is a unique factorization domain, it follows that $\sigma\left( S_i \right) = S_i$.
+  Since the same is true for any $i$ and for any $\sigma \in D\left( \P \right)$, it follows that $D\left( \P \right)$ preserves each $S_i$ and.
+
+  It is well known that each element of the decomposition group induces an automorphism of the $L/\P$, which in particular implies that it respects the partition of $L$, and in particular of $S_i$ into fibres of $\pi_\P$.
+  The automorphism that any element of the inertia group, $I\left( \P \right)$, induces on $L/\P$ is the identity, by the mere definition of the inertia group, and hence the bijection that any such automorphism induces from the set of fibres to iteself is also the identity.
+
+  By a slight abuse of notation, use $\phi$ to denote some member of $D\left( \P \right)$ that induces the frobenious map $\phi$ on $L/\P$ (it is a well known fact that any automorphism of $L/\P$ is induces by some automorphism of $L$).
+  Then as we have already shown, sicne it is a member of $D\left( \P \right)$ its action on $S_i$ preserves the partition into fibres of $\pi_\P$.
+  Moreover, the action it induces on them is the action it induces on their images in $L / \P$ which is indeed a cycle of order 
+  \[
+    \left[ L/\P : \F_p \right] = \deg\left( \overline{f_i} \right)
+  \]
+\end{proof}
+\begin{definition}
+  In the situation of lemma \ref{lem:structure-of-roots}, we will call the each $S_i$ a decomposition block of $\P$ and we will call the intersection of each $S_i$ with each fibre under $\pi_\P$ an inertia block of $\P$.
+\end{definition}
+
+
+\end{document}

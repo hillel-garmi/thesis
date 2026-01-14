@@ -1,0 +1,284 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\section{Random Facts}
+\subsection{The Polynomial is irreducible}
+\begin{lemma}
+  $f_n$ is irreducible over $\Q$.
+\end{lemma}
+\begin{proof}
+  [Sketch:]
+  Assume $n > 2$ (otherwise it is trivial).
+  The winding number of $g_n$ as $x$ traverses the circle of radius $1 + \epsilon$ is $n-1$ for sufficiently small $\epsilon > 0$.
+  Indeed, for such $\epsilon$, 
+  \[
+    |2x^{n-1}| > |x^n| + 1 \geq |x^n + 1|
+  \]
+  since 
+  \[
+    \left( 1+\epsilon \right)^n - 2\left( 1+\epsilon \right)^{n-1} + 1 < 0
+  \]
+  since 
+  \[
+    g'\left( 1 \right) = n - 2\left( n - 1 \right) = 2 - n < 0
+  \]
+  Therefore, it has $n-1$ roots of absolute value at most $1$.
+  One of these roots is $1$, and hence $f_n$ has $n-2$ roots of absolute value at most $1$.
+
+  Moreover, the only root of absolute value exactly $1$ is $1$ itself.
+  Indeed, it suffices to show that the only root of $\hat{g_n}\left( x \right):= g_n\left( 1/ x \right) x^n = x^n - 2x + 1$ of absolute value $1$ is $1$ itself (since the roots of $\hat{g_n}$ are the inverses of the roots of $g_n$).
+  However, any algebraic number $\alpha$ of absolute value $1$ is a root of unity, and hence if $g_n\left( \alpha \right) = 0$ then $1 - 2\alpha$ is a root of unity as well, and in particular, by the inverse triangle inequality,
+  \[
+    1 = |2\alpha - 1| \geq 2 - 1 = 1 
+  \]
+  and hence $\alpha = 1$.
+   
+  Therefore, $f_n$ has $n-2$ roots of absolute value strictly less than $1$.
+  In other words, only one of its roots has absolute value greater than or equal to $1$ (in fact greater).
+  If we assume towards contradiction that $f_n$ is reducible over $\Q$, then since it is monic, it is reducible over $\Z$ as well, and hence one of its factors is a monic polynomial with integer coefficients whose roots are all of absolute value strictly less than $1$ which is a contradiction (because then for example the norm, which is the free coefficient up to a sign, is less than $1$ in absolute value).
+\end{proof}
+
+
+\subsection{The Action of the Inertia Group on the Roots of $f_n$}
+\begin{lemma}
+  Let $\P$ be a prime of $\O_{L_n}$ lying above $\left( 2 \right) \subseteq \Z$.
+  Then the inertia group $I_{\P}$ acts transitively on each inertia block of $\P$.
+\end{lemma}
+\begin{proof}
+  \editorial{Tweak the proof to apply to the tamely ramified case as well}
+
+  Let $B$ be an inertia block of $\P$.
+  It suffices to show that all elements of $B$ are conjugate over $\Q_2^\un$, the maximal unramified extension of $\Q_2$.
+  To show that in turn, it suffices to show that the degree of one of these elements over $\Q_2^\un$ is at least the size of $B$.
+  Indeed, assume that $\alpha \in B$ and assume that the degree of $\alpha$ over $\Q_2^\un$ is at least $e = \left| B \right|$.
+  Assume that $\beta$ is a conjugate of $\alpha$ over $\Q_2^\un$.
+  Then there is an automorphism $\sigma$ of $\Q_2^\alg$ over $\Q_2^\un$ such that $\sigma\left( \alpha \right) = \beta$.
+  In particular, it reduces to a member of the inertia subgroup of $\Gal(L_n/\Q)$ at $\P$ that maps $\alpha$ to $\beta$ and hence $\alpha$ and $\beta$ are equivalent modulo $\P$ and hence $\beta \in B$.
+  Therefore, for the number of conjugates of $\alpha$ over $\Q_2^\un$ to reach $e$, all elements of $B$ must be conjugate to $\alpha$ over $\Q_2^\un$.
+  
+  It remains to show that there is a root $\alpha \in B$ whose degree over $\Q_2^\un$ is at least $e$ or equivalently that there is $\beta \in \Q_2^\un\left( \alpha \right)$ whose $2$-adic valuation is in the interval $(0, 1/e]$.
+  Indeed, let $k = n / 2^e$ and let $\beta$ be the unique primitive $k$-th root of unity whose image under $\pi_\P$ is the image of $B$ under $\pi_\P$.
+  Then the free coefficient of $g_n\left( x + \beta \right)$ is 
+  \[
+    g_n\left( \beta \right) = 
+    \beta^n - 2\beta^{n - 1} + 1 = 
+    2\left( 1 - \beta^{n - 1} \right)
+  \]
+  whose $2$-adic valuation is exactly $1$.
+  Therefore, since $g_n\left( x + \beta \right)$ has exactly $2^e$ roots whose $\P$-valuation is strictly positive, by Newton's polygon argument, there is a root $\alpha$ of $g_n\left( x + \beta \right)$ whose $\P$-valuation is not more than $1 / 2^e$.
+\end{proof}
+
+
+
+\subsection{The Discriminant of \( f_n \)}
+\begin{lemma}
+  \label{lem:2-adic-valuation-of-discriminant}
+Assume that $n \geq 3$ is even then 
+\[
+  v_2\left( d_n \right) = n - 2
+\]
+\end{lemma}
+\begin{proof}
+  By \cite{MARTIN2004213} 
+  \begin{align*}
+    d_n = & 
+    \frac{
+      \left( -1 \right)^{\binom{n}{2}}\left( n^n - 2^n \left( n - 1 \right)^{ n - 1 } \right)
+    }{
+      \left( n - 2 \right)^2
+    } = \\
+    & \left( -1 \right)^{\binom{n}{2}}2^{n} \cdot
+    \frac{
+      \left( \frac{n}{2} \right)^n - \left( n - 1 \right)^{ n - 1 }
+    }{
+      \left( n - 2 \right)^2
+    }
+  \end{align*}
+  and hence if we denote $m = v_2\left( n - 2 \right)$ we get that 
+  \[
+    v_2\left( d_n \right) = n - 2m + v_2\left( \left( \frac{n}{2} \right)^n - \left( n - 1 \right)^{ n - 1 } \right)
+  \]
+Therefore, it suffices to show that 
+\[
+  v_2\left( \left( \frac{n}{2} \right)^n - \left( n - 1 \right)^{ n - 1 } \right) = 
+  2m - n + n - 2 = 2m - 2
+\]
+Assume that $m \geq 2$
+Indeed,
+\[
+  n - 2 \equiv \epsilon 2^m \mod 2^{2m-1}
+\]
+for some odd $\epsilon$, and hence 
+\[
+  n \equiv \epsilon 2^m + 2 \mod 2^{2m-1}
+\]
+so 
+\begin{align*}
+  & \left( \frac{n}{2} \right)^n - \left( n - 1 \right)^{n - 1} \equiv \\
+  & \left( \epsilon 2^{m - 1} + 1 \right)^n - \left( \epsilon 2^m + 1 \right)^{ n - 1 } \equiv \\
+  & \binom{n}{2} \epsilon^2 2^{2m - 2} + n\epsilon 2^{m - 1} + 1 - \left( n - 1 \right) \epsilon 2^m - 1 \equiv 
+  \justification{3m - 3 \geq 2m - 1} \\ 
+  & \binom{n}{2} \epsilon^2 2^{2m - 2} + 
+  \epsilon 2^m \left(  
+  \frac{n}{2} - \left( n - 1 \right)
+  \right) \equiv \\ 
+  & \binom{n}{2} \epsilon^2 2^{2m - 2} + 
+  \epsilon 2^m \left(  
+    \epsilon 2^{m - 1} + 1 - \epsilon 2^m - 1
+  \right) \equiv \\
+  & \binom{n}{2} \epsilon^2 2^{2m - 2} + \epsilon 2^m \left( -\epsilon 2^{m-1} \right) \equiv \\
+  & \binom{n}{2} \epsilon^2 2^{2m - 2} - \epsilon^2 2^{2m - 1} \equiv \\
+  & \left( \binom{n}{2} - 2 \right) \epsilon^2 2^{2m - 2} \mod 2^{2m - 1}
+\end{align*}
+and in particular its $v_2$ is $2m - 2$ as required.
+
+  Assume finally now that $m = 1$, then 
+  \[
+    v_2\left( \frac{n}{2} \right) \geq 1
+  \]
+  and hence 
+  \[
+    v_2\left( \left( \frac{n}{2} \right)^n \right) \geq n > 0 = v_2\left( \left( n - 1 \right)^{ n - 1 } \right)
+  \]
+  and hence 
+  \[
+    v_2\left( \left( \frac{n}{2} \right)^n - \left( n - 1 \right)^{ n - 1 } \right) = 0 = 2m - 2
+  \]
+  
+  Assume  that $m = 2$, then
+
+  \[
+    v_2\left( n^n \right) \geq 2n > v_2\left( 2^n \left(  n - 1 \right)^{ n - 1 } \right)
+  \]
+  and hence 
+  \[
+    v_2\left( n^n - 2^n \left( n - 1 \right)^{ n - 1 } \right) = n 
+  \]
+  and hence 
+\[
+  v_2\left( d_n \right) = n - 2
+\]
+\end{proof}
+
+\begin{corollary}
+  There is an odd prime that divides \( d_n \) for any \( n \geq 4 \).
+\end{corollary}
+\begin{proof}
+  Sketch: The maximal odd divisor of \( d_n \) is 
+  \begin{align*}
+    & \frac{
+      n^n - 2^n \left( n - 1 \right)^{ n - 1 }
+    }{
+      2^{v_2\left( n^n - 2^n \left( n - 1 \right)^{ n - 1 } \right)} \left( n - 2 \right)^2
+    } = \\
+    & \frac{
+      n^n - 2^n \left( n - 1 \right)^{ n - 1 }
+    }{
+      2^{n - 2} \left( n - 2 \right)^2
+    } = \\
+    & \frac{
+      \left( \frac{n}{2} \right)^n - \left( n - 1 \right)^{ n - 1 }
+    }{
+      \left( \frac{n - 2}{2} \right)^2
+    }
+  \end{align*}
+  and the numerator clearly clearly grows faster than the denominator.
+\end{proof}
+
+\subsection{Ramification at $2$}
+\begin{lemma}
+  Let $n \geq 4$ be even.
+  Then $L_n$ ramifies at $2$.
+\end{lemma}
+\begin{proof}
+  Let $v$ be a valuation extending $v_2$ to $L_n$ and let $\widehat{L}$ be the completion of $L_n$ with respect to $v$.
+  It suffices to show that 
+\end{proof}
+
+
+
+% Maybe a better proof 
+% \begin{proof}
+%   \begin{align*}
+%     & \frac{
+%       d_n
+%     }{
+%       2^{n-2}
+%     } = \\
+%     & \frac{
+%       \left( -1 \right)^{\binom{n}{2}}\left( n^n - 2^n \left( n - 1 \right)^{ n - 1 } \right)
+%     }{
+%       2^{n-2} \left( n - 2 \right)^2
+%     } = \\
+%     & \frac{
+%       \left( -1 \right)^{\binom{n}{2}} \left( \left( \frac{n}{2} \right)^n - \left( n - 1 \right)^{ n - 1 } \right)
+%     }{
+%       \left( \frac{n - 2}{2} \right)^2
+%     }
+%   \end{align*}
+  
+% \end{proof}
+
+
+% \subsection{Reduction to primes that divide $n - 1$ -- Failed Attempt -- $n = 22$ is a counter example}
+% We will basically repeat Matin's argument from \cite{MARTIN2004213} and try to generalize it from the case $p = n - 1$ to the case $p \mid n - 1$.
+% Assume then that $p \mid n - 1$ is a prime. 
+% \begin{lemma}
+% \[
+%   x^{n-1} \overline{f}_n\left( 2 - \frac{1}{x} \right) = \overline{f}_{n}\left( x \right)
+% \]
+% where $\overline{f}_n$ is the reduction of $f_n$ modulo $p$.
+% \end{lemma}
+% \begin{proof}
+%   First, 
+%   \begin{align*}
+%     & \overline{f}_n\left( x \right) = \\
+%     & x^{n-1} - 
+%     \sum_{i = 1}^{p - 1} \frac{
+%       x^{n-1} - 1
+%     }{
+%       x^{\frac{n - 1}{p}} - 1
+%     } = \\ 
+%     & x^{n-1} - \sum_{i = 1}^{p - 1} \frac{
+%       \left( x^{\frac{n - 1}{p}} \right)^p - 1
+%     }{
+%       x^{\frac{n - 1}{p}} - 1
+%     } = \\
+%     & x^{n-1} - \sum_{i = 1}^{p - 1} \frac{
+%       \left( x^{\frac{n - 1}{p}} - 1 \right)^p
+%     }{
+%       x^{\frac{n - 1}{p}} - 1
+%     } = \\
+%     & x^{n-1} - \sum_{i = 1}^{p - 1} \left( x^{\frac{n - 1}{p}} - 1 \right)^{p - 1}
+%   \end{align*}
+%   and hence 
+%   \begin{align*}
+%     & x^{n - 1} \overline{f}_n\left( 2 - \frac{1}{x} \right) = \\
+%     & x^{n - 1} \left( \left( 2 - \frac{1}{x} \right)^{n-1} - \sum_{i = 1}^{p - 1} \left( \left( 2 - \frac{1}{x} \right)^{\frac{n - 1}{p}} - 1 \right)^{p - 1} \right) = \\
+%     & \left( 2x - 1 \right)^{n - 1} - \sum_{i = 1}^{p - 1} \left( \left( 2x - 1 \right)^{\frac{n - 1}{p}} - x^{\frac{n - 1}{p}} \right)^{p - 1} = \\
+%   \end{align*}
+  
+% \end{proof}
+% \begin{lemma}
+%   The second Martin's lemma.
+% \end{lemma}
+% \begin{proof}
+%   \[
+%     x = 2 - \frac{1}{x^{n - 1}} = 
+%     2 - \left( \frac{1}{x^{\frac{n - 1}{p}}} \right)^p = 
+%     \left( 2 - \frac{1}{x^{\frac{n - 1}{p}}} \right)^p
+%   \]
+%   and 
+%   \begin{align*}
+%     & 2 - \frac{1}{x^{\frac{n - 1}{p}}} = \\
+%     & 2 - \frac{
+%       -\frac{1}{x} + 1
+%     }{
+%       x^{\frac{n - 1}{p}} - x^{\frac{n - 1}{p} - 1} 
+%     } = \\
+%     & 2 + \frac{}{}
+%   \end{align*}
+  
+% \end{proof}
+
+\end{document}
