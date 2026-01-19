@@ -1,4 +1,4 @@
 P<x> := PolynomialRing(Rationals());
 f:=x^28-2*x+1;
 g := f div (x - 1);
-GaloisGroup(g)
+IsEasySnAn(g)

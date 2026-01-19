@@ -1,0 +1,303 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\section{Complete Proof} 
+\editorial{The indices of $f_n$ has a shift by one from the indices in the rest of the files in the repository}
+
+For each $n$ denote 
+\[
+  f_n = x^{n} - x^{n-1} - \ldots - 1  
+\]
+It has been shown that $f_n$ is irreducible over $\Q$ (\editorial{I will add a citation later}).
+We will show that for each $n$, the Galois group of $f_n$ is isomorphic to $S_n$.
+
+Fix an algebraic closure $\overline{\Q}$ of $\Q$, a root $\alpha \in \overline{Q}$ of $f_n$ and for each prime $p$, fix an algebraic closure $\overline{\Q_p}$ of $\Q_p$ and an embedding $\overline{\Q} \hookrightarrow \overline{\Q_p}$ extending the natural embedding $\Q \hookrightarrow \Q_p$.
+Denote by $G$ the absolute Galois group $\Gal\left( \overline{\Q}/\Q \right)$, by $G_n$ the Galois group of $f_n$, and for each prime $p$, denote by $I\left( p \right) \subseteq G$ the absolute inertia group at $p$, i.e., the embedding into $G$ of the inertia group $\Gal\left( \overline{\Q_p}/\Q_p^{\un} \right)$, where $\Q_p^{\un}$ is the maximal unramified extension of $\Q_p$ inside $\overline{\Q_p}$.
+
+Using this notation, we can first adapt part of Martin's proof of \cite[Theorem 2.5]{MARTIN2004213} to show the following lemma:
+\begin{lemma}
+  \label{lem:inertia-acts-as-transposition}
+  For each odd prime $p$, $I\left( p \right)$ acts on $\Hom_{\Q}\left( \Q\left( \alpha \right), \overline{\Q} \right)$ either trivially or as a single transposition.
+\end{lemma}
+\begin{proof}
+  \editorial{postponed.}
+  % Assume that $I\left( p \right)$ acts non-trivially on $\Hom_{\Q}\left( \Q\left( \alpha \right), \overline{\Q} \right)$.
+  % Then by \cite[Lemma 2.1]{MARTIN2004213}, the reduction of $f_n$ modulo $p$ has exactly one double root and all other roots are simple.
+  % Any simple root of the reduction modulo $p$, is in particular a root of some irreducible
+\end{proof}
+In light of this lemma it makes sense to guess that the $G_n$ contains a transposition, since otherwise the discriminant of $\Q\left( \alpha \right)$ would be ramified only at $2$.
+We can show this by analyzing the discriminant $d_n$ of $f_n$ for each $n$.
+However, before doing so, we will use the previous lemma to derive a lemma which, as we will explain afterwards, will make the analysis of the discriminant even more useful:
+\begin{lemma}
+  \label{lem:no-odd-ramification-in-subextensions}
+  There is no subextension of $\Q\left( \alpha \right)/\Q$ that is ramified above any odd prime.
+\end{lemma}
+\begin{proof}
+  Let $\iota: K \hookrightarrow \Q\left( \alpha \right)$ be a proper subextension and let $p$ be an odd prime.
+  It suffices to show that any embedding of $K$ into $\overline{\Q_p}$ lands inside $\Q_p^{\un}$ for which it suffices to show that $I\left( p \right)$ acts trivially on $\Hom_{\Q}\left( K, \overline{\Q} \right)$.
+  If $I\left( p \right)$ acts trivially on $\Hom_{\Q}\left( \Q\left( \alpha \right), \overline{\Q} \right)$ then this is immediate.
+  Assume otherwise.
+  Then by the previous lemma, $I\left( p \right)$ acts as a single transposition on $\Hom_{\Q}\left( \Q\left( \alpha \right), \overline{\Q} \right)$.
+  Moerover, the precomposition map
+  \[
+    \iota^\ast : \Hom_{\Q}\left( \Q\left( \alpha \right), \overline{\Q} \right) \to \Hom_{\Q}\left( K, \overline{\Q} \right)
+  \]
+  is a surjective $G$-equivariant map.
+  In particular it is 
+  \begin{itemize}
+    \item Surjective with fibers of constant size $\left[ \Q\left( \alpha \right) : K \right] \geq 2$;
+    \item Compatible with the action of $I\left( p \right)$.
+  \end{itemize}
+  However, the only way a transposition can be compatible with such a map is if it swaps two elements inside a single fiber and thus acts trivially on the image. 
+\end{proof}
+The reason this lemma makes the analysis of the discriminant even more useful, is that using the analysis of the discriminant, and using the Minkowski bound, we can in fact show that $\Q\left( \alpha \right)$ has no proper subextensions at all, from which we will derive that $G_n$ acts primitively on $\Hom_{\Q}\left( \Q\left( \alpha \right), \overline{\Q} \right)$.
+This is in turn useful since a primitive permutation group that contains a transposition is, as we shall also show, the full symmetric group, and thus we will be able to conclude that $G_n \cong S_n$.
+Without further ado then, we bravely proceed to analyze the discriminant:
+
+\begin{lemma}
+  \label{lem:2-adic-valuation-of-discriminant}
+\[
+  v_2\left( d_n \right) = \begin{cases}
+    n - 1 & n \text{ is odd} \\
+    0 & n \text{ is even}
+  \end{cases}
+\]
+\end{lemma}
+\begin{proof}
+  By \cite{MARTIN2004213} 
+  \begin{align*}
+    d_n = & 
+    \frac{
+      \left( -1 \right)^{\binom{n + 1}{2}}\left( \left( n + 1 \right)^{\left( n + 1 \right)} - 2^{n + 1} n^{ n } \right)
+    }{
+      \left( n - 1 \right)^2
+    } 
+  \end{align*}
+  If $n$ is even it is easy to see that both the denominator and numerator are odd, and hence $v_2\left( d_n \right) = 0$ as required.
+  Assume now that $n$ is odd.
+  Then we can manipulate the expression above and get 
+  \begin{align*}
+    d_n = &
+    \left( -1 \right)^{\binom{n + 1}{2}}2^{n + 1} \cdot
+    \frac{
+      \left( \frac{n + 1}{2} \right)^n - n^{ n }
+    }{
+      \left( n - 1 \right)^2
+    }
+  \end{align*}
+
+  and hence if we denote $m = v_2\left( n - 1 \right)$ we get that 
+  \[
+    v_2\left( d_n \right) = n + 1 - 2m + v_2\left( \left( \frac{n + 1}{2} \right)^n - n^{ n } \right)
+  \]
+Therefore, our claim is equivalent to showing that 
+\[
+  n - 1 = n + 1 - 2m + v_2\left( \left( \frac{n + 1}{2} \right)^n - n^{ n } \right)
+\]
+or equivalently, that 
+\[
+  v_2\left( \left( \frac{n + 1}{2} \right)^n - n^{ n } \right) = 2m - 2
+\]
+
+
+  Assume first that $m = 1$, then 
+  \[
+    v_2\left( \frac{n + 1}{2} \right) \geq 1
+  \]
+  and hence 
+  \[
+    v_2\left( \left( \frac{n + 1}{2} \right)^n \right) \geq n > 0 = v_2\left( n^{ n } \right)
+  \]
+  and hence 
+  \[
+    v_2\left( \left( \frac{n + 1}{2} \right)^n - n^{ n } \right) = 0 = 2m - 2
+  \]
+
+Assume now that $m \geq 2$.
+In the rest of the proof we will use greek letters solely to denote different odd integer whose exact value is unknown and immaterial.
+As a first example for this notation, we denote
+\[
+  n - 1 \equiv \epsilon 2^m \mod 2^{2m-1}
+\]
+From this we may deduce that
+\begin{align*}
+  & \left( \frac{n + 1}{2} \right)^{n+1} - n^{n} \equiv \\
+  & \left(  
+    \frac{ \epsilon 2^m + 2 }{2}
+  \right)^{n+1} - \left( \epsilon 2^m + 1 \right)^{ n} \equiv \\
+  & \left( \eta 2^{m - 1} + 1 \right)^{n+1} - \left( \epsilon 2^m + 1 \right)^{ n } \equiv 
+  \justification{3m - 3 \geq 2m - 1} \\
+  & \binom{n+1}{2} \eta^2 2^{2m - 2} + \left( n + 1 \right)\epsilon 2^{m - 1} + 1 - n \epsilon 2^m - 1 \equiv  \\ 
+  & \frac{
+    \left( \epsilon 2^m + 2 \right)\left( \epsilon2^m + 1\right)
+  }{
+    2
+  } \eta^2 2^{2m - 2} + \left( \epsilon 2^m + 2 \right)\epsilon 2^{m - 1} - \left( \epsilon 2^m + 1 \right) \epsilon 2^m \equiv  \\
+  & \iota \eta^2 2^{2m - 2} + \epsilon^2 2^{2m-1} + \epsilon2^m - \epsilon^2 2^{2m} - \epsilon 2^m \equiv \\ 
+  & 2^{2m-2}\left(  
+    \iota \eta^2 - 2\epsilon^2
+  \right) \\ 
+  & 2^{2m-2}\alpha \mod 2^{2m-1} 
+\end{align*}
+and in particular its $2$-adic valuation is $2m - 2$ as required.
+\end{proof}
+A first easy corollary of this lemma is the following promised statement:
+\begin{corollary}
+  $G_n$ contains a transposition for each $n \geq 2$.
+\end{corollary}
+\begin{proof}
+  \editorial{
+    This proof works only for even $n$ or $n$ that are sufficiently large. 
+    We could also cite \cite[Theorem 2.5]{MARTIN2004213}. 
+    However, in his proof, he dismisses pretty much all the content of the following proof as "easy to see", and I am not convinced yet. 
+  }
+  
+  By lemma \ref{lem:inertia-acts-as-transposition}, it suffices to show that there is an odd prime that ramifies in $\Q\left( \alpha \right)$, or equivalently, that divides the discriminant of $\Q\left( \alpha \right)$.
+
+  Assume first that $n$ is even this.
+  Then by the previous lemma, $d_n$ is odd.
+   However, since $1, \alpha, \dots, \alpha^{n-1}$ spans a sublattice of the ring of integers of $\Q\left( \alpha \right)$, the discriminant of $\Q\left( \alpha \right)$ divides $d_n$ and is thus odd as well.
+  Therefore, there is an odd prime , $p$, that divides the discriminant of $\Q\left( \alpha \right)$.
+
+  Assume now that $n$ is odd.
+  By the same argument as before, 
+  \[
+    \disc\left( \Q\left( \alpha \right) \right) | d_n
+  \]
+  and hence 
+  \[
+    v_2\left( \disc\left( \Q\left( \alpha \right) \right) \right) \leq v_2\left( d_n \right) = n - 1
+  \]
+  Therefore, it suffices to show that 
+  \[
+    \disc\left( \Q\left( \alpha \right) \right) > 2^{n - 1}
+  \]
+  By \cite{OdlyzkoBoundsII} for any sufficiently large $n$ 
+  \[
+    \disc\left( \Q\left( \alpha \right) \right) > 22^{n}
+  \]
+  so this is clearly true.
+  \editorial{I have not went through \cite{OdlyzkoBoundsII} carefully enough yet to see if they detail how large $n$ needs to be, so I am not sure how feasible it will be to check the remaining small values of $n$ computationally.}
+\end{proof}
+As promised, we can also use the previous lemma, to show that $\Q\left( \alpha \right)$ has no proper subextensions at all.
+While for even values of $n$ this is immediate, in order to derive it for odd values of $n$ we will first need to prove a lemma and two corolarries: 
+\begin{lemma}
+  Let $K/\Q$ be a field extension of degree at least $3$.
+  Then 
+  \[
+    \disc\left( K \right) \geq 2^{\left[ K : \Q \right]}
+  \]
+\end{lemma}
+\begin{proof}
+  Denote $r = \left[ K : \Q \right]$ and $d_K = \disc\left( K \right)$.
+  It suffices to show that 
+  \[
+    \sqrt{d_K} \geq 2^{r/2}
+  \]
+  However, by the Minkowski bound 
+  \[
+    \sqrt{d_K} \geq \left( \frac{\pi}{4} \right)^{r/2} \cdot \frac{r^r}{r!}
+  \]
+  and hence it suffices to show that 
+  \[
+    \left( \frac{\pi}{4} \right)^{r/2} \cdot \frac{r^r}{r!} \geq 2^{r/2}
+  \]
+  or equivalently that 
+  \[
+    \frac{r^r}{r!} \geq \left( \frac{8}{\pi} \right)^{r/2}
+  \]
+  which is true for $r = 3$ and follows for larger $r$ by induction.
+\end{proof}
+\begin{corollary}
+  If $\left[ K:\Q \right]$ $\geq 2$ and $K$ is ramified only at $2$ then
+  \[
+    v_2\left( d_{K} \right) \geq \left[ K : \Q \right]
+  \]
+\end{corollary}
+\begin{proof}
+  If $r > 3$ it follows directly from the lemma.
+  Assume that $r = 2$.
+  Then $K = \Q\left( \sqrt{d} \right)$ for some integer $d$.
+  Since $K$ is ramified only at $2$, $d = \pm 2^{k}$ for some integer $k$.
+  Therefore, one of three cases occures: 
+  \begin{itemize}
+    \item $K = \Q\left( \sqrt{2} \right)$, in which case $d_K = 8$;
+    \item $K = \Q\left( \sqrt{-2} \right)$, in which case $d_K = 8$;
+    \item $K = \Q\left( \sqrt{-1} \right)$, in which case $d_K = 4$;
+  \end{itemize}
+  In each case $v_2\left( d_{K} \right) \geq 2$.
+\end{proof}
+Even without analysing all the possible discriminants of quadratic extensions of $\Q$, we could use the previous lemma to show that $v_2\left( d_{K} \right) \geq \left[ k:\Q \right] - 1$, and while the above corollary might seem only a slight improvement of this slightly weaker bound, the following corollary makes a very significant use of it: 
+\begin{corollary}
+  There are no proper subextensions of $\Q\left( \alpha \right)/\Q$.
+\end{corollary}
+\begin{proof}
+  Let $K \hookrightarrow \Q\left( \alpha \right)$ be a proper subextension.
+  By Lemma \ref{lem:no-odd-ramification-in-subextensions}, $K/\Q$ is ramified only at $2$.
+  Therefore, by the previous corollary,
+  \[
+    v_2\left( d_{K} \right) \geq \left[ K : \Q \right]
+  \]
+  Then 
+  \[
+    d_{\Q\left( \alpha \right)} = 
+    d_{K}^{\left[ \Q\left( \alpha \right) : K \right]} \cdot N_{K/\Q}\left( d_{\Q\left( \alpha \right)/K} \right) 
+  \]
+  (see for example \cite[III.\S 4]{SerreLocalFields}). 
+  Then 
+  \[
+    v_2\left( d_{\Q\left( \alpha \right)} \right) \geq 
+    \left[ \Q\left( \alpha \right) : K \right] \cdot v_2\left( d_{K} \right)
+  \]
+  However, $1, \alpha, \dots, \alpha^{n-1}$ spans a sub lattice of the ring of integers of $\Q\left( \alpha \right)$ whose discriminant is $d_n$ and hence
+  \[
+    n \leq v_2\left( d_{\Q\left( \alpha \right)} \right) \leq v_2\left( d_n \right) = n-1
+  \]
+  and that's a glaring contradiction.
+\end{proof}
+From this corollary, we can derive the following: 
+\begin{corollary}
+  $G$ acts primitively on $\Hom_{\Q}\left( \Q\left( \alpha \right), \overline{\Q} \right)$.
+\end{corollary}
+\begin{proof}
+  Assume towards contradiction that the action is imprimitive.
+  Then there is a strictly smaller non-trivial $G$ set $S$ and a surjective $G$-equivariant map
+  \[
+    \pi : \Hom_{\Q}\left( \Q\left( \alpha \right), \overline{\Q} \right) \to S
+  \]
+  In particular, $\pi$ is an epimorphism of $G$-sets, and hence by the famous equivalnece of categories between $G$-sets and Etale algebras over $\Q$, $\pi$ corresponds to a monomorphism of Etale algebras over $\Q$, i.e. a field embedding 
+  \[
+    \iota : K \hookrightarrow \Q\left( \alpha \right)
+  \]
+  and since $S$ is non-trivial and strictly smaller, $K$ is a proper subextension of $\Q\left( \alpha \right)/\Q$, contradicting the previous corollary.
+\end{proof}
+It immediately follows that $G_n$ acts primitively on $\Hom_{\Q}\left( \Q\left( \alpha \right), \overline{\Q} \right)$, and hence to completely seal the proof, it suffices to show the following lemma and a corollary:
+\begin{lemma}
+  A transitive permutation group that is generated by transpositions is the full symmetric group.
+\end{lemma}
+\begin{proof}
+  \editorial{Sketch inspired by a discussion with Itamar Israeli:}
+
+  There is a seuqnece of transpositions that connects any two elements.
+  Given a product of a pair of transpositions 
+  \[
+    \left( a \; b \right) \left( b \; c \right) = \left( a \; b \; c \right)
+  \]
+  it can be shoretned to 
+  \[
+    \left( b \; c \right) \left( a \; b \right) \left( b \; c \right) = \left( a \; c \right) 
+  \]
+\end{proof}
+\begin{corollary}
+  A primitive permutation group that contains a transposition is the full symmetric group.
+\end{corollary}
+\begin{proof}
+  \editorial{Slightly inspired by Boris's thesis:}
+
+  Let $H$ be a primitive permutation group that contains a transposition $\tau$.
+  Let $K$ be the normal closure of $\left< \tau \right>$ inside $H$.
+  Then the orbits of $K$ form a system of blocks for $H$.
+  Therefore, $K$ is itself transitive and it is generated by transpositions and hence by the previouse lemma $K = S_n$ and hence $H = S_n$ as required.
+\end{proof}
+
+\end{document}
