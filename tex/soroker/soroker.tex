@@ -1,0 +1,84 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\section{A short proof that $\Q\left[ x \right] / \left( f_n \right)$ has no totally real subfields}
+\begin{lemma}
+  If $f \in \Q\left[ x \right]$ has a unique real root that then $\Q\left[ x \right] / \left( f \right)$ has no nontrivial totally real subfield.
+\end{lemma}
+\begin{proof}
+  Consider $\overline{\Q}$ an algebraic closure of $\Q$ as a subfield of $\C$, let $G_\Q$ be the total Galois group $\Gal\left( \overline{\Q} / \Q \right)$ and let $\sigma \in G_\Q$ be the element induced by the complex conjugation on $\C$.
+  Assume towards contradiction that $\iota: K \hookrightarrow \Q\left[ x \right] / \left( f \right)$ is an embedding of a totally real field $K \neq \Q$.
+  Then the restriction induced restriction map 
+  \[
+    \iota^*: \Hom_\Q\left( \Q\left[ x \right] / \left( f \right), \overline{\Q} \right) \to \Hom_\Q\left( K, \overline{\Q} \right)
+  \]
+  is a surjective $G$-equivariant map.
+  The totally realsness of $K$ implies that $\sigma$ acts trivially on $\Hom_\Q\left( K, \overline{\Q} \right)$, and hence, the $G$-equivariance of $\iota^*$ implies that $\sigma$ reduces to an action on each fiber of $\iota^*$.
+  However, the fact that $f$ has a unique real root implies that it has an odd degree, and hence, each fiber of $\iota^*$ has an odd cardinality.
+  In particular, since $\sigma$ is an involution, it must have at least one fixed point in each fiber, which contradicts the fact that $f$ has a unique real root.  
+\end{proof}
+\begin{corollary}
+  For each $n$, the quotient $\Q\left[ x \right] / \left( x^n + x^{n-1} + \dots + x - 1 \right)$ has no totally real subfields other than $\Q$.
+\end{corollary}
+\subsection{Generalization:}
+I will try to generalize it to the same generalization as in \cite[Appendix A]{Soroker_appendix_2017}
+\begin{lemma}
+  Let $E \leq, F, K \leq \overline{E}$ be field extensions such that $E \leq F$ is finite.
+  Assume that there exists a prime $p$ such that $p \nmid \left[ F : E \right]$ and such that $\Aut\left( \overline{E}, K \right)$ is a pro-$p$ group.
+  Then for any totally $K$ sub-extension $E \leq L \leq F$, 
+  \[
+    \left[ L : E \right]_s \leq \left | \Hom_E\left( F, K^\ins \right) \right |
+  \]
+\end{lemma}
+\begin{proof}
+  Let $G$ be the Galois group $\Gal\left( \overline{E}/ E \right)$.
+  Let $\iota: L \hookrightarrow F$ be an $E$-embedding of a totally $K$ extension.
+  Consider the restriction map
+  \[
+    \iota^*: \Hom_E\left( F, \overline{E} \right) \to \Hom_E\left( L, \overline{E} \right)
+  \]
+  Since $L$ is totally $K$, $\Aut\left( \overline{E} / K \right)$ acts trivially on $\Hom_E\left( L, \overline{E} \right)$.
+  Hence, the $G$-equivariance of $\iota^*$ implies that $G$ acts (continuously) on each fiber of $\iota^*$, and in particular, so does the pro-$p$ group $\Aut\left( \overline{E} / K \right)$.
+  However, the cardinality of each fiber of $\iota^*$ divides $\left[ F : E \right]$ and hence is prime to $p$.
+  Therefore, each fiber of $\iota^*$ has a fixed point under the action of $\Aut\left( \overline{E} / K \right)$, i.e. an element of $\Hom_E\left( F, K^\ins \right)$.
+  Therefore, 
+  \[
+    \left[ L : E \right]_s = \left | \Hom_E\left( L, \overline{E} \right) \right | \leq \left | \Hom_E\left( F, K^\ins \right) \right |
+  \]
+  as required.
+\end{proof}
+\begin{remark}
+  This is in fact a simplification of the main part of the proof of \cite[Theorem A.5]{Soroker_appendix_2017}.
+  So I guess if we copy it and paste instead of that part, the entire appendix can be slightly shortened.
+\end{remark}
+% We can also prove the following statement which is somewhat similar to \cite[Theorem A.5/A.1]{Soroker_appendix_2017}, but I can't decide yet which one is stronger. 
+% \begin{thm}
+%   Let $E \leq, F, K \leq \overline{E}$ be field extensions such that $E \leq F$ is finite.
+%   Assume that there exists a prime $p$ such that $p \nmid \left[ F : E \right]$ and such that $\Aut\left( \overline{E}, K \right)$ is a pro-$p$ group.
+%   Then for any totally $K$ sub-extension $E \leq L \leq F$, 
+%   \[
+%     \left[ L : E \right]_s \leq \left | \Hom_E\left( F, K^\ins \right) \right |
+%   \]
+% \end{thm}
+% \begin{proof}
+  
+%   Let $G$ be the Galois group $\Gal\left( \overline{E}/ E \right)$.
+%   Let $\iota: L \hookrightarrow F$ be an $E$-embedding of a totally $K$ extension.
+%   Consider the restriction map
+%   \[
+%     \iota^*: \Hom_E\left( F, \overline{E} \right) \to \Hom_E\left( L, \overline{E} \right)
+%   \]
+%   Since $L$ is totally $K$, $\Aut\left( \overline{E} / K \right)$ acts trivially on $\Hom_E\left( L, \overline{E} \right)$.
+%   Hence, the $G$-equivariance of $\iota^*$ implies that $G$ acts (continuously) on each fiber of $\iota^*$, and in particular, so does the pro-$p$ group $\Aut\left( \overline{E} / K \right)$.
+%   However, the divisor of each fiber of $\iota^*$ divides $\left[ F : E \right]$ and hence is prime to $p$.
+%   Therefore, each fiber of $\iota^*$ has a fixed point under the action of $\Aut\left( \overline{E} / K \right)$, i.e. an element of $\Hom_E\left( F, K^\ins \right)$.
+%   Therefore, 
+%   \[
+%     \left[ L : E \right]_s = \left | \Hom_E\left( L, \overline{E} \right) \right | \leq \left | \Hom_E\left( F, K^\ins \right) \right |
+%   \]
+%   as required.
+% \end{proof}
+
+
+
+\end{document}
