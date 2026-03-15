@@ -1,0 +1,68 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\section{Generalization to $|a| \neq 2$} 
+
+For each $n,a$ let 
+\[
+  f_{n,a} = x^n + ax + 1
+\]
+and carry all the notations from the previous section.
+
+\begin{lemma}
+  $f_{n,a}$ is irreducible over $\Q$.
+\end{lemma}
+\begin{proof}
+  It suffices to show that 
+  \[
+    \widehat{f_{n,a}} := x^n f_{n,a}\left( 1/x \right) = x^n + ax^{n-1} + 1 
+  \]
+  is irreducible over $\Q$.
+  For any $x \in S^1 \subseteq \C$, 
+  \[
+    \left| a x^{n-1} \right| = \left| a \right| > 2 = \left|x^n\right| + \left|1\right| \geq \left|x^n + 1\right|  
+  \]
+  and hence the winding number of $\widehat{f_{n,a}}\left( x \right)$ around $0$ as $x$ traverses the unit circle is equal to that of $- a x^{n-1}$ which is $n-1$.
+  Therefore, $\widehat{f_{n,a}}$ has $n-1$ roots in the interior of the unit disk and hence it is irreducible over $\Q$.
+\end{proof}
+
+
+\begin{lemma}
+  For any $p \not | a$, the inertia group $I\left( p \right)$ acts on $\Hom_{\Q}\left( \Q\left[ x \right] / \left( f_{n,a} \right), \overline{\Q} \right)$ either trivially or as a single transposition. 
+\end{lemma}
+\editorial{I think I saw somewhere a proof that covers this case, but I can't find it now. So I will try to adapt Martin's proof}
+\begin{proof}
+  If $I\left( p \right)$ acts trivially, we are done.
+  Assume that it does not.
+  It suffices to show that $I\left( p \right)$ acts on the roots of $f_{n,a}$ as a single transposition.
+  If two roots are in the same orbit under $I\left( p \right)$, then they have the same reduction modulo $p$.
+  Therefore, it suffices to show that $f_{n,a}$ has at most one pair of roots that are congruent modulo $p$, i.e. if we denote by $\overline{f_{n,a}} \in \F_p\left[ x \right]$ the reduction of $f_{n,a}$ modulo $p$, then it suffices to show that $f_{n,a}$ has exactly one root in $\overline{\F_p}$ of multiplicity larger than $1$ and that its multiplicity is in fact $2$.
+
+  Firstly note that by \cite[Theorem 2]{Swan62} 
+  \[
+    \disc\left( f_{n,a} \right) = 
+    \left( -1 \right)^{\frac{n(n-1)}{2}} \left(  
+      n^n + \left( 1 - n \right)^{n - 1} \left( n - 1 \right)^{n-1} a^n
+    \right)
+  \]
+  and hence, since $p | \disc\left( f_{n,a} \right)$ and since $p \nmid |a|$, it follows that $p$ divides $n$ iff it divides $\left( n-1 \right)$ and thus it divides neither.
+  
+  Next, since 
+  \begin{align*}
+    & f_{n,a}' = n x^{n-1} + a \\
+    & f_{n,a}'' = n \left( n - 1 \right) x^{n-2}
+  \end{align*}
+  and since $p \nmid n \left( n - 1 \right), a$ it follows that $f'_{n,a}, f''_{n,a}$ have no shared root in $\overline{\F_p}$ and hence $f_{n,a}$ has no triple roots in $\overline{\F_p}$.
+
+  Finally, note that any double root of $f_{n,a}$ is also a solution of the linear equation
+  \[
+    g_{n,a} := 
+    n f_{n,a} - x f_{n,a}' = 
+    nx^n + a n x + n - n x^n - a x = 
+    a \left( n - 1 \right) x + n
+  \]
+  and hence since $p$ does not divide $a \left( n - 1 \right)$ there is exactly one double root of $f_{n,a}$ in $\overline{\F_p}$.
+\end{proof}
+
+
+\end{document}

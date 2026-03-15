@@ -20,7 +20,7 @@
 \begin{corollary}
   For each $n$, the quotient $\Q\left[ x \right] / \left( x^n + x^{n-1} + \dots + x - 1 \right)$ has no totally real subfields other than $\Q$.
 \end{corollary}
-\subsection{Generalization:}
+\subsection{Generalization to the finite case}
 I will try to generalize it to the same generalization as in \cite[Appendix A]{Soroker_appendix_2017}
 \begin{lemma}
   Let $E \leq, F, K \leq \overline{E}$ be field extensions such that $E \leq F$ is finite.
@@ -51,17 +51,45 @@ I will try to generalize it to the same generalization as in \cite[Appendix A]{S
   This is in fact a simplification of the main part of the proof of \cite[Theorem A.5]{Soroker_appendix_2017}.
   So I guess if we copy it and paste instead of that part, the entire appendix can be slightly shortened.
 \end{remark}
+% \subsection{Generalization to the Infinite case}
+% Let $E$ be a field, let $\overline{E}$ be its algebraic closure, anf $G$ its absolute Galois group.
+% Let $E < K < \overline{E}$ be an intermediate extension such that $H := \Aut\left( \overline{E}, K \right)$ is a pro-$p$ group for some prime $p$.
+% \begin{lemma}
+%   Let $E < L < \overline{E}$ be an algebraic extension fixed by $H$, then for any extension $L < F < \overline{E}$ such that $ p \nmid \left[ F:L \right]_s$, the action of $H$ on $\Hom_L\left( F, \overline{E} \right)$ has a fixed point.
+% \end{lemma}
+% \begin{proof}
+%   Let $\alpha$ be a bijection from some cardinal $\kappa$ to the set of finite subextensions $L < F_0 < F$.
+%   For each $i \leq \kappa$, let 
+%   \[
+%     \beta_i = L \cup \bigcup_{j < i} \alpha\left( j \right)
+%   \]
+%   By transfinite reursion we will construct a family $\left\{ \eta_i \right\}_{i \geq \kappa}$ such that $\eta_i \in \Hom_L\left( \beta_i, \overline{E} \right)^H$.
+%   For $i = 0$, $\beta_0 = L$ and we can take $\eta_0$ to the inclusion map which is by assumption fixed by $H$.
+%   Assume now that we have constructed $\eta_j$ for all $j < i$.
+%   If $i$ is a limit ordinal, then we can define
+%   \[
+%     \eta_i = \bigcup_{j < i} \eta_j
+%   \]
+%   which is clearly in $\Hom_L\left( \beta_i, \overline{E} \right)^H$.
+%   If $i = j + 1$ is a successor ordinal, then 
+%   \[
+%     \left[ \beta_i: \beta_j \right]_s
+%   \]
+  
+% \end{proof}
+
+
+
 % We can also prove the following statement which is somewhat similar to \cite[Theorem A.5/A.1]{Soroker_appendix_2017}, but I can't decide yet which one is stronger. 
 % \begin{thm}
-%   Let $E \leq, F, K \leq \overline{E}$ be field extensions such that $E \leq F$ is finite.
-%   Assume that there exists a prime $p$ such that $p \nmid \left[ F : E \right]$ and such that $\Aut\left( \overline{E}, K \right)$ is a pro-$p$ group.
-%   Then for any totally $K$ sub-extension $E \leq L \leq F$, 
+%   Let $E$ be a field, $\overline{E}$, its algebraic closure, $E \leq K < \overline{E}$ an intermediate extension and  $ F / E$ an algebraic extension.
+%   Assume that there exists a prime $p$ such that $\Aut\left( \overline{E}, K \right)$ is a pro-$p$ group.
+%   Then for any totally $K$ sub-extension $E \leq L \leq F$ s.t. $p \nmid \left[ F:L \right]_s$, 
 %   \[
 %     \left[ L : E \right]_s \leq \left | \Hom_E\left( F, K^\ins \right) \right |
 %   \]
 % \end{thm}
 % \begin{proof}
-  
 %   Let $G$ be the Galois group $\Gal\left( \overline{E}/ E \right)$.
 %   Let $\iota: L \hookrightarrow F$ be an $E$-embedding of a totally $K$ extension.
 %   Consider the restriction map
@@ -70,15 +98,59 @@ I will try to generalize it to the same generalization as in \cite[Appendix A]{S
 %   \]
 %   Since $L$ is totally $K$, $\Aut\left( \overline{E} / K \right)$ acts trivially on $\Hom_E\left( L, \overline{E} \right)$.
 %   Hence, the $G$-equivariance of $\iota^*$ implies that $G$ acts (continuously) on each fiber of $\iota^*$, and in particular, so does the pro-$p$ group $\Aut\left( \overline{E} / K \right)$.
-%   However, the divisor of each fiber of $\iota^*$ divides $\left[ F : E \right]$ and hence is prime to $p$.
-%   Therefore, each fiber of $\iota^*$ has a fixed point under the action of $\Aut\left( \overline{E} / K \right)$, i.e. an element of $\Hom_E\left( F, K^\ins \right)$.
-%   Therefore, 
+%   It suffices to show that each fiber of $\iota^*$ has a fixed point under the action of $\Aut\left( \overline{E} / K \right)$.
+
+%   Fix an $\eta \in \Hom\left( L, \overline{E} \right)$ and let $\left\{ F_n \right\}_{n \in \N}$ be an exhaustive family of finite subextensions of $L \leq F$.
+%   Since 
 %   \[
-%     \left[ L : E \right]_s = \left | \Hom_E\left( L, \overline{E} \right) \right | \leq \left | \Hom_E\left( F, K^\ins \right) \right |
+%     \left( \iota^\ast \right)
 %   \]
-%   as required.
+  
 % \end{proof}
 
+\subsection{Side Remarks}
+\begin{remark}
+  In \cite[p. 60]{Soroker_appendix_2017} it is claimed that given a directed set $I$ and a function $f: I \to [0, \infty)$, there is at least one limit point in $\left[ 0, \infty \right]$.
+  Indeed it follows from the following slightly more general standard fact:
+\end{remark}
+\begin{lemma}
+  Let $X$ be a compact topological space and let $f: I \to X$ be a function from a directed poset $I$ to $X$.
+  Then there exists at least one limit point of $f$ in $X$. 
+\end{lemma}
+\begin{proof}
+  (Inspired by \cite[Ch. 3 Supplementary Exercisese, question 10]{Munkres_Topology_2014})
+  For each $i \in I$, let 
+  \[
+    B_i = \overline{ \left\{ f\left( j \right) \mid j \geq i \right\} }
+  \]
+  be the closure of the image of the upper cone of $i$.
+  $B_i$ clearly has the finite intersection property and hence by compactness of $X$, $\bigcap_{i \in I} B_i \neq \emptyset$.
+  Let $x$ be an element in this intersection and let $U$ be an arbitrary open neighborhood of $x$.
+  Then for each $i \in I$, $x \in B_i$ and every open neighborhood of $x$ intersects $B_i$.
+  In particular, $U$ intersects $B_i$ and hence there exists some $j \geq i$ such that $f\left( j \right) \in U$.
+  Thus, we have shown that for any open neighborhood $x\in U$, $f^{-1}\left( U \right)$ is cofinal in $I$ and hence, $x$ is a limit point of $f$.
+\end{proof}
+\begin{remark}
+  According to \cite[Proposition A.4]{Soroker_appendix_2017}, gien a directed poset $I$ and inverse system of finite sets $\left\{ A_i \right\}_{i \in I}$, 
+  \[
+    \# \varprojlim_{i \in I} A_i \leq \liminf_{i \in I} \# A_i
+  \]
+  Is there an example where the inequality is strict?
+  The answer is yes.
+  Assume $I = \N$ and 
+  \[
+    A_n = \begin{cases}
+      \left\{ 1 \right\} & n \text{ odd} \\
+      \left\{ 1, 2 \right\} & n \text{ even}
+    \end{cases}
+  \]
+  and for any $m < n$, 
+  \[
+    \varphi_{n,m}\left( A_n \right) = \left\{ 1 \right\}
+  \]
+
+  Moreover, we can even build a similar example in the context of \cite[Appendix A]{Soroker_appendix_2017}.
+\end{remark}
 
 
 \end{document}

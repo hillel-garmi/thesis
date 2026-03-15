@@ -1,0 +1,51 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\section{Generalization to odd $k$} 
+For each $n,k$ let 
+\[
+  g_{n,k} = x^n - 2 x^k + 1
+\]
+Assume that $k$ is odd.
+
+Fix an algebraic closure $\overline{\Q}$ of $\Q$ and for each prime $p$, fix an algebraic closure $\overline{\Q_p}$ of $\Q_p$ and an embedding $\overline{\Q} \hookrightarrow \overline{\Q_p}$ extending the natural embedding $\Q \hookrightarrow \Q_p$.
+Denote by $G$ the absolute Galois group $\Gal\left( \overline{\Q}/\Q \right)$, by $G_n$ the Galois group of $f_n$, and for each prime $p$, denote by $I\left( p \right) \subseteq G$ the absolute inertia group at $p$, i.e., the embedding into $G$ of the inertia group $\Gal\left( \overline{\Q_p}/\Q_p^{\un} \right)$, where $\Q_p^{\un}$ is the maximal unramified extension of $\Q_p$ inside $\overline{\Q_p}$.
+
+Using this notation, we can first adapt part of Martin's proof of \cite[Theorem 2.5]{MARTIN2004213} to show the following lemma:
+\begin{lemma}
+  \label{lem:inertia-acts-as-transposition}
+  For each odd prime $p$, $I\left( p \right)$ acts on $\Hom_{\Q}\left( \Q\left[ x \right] / \left( g_{n,k} \right), \overline{\Q} \right)$ either trivially or as a single transposition.
+\end{lemma}
+\begin{proof}
+  If $I\left( p \right)$ acts trivially, we are done.
+  Assume that it does not.
+  It suffices to show that $I\left( p \right)$ acts on the roots of $g_{n,k}$ as a single transposition.
+  If two roots are in the same orbit under $I\left( p \right)$, then they have the same reduction modulo $p$.
+  Therefore, it suffices to show that $g_{n,k}$ has at most one pair of roots that are congruent modulo $p$, i.e. if we denote by $\overline{g_{n,k}} \in \F_p\left[ x \right]$ the reduction of $g_{n,k}$ modulo $p$, then it suffices to show that $g_{n,k}$ has exactly one root in $\overline{\F_p}$ of multiplicity larger than $1$ and that its multiplicity is in fact $2$.
+  
+  Firstly note that, any double root is also a root of 
+  \[
+    g_{n,k}' = n x^{n-1} - 2 k x^{k-1}
+  \]
+  and hence also a root of 
+  \[
+    h_{n,k} = n g_{n,k} - x g_{n,k}' = 
+    nx^n - 2 n x^k + n - n x^n + 2 k x^k = 2 \left( k - n \right) x^k + n
+  \]
+  
+\end{proof}
+
+\subsection{(a)}
+We will first show that $E\left( \F_q \right)$ has no point of order $p$.
+We have seen (proof of Corrolary $III.6.4.c$) that $\#E\left[ p \right] = \deg_s\left( \hat{\phi} \right)$ when $\phi$ is the frobenius endomorphism of $E$ and $\hat{\phi}$ is its dual.
+Now $d$ the maximal order of a point in $E\left( \F_q \right)$ then 
+\[
+  E\left[ d \right] \simeq \Z/d\Z \times \Z/d\Z
+\]
+so by basic group theory we are done.
+
+\subsection{(b)}
+
+
+
+\end{document}
