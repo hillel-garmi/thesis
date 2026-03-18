@@ -172,7 +172,7 @@ For the second part, we will rely on Corollary \ref{cor:ramification_only_over_p
   Therefore, $\widehat{f_{n,a}}$ has $n-1$ roots in the interior of the unit disk and hence it is irreducible over $\Q$.
 \end{proof}
 \begin{remark}
-  The above lemma also follows from \cite[Theorem 1]{Ljungren1960} \editorial{and is not actually needed}.
+  The above lemma also follows from \cite[Theorem 1]{Ljungren1960} \editorial{and is not actually needed, it only simplifies a few sentences down the way}.
 \end{remark}
 
 \begin{lemma}
@@ -360,33 +360,36 @@ Moreover, let $S\left( \left| a \right| \right)$ be the set of positive integers
 We can now use calculated minimal root discriminants of number fields ramified only over primes dividing $a$ to deduce which values of $a$ satisfy the condition of lemma \ref{lem:if_no_number_field_with_small_root_disc_then_galois_group_is_full}. 
 
 \begin{corollary}
-  For any $C\left(  2  \right) < n \in S\left( 2 \right)$, and any irreducible factor $g$ of $f_{n,2}$, $\Gal\left( g \right) = S_n$.  
+  For any $n \in S\left( 2 \right)$, and any irreducible factor $g$ of $f_{n,2}$, $\Gal\left( g \right)$ is symmetric.  
 \end{corollary}
 \begin{proof}
-  According to \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&ram_primes=2&rd=-2-2}, the only non-trvial number field that is ramified only over $2$ and whose root discriminant is at most $2$ is $\Q\left( i \right)$ which is purely imaginary and hence the result follows from Corollary \ref{cor:conditions_that_guarantee_full_galois_group}.
-\end{proof}
-
-
-\begin{corollary}
-  For any $C\left(  3  \right) < n \in S\left( 3 \right)$, $\Gal\left( f_{n,\pm3} \right) = S_n$.  
-\end{corollary}
-\begin{proof}
-  According to \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&ram_primes=3&rd=-3-3}, the only non-trvial number field that is ramified only over $3$ and whose root discriminant is at most $3$ is the cyclotomic extension $\Q\left( \zeta_3 \right) = \Q\left( \sqrt{-3} \right)$ which is purely imaginary and hence the result follows from Corollary \ref{cor:conditions_that_guarantee_full_galois_group}.
+  According to \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&ram_primes=2&rd=-2-2}, the only non-trvial number field that is ramified only over $2$ and whose root discriminant is at most $2$ is $\Q\left( i \right)$ which is purely imaginary and hence the result follows from Corollary \ref{cor:conditions_that_guarantee_full_galois_group} for any $n > C\left( 2 \right)$.
+  However, according to \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&rd=-5-5&sort_order=rd&showcol=rd&hidecol=galois.class_group_desc&sort_order=rd}, $C\left( 2 \right) = 2$ and the case $n = 2$ is trivial since $f_{2,2} = \left( x + 1 \right)^2$.
 \end{proof}
 
 \begin{corollary}
-  For any $C\left( 4 \right) < n \in S\left( 4 \right)$, $\Gal\left( f_{n,\pm4} \right) = S_n$.
+  For any $n \in S\left( 3 \right)$, $\Gal\left( f_{n,\pm3} \right) = S_n$ unless $n = 3, a = -3$.  
 \end{corollary}
 \begin{proof}
-  According to \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&ram_primes=2&rd=-4-4&sort_order=rd&sort_order=rd}, the only non-trivial number fields that are ramified only over $2$ and whose root discriminant is at most $4$ are the three purely imaginary fields defined by the polynomials $x^2 + 1, x^2 + 2, x^4 + 1$, and the quadratic field $\Q\left( \sqrt{2} \right)$ in which $3$ which divides $4 + 2 = -\left( -4 \right) + 2$, is inert, and hence the result follows from Corollary \ref{cor:conditions_that_guarantee_full_galois_group}. 
+  According to \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&ram_primes=3&rd=-3-3}, the only non-trvial number field that is ramified only over $3$ and whose root discriminant is at most $3$ is the cyclotomic extension $\Q\left( \zeta_3 \right) = \Q\left( \sqrt{-3} \right)$ which is purely imaginary and hence the result follows from Corollary \ref{cor:conditions_that_guarantee_full_galois_group} for any $n > C\left( 3 \right)$.
+  However, according to \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&rd=-5-5&sort_order=rd&showcol=rd&hidecol=galois.class_group_desc&sort_order=rd}, $C\left( 3 \right) = 3$ and the smaller cases can be checked computationally.
 \end{proof}
 
 \begin{corollary}
-  For any $C\left(  5  \right) < n \in S\left( 5 \right)$, $\Gal\left( f_{n,\pm5} \right) = S_n$.
+  For any $n \in S\left( 4 \right)$, $\Gal\left( f_{n,\pm4} \right) = S_n$.
+\end{corollary}
+\begin{proof}
+  According to \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&ram_primes=2&rd=-4-4&sort_order=rd&sort_order=rd}, the only non-trivial number fields that are ramified only over $2$ and whose root discriminant is at most $4$ are the three purely imaginary fields defined by the polynomials $x^2 + 1, x^2 + 2, x^4 + 1$, and the quadratic field $\Q\left( \sqrt{2} \right)$ in which $3$ which divides $4 + 2 = -\left( -4 \right) + 2$, is inert, and hence the result follows from Corollary \ref{cor:conditions_that_guarantee_full_galois_group} for any $n > C\left( 4 \right)$.
+  However, according to \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&rd=-5-5&sort_order=rd&showcol=rd&hidecol=galois.class_group_desc&sort_order=rd}, $C\left( 4 \right) = 4$ and the smaller cases can be checked computationally.
+\end{proof}
+
+\begin{corollary}
+  For any $n \in S\left( 5 \right)$, $\Gal\left( f_{n,\pm5} \right) = S_n$.
 \end{corollary}
 \begin{proof}
   According to \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&ram_primes=5&rd=-5-5&sort_order=rd&sort_order=rd}, the only non-trivial number fields that are ramified only over $5$ and whose root discriminant is at most $5$ are the cyclotomic extension $\Q\left( \zeta_5 \right)$ and the quadratic field $\Q\left( \sqrt{5} \right)$.
-  The first is purely imaginary, and the second is inert at both $7$ which divides $5 + 2$ and $3$ which divides $-5 + 2$ and hence the result follows from Corollary \ref{cor:conditions_that_guarantee_full_galois_group}. 
+  The first is purely imaginary, and the second is inert at both $7$ which divides $5 + 2$ and $3$ which divides $-5 + 2$ and hence the result follows from Corollary \ref{cor:conditions_that_guarantee_full_galois_group} for any $n > C\left( 5 \right)$.
+  However, according to \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&rd=-5-5&sort_order=rd&showcol=rd&hidecol=galois.class_group_desc&sort_order=rd}, $C\left( 5 \right) = 6$ and the smaller cases can be checked computationally.
 \end{proof}
 
 \editorial{I cannot reliably check any largegr values since the database is guaranteed to be complete only for root discriminants up to $5.989$.}
