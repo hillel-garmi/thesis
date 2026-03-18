@@ -281,19 +281,122 @@ Moreover, let $S\left( \left| a \right| \right)$ be the set of positive integers
   However, by Lemma \ref{lem:inertia_group_acts_as_transposition} and Lemma \ref{lem:there_is_a_prime_dividing_disc_but_not_a}, there is a prime $p$ such that $I\left( p \right)$ acts on $\Hom\left( \Q\left( \alpha \right), \overline{\Q} \right)$ as a single transposition and hence $G$ contains a transposition.
   Therefore, since any primitive subgroup of $S_n$ that contains a transposition is $S_n$, it follows that $G = S_n$.
 \end{proof}
+\begin{corollary}
+  \label{cor:conditions_that_guarantee_full_galois_group}
+  Assume that that for every number field $K$ that is ramified only over primes dividing $a$ and whose root discriminant is at most $\left| a \right|$, either of the following holds:
+  \begin{enumerate}
+    \item $K$ is purely imaginary.
+    \item $K$ is totally real of degree more than $3$.
+    \item There is a prime $p$ dividing $a + 2$ such that the decomposition of $K \otimes_\Q \Q_p$ contains a factor that is a non-trivial unramified extension of $\Q_p$.
+  \end{enumerate}
+  Then $\Gal\left( f_{n,a} \right) = S_n$ for any $C\left( \left| a \right| \right) < n \in S\left( \left| a \right| \right)$.
+\end{corollary}
+\begin{proof}
+  Based on Lemma \ref{lem:if_no_number_field_with_small_root_disc_then_galois_group_is_full}, it suffices to show that any field $K$ that satisfies one of the above conditions cannot be a subfield of $\Q\left[ x \right] / \left( f_{n,a} \right)$. 
+  \begin{enumerate}
+    \item If $k$ is purely imaginary, note that $f_{n,a}$ always has a real root as it tends to $+\infty$ as $x \to +\infty$ and $f_{n,a}\left( a / \left| a \right| \right)$ is always negative.
+    \item Assume that $K$ is totally real of degree more than $3$.
+    Note that $f_{n,a}$ has at most $3$ real roots since $f''_{n,a} = n\left( n-1 \right) x^{n-2}$ has exactly one real root.
+    Therefore, according to \cite[Theorem A.1]{Soroker_appendix_2017} \editorial{(which is a bit of an overkill here)}, any totally real subfield of $\Q\left[ x \right] / \left( f_{n,a} \right)$ has degree at most $3$ and hence $K$ cannot be a subfield of $\Q\left[ x \right] / \left( f_{n,a} \right)$ as required.
+    \item Assume that there is a prime $p$ dividing $a + 2$ with multiplicity $1$ such that the decomposition of $K \otimes_\Q \Q_p$ contains a factor that is a non-trivial unramified extension of $\Q_p$.
+    It suffices to show then that $f_{n,a}$ has a root that is contained in a purely ramified extension of $\Q_p$.
+    Indeed, $1$ is a root of $f_{n,a}$ modulo $p$, and hence there is a factorization 
+    \[
+      \pi\left( f_{n,a} \right) = \left( x-1 \right)^m \overline{g} \in \F_p\left[ x \right]
+    \]
+    for some $m \geq 1$ and $\overline{g} \in \F_p\left[ x \right]$ that is coprime to $\left( x-1 \right)$ where $\pi : \Z_p\left[ x \right] \to \F_p\left[ x \right]$ is the quotient map.
+    By hensel's lemma, there is a factorization
+    \[
+      f_{n,a} = h g \in \Z_p\left[ x \right]
+    \]
+    where $\pi\left( h \right) = \left( x-1 \right)^m$ and $\pi\left( g \right) = \overline{g}$.
+    Let $\beta$ be a root of $h$.
+    Then the residue extension of $\Q_p\left( \beta \right) / \Q_p$ is trivial and hence $\Q_p\left( \beta \right) / \Q_p$ is purely ramified (see for example \cite[II \S 5 Theorem 4]{SerreLocalFields}).
 
-\editorial{In the following I am assuming that the Odlyzko bound on root discriminants is strictly increasing, even though I could not find a reference for a prood of this fact (and Gemini claims there isn't one).}
+    % Consider now the polynomial 
+    % \[
+    %   f_{n,a}\left( x+1 \right) = h\left( x+1 \right)g\left( x+1 \right)
+    % \]
+    % Since $\overline{h}\left( x+1 \right) = x^m \in \F_p$, and $\overline{g}\left( x+1 \right)$ is coprime to $x$, it follows that the coefficient of $x^{m+1}$ in $f_{n,a}\left( x+1 \right)$ is not divisible by $p$, and all the coefficients of smaller powers of $x$ are divisible by $p$.
+    % On the other hand, the free coefficient is $f_{n,a}\left( 1 \right) = a + 2$ which is divisible by $p$ with multiplicity $1$.
+    % Therefore, the Newton polygon of $f_{n,a}\left( x+1 \right)$ with respect to $p$ has a single slope with negative slope of $-1/m$ and hence all the roots of $h\left( x+1 \right)$ have valuation $1/m$.
+    % However, all of these roots have degree at most $m$ and hence there degree of ramification is exactly $m$ and hence they are contained in a purely ramified extension of $\Q_p$.
+    % Therefore, any root of $h$, which is in particular a root of $f_{n,a}$, is contained in a purely ramified extension of $\Q_p$ and hence $K$ cannot be a subfield of $\Q\left[ x \right] / \left( f_{n,a} \right)$ as required.
+  \end{enumerate}
+\end{proof}
 
 We can now use calculated minimal root discriminants of number fields ramified only over primes dividing $a$ to deduce which values of $a$ satisfy the condition of lemma \ref{lem:if_no_number_field_with_small_root_disc_then_galois_group_is_full}. 
 
-\editorial{I used \url{https://www.lmfdb.org/NumberField/} to compose the following corollaries, I was not sure how to cite it.}
+\editorial{I used \url{https://www.lmfdb.org/NumberField/} to compose the following corollaries, I assume that the database contains all the number fields with root discriminant bounded by $\left| a \right|$ for all the $a$ values that I checked. I did not check it yet.}
 
 \begin{corollary}
-  For any $n \in S\left( 3 \right)$, $\Gal\left( f_{n,\pm3} \right) = S_n$.  
+  For any $C\left(  3  \right) < n \in S\left( 3 \right)$, $\Gal\left( f_{n,\pm3} \right) = S_n$.  
 \end{corollary}
 \begin{proof}
-  According to \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&ram_primes=3&rd=-3-3}, the only non-trvial number field that is ramified only over $3$ and whose root discriminant is at most $3$ is the cyclotomic extension $\Q\left( \zeta_3 \right)$.
+  According to \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&ram_primes=3&rd=-3-3}, the only non-trvial number field that is ramified only over $3$ and whose root discriminant is at most $3$ is the cyclotomic extension $\Q\left( \zeta_3 \right) = \Q\left( \sqrt{-3} \right)$ which is purely imaginary and hence the result follows from Corollary \ref{cor:conditions_that_guarantee_full_galois_group}.
 \end{proof}
 
+\begin{corollary}
+  For any $C\left( 4 \right) < n \in S\left( 4 \right)$, $\Gal\left( f_{n,4} \right) = S_n$.
+\end{corollary}
+\begin{proof}
+  According to \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&ram_primes=2&rd=-4-4&sort_order=rd&sort_order=rd}, the only non-trivial number fields that are ramified only over $2$ and whose root discriminant is at most $4$ are the three purely imaginary fields defined by the polynomials $x^2 + 1, x^2 + 2, x^4 + 1$, and the quadratic field $\Q\left( \sqrt{2} \right)$ which is unramified over $3$ which divides $4 + 2$ and hence the result follows from Corollary \ref{cor:conditions_that_guarantee_full_galois_group}. 
+\end{proof}
+
+\begin{corollary}
+  For any $C\left(  5  \right) < n \in S\left( 5 \right)$, $\Gal\left( f_{n,\pm5} \right) = S_n$.
+\end{corollary}
+\begin{proof}
+  According to \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&ram_primes=5&rd=-5-5&sort_order=rd&sort_order=rd}, the only non-trivial number fields that are ramified only over $5$ and whose root discriminant is at most $5$ are the cyclotomic extension $\Q\left( \zeta_5 \right)$ and the quadratic field $\Q\left( \sqrt{5} \right)$.
+  The first is purely imaginary, and the second is unramified at both $7$ which divides $5 + 2$ and $3$ which divides $-5 + 2$ and hence the result follows from Corollary \ref{cor:conditions_that_guarantee_full_galois_group}. 
+\end{proof}
+
+\begin{corollary}
+  For any $C\left( 7 \right) < n \in S\left( 7 \right)$, $\Gal\left( f_{n,\pm7} \right) = S_n$.
+\end{corollary}
+\begin{proof}
+  According to \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&ram_primes=7&rd=-7-7&sort_order=rd&sort_order=rd}, the only non-trivial number fields that are ramified only over $7$ and whose root discriminant is at most $7$ are the cyclotomic extension $\Q\left( \zeta_7 \right)$ and $\Q\left( \sqrt{-7} \right)$ which are purely imaginary, and the field defined by the polynomial $x^3 - x^2 - 2x + 1$.
+  This polynomial is irreducible over $3$ and $5$ and hence the field it defines is unramified at both $3$ which divides $7 + 2$ and $5$ which divides $-7 + 2$.
+  Therefore, the result follows from Corollary \ref{cor:conditions_that_guarantee_full_galois_group}. 
+\end{proof}
+
+\begin{corollary}
+  For any $C\left( 11 \right) < n \in S\left( 11 \right)$, $\Gal\left( f_{n,\pm11} \right) = S_n$.
+\end{corollary}
+\begin{proof}
+  According to \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&ram_primes=11&rd=-11-11&sort_order=rd&sort_order=rd}, the only non-trivial number fields that are ramified only over $11$ and whose root discriminant is at most $11$ are the cyclotomic extension $\Q\left( \zeta_11 \right)$ and $\Q\left( \sqrt{-11} \right)$ which are purely imaginary, and the field defined by the polynomial $x^5 - x^4 - 4x^3 + 3x^2 + 3x - 1$ which is totally real of degree $5$.
+  Therefore, the result follows from Corollary \ref{cor:conditions_that_guarantee_full_galois_group}. 
+\end{proof}
+
+\begin{corollary}
+  For any $C\left( 13 \right) < n \in S\left( 13 \right)$, $\Gal\left( f_{n,\pm13} \right) = S_n$.
+\end{corollary}
+\begin{proof}
+  According to \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&ram_primes=13&rd=-13-13&sort_order=rd&sort_order=rd}, the only non-trivial number fields that are ramified only over $13$ and whose root discriminant is at most $13$ are the following: 
+  \begin{itemize}
+    \item The quadratic fields $\Q\left( \sqrt{13} \right)$ which is unramified at both $5$ which divides $13 + 2$ and $11$ which divides $-13 + 2$.
+    \item The field defined by the polynomial $x^3 - x^2 - 4x - 1$ which is irreducible over both $5$ which divides $13 + 2$ and $11$ which divides $-13 + 2$.
+    \item The field defined by $x^4 - x^3 + 2 x^2 + 4*x + 3$ which is purely imaginary.
+    \item The field defined by $x^6 - x^5 - 5x^4 + 4x^3 + 6x^2 - 3x - 1$ which is totally real of degree $6 > 3$.
+    \item The cyclotomic extension $\Q\left( \zeta_{13} \right)$ which is purely imaginary.
+  \end{itemize}
+  Therefore, the result follows from Corollary \ref{cor:conditions_that_guarantee_full_galois_group}. 
+\end{proof}
+
+
+\begin{corollary}
+  For any $C\left( 17 \right) < n \in S\left( 17 \right)$, $\Gal\left( f_{n,\pm17} \right) = S_n$.
+\end{corollary}
+\begin{proof}
+  According to \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&ram_primes=17&rd=-17-17&sort_order=rd&sort_order=rd}, the only non-trivial number fields that are ramified only over $17$ and whose root discriminant is at most $17$ are the following: 
+  \begin{itemize}
+    \item The quadratic fields $\Q\left( \sqrt{17} \right)$ which is unramified at both $19$ which divides $17 + 2$ and $3$ which divides $-17 + 2$.
+    \item The field defined by the polynomial $x^4 - x^3 - 6x^2 + x + 1$ which is totally real of degree $4 > 3$.
+    \item The field defined by $x^4 - x^3 + 2 x^2 + 4*x + 3$ which is purely imaginary.
+    \item The field defined by $x^6 - x^5 - 5x^4 + 4x^3 + 6x^2 - 3x - 1$ which is totally real of degree $6 > 3$.
+    \item The cyclotomic extension $\Q\left( \zeta_{13} \right)$ which is purely imaginary.
+  \end{itemize}
+  Therefore, the result follows from Corollary \ref{cor:conditions_that_guarantee_full_galois_group}. 
+\end{proof}
 
 \end{document}
