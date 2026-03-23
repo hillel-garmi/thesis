@@ -4,77 +4,80 @@
 \section{Generalization to $|a| \neq 2$} 
 \subsection{Notations}
 
-Fix $n > 0$ and $a \neq 0$ and let
+Fix $n > 0$ and $a,b \neq 0$ and let 
+\[
+  f = x^n + ax + b
+\]
+\editorial{for legacy reasons define also 
 \[
   f_{n,a} = x^n + ax + 1
-\]
-
+\]}
 Fix an algebraic closure $\overline{\Q}$ of $\Q$ and for each prime $p$, fix an algebraic closure $\overline{\Q_p}$ of $\Q_p$ and an embedding $\overline{\Q} \hookrightarrow \overline{\Q_p}$ extending the natural embedding $\Q \hookrightarrow \Q_p$.
 Denote by $G$ the absolute Galois group $\Gal\left( \overline{\Q}/\Q \right)$, and for each prime $p$, denote by $I\left( p \right) \subseteq G$ the absolute inertia group at $p$, i.e., the embedding into $G$ of the inertia group $\Gal\left( \overline{\Q_p}/\Q_p^{\un} \right)$, where $\Q_p^{\un}$ is the maximal unramified extension of $\Q_p$ inside $\overline{\Q_p}$.
 For each polynomial $g$ and number field $K$, we will denote by $\d\left( g \right)$ and $\d\left( K \right)$ \editorial{(or for legacy reasons also $\disc\left( K \right)$)} the discriminant of $g$ and of $K$ respectively and by $\rd\left( K \right)$ the root discriminant of $K$, i.e. $\rd\left( K \right) = \d\left( K \right)^{1/\left[ K : \Q \right]}$.  
 
 \subsection{Strategy}
-We will first lay down a few results that will provide us with a strategy to show that for any pair $n,a$ that satisfies different conditions, the Galois group of any factor of $f_{n,a}$ is symmetric.
+We will first lay down a few results that will provide us with a strategy to show that for any triple $n,a,b$ that satisfies different conditions, the Galois group of any factor of $f$ is symmetric.
 \begin{lemma}
   \label{lem:inertia_group_acts_as_transposition}
-  For any $p \not | a$, the inertia group $I\left( p \right)$ acts on $\Hom_{\Q}\left( \Q\left[ x \right] / \left( f_{n,a} \right), \overline{\Q} \right)$ either trivially or as a single transposition. 
+  For any $p \not | ab$, the action of the inertia group $I\left( p \right)$ on $\Hom_{\Q}\left( \Q\left[ x \right] / \left( f \right), \overline{\Q} \right)$ has at most two non-fixed points. 
 \end{lemma}
 \editorial{I think I saw somewhere a proof that covers this for the irreducible case, but I can't find it now. So I will try to adapt Martin's proof}
 \begin{proof}
   If $I\left( p \right)$ acts trivially, we are done.
   Assume that it does not.
-  It suffices to show that $I\left( p \right)$ acts on the roots of $f_{n,a}$ as a single transposition.
+  It suffices to show that the roots of $f$ has a single orbit under $I\left( p \right)$, and that the length of this orbit is $2$.
   If two roots are in the same orbit under $I\left( p \right)$, then they have the same reduction modulo $p$.
-  Therefore, it suffices to show that $f_{n,a}$ has at most one pair of roots that are congruent modulo $p$, i.e. if we denote by $\overline{f_{n,a}} \in \F_p\left[ x \right]$ the reduction of $f_{n,a}$ modulo $p$, then it suffices to show that $f_{n,a}$ has exactly one root in $\overline{\F_p}$ of multiplicity larger than $1$ and that its multiplicity is in fact $2$.
+  Therefore, if we denote by $\overline{f} \in \F_p\left[ x \right]$ the reduction of $f$ modulo $p$, then it suffices to show that $f$ has exactly one root in $\overline{\F_p}$ of multiplicity larger than $1$ and that its multiplicity is in fact $2$.
 
-  Firstly note that by \cite[Theorem 2]{Swan62} 
+  Firstly, note that by \cite[Theorem 2]{Swan62} 
   \[
-    \disc\left( f_{n,a} \right) = 
+    \d\left( f \right) = 
     \left( -1 \right)^{\frac{n(n-1)}{2}} \left(  
-      n^n + \left( 1 - n \right)^{n - 1} \left( n - 1 \right)^{n-1} a^n
+      n^nb^{n-1} + \left( 1 - n \right)^{n - 1} a^n
     \right)
   \]
-  and hence, since $p | \disc\left( f_{n,a} \right)$ and since $p \nmid |a|$, it follows that $p$ divides $n$ iff it divides $\left( n-1 \right)$ and thus it divides neither.
+  and hence, since $p | \d\left( f \right)$ and since $p \nmid ab$, it follows that $p$ divides $n$ iff it divides $\left( n-1 \right)$ and thus it divides neither.
   
   Next, since 
   \begin{align*}
-    & f_{n,a}' = n x^{n-1} + a \\
-    & f_{n,a}'' = n \left( n - 1 \right) x^{n-2}
+    & f' = n x^{n-1} + a \\
+    & f'' = n \left( n - 1 \right) x^{n-2}
   \end{align*}
-  and since $p \nmid n \left( n - 1 \right), a$ it follows that $f'_{n,a}, f''_{n,a}$ have no shared root in $\overline{\F_p}$ and hence $f_{n,a}$ has no triple roots in $\overline{\F_p}$.
+  and since $p \nmid n \left( n - 1 \right), a$ it follows that $f', f''$ have no shared root in $\overline{\F_p}$ and hence $f$ has no triple roots in $\overline{\F_p}$.
 
-  Finally, note that any double root of $f_{n,a}$ is also a solution of the linear equation
+  Finally, note that any double root of $f$ is also a solution of the linear equation
   \[
-    g_{n,a} := 
-    n f_{n,a} - x f_{n,a}' = 
-    nx^n + a n x + n - n x^n - a x = 
-    a \left( n - 1 \right) x + n
+    g := 
+    n f - x f' = 
+    nx^n + n a x + n b - n x^n - a x = 
+    a \left( n - 1 \right) x + b n
   \]
-  and hence since $p$ does not divide $a \left( n - 1 \right)$ there is exactly one double root of $f_{n,a}$ in $\overline{\F_p}$.
+  and hence since $p$ does not divide $a \left( n - 1 \right)$ there is exactly one double root of $f$ in $\overline{\F_p}$.
 \end{proof}
 \begin{corollary}
   \label{cor:inertia_group_acts_as_transposition}
-  Let $g$ be an irreducible factor of $f_{n,a}$, then for any prime $p$ that does not divide $a$, the inertia group $I\left( p \right)$ acts on $\Hom_{\Q}\left( \Q\left[ x \right] / \left( g \right), \overline{\Q} \right)$ either trivially or as a single transposition.
+  Let $g$ be an irreducible factor of $f$, then for any $p \not | ab$, the action of the inertia group $I\left( p \right)$ on $\Hom_{\Q}\left( \Q\left[ x \right] / \left( g \right), \overline{\Q} \right)$ has at most two non-fixed points.
 \end{corollary}
 \begin{proof}
   Let 
   \[
-    \pi: \Q\left[ x \right] / \left( f_{n,a} \right) \to \Q\left[ x \right] / \left( g \right)
+    \pi: \Q\left[ x \right] / \left( f \right) \to \Q\left[ x \right] / \left( g \right)
   \]
   be the quotient map.
   Then the precomposition map 
   \[
     \pi^\ast : \Hom_{\Q}\left( \Q\left[ x \right] / \left( g \right), \overline{\Q} \right) \to 
-    \Hom_{\Q}\left( \Q\left[ x \right] / \left( f_{n,a} \right), \overline{\Q} \right)
+    \Hom_{\Q}\left( \Q\left[ x \right] / \left( f \right), \overline{\Q} \right)
   \]
-  is a monomorphism of $G$-sets and hence, by Lemma \ref{lem:inertia_group_acts_as_transposition}, $I\left( p \right)$ acts on $\Hom_{\Q}\left( \Q\left[ x \right] / \left( g \right), \overline{\Q} \right)$ either trivially or as a single transposition as well.
+  is a monomorphism of $G$-sets and hence the result follows from the previous lemma - \ref{lem:inertia_group_acts_as_transposition}.
 \end{proof}
 \begin{corollary}
   \label{cor:ramification_only_over_primes_dividing_a}
-  Any number field $K$ that embeds non-surjectively into a $\Q\left[ x \right] / \left( g \right)$ for any irreducible factor $g$ of $f_{n,a}$ is ramified only over primes dividing $a$.
+  Any number field $K$ that embeds non-surjectively into $\Q\left[ x \right] / \left( g \right)$ for any irreducible factor $g$ of $f$ is ramified only over primes dividing $a b$.
 \end{corollary}
 \begin{proof}
-  It suffices to show that $K$ is unramified above any prime $p$ that does not divide $a$.
+  It suffices to show that $K$ is unramified above any prime $p$ that does not divide $a b$.
   Let $p$ be such a prime.
   It suffices to show that $I\left( p \right)$ acts trivially on $\Hom_{\Q}\left( K, \overline{\Q} \right)$.
   Choose an embedding $\iota: K \hookrightarrow \Q\left[ x \right] / \left( g \right)$.
@@ -84,7 +87,7 @@ We will first lay down a few results that will provide us with a strategy to sho
     \Hom_{\Q}\left( K, \overline{\Q} \right)
   \]
   is a surjective $G$-equivariant map.
-  Thus, $I\left( p \right)$ acts trivially on $\Hom_{\Q}\left( K, \overline{\Q} \right)$ since any non-trivial action of $I\left( p \right)$ on $\Hom_{\Q}\left( K, \overline{\Q} \right)$ would lift to an action on $\Hom_{\Q}\left( \Q\left[ x \right] / \left( g \right), \overline{\Q} \right)$ that would have at least $4$ non-fixed points, contradicting the fact that by Corollary \ref{cor:inertia_group_acts_as_transposition}, $I\left( p \right)$ acts on $\Hom_{\Q}\left( \Q\left[ x \right] / \left( g \right), \overline{\Q} \right)$ either trivially or as a single transposition.
+  Thus, $I\left( p \right)$ acts trivially on $\Hom_{\Q}\left( K, \overline{\Q} \right)$ since any non-trivial action of $I\left( p \right)$ on $\Hom_{\Q}\left( K, \overline{\Q} \right)$ would lift to an action on $\Hom_{\Q}\left( \Q\left[ x \right] / \left( g \right), \overline{\Q} \right)$ that would have at least $4$ non-fixed points, contradicting Corollary \ref{cor:inertia_group_acts_as_transposition}.
 \end{proof}
 
 \begin{lemma}
@@ -134,38 +137,43 @@ We will first lay down a few results that will provide us with a strategy to sho
 \end{proof}
 \begin{corollary}
   \label{cor:the_almost_useful_criterion}
-  If $g$ is an irreducible factor of $f_{n,a}$, there is a prime that divides the discriminant of $\Q\left[ x \right] / \left( g \right)$ but does not divide $a$, and $\Q\left[ x \right] / \left( g \right)$ has no proper intermediate extensions, then the Galois group of $g$ is $S_{\deg g}$.
+  If $g$ is an irreducible factor of $f$, there is a prime that divides the discriminant of $\Q\left[ x \right] / \left( g \right)$ but does not divide $a b$, and $\Q\left[ x \right] / \left( g \right)$ has no proper intermediate extensions, then the Galois group of $g$ is $S_{\deg g}$.
 \end{corollary}
 \begin{proof}
-  Let $p$ be a prime that divides the discriminant of $\Q\left[ x \right] / \left( g \right)$ but does not divide $a$.
+  Let $p$ be a prime that divides the discriminant of $\Q\left[ x \right] / \left( g \right)$ but does not divide $a b$.
   Then by Corollary \ref{cor:inertia_group_acts_as_transposition}, $I\left( p \right)$ acts on $\Hom_{\Q}\left( \Q\left[ x \right] / \left( g \right), \overline{\Q} \right)$ as a single transposition and hence the Galois group of $g$ contains a transposition.
   The result the follows from Corollary \ref{cor:galois_group_with_transposition_ando_intermediate_extensions_is_full_symmetric}.
 \end{proof}
 \begin{corollary}
   \label{cor:the_useful_criterion}
-  Let $g$ is an irreducible factor of $f_{n,a}$, and assume that for every subfield $\Q \subsetneq K \subseteq \Q\left[ x \right] / \left( g \right)$ there is a prime does not divide $a$ over which $K$ ramifies, then the Galois group of $g$ is $S_{\deg g}$.
+  Let $g$ be an irreducible factor of $f$, and assume that for every subfield $\Q \subsetneq K \subseteq \Q\left[ x \right] / \left( g \right)$ there is a prime that does not divide $a b$ over which $K$ ramifies, then the Galois group of $g$ is $S_{\deg g}$.
 \end{corollary}
 \begin{proof}
   According to Corollary \ref{cor:ramification_only_over_primes_dividing_a}, $\Q\left[ x \right] / \left( g \right)$ has no non-trivial subfields, and hence, since its discriminant is divisible by a prime that does not divide $a$, the Galois group of $g$ is $S_{\deg g}$ by Corollary \ref{cor:the_almost_useful_criterion}.
 \end{proof}
 
-Our strategy would be to find conditions on $n,a$ that would guarantee the conditions of the last corollary for any irreducible factor $g$ of $f_{n,a}$.
+Our strategy would be to find conditions on $n,a,b$ that would guarantee the conditions of the last corollary for any irreducible factor $g$ of $f$.
 
-\subsection{$a = \pm 1$}
+\subsection{$a b = \pm 1$}
+Assume that $ab = \pm 1$.
 \begin{corollary}
-  For any $n$, the Galois group over $\Q$ of any irreducible factor of $f_{n,\pm 1}$ is symmetric.
+  The Galois group over $\Q$ of any irreducible factor of $f$ is symmetric.
 \end{corollary}
 \begin{remark}
-  According to \cite{SelmerIrreducibility1956} $x^n + x + 1$ is irreducible whenever $n \not \equiv 2 \mod 3$ and factors to $x^2 + x + 1$ times an irreducible factor otherwise, while $x^n - x + 1$ is irreducible whenever $n \not \equiv 2 \mod 6$ and  factors into an irreducible factor multiplied by $x^2 - x + 1$ otherwise.
+  According to Selmer \cite{SelmerIrreducibility1956} $f$ can always be reduced to either of the forms 
+  \[
+    x^n - x - 1 \quad \text{or} \quad x^n + x + 1 
+  \]
+  by substituting $x$ by $-x$.
+  Moreover he showed that the first form is always irreducible, while the second form is irreducible whenever $n \not \equiv 2 \mod 3$ and factors into $x^2 + x + 1$ times an irreducible factor otherwise.
   When $x^n \pm x + 1$ is irreducible, the symmetry of its Galois group follows for example from \cite[Theorem 1]{Osada1987TheGG}.
   I did not find a reference for the reducible case.
 \end{remark}
 \begin{proof}
-  This is immediate from Corollary \ref{cor:the_useful_criterion} since there is no prime that divides $a \pm 1$ and the discriminant of any non-trivial extension of $\Q$ is divisible by some prime as a result of the Minkowski bound.
+  This is immediate from Corollary \ref{cor:the_useful_criterion} since there is no prime that divides $a b \pm 1$ and the discriminant of any non-trivial extension of $\Q$ is divisible by some prime as a result of the Minkowski bound.
 \end{proof}
 
-
-\subsection{$a = \pm 2$}
+\subsection{$a = \pm 2, b = 1$}
 We will handle the case $a = -2$ first.
 Note that in this case $1$ is a root of $f_{n,-2}$, and if we divide $f_{n,-2}$ by $x-1$ we obtain the polynomial 
 \begin{equation}
