@@ -1,9 +1,9 @@
 \documentclass[../main.tex]{subfiles}
 
 \begin{document}
-\section{Generalization to $|a| \neq 2$} 
-\subsection{Notations}
-
+\section{Proof that the Galois group of any irreducible factor of $x^n +ax + b$ is symmetric for different small values of $a$ and $b$} 
+\localtableofcontents
+\subsection{Summary of results}
 Fix $n > 0$ and $a,b \neq 0$ and let 
 \[
   f = x^n + ax + b
@@ -12,6 +12,29 @@ Fix $n > 0$ and $a,b \neq 0$ and let
 \[
   f_{n,a} = x^n + ax + 1
 \]}
+If all the conditions in one of the rows of the table below are satisfied, then the Galois group of any irreducible factor of $f$ is the full symmetric group.
+
+\begin{center}
+\begin{tabular}{||c c c c||} 
+ \hline
+ $a = $ & $b = $ & $n \not \equiv$ & $\mod$ \\ [0.5ex] 
+ \hline\hline
+ $\pm 1$ & $ \pm 1$ & & \\ 
+ \hline
+ $\pm 2$ & $1$ & $2$ & $4$ \\ 
+ \hline
+ $\pm 3$ & $1$ & $-a$ & 18 \\
+ \hline
+ $\pm 4$  & $1$ & $4$ & $8$ \\
+ \hline
+ $5$  & $1$ & $10,40,45,60,90,95$ & $100$\\
+ \hline
+ $-5$  & $1$ & $5,10,40,55,60,90$ & $100$ \\ [1ex] 
+ \hline
+\end{tabular}
+\end{center}
+
+\subsection{Notations}
 Fix an algebraic closure $\overline{\Q}$ of $\Q$ and for each prime $p$, fix an algebraic closure $\overline{\Q_p}$ of $\Q_p$ and an embedding $\overline{\Q} \hookrightarrow \overline{\Q_p}$ extending the natural embedding $\Q \hookrightarrow \Q_p$.
 Denote by $G$ the absolute Galois group $\Gal\left( \overline{\Q}/\Q \right)$, and for each prime $p$, denote by $I\left( p \right) \subseteq G$ the absolute inertia group at $p$, i.e., the embedding into $G$ of the inertia group $\Gal\left( \overline{\Q_p}/\Q_p^{\un} \right)$, where $\Q_p^{\un}$ is the maximal unramified extension of $\Q_p$ inside $\overline{\Q_p}$.
 For each polynomial $g$ and number field $K$, we will denote by $\d\left( g \right)$ and $\d\left( K \right)$ \editorial{(or for legacy reasons also $\disc\left( K \right)$)} the discriminant of $g$ and of $K$ respectively and by $\rd\left( K \right)$ the root discriminant of $K$, i.e. $\rd\left( K \right) = \d\left( K \right)^{1/\left[ K : \Q \right]}$.  
@@ -172,6 +195,8 @@ Assume that $ab = \pm 1$.
 \begin{proof}
   This is immediate from Corollary \ref{cor:the_useful_criterion} since there is no prime that divides $a b \pm 1$ and the discriminant of any non-trivial extension of $\Q$ is divisible by some prime as a result of the Minkowski bound.
 \end{proof}
+
+\subsection{Strategy for harder cases}
 
 \subsection{$a = \pm 2, b = 1$}
 We will handle the case $a = -2$ first.
@@ -396,7 +421,7 @@ and in particular its $2$-adic valuation is $2m - 2$ as required.
   Therefore, discriminant of any intermediate extension $\Q \subsetneq K \subseteq \Q\left[ x \right] / \left( f_{n,2} \right)$ is, odd and in particular it is divisible by a prime that does not divide $2$ and hence the Galois group of $f_{n,2}$ is $S_n$ by Corollary \ref{cor:the_useful_criterion}.
 \end{proof}
 
-\subsection{$a = \pm 3, \pm 4, \pm 5$}
+\subsection{$a = \pm 3, \pm 4, \pm 5, b = 1$}
 \begin{lemma}
   If $\left| a \right| > 2$ then $f_{n,a}$ is irreducible over $\Q$.
 \end{lemma}
@@ -666,7 +691,8 @@ We can now use calculated minimal root discriminants of number fields ramified o
 
 \editorial{I cannot reliably check any largegr values since the database is guaranteed to be complete only for root discriminants up to $5.989$.}
 
-The following table summerizes the set $S\left( a \right)$ for each $a = \pm 3, \pm 4, \pm 5$: \begin{center}
+The following table summerizes the set $S\left( a \right)$ for each $a = \pm 3, \pm 4, \pm 5$: 
+\begin{center}
 \begin{tabular}{||c c c||} 
  \hline
  $a$ & $n \in S\left( a \right) \Leftrightarrow n \not \equiv$ & $\mod$ \\ [0.5ex] 
