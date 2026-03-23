@@ -11,6 +11,7 @@ Fix $n > 0$ and $a \neq 0$ and let
 
 Fix an algebraic closure $\overline{\Q}$ of $\Q$ and for each prime $p$, fix an algebraic closure $\overline{\Q_p}$ of $\Q_p$ and an embedding $\overline{\Q} \hookrightarrow \overline{\Q_p}$ extending the natural embedding $\Q \hookrightarrow \Q_p$.
 Denote by $G$ the absolute Galois group $\Gal\left( \overline{\Q}/\Q \right)$, and for each prime $p$, denote by $I\left( p \right) \subseteq G$ the absolute inertia group at $p$, i.e., the embedding into $G$ of the inertia group $\Gal\left( \overline{\Q_p}/\Q_p^{\un} \right)$, where $\Q_p^{\un}$ is the maximal unramified extension of $\Q_p$ inside $\overline{\Q_p}$.
+For each polynomial $g$ and number field $K$, we will denote by $\d\left( g \right)$ and $\d\left( K \right)$ \editorial{(or for legacy reasons also $\disc\left( K \right)$)} the discriminant of $g$ and of $K$ respectively and by $\rd\left( K \right)$ the root discriminant of $K$, i.e. $\rd\left( K \right) = \d\left( K \right)^{1/\left[ K : \Q \right]}$.  
 
 \subsection{Strategy}
 We will first lay down a few results that will provide us with a strategy to show that for any pair $n,a$ that satisfies different conditions, the Galois group of any factor of $f_{n,a}$ is symmetric.
@@ -141,11 +142,11 @@ We will first lay down a few results that will provide us with a strategy to sho
   The result the follows from Corollary \ref{cor:galois_group_with_transposition_ando_intermediate_extensions_is_full_symmetric}.
 \end{proof}
 \begin{corollary}
-  \label{the_useful_criterion}
-  Let $g$ is an irreducible factor of $f_{n,a}$, and assume that for every subfield $\Q \subsetneq K \subseteq \Q\left[ x \right] / \left( g \right)$ there is a prime that divides the discriminant of $K$ but does not divide $a$, then the Galois group of $g$ is $S_{\deg g}$.
+  \label{cor:the_useful_criterion}
+  Let $g$ is an irreducible factor of $f_{n,a}$, and assume that for every subfield $\Q \subsetneq K \subseteq \Q\left[ x \right] / \left( g \right)$ there is a prime does not divide $a$ over which $K$ ramifies, then the Galois group of $g$ is $S_{\deg g}$.
 \end{corollary}
 \begin{proof}
-  According to Corrolary \ref{cor:ramification_only_over_primes_dividing_a}, $\Q\left[ x \right] / \left( g \right)$ has no non-trivial subfields, and hence, since its discriminant is divisible by a prime that does not divide $a$, the Galois group of $g$ is $S_{\deg g}$ by Corollary \ref{cor:the_almost_useful_criterion}.
+  According to Corollary \ref{cor:ramification_only_over_primes_dividing_a}, $\Q\left[ x \right] / \left( g \right)$ has no non-trivial subfields, and hence, since its discriminant is divisible by a prime that does not divide $a$, the Galois group of $g$ is $S_{\deg g}$ by Corollary \ref{cor:the_almost_useful_criterion}.
 \end{proof}
 
 Our strategy would be to find conditions on $n,a$ that would guarantee the conditions of the last corollary for any irreducible factor $g$ of $f_{n,a}$.
@@ -160,7 +161,7 @@ Our strategy would be to find conditions on $n,a$ that would guarantee the condi
   I did not find a reference for the reducible case.
 \end{remark}
 \begin{proof}
-  This is immediate from Corollary \ref{the_useful_criterion} since there is no prime that divides $a \pm 1$ and the discriminant of any non-trivial extension of $\Q$ is divisible by some prime as a result of the Minkowski bound.
+  This is immediate from Corollary \ref{cor:the_useful_criterion} since there is no prime that divides $a \pm 1$ and the discriminant of any non-trivial extension of $\Q$ is divisible by some prime as a result of the Minkowski bound.
 \end{proof}
 
 
@@ -273,9 +274,121 @@ From this we may deduce that
   & 2^{2m-2}\alpha \mod 2^{2m-1} 
 \end{align*}
 and in particular its $2$-adic valuation is $2m - 2$ as required.
+\end{proof} 
+\begin{lemma}
+  \label{lem:valuation_of_rd_of_subextensions}
+  Let $p$ be a prime and $L$ a number field.
+  Then 
+  \[
+    v_p\left( \rd K \right) \leq v_p \left( \rd L \right)
+  \]
+\end{lemma}
+\begin{proof}
+  Indeed, 
+  \[
+    \disc\left( L \right) = \disc\left( K \right)^{\left[ L : K \right]} \Norm_{K / \Q}\left( \disc\left( L / K \right) \right)
+  \]
+  and hence 
+  \begin{align*}
+    & 
+    v_p\left( \disc\left( L \right) \right) = \\
+    & \left[ L : K \right] v_p\left( \disc\left( K \right) \right) + v_p\left( \Norm_{K / \Q}\left( \disc\left( L / K \right) \right) \right) \geq \\
+    & \left[ L : K \right] v_p\left( \disc\left( K \right) \right)
+  \end{align*}
+  and hence 
+  \[
+    v_p \left( \d\left( K \right) \right) \leq v_p\left( \d\left( L \right) \right) / \left[ L : K \right]
+  \]
+  \begin{align*}
+    & v_p \left( \rd K \right) = \\
+    & \frac{v_p\left( \disc\left( K \right) \right)}{\left[ K : \Q \right]} \leq \\
+    & \frac{v_p\left( \disc\left( L \right) \right) / \left[ L / K \right]}{\left[ K : \Q \right]} = \\
+    & \frac{v_p\left( \disc\left( L \right) \right)}{\left[ L : \Q \right]} = \\
+    & v_p\left( \rd L \right)
+  \end{align*}
+\end{proof}
+\begin{corollary}
+  \label{cor:the_galois_group_of_x^n-2x+1}
+  The Galois group of the non-linear factor of $x^n - 2x + 1$ is $S_{n-1}$.
+\end{corollary}
+\begin{proof}
+  Let $\Q \subsetneq K \subseteq \Q\left[ x \right] / \left( g \right)$ be a sub-extension.
+  Then according to Lemma \ref{lem:valuation_of_rd_of_subextensions} 
+  \[
+    v_2\left( \rd K \right) \leq v_2\left( \rd\left( \Q\left[ x \right] / \left( g \right) \right) \right) \leq \frac{v_2\left( g \right)}{n - 1}  \leq
+    \frac{n - 2}{n - 1} < 1
+  \]
+  Therefore, if $\d\left( K \right)$ is divisible only by $2$, then $\rd\left( K \right) < 2$.
+  However, theere are no number fields with root discriminant smaller than $2$ that are ramified only over $2$ \editorial{we can prove it either with the Minkowski bound as I did in the first version of the proof, or just by citing \url{https://www.lmfdb.org/NumberField/?rd=-2-2} like we do in the rest of the cases}.
+  Therefore, the discriminant of $K$ is divisible by a prime that does not divide $a$ and hence the Galois group of $g$ is $S_{n-1}$ by Corollary \ref{cor:the_useful_criterion}.
 \end{proof}
 
-\subsection{$a = -2,\pm 3, \pm 4, \pm 5$}
+\begin{lemma}
+  Assume that $n$ is odd.
+  Then $x^n + 2x + 1$ is irreducible over $\Q$.  
+\end{lemma}
+\begin{proof}
+  First of all note that $x^n + 2x + 1$ has no roots on the unit circle in $\C$.
+  Indeed, if $x$ is such a root, then 
+  \[
+    1 = \left| 2x + 1 \right| \geq \left| 2x \right| - \left| 1 \right| = 1 
+  \]
+  and hence $x = -1$.
+  However, 
+  \[
+    \left( -1 \right)^n + 2 \left( -1 \right) + 1 = 
+    -1 -2 + 1 = -2 \neq 0
+  \]
+  Consider now the polynomial 
+  \[
+    x^n \left( \left( 1/x \right)^n + 2 \left( 1/x \right) + 1 \right) =
+    x^n + 2x^{n-1} + 1
+  \]
+  whose roots are exactly the inverses of the roots of $x^n + 2x + 1$.
+  For any small enough $\epsilon > 0$, the winding number of $x^n + 2x^{n-1} + 1$ around $0$ as $x$ traverses the circle of radius $1 + \epsilon$ is $n - 1$.
+  Indeed, for such $\epsilon$, 
+  \[
+    |2x^{n-1}| > |x^n| + 1 \geq |x^n + 1|
+  \]
+  since 
+  \[
+    \left( 1+\epsilon \right)^n - 2\left( 1+\epsilon \right)^{n-1} + 1 < 0
+  \]
+  since 
+  \[
+    \frac{d}{dx}\left( x^n - 2x^{n-1} + 1 \right) |_{x=1} = n - 2\left( n - 1 \right) = 2 - n < 0
+  \]
+  However, since $x^n + 2x + 1$ has no roots on the unit circle, and hence so does $x^n + 2x^{n-1} + 1$, it follows that all of these $n - 1$ roots are in the interior of the unit circle.
+  In other words, only one of its roots has absolute value greater than or equal to $1$ (in fact greater).
+  If we assume towards contradiction that $x^n + 2x^{n-1} + 1$ is reducible over $\Q$, then since it is monic, it is reducible over $\Z$ as well, and hence one of its factors is a monic polynomial with integer coefficients whose roots are all of absolute value strictly less than $1$ which is a contradiction (because then for example the norm, which is the free coefficient up to a sign, is less than $1$ in absolute value).
+  Therefore, $x^n + 2x^{n-1} + 1$ is irreducible over $\Q$ and hence so is $x^n + 2x + 1$ as required.
+\end{proof}
+
+\begin{corollary}
+  $x^n + 2x + 1$ is irreducible whenever $n$ is odd and factors into $x + 1$ times an irreducible factor otherwise.
+  The Galois group of any irreducible factor $g$ of $f = x^n + 2x + 1$ is $S_{\deg g}$.
+\end{corollary}
+\begin{proof}
+  Assume first that $n$ is even, then 
+  \[
+    \left( -x \right)^n + 2 \left( -x \right) + 1 = 
+    x^n - 2x + 1
+  \]
+  and hence by the above analysis, $x^n -2x + 1$ factors into $x + 1$ times an irreducible factor whose Galois group is $S_{n-1}$.
+  
+  Assume now that $n$ is odd.
+  According to \cite[Theorem 2]{Swan62} 
+  \[
+    \d\left( f_{n,2} \right) = 
+    \left( -1 \right)^{\frac{n(n-1)}{2}} \left(  
+      n^n + \left( 1 - n \right)^{n - 1} 2^n
+    \right)
+  \]
+  and hence $v_2\left( \d\left( f_{n,2} \right) \right) = 0$.
+  Therefore, discriminant of any intermediate extension $\Q \subsetneq K \subseteq \Q\left[ x \right] / \left( f_{n,2} \right)$ is, odd and in particular it is divisible by a prime that does not divide $2$ and hence the Galois group of $f_{n,2}$ is $S_n$ by Corollary \ref{cor:the_useful_criterion}.
+\end{proof}
+
+\subsection{$a = \pm 3, \pm 4, \pm 5$}
 \begin{lemma}
   If $\left| a \right| > 2$ then $f_{n,a}$ is irreducible over $\Q$.
 \end{lemma}
@@ -293,7 +406,7 @@ and in particular its $2$-adic valuation is $2m - 2$ as required.
   Therefore, $\widehat{f_{n,a}}$ has $n-1$ roots in the interior of the unit disk and hence it is irreducible over $\Q$.
 \end{proof}
 \begin{remark}
-  The above lemma also follows from \cite[Theorem 1]{Ljungren1960} \editorial{and is not actually needed, it only simplifies a few sentences down the way}.
+  The above lemma also follows from \cite[Theorem 1]{Ljungren1960}.
 \end{remark}
 
 \begin{lemma}
@@ -323,7 +436,7 @@ and in particular its $2$-adic valuation is $2m - 2$ as required.
   \[
     v_p\left( \disc\left( f_{n,a} \right) \right) = 
     \min\left\{ v_p\left( n^n \right), v_p\left( \left( 1 - n \right)^{n - 1} a^n \right) \right\} = 
-    n \min{v_p\left( n \right), v_p\left( a \right) }
+    n \min\left\{ v_p\left( n \right), v_p\left( a \right) \right\}
   \]
   
   Assume now that $v_p\left( n \right) = v_p\left( a \right)$.
@@ -436,15 +549,62 @@ Moreover, let $S\left( \left| a \right| \right)$ be the set of positive integers
   However, by Lemma \ref{lem:inertia_group_acts_as_transposition} and Lemma \ref{lem:there_is_a_prime_dividing_disc_but_not_a}, there is a prime $p$ such that $I\left( p \right)$ acts on $\Hom\left( \Q\left( \alpha \right), \overline{\Q} \right)$ as a single transposition and hence $G$ contains a transposition.
   Therefore, since any primitive subgroup of $S_n$ that contains a transposition is $S_n$, it follows that $G = S_n$.
 \end{proof} 
+\begin{lemma}
+  \label{lem:imprimitivity_finite_obstruction}
+  Let $K$ be a number field.
+  Assume that there is an integer $m \in \Z$ and a prime $p$ not dividing $a$ such that $K$ has no embedding into $\Q_p$ and 
+  \[
+    v_p\left( f_{n,a}\left( m \right) \right) = 1
+  \]
+  Then $K$ cannot be a subfield of $\Q\left[ x \right] / \left( f_{n,a} \right)$.
+\end{lemma}
+\begin{proof}
+  Since $p$ does not divide $a$, it does not ramify in $K$ according to Corollary \ref{cor:ramification_only_over_primes_dividing_a}, and hence since $K$ has no embedding into $\Q_p$, $K$ has no embedding into any purely ramified extension of $\Q_p$.
+  Therefore, to show that $K$ can not be a subfield of $\Q\left[ x \right] / \left( f_{n,a} \right)$, it suffices to show that $f_{n,a}$ has a root that is contained in a purely ramified extension of $\Q_p$.
+  Indeed, let $e$ be the multiplicity of $m$ as a root of $f_{n,a}$ modulo $p$.
+  Then there is a factorization 
+    \[
+      \pi\left( f_{n,a} \right) = \left( x-m \right)^e \overline{g} \in \F_p\left[ x \right]
+    \]
+    for some $\overline{g} \in \F_p\left[ x \right]$ that is coprime to $\left( x-m \right)$ where $\pi : \Z_p\left[ x \right] \to \F_p\left[ x \right]$ is the quotient map.
+    By hensel's lemma, there is a factorization
+    \[
+      f_{n,a} = h g \in \Z_p\left[ x \right]
+    \]
+    where $\pi\left( h \right) = \left( x-m \right)^e$ and $\pi\left( g \right) = \overline{g}$.
+    Consider now the polynomial 
+    \[
+      f_{n,a}\left( x + m \right) = 
+      h\left( x + m \right)g\left( x + m \right) = x^n + \sum_{i=0}^{n-1} c_i x^i \in \Z\left[ x \right]  
+    \]
+    Then 
+    \[
+      v_p\left( c_0 \right) = v_p\left( f_{n,a}\left( m \right) \right) = 1
+    \]
+    and 
+    \[
+      \pi\left( f_{n,a}\left( x + m \right) \right) = 
+      \pi\left( h\left( x + m \right) \right) \pi\left( g\left( x + m \right) \right) =
+      x^e \overline{g}\left( x + m \right) \in \F_p\left[ x \right]
+    \]
+    and hence 
+    \[
+      v_p\left( c_i \right) \geq 1
+    \]
+    for all $i < e$.
+    Therefore, the Newton polygon of $f_{n,a}\left( x + m \right)$ with respect to $p$ has a single segment of negative and its slope is at most $1/e$ in absolute value.
+    Therefore, $f_{n,a}\left( x + m \right)$ has a root, call it $\beta$, whose $p$-valuation is at most $1/e$.
+    Therefore, since the set of roots of $f_{n,a}\left( x + m \right)$ that reduce to $0$ modulo $p$ is exactly the set of roots of $h\left( x + m \right)$, whose degree is $e$, it follows that the ramification degree of $\beta$ over $\Q_p$ is exactly its over all algebraic degree over $\Q_p$ and hence $\Q_p\left( \beta \right) / \Q_p$ is purely ramified.
+    This shows that there is an embedding, in particular the one extending the assignment $x \mapsto \beta$, of $\Q\left[ x \right] / \left( f_{n,a} \right)$ into a purely ramified extension of $\Q_p$  
+\end{proof}
 
 \begin{corollary}
   \label{cor:conditions_that_guarantee_full_galois_group}
   Assume that that for every number field $K$ that is ramified only over primes dividing $a$ and whose root discriminant is at most $\left| a \right|$, either of the following holds:
   \begin{enumerate}
     \item $K$ is purely imaginary.
-    \item There is a prime $p$ dividing $a + 2$ such that the decomposition of $K \otimes_\Q \Q_p$ contains a factor that is a non-trivial unramified extension of $\Q_p$.
-    \item There is a prime $p$ dividing $a + 2$ that does not divide $a$ and that does not split completely in $K$.
-    \item $K$ is of even degree and there is a prime $p$ dividing $-a + 2$ that does not divide $a$ and that does not split completely in $K$.
+    \item There is a prime $p$ not divide $a$ such that $v_p\left( a+2 \right) = 1$ and such that there is a polynomial $h$ defining $K$ over $\Q$ that has no solution mod $p$.
+    \item $K$ is of even degree and there is a prime $p$ such that $v_p\left( -a+2 \right) = 1$ and such that there is a polynomial defining $K$ over $\Q$ that has no solution mod $p$.
   \end{enumerate}
   Then $\Gal\left( f_{n,a} \right) = S_n$ for any $C\left( \left| a \right| \right) < n \in S\left( \left| a \right| \right)$.
 \end{corollary}
@@ -452,41 +612,24 @@ Moreover, let $S\left( \left| a \right| \right)$ be the set of positive integers
   Based on Lemma \ref{lem:if_no_number_field_with_small_root_disc_then_galois_group_is_full}, it suffices to show that any field $K$ that satisfies one of the above conditions cannot be a subfield of $\Q\left[ x \right] / \left( f_{n,a} \right)$. 
   \begin{enumerate}
     \item If $k$ is purely imaginary, note that $f_{n,a}$ always has a real root as it tends to $+\infty$ as $x \to +\infty$ and $f_{n,a}\left( a / \left| a \right| \right)$ is always negative.
-    \item Assume that there is a prime $p$ dividing $a + 2$ with multiplicity $1$ such that the decomposition of $K \otimes_\Q \Q_p$ contains a factor that is a non-trivial unramified extension of $\Q_p$.
-    It suffices to show then that $f_{n,a}$ has a root that is contained in a purely ramified extension of $\Q_p$.
-    Indeed, $1$ is a root of $f_{n,a}$ modulo $p$, and hence there is a factorization 
+    \item Assume that the second condition holds.
+    Since $h$ has no solution mod $p$, $K$ has no embedding into $\Q_p$ and hence since 
     \[
-      \pi\left( f_{n,a} \right) = \left( x-1 \right)^m \overline{g} \in \F_p\left[ x \right]
+      1 = v_p\left( a + 2 \right) = v_p\left( f_{n,a}\left( 1 \right) \right)
     \]
-    for some $m \geq 1$ and $\overline{g} \in \F_p\left[ x \right]$ that is coprime to $\left( x-1 \right)$ where $\pi : \Z_p\left[ x \right] \to \F_p\left[ x \right]$ is the quotient map.
-    By hensel's lemma, there is a factorization
-    \[
-      f_{n,a} = h g \in \Z_p\left[ x \right]
-    \]
-    where $\pi\left( h \right) = \left( x-1 \right)^m$ and $\pi\left( g \right) = \overline{g}$.
-    Let $\beta$ be a root of $h$.
-    Then the residue extension of $\Q_p\left( \beta \right) / \Q_p$ is trivial and hence $\Q_p\left( \beta \right) / \Q_p$ is purely ramified (see for example \cite[II \S 5 Theorem 4]{SerreLocalFields}).
-    \item Assume that there is a prime $p$ dividing $a + 2$ that does not divide $a$ and that does not split completely in $K$.
-    Since $K$ is ramified only over primes dividing $a$, it is unramified at $p$.
-    Therefore, if it is not split completely over $p$, then at least one of its factors over $\Q_p$ is a non-trivial unramified extension of $\Q_p$ and hence we are done by the previous case.  
-    \item Assume that $K$ is of even degree and there is a prime $p$ dividing $-a + 2$ that does not divide $a$ and that does not split completely in $K$.
+    it follows from Lemma \ref{lem:imprimitivity_finite_obstruction} that $K$ cannot be a subfield of $\Q\left[ x \right] / \left( f_{n,a} \right)$. 
+    \item Assume that the third condition holds.
     If $n$ is odd, then $K$ cannot be a subfield of $\Q\left[ x \right] / \left( f_{n,a} \right)$ since the latter has an odd degree.
     Assume then that $n$ is even.
-    Again since $p$ is not completely split in $K$ and cannot be ramified either, it has a non-trivial unramified factor over $\Q_p$.
-    Therefore, just like in the second case, it suffices to show that $f_{n,a}$ has a root that is contained in a purely ramified extension of $\Q_p$.
-    Indeed, $-1$ is a root of $f_{n,a}$ modulo $p$, and from here the argument is exactly the same as in the second case.
+    Again, since $h$ has no solution mod $p$, $K$ has no embedding into $\Q_p$ and hence since 
+    \[
+      1 = v_p\left( -a + 2 \right) = v_p\left( f_{n,a}\left( -1 \right) \right)
+    \]
+    it follows from Lemma \ref{lem:imprimitivity_finite_obstruction} that $K$ cannot be a subfield of $\Q\left[ x \right] / \left( f_{n,a} \right)$.
   \end{enumerate}
 \end{proof}
 
 We can now use calculated minimal root discriminants of number fields ramified only over primes dividing $a$ to deduce which values of $a$ satisfy the condition of lemma \ref{lem:if_no_number_field_with_small_root_disc_then_galois_group_is_full}. 
-
-\begin{corollary}
-  For any $n \in S\left( 2 \right)$, and any irreducible factor $g$ of $f_{n,2}$, $\Gal\left( g \right)$ is symmetric.  
-\end{corollary}
-\begin{proof}
-  According to \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&ram_primes=2&rd=-2-2}, the only non-trvial number field that is ramified only over $2$ and whose root discriminant is at most $2$ is $\Q\left( i \right)$ which is purely imaginary and hence the result follows from Corollary \ref{cor:conditions_that_guarantee_full_galois_group} for any $n > C\left( 2 \right)$.
-  However, according to \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&rd=-5-5&sort_order=rd&showcol=rd&hidecol=galois.class_group_desc&sort_order=rd}, $C\left( 2 \right) = 2$ and the case $n = 2$ is trivial since $f_{2,2} = \left( x + 1 \right)^2$.
-\end{proof}
 
 \begin{corollary}
   For any $n \in S\left( 3 \right)$, $\Gal\left( f_{n,\pm3} \right) = S_n$ unless $n = 3, a = -3$.  
@@ -500,7 +643,7 @@ We can now use calculated minimal root discriminants of number fields ramified o
   For any $n \in S\left( 4 \right)$, $\Gal\left( f_{n,\pm4} \right) = S_n$.
 \end{corollary}
 \begin{proof}
-  According to \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&ram_primes=2&rd=-4-4&sort_order=rd&sort_order=rd}, the only non-trivial number fields that are ramified only over $2$ and whose root discriminant is at most $4$ are the three purely imaginary fields defined by the polynomials $x^2 + 1, x^2 + 2, x^4 + 1$, and the quadratic field $\Q\left( \sqrt{2} \right)$ in which $3$ which divides $4 + 2 = -\left( -4 \right) + 2$, is inert, and hence the result follows from Corollary \ref{cor:conditions_that_guarantee_full_galois_group} for any $n > C\left( 4 \right)$.
+  According to \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&ram_primes=2&rd=-4-4&sort_order=rd&sort_order=rd}, the only non-trivial number fields that are ramified only over $2$ and whose root discriminant is at most $4$ are the three purely imaginary fields defined by the polynomials $x^2 + 1, x^2 + 2, x^4 + 1$, and the quadratic field $\Q\left( \sqrt{2} \right)$ which is defined by $x^2 -2$ which has no solution mod $3$ which divides $4 + 2 = -\left( -4 \right) + 2$, is inert, and hence the result follows from Corollary \ref{cor:conditions_that_guarantee_full_galois_group} for any $n > C\left( 4 \right)$.
   However, according to \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&rd=-5-5&sort_order=rd&showcol=rd&hidecol=galois.class_group_desc&sort_order=rd}, $C\left( 4 \right) = 4$ and the smaller cases can be checked computationally.
 \end{proof}
 
@@ -509,7 +652,7 @@ We can now use calculated minimal root discriminants of number fields ramified o
 \end{corollary}
 \begin{proof}
   According to \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&ram_primes=5&rd=-5-5&sort_order=rd&sort_order=rd}, the only non-trivial number fields that are ramified only over $5$ and whose root discriminant is at most $5$ are the cyclotomic extension $\Q\left( \zeta_5 \right)$ and the quadratic field $\Q\left( \sqrt{5} \right)$.
-  The first is purely imaginary, and the second is inert at both $7$ which divides $5 + 2$ and $3$ which divides $-5 + 2$ and hence the result follows from Corollary \ref{cor:conditions_that_guarantee_full_galois_group} for any $n > C\left( 5 \right)$.
+  The first is purely imaginary, and the second may be defined by $x^2 - 5$ which has no solution either mod $7$ which divides $5 + 2$ or mod $3$ which divides $-5 + 2$ and hence the result follows from Corollary \ref{cor:conditions_that_guarantee_full_galois_group} for any $n > C\left( 5 \right)$.
   However, according to \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&rd=-5-5&sort_order=rd&showcol=rd&hidecol=galois.class_group_desc&sort_order=rd}, $C\left( 5 \right) = 6$ and the smaller cases can be checked computationally.
 \end{proof}
 
