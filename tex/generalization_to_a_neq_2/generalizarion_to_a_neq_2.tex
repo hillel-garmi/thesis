@@ -23,6 +23,10 @@ If all the conditions in one of the rows of the table below are satisfied, then 
  \hline
  $\pm 2$ & $1$ & & \\ 
  \hline
+ $\pm 2$ & $-2$ & & \\ 
+ \hline
+ $\pm 3$ & $-3$ & & \\ 
+ \hline
  $\pm 3$ & $1$ & $-a$ & 18 \\
  \hline
  $\pm 4$  & $1$ & $4$ & $8$ \\
@@ -37,7 +41,10 @@ If all the conditions in one of the rows of the table below are satisfied, then 
 \subsection{Notations}
 Fix an algebraic closure $\overline{\Q}$ of $\Q$ and for each prime $p$, fix an algebraic closure $\overline{\Q_p}$ of $\Q_p$ and an embedding $\overline{\Q} \hookrightarrow \overline{\Q_p}$ extending the natural embedding $\Q \hookrightarrow \Q_p$.
 Denote by $G$ the absolute Galois group $\Gal\left( \overline{\Q}/\Q \right)$, and for each prime $p$, denote by $I\left( p \right) \subseteq G$ the absolute inertia group at $p$, i.e., the embedding into $G$ of the inertia group $\Gal\left( \overline{\Q_p}/\Q_p^{\un} \right)$, where $\Q_p^{\un}$ is the maximal unramified extension of $\Q_p$ inside $\overline{\Q_p}$.
-For each polynomial $g$ and number field $K$, we will denote by $\d\left( g \right)$ and $\d\left( K \right)$ \editorial{(or for legacy reasons also $\disc\left( K \right)$)} the discriminant of $g$ and of $K$ respectively and by $\rd\left( K \right)$ the root discriminant of $K$, i.e. $\rd\left( K \right) = \d\left( K \right)^{1/\left[ K : \Q \right]}$.  
+
+Fix an irreducible factor $g$ of $f$ (which most of the time will be $f$ itself) and a root $\alpha \in \overline{\Q}$ of $g$ and denote $L = \Q\left( \alpha \right)$.
+
+For each polynomial $h$ and number field $K$, we will denote by $\d\left( h \right)$ and $\d\left( K \right)$ \editorial{(or for legacy reasons also $\disc\left( K \right)$)} the discriminant of $h$ and of $K$ respectively and by $\rd\left( K \right)$ the root discriminant of $K$, i.e. $\rd\left( K \right) = \d\left( K \right)^{1/\left[ K : \Q \right]}$.  
 
 \subsection{Strategy}
 We will first lay down a few results that will provide us with a strategy to show that for any triple $n,a,b$ that satisfies different conditions, the Galois group of any factor of $f$ is symmetric.
@@ -176,6 +183,12 @@ We will first lay down a few results that will provide us with a strategy to sho
 \end{proof}
 
 Our strategy would be to find conditions on $n,a,b$ that would guarantee the conditions of the last corollary for any irreducible factor $g$ of $f$.
+In doing so, I found it useful to rephrase the above corollary as follows: 
+\begin{corollary}
+  \label{cor:the_useful_criterion_rephrased}
+  If the Galois group of $L$ is not the full symmetric group, then there is some subextension $\Q \subsetneq K \subseteq L$ that is ramified only over primes dividing $a b$.
+\end{corollary}
+
 
 \subsection{$a b = \pm 1$}
 Assume that $ab = \pm 1$.
@@ -196,7 +209,208 @@ Assume that $ab = \pm 1$.
   This is immediate from Corollary \ref{cor:the_useful_criterion} since there is no prime that divides $a b \pm 1$ and the discriminant of any non-trivial extension of $\Q$ is divisible by some prime as a result of the Minkowski bound.
 \end{proof}
 
-% \subsection{Strategy for harder cases}
+\subsection{Strategy for harder cases}
+
+\begin{lemma}
+  \label{lem:valuation_of_rd_of_subextensions}
+  Let $p$ be a prime and $\Q \subseteq K \subseteq L$ number fields.
+  Then 
+  \[
+    v_p\left( \rd K \right) \leq v_p \left( \rd L \right)
+  \]
+\end{lemma}
+\begin{proof}
+  Indeed, 
+  \[
+    \disc\left( L \right) = \disc\left( K \right)^{\left[ L : K \right]} \Norm_{K / \Q}\left( \disc\left( L / K \right) \right)
+  \]
+  and hence 
+  \begin{align*}
+    & 
+    v_p\left( \disc\left( L \right) \right) = \\
+    & \left[ L : K \right] v_p\left( \disc\left( K \right) \right) + v_p\left( \Norm_{K / \Q}\left( \disc\left( L / K \right) \right) \right) \geq \\
+    & \left[ L : K \right] v_p\left( \disc\left( K \right) \right)
+  \end{align*}
+  and hence 
+  \[
+    v_p \left( \d\left( K \right) \right) \leq v_p\left( \d\left( L \right) \right) / \left[ L : K \right]
+  \]
+  \begin{align*}
+    & v_p \left( \rd K \right) = \\
+    & \frac{v_p\left( \disc\left( K \right) \right)}{\left[ K : \Q \right]} \leq \\
+    & \frac{v_p\left( \disc\left( L \right) \right) / \left[ L / K \right]}{\left[ K : \Q \right]} = \\
+    & \frac{v_p\left( \disc\left( L \right) \right)}{\left[ L : \Q \right]} = \\
+    & v_p\left( \rd L \right)
+  \end{align*}
+\end{proof} 
+\begin{strategy}
+  \label{strategy:harder_cases}
+  Let $p$ be a prime that divides $a b$.
+  Using \url{https://www.lmfdb.org/NumberField/} for example, we can enumerate the first few number fields that are ramified only above primes dividing $a b$ in ascending order of the $p$-valuation of their root discriminant.
+  Thus, our strategy would be to compose a list of properties of number fields, such that any number field that satisfies one of these properties, cannot be embedded into $L$ for any value of $n$ (when $a$ and $b$ are fixed).
+  Assume that $C_p = C_p\left( a,b \right)$ is the smallest number such that there is a number field $K$ that is ramified only above primes dividing $a b$, does not satisfy any of the properties in our list, and has $v_p\left( \rd K \right) = C_p$.
+  Then the Galois group of $L$ may be non-symmetric only if $v_p\left( \rd L \right) \geq C_p$.
+  Indeed, if it is non-symmetric, then by corollary \ref{cor:the_useful_criterion_rephrased}, there is some subextension $\Q \subsetneq K \subseteq L$ that is ramified only over primes dividing $a b$, and hence by the definition of $C_p$, $v_p\left( \rd K \right) \geq C_p$ and hence by Lemma \ref{lem:valuation_of_rd_of_subextensions}, $v_p\left( \rd L \right) \geq v_p\left( \rd K \right) \geq C_p$ as claimed.
+\end{strategy} 
+To compose such a list of properties, we will first prove the following:
+\begin{lemma}
+  \label{lem:imprimitivity_finite_obstruction}
+  Let $K$ be a number field.
+  Assume that there is an integer $m \in \Z$ and a prime $p$ not dividing $a b$ such that $K$ has no embedding into $\Q_p$ and 
+  \[
+    v_p\left( f\left( m \right) \right) = 1
+  \]
+  Then $K$ cannot be a subfield of $\Q\left[ x \right] / \left( f \right)$.
+\end{lemma}
+\begin{proof}
+  Since $p$ does not divide $a$, it does not ramify in $K$ according to Corollary \ref{cor:ramification_only_over_primes_dividing_a}, and hence since $K$ has no embedding into $\Q_p$, $K$ has no embedding into any purely ramified extension of $\Q_p$.
+  Therefore, to show that $K$ can not be a subfield of $\Q\left[ x \right] / \left( f \right)$, it suffices to show that $f$ has a root that is contained in a purely ramified extension of $\Q_p$.
+  Indeed, let $e$ be the multiplicity of $m$ as a root of $f$ modulo $p$.
+  Then there is a factorization 
+    \[
+      \pi\left( f \right) = \left( x-m \right)^e \overline{g} \in \F_p\left[ x \right]
+    \]
+    for some $\overline{g} \in \F_p\left[ x \right]$ that is coprime to $\left( x-m \right)$ where $\pi : \Z_p\left[ x \right] \to \F_p\left[ x \right]$ is the quotient map.
+    By hensel's lemma, there is a factorization
+    \[
+      f = h g \in \Z_p\left[ x \right]
+    \]
+    where $\pi\left( h \right) = \left( x-m \right)^e$ and $\pi\left( g \right) = \overline{g}$.
+    Consider now the polynomial 
+    \[
+      f\left( x + m \right) = 
+      h\left( x + m \right)g\left( x + m \right) = x^n + \sum_{i=0}^{n-1} c_i x^i \in \Z\left[ x \right]  
+    \]
+    Then 
+    \[
+      v_p\left( c_0 \right) = v_p\left( f\left( m \right) \right) = 1
+    \]
+    and 
+    \[
+      \pi\left( f\left( x + m \right) \right) = 
+      \pi\left( h\left( x + m \right) \right) \pi\left( g\left( x + m \right) \right) =
+      x^e \overline{g}\left( x + m \right) \in \F_p\left[ x \right]
+    \]
+    and hence 
+    \[
+      v_p\left( c_i \right) \geq 1
+    \]
+    for all $i < e$.
+    Therefore, the Newton polygon of $f\left( x + m \right)$ with respect to $p$ has a single segment of negative and its slope is at most $1/e$ in absolute value.
+    Therefore, $f\left( x + m \right)$ has a root, call it $\beta$, whose $p$-valuation is at most $1/e$.
+    Therefore, since the set of roots of $f\left( x + m \right)$ that reduce to $0$ modulo $p$ is exactly the set of roots of $h\left( x + m \right)$, whose degree is $e$, it follows that the ramification degree of $\beta$ over $\Q_p$ is exactly its over all algebraic degree over $\Q_p$ and hence $\Q_p\left( \beta \right) / \Q_p$ is purely ramified.
+    This shows that there is an embedding, in particular the one extending the assignment $x \mapsto \beta$, of $\Q\left[ x \right] / \left( f \right)$ into a purely ramified extension of $\Q_p$  
+\end{proof}
+
+\begin{corollary}
+  \label{cor:conditions_that_guarantee_full_galois_group}
+  Assume that that for every number field $K$ that is ramified only over primes dividing $a b$ and whose root discriminant is less than $C_p\left( a,b \right)$, either of the following holds:
+  \begin{enumerate}
+    \item $K$ is purely imaginary and $g$ has a real root.
+    \item There is a prime $p$ not divide $a$ such that $v_p\left( b + a + 1 \right) = 1$ and such that there is a polynomial $h$ defining $K$ over $\Q$ that has no solution mod $p$.
+    \item $K$ is of even degree and there is a prime $p$ such that $v_p\left( b - a + 1 \right) = 1$ and such that there is a polynomial defining $K$ over $\Q$ that has no solution mod $p$.
+  \end{enumerate}
+  Then the Galois group of $g$ is $S_{\deg g}$ if $v_p\left( \rd L \right) < C_p\left( a,b \right)$ for every prime $p$ dividing $a b$.
+\end{corollary}
+\begin{proof}
+  Based on Strategy \ref{strategy:harder_cases}, it suffices to show that any field $K$ that satisfies one of the above conditions cannot be a subfield of $\Q\left[ x \right] / \left( g \right)$. 
+  \begin{enumerate}
+    \item Clear.
+    \item Assume that the second condition holds.
+    Since $h$ has no solution mod $p$, $K$ has no embedding into $\Q_p$ and hence since 
+    \[
+      1 = v_p\left( b + a + 1 \right) = v_p\left( f\left( 1 \right) \right)
+    \]
+    it follows from Lemma \ref{lem:imprimitivity_finite_obstruction} that $K$ cannot be a subfield of $\Q\left[ x \right] / \left( f \right)$. 
+    \item Assume that the third condition holds.
+    If $n$ is odd, then $K$ cannot be a subfield of $\Q\left[ x \right] / \left( f \right)$ since the latter has an odd degree.
+    Assume then that $n$ is even.
+    Again, since $h$ has no solution mod $p$, $K$ has no embedding into $\Q_p$ and hence since 
+    \[
+      1 = v_p\left( b - a + 1 \right) = v_p\left( f\left( -1 \right) \right)
+    \]
+    it follows from Lemma \ref{lem:imprimitivity_finite_obstruction} that $K$ cannot be a subfield of $\Q\left[ x \right] / \left( f \right)$.
+  \end{enumerate}
+\end{proof}
+
+\subsection{$2 \leq \left| a \right| = \left| b \right|$ square free}
+Assume that $2 \leq \left| a \right| = \left| b \right|$ and that $a$ is square free.
+Note that in this case $f$ is irreducible over $\Q$ since it is an Eisenstein polynomial with respect to the prime $2$.
+\begin{lemma}
+  \label{lem:valuation_of_rd_when_a_equal_b_is_square_free}
+  Let $p$ be a prime dividing $a$.
+  Then $v_p\left( \rd\left( L \right) \right) \leq 1$.
+\end{lemma}
+\begin{proof}
+  The equality
+  \[
+    v_p\left( n^n b^{n-1} \right) = v_p\left( \left( 1 - n \right)^{n - 1} a^n \right)
+  \]
+  is equivalent to
+  \[
+    n v_p\left( n \right) + \left( n - 1 \right)v_p\left( b \right) = \left( n - 1 \right) v_p\left( 1 - n \right) + n v_p\left( a \right)
+  \]
+  which holds if and only if
+  \[
+    n v_p\left( n \right) - \left( n - 1 \right)v_p\left( n-1 \right) = n v_p\left( a \right) - \left( n - 1 \right)v_p\left( b \right) = v_p\left( a \right) = 1
+  \]
+  However, the left hand side must be divisible by $p$ and hence cannot be equal to $1$.
+  
+  Therefore, according to \cite{Swan62},
+  \begin{align*}
+    & v_p\left( \d\left( L \right) \right) \leq \\
+    & v_p\left( \d\left( f \right) \right) = \\
+    & v_p\left( n^n b^{n-1} + \left( 1 - n \right)^{n - 1} a^n \right) = \\
+    & \min\left\{ v_p\left( n^n b^{n-1} \right), v_p\left( \left( 1 - n \right)^{n - 1} a^n \right) \right\} = \\
+    & \min\left\{ n v_p\left( n \right) + \left( n - 1 \right), \left( n - 1 \right) v_p\left( 1 - n \right) + n \right\} \leq n
+  \end{align*}
+  and hence 
+  \[
+    v_p\left( \rd L \right) \leq 1
+  \]
+  as claimed.
+\end{proof} 
+Assume now that $\left| a \right| = \left| b \right| = p$ for some prime $p$.
+\begin{corollary}
+  \label{cor:the_case_of_a_equal_b_equal_p}
+  If there is no number field that is ramified only above $p$ and whose root discriminant is at most $p$ that does not satisfy any of the conditions in Corollary \ref{cor:conditions_that_guarantee_full_galois_group}, then $\Gal\left( f \right) = S_n$ for any $n$.
+\end{corollary}
+\begin{proof}
+  Follows immediately from Corollary \ref{cor:conditions_that_guarantee_full_galois_group} and Lemma \ref{lem:valuation_of_rd_when_a_equal_b_is_square_free}.
+\end{proof}
+\begin{corollary}
+  The Galois group of 
+  \[
+    f = x^n \pm 2x - 2
+  \]
+  is $S_n$ for any $n$.
+\end{corollary}
+\begin{proof}
+  According \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&ram_primes=2&rd=-2-2} the only number field that is ramified only above $2$ and whose root discriminant is at most $2$ is the quadratic field $\Q\left( i \right)$.
+  Since it is purely imaginary and $f$ has a real root, it follows from Corollary \ref{cor:the_case_of_a_equal_b_equal_p} that $\Gal\left( f \right) = S_n$ for any $n$ as claimed.
+\end{proof}
+\begin{corollary}
+  The Galois group of 
+  \[
+    f = x^n \pm 3x - 3
+  \]
+  is $S_n$ for any $n$.
+\end{corollary}
+\begin{proof}
+  According \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&ram_primes=3&rd=-3-3} the only number field that is ramified only above $3$ and whose root discriminant is at most $3$ is the quadratic field $\Q\left( \sqrt{-3} \right)$.
+  Since it is purely imaginary and $f$ has a real root, it follows from Corollary \ref{cor:the_case_of_a_equal_b_equal_p} that $\Gal\left( f \right) = S_n$ for any $n$ as claimed.
+\end{proof}
+\begin{corollary}
+  The Galois group of 
+  \[
+    f = x^n \pm 3x - 3
+  \]
+  is $S_n$ for any $n$.
+\end{corollary}
+\begin{proof}
+  According \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&ram_primes=3&rd=-3-3} the only number field that is ramified only above $3$ and whose root discriminant is at most $3$ is the quadratic field $\Q\left( \sqrt{-3} \right)$.
+  Since it is purely imaginary and $f$ has a real root, it follows from Corollary \ref{cor:the_case_of_a_equal_b_equal_p} that $\Gal\left( f \right) = S_n$ for any $n$ as claimed.
+\end{proof}
 
 \subsection{$a = \pm 2, b = 1$}
 We will handle the case $a = -2$ first.
@@ -308,38 +522,6 @@ From this we may deduce that
 \end{align*}
 and in particular its $2$-adic valuation is $2m - 2$ as required.
 \end{proof} 
-\begin{lemma}
-  \label{lem:valuation_of_rd_of_subextensions}
-  Let $p$ be a prime and $L$ a number field.
-  Then 
-  \[
-    v_p\left( \rd K \right) \leq v_p \left( \rd L \right)
-  \]
-\end{lemma}
-\begin{proof}
-  Indeed, 
-  \[
-    \disc\left( L \right) = \disc\left( K \right)^{\left[ L : K \right]} \Norm_{K / \Q}\left( \disc\left( L / K \right) \right)
-  \]
-  and hence 
-  \begin{align*}
-    & 
-    v_p\left( \disc\left( L \right) \right) = \\
-    & \left[ L : K \right] v_p\left( \disc\left( K \right) \right) + v_p\left( \Norm_{K / \Q}\left( \disc\left( L / K \right) \right) \right) \geq \\
-    & \left[ L : K \right] v_p\left( \disc\left( K \right) \right)
-  \end{align*}
-  and hence 
-  \[
-    v_p \left( \d\left( K \right) \right) \leq v_p\left( \d\left( L \right) \right) / \left[ L : K \right]
-  \]
-  \begin{align*}
-    & v_p \left( \rd K \right) = \\
-    & \frac{v_p\left( \disc\left( K \right) \right)}{\left[ K : \Q \right]} \leq \\
-    & \frac{v_p\left( \disc\left( L \right) \right) / \left[ L / K \right]}{\left[ K : \Q \right]} = \\
-    & \frac{v_p\left( \disc\left( L \right) \right)}{\left[ L : \Q \right]} = \\
-    & v_p\left( \rd L \right)
-  \end{align*}
-\end{proof}
 \begin{corollary}
   \label{cor:the_galois_group_of_x^n-2x+1}
   The Galois group of the non-linear factor of $x^n - 2x + 1$ is $S_{n-1}$.
@@ -502,182 +684,113 @@ and in particular its $2$-adic valuation is $2m - 2$ as required.
   \]
   and thus $\left( n / a \right)^n \equiv -1 \mod p$.
 \end{proof}
-Assume in the sequel that $|a| < 22$ (or $< 44$ assuming GRH).
-According to \cite{OdlyzkoSurvey}, there is a constant $C\left( \left| a \right| \right)$ such that for any number field $K$ with degree $m > C\left( \left| a \right| \right)$,
-\[
-  \left| \disc\left( K \right)^{1/m} \right| > \left| a \right|
-\]
-Moreover, let $S\left( \left| a \right| \right)$ be the set of positive integers $n$ that satisfy the conditions of Lemma \ref{lem:valuation_of_disc}, i.e. for any prime $p\mid a$ either 
+% Assume in the sequel that $|a| < 22$ (or $< 44$ assuming GRH).
+% According to \cite{OdlyzkoSurvey}, there is a constant $C\left( \left| a \right| \right)$ such that for any number field $K$ with degree $m > C\left( \left| a \right| \right)$,
+% \[
+%   \left| \disc\left( K \right)^{1/m} \right| > \left| a \right|
+% \]
+Let $S\left( \left| a \right| \right)$ be the set of positive integers $n$ that satisfy the conditions of Lemma \ref{lem:valuation_of_disc}, i.e. for any prime $p\mid a$ either 
 \[
   v_p\left( n \right) \neq v_p\left( a \right) \text{ or } \left( n / a \right)^n \not \equiv -1 \mod p
 \]
-\begin{lemma}
-  \label{lem:there_is_a_prime_dividing_disc_but_not_a}
-  Let $C\left( \left| a \right| \right) < n \in S\left( \left| a \right| \right)$.
-  Then there is a prime $p$ s.t. $p\mid \disc\left( \Q\left( \alpha \right) \right)$ but $p \not \mid a$ and consequently $\Q\left( \alpha \right)$ ramifies above $p$. 
-\end{lemma}
-\editorial{The only example I found so far where every prime dividing the discriminant also divides $a$ is $n = 3, a= -3$ and I checked for any $n \leq 25$ and $\left|a\right| \leq 22$.}
-\begin{proof}
-  According to Lemma \ref{lem:valuation_of_disc} for any prime $p$ dividing $a$ 
-  \[
-    v_p\left( \disc\left( \Q\left( \alpha \right) \right) \right) \leq
-    v_p\left( \disc\left( f_{n,a} \right) \right) = 
-    n \min\left\{ v_p\left( n \right), v_p\left( a \right) \right\} \leq
-    n v_p\left( a \right)
-  \]
-  and hence if any prime dividing $n$ also divides $a$ then 
-  \[
-    \left|\disc\left( \Q\left( \alpha \right) \right)\right| \leq
-    \prod_{p\mid a} p^{n v_p\left( a \right)} =
-    \left| a^n \right| \leq 22^n
-  \]
-  However, according to \cite{OdlyzkoBoundsII} for any large enough $n$
-  \[
-    \left|\disc\left( \Q\left( \alpha \right) \right) \right| > 22^n
-  \]
-  (or $> 44^n$ assuming GRH) and hence there is a prime dividing $\disc\left( \Q\left( \alpha \right) \right)$ that does not divide $a$.
-  The consequence follows from Lemma \ref{lem:inertia_group_acts_as_transposition}.
-\end{proof}
+% \begin{lemma}
+%   \label{lem:there_is_a_prime_dividing_disc_but_not_a}
+%   Let $C\left( \left| a \right| \right) < n \in S\left( \left| a \right| \right)$.
+%   Then there is a prime $p$ s.t. $p\mid \disc\left( \Q\left( \alpha \right) \right)$ but $p \not \mid a$ and consequently $\Q\left( \alpha \right)$ ramifies above $p$. 
+% \end{lemma}
+% \editorial{The only example I found so far where every prime dividing the discriminant also divides $a$ is $n = 3, a= -3$ and I checked for any $n \leq 25$ and $\left|a\right| \leq 22$.}
+% \begin{proof}
+%   According to Lemma \ref{lem:valuation_of_disc} for any prime $p$ dividing $a$ 
+%   \[
+%     v_p\left( \disc\left( \Q\left( \alpha \right) \right) \right) \leq
+%     v_p\left( \disc\left( f_{n,a} \right) \right) = 
+%     n \min\left\{ v_p\left( n \right), v_p\left( a \right) \right\} \leq
+%     n v_p\left( a \right)
+%   \]
+%   and hence if any prime dividing $n$ also divides $a$ then 
+%   \[
+%     \left|\disc\left( \Q\left( \alpha \right) \right)\right| \leq
+%     \prod_{p\mid a} p^{n v_p\left( a \right)} =
+%     \left| a^n \right| \leq 22^n
+%   \]
+%   However, according to \cite{OdlyzkoBoundsII} for any large enough $n$
+%   \[
+%     \left|\disc\left( \Q\left( \alpha \right) \right) \right| > 22^n
+%   \]
+%   (or $> 44^n$ assuming GRH) and hence there is a prime dividing $\disc\left( \Q\left( \alpha \right) \right)$ that does not divide $a$.
+%   The consequence follows from Lemma \ref{lem:inertia_group_acts_as_transposition}.
+% \end{proof}
 
-\begin{lemma}
-  \label{lem:bound_on_disc_of_intermediate_extensions}
-  Assume that $\left|a\right| > 2$ and that $n \in S\left( \left| a \right| \right)$.
-  Then for any intermediate extension $\Q\left( \alpha \right) / K / \Q$ of degree $m$, 
-  \[
-    \left| \disc\left( K \right)^{1/m} \right| \leq \left| a \right|
-  \]
-\end{lemma} 
-\begin{proof}
-  Indeed, 
-  \[
-    \disc\left( \Q\left( \alpha \right) \right) = \disc\left( K \right)^{\left[ \Q\left( \alpha \right) : K \right]} \Norm_{K / \Q}\left( \disc\left( \Q\left( \alpha \right) / K \right) \right)
-  \]
-  and hence for any prime $p$ dividing $\disc\left( K \right)$, 
-  \[
-    \frac{n}{m} v_p\left( \disc\left( K \right) \right) \leq  
-    v_p\left( \disc\left( \Q\left( \alpha \right) \right) \right) \leq
-    v_p\left( \disc\left( f_{n,a} \right) \right) = 
-    n \min\left\{ v_p\left( n \right), v_p\left( a \right) \right\} \leq
-    n v_p\left( a \right)
-  \]
-  and hence 
-  \[
-    \frac{v_p\left( \disc\left( K \right) \right)}{m} \leq v_p\left( a \right)
-  \]
-  Since it is true for any prime dividing $\disc\left( K \right)$, it follows that
-  \[
-    \left| \disc\left( K \right)^{1/m} \right| \leq \left| a \right|
-  \]
-\end{proof}
-\begin{lemma}
-  \label{lem:if_no_number_field_with_small_root_disc_then_galois_group_is_full}
+% \begin{lemma}
+%   \label{lem:bound_on_disc_of_intermediate_extensions}
+%   Assume that $\left|a\right| > 2$ and that $n \in S\left( \left| a \right| \right)$.
+%   Then for any intermediate extension $\Q\left( \alpha \right) / K / \Q$ of degree $m$, 
+%   \[
+%     \left| \disc\left( K \right)^{1/m} \right| \leq \left| a \right|
+%   \]
+% \end{lemma} 
+% \begin{proof}
+%   Indeed, 
+%   \[
+%     \disc\left( \Q\left( \alpha \right) \right) = \disc\left( K \right)^{\left[ \Q\left( \alpha \right) : K \right]} \Norm_{K / \Q}\left( \disc\left( \Q\left( \alpha \right) / K \right) \right)
+%   \]
+%   and hence for any prime $p$ dividing $\disc\left( K \right)$, 
+%   \[
+%     \frac{n}{m} v_p\left( \disc\left( K \right) \right) \leq  
+%     v_p\left( \disc\left( \Q\left( \alpha \right) \right) \right) \leq
+%     v_p\left( \disc\left( f_{n,a} \right) \right) = 
+%     n \min\left\{ v_p\left( n \right), v_p\left( a \right) \right\} \leq
+%     n v_p\left( a \right)
+%   \]
+%   and hence 
+%   \[
+%     \frac{v_p\left( \disc\left( K \right) \right)}{m} \leq v_p\left( a \right)
+%   \]
+%   Since it is true for any prime dividing $\disc\left( K \right)$, it follows that
+%   \[
+%     \left| \disc\left( K \right)^{1/m} \right| \leq \left| a \right|
+%   \]
+% \end{proof}
+% \begin{lemma}
+%   \label{lem:if_no_number_field_with_small_root_disc_then_galois_group_is_full}
+%   Let $n \in S\left( \left| a \right| \right)$.
+%   Assume that there is no intermediate extension $\Q \subsetneq K \subsetneq \Q\left( \alpha \right)$ that is ramified only over primes dividing $a$ and whose root discriminant is at most $\left| a \right|$.
+%   Then $\Gal\left( f_{n,a} \right) = S_n$. 
+% \end{lemma}
+% \begin{proof}
+%   Assume that $n$ satisfies the above conditions.
+%   Then by Lemma \ref{lem:bound_on_disc_of_intermediate_extensions}, $\Q\left( \alpha \right)$ has no proper intermediate extensions.
+%   Therefore, $\Hom\left( \Q\left( \alpha \right), \overline{\Q} \right)$ has no $G$-equivariant quotients and hence $G$ acts primitively on $\Hom\left( \Q\left( \alpha \right), \overline{\Q} \right)$.
+%   However, by Lemma \ref{lem:inertia_group_acts_as_transposition} and Lemma \ref{lem:there_is_a_prime_dividing_disc_but_not_a}, there is a prime $p$ such that $I\left( p \right)$ acts on $\Hom\left( \Q\left( \alpha \right), \overline{\Q} \right)$ as a single transposition and hence $G$ contains a transposition.
+%   Therefore, since any primitive subgroup of $S_n$ that contains a transposition is $S_n$, it follows that $G = S_n$.
+% \end{proof} 
+
+% We can now use calculated minimal root discriminants of number fields ramified only over primes dividing $a$ to deduce which values of $a$ satisfy the condition of lemma \ref{lem:if_no_number_field_with_small_root_disc_then_galois_group_is_full}. 
+\begin{corollary}
   Let $n \in S\left( \left| a \right| \right)$.
-  Assume that there is no intermediate extension $\Q \subsetneq K \subsetneq \Q\left( \alpha \right)$ that is ramified only over primes dividing $a$ and whose root discriminant is at most $\left| a \right|$.
-  Then $\Gal\left( f_{n,a} \right) = S_n$. 
-\end{lemma}
-\begin{proof}
-  Assume that $n$ satisfies the above conditions.
-  Then by Lemma \ref{lem:bound_on_disc_of_intermediate_extensions}, $\Q\left( \alpha \right)$ has no proper intermediate extensions.
-  Therefore, $\Hom\left( \Q\left( \alpha \right), \overline{\Q} \right)$ has no $G$-equivariant quotients and hence $G$ acts primitively on $\Hom\left( \Q\left( \alpha \right), \overline{\Q} \right)$.
-  However, by Lemma \ref{lem:inertia_group_acts_as_transposition} and Lemma \ref{lem:there_is_a_prime_dividing_disc_but_not_a}, there is a prime $p$ such that $I\left( p \right)$ acts on $\Hom\left( \Q\left( \alpha \right), \overline{\Q} \right)$ as a single transposition and hence $G$ contains a transposition.
-  Therefore, since any primitive subgroup of $S_n$ that contains a transposition is $S_n$, it follows that $G = S_n$.
-\end{proof} 
-\begin{lemma}
-  \label{lem:imprimitivity_finite_obstruction}
-  Let $K$ be a number field.
-  Assume that there is an integer $m \in \Z$ and a prime $p$ not dividing $a$ such that $K$ has no embedding into $\Q_p$ and 
+  Then 
   \[
-    v_p\left( f_{n,a}\left( m \right) \right) = 1
+    v_p\left( \rd\left( f \right) \right) \leq v_p\left( a \right)
   \]
-  Then $K$ cannot be a subfield of $\Q\left[ x \right] / \left( f_{n,a} \right)$.
-\end{lemma}
-\begin{proof}
-  Since $p$ does not divide $a$, it does not ramify in $K$ according to Corollary \ref{cor:ramification_only_over_primes_dividing_a}, and hence since $K$ has no embedding into $\Q_p$, $K$ has no embedding into any purely ramified extension of $\Q_p$.
-  Therefore, to show that $K$ can not be a subfield of $\Q\left[ x \right] / \left( f_{n,a} \right)$, it suffices to show that $f_{n,a}$ has a root that is contained in a purely ramified extension of $\Q_p$.
-  Indeed, let $e$ be the multiplicity of $m$ as a root of $f_{n,a}$ modulo $p$.
-  Then there is a factorization 
-    \[
-      \pi\left( f_{n,a} \right) = \left( x-m \right)^e \overline{g} \in \F_p\left[ x \right]
-    \]
-    for some $\overline{g} \in \F_p\left[ x \right]$ that is coprime to $\left( x-m \right)$ where $\pi : \Z_p\left[ x \right] \to \F_p\left[ x \right]$ is the quotient map.
-    By hensel's lemma, there is a factorization
-    \[
-      f_{n,a} = h g \in \Z_p\left[ x \right]
-    \]
-    where $\pi\left( h \right) = \left( x-m \right)^e$ and $\pi\left( g \right) = \overline{g}$.
-    Consider now the polynomial 
-    \[
-      f_{n,a}\left( x + m \right) = 
-      h\left( x + m \right)g\left( x + m \right) = x^n + \sum_{i=0}^{n-1} c_i x^i \in \Z\left[ x \right]  
-    \]
-    Then 
-    \[
-      v_p\left( c_0 \right) = v_p\left( f_{n,a}\left( m \right) \right) = 1
-    \]
-    and 
-    \[
-      \pi\left( f_{n,a}\left( x + m \right) \right) = 
-      \pi\left( h\left( x + m \right) \right) \pi\left( g\left( x + m \right) \right) =
-      x^e \overline{g}\left( x + m \right) \in \F_p\left[ x \right]
-    \]
-    and hence 
-    \[
-      v_p\left( c_i \right) \geq 1
-    \]
-    for all $i < e$.
-    Therefore, the Newton polygon of $f_{n,a}\left( x + m \right)$ with respect to $p$ has a single segment of negative and its slope is at most $1/e$ in absolute value.
-    Therefore, $f_{n,a}\left( x + m \right)$ has a root, call it $\beta$, whose $p$-valuation is at most $1/e$.
-    Therefore, since the set of roots of $f_{n,a}\left( x + m \right)$ that reduce to $0$ modulo $p$ is exactly the set of roots of $h\left( x + m \right)$, whose degree is $e$, it follows that the ramification degree of $\beta$ over $\Q_p$ is exactly its over all algebraic degree over $\Q_p$ and hence $\Q_p\left( \beta \right) / \Q_p$ is purely ramified.
-    This shows that there is an embedding, in particular the one extending the assignment $x \mapsto \beta$, of $\Q\left[ x \right] / \left( f_{n,a} \right)$ into a purely ramified extension of $\Q_p$  
-\end{proof}
+\end{corollary}
+Assume now that $a$ is a power of some prime $p$.
+\begin{corollary}
+  \label{cor:for_p_power_a} 
+  If any number field that is ramified only over $p$ and whose root discriminant is at most $a$ in absolute value satisfies one of the conditions of corollary \ref{cor:conditions_that_guarantee_full_galois_group} then for any $n \in S\left( a \right)$, $\Gal\left( f \right) = S_n$.
+\end{corollary}
 
 \begin{corollary}
-  \label{cor:conditions_that_guarantee_full_galois_group}
-  Assume that that for every number field $K$ that is ramified only over primes dividing $a$ and whose root discriminant is at most $\left| a \right|$, either of the following holds:
-  \begin{enumerate}
-    \item $K$ is purely imaginary.
-    \item There is a prime $p$ not divide $a$ such that $v_p\left( a+2 \right) = 1$ and such that there is a polynomial $h$ defining $K$ over $\Q$ that has no solution mod $p$.
-    \item $K$ is of even degree and there is a prime $p$ such that $v_p\left( -a+2 \right) = 1$ and such that there is a polynomial defining $K$ over $\Q$ that has no solution mod $p$.
-  \end{enumerate}
-  Then $\Gal\left( f_{n,a} \right) = S_n$ for any $C\left( \left| a \right| \right) < n \in S\left( \left| a \right| \right)$.
+  For any $n \in S\left( 3 \right)$, $\Gal\left( f_{n,\pm3} \right) = S_n$.  
 \end{corollary}
 \begin{proof}
-  Based on Lemma \ref{lem:if_no_number_field_with_small_root_disc_then_galois_group_is_full}, it suffices to show that any field $K$ that satisfies one of the above conditions cannot be a subfield of $\Q\left[ x \right] / \left( f_{n,a} \right)$. 
-  \begin{enumerate}
-    \item If $k$ is purely imaginary, note that $f_{n,a}$ always has a real root as it tends to $+\infty$ as $x \to +\infty$ and $f_{n,a}\left( a / \left| a \right| \right)$ is always negative.
-    \item Assume that the second condition holds.
-    Since $h$ has no solution mod $p$, $K$ has no embedding into $\Q_p$ and hence since 
-    \[
-      1 = v_p\left( a + 2 \right) = v_p\left( f_{n,a}\left( 1 \right) \right)
-    \]
-    it follows from Lemma \ref{lem:imprimitivity_finite_obstruction} that $K$ cannot be a subfield of $\Q\left[ x \right] / \left( f_{n,a} \right)$. 
-    \item Assume that the third condition holds.
-    If $n$ is odd, then $K$ cannot be a subfield of $\Q\left[ x \right] / \left( f_{n,a} \right)$ since the latter has an odd degree.
-    Assume then that $n$ is even.
-    Again, since $h$ has no solution mod $p$, $K$ has no embedding into $\Q_p$ and hence since 
-    \[
-      1 = v_p\left( -a + 2 \right) = v_p\left( f_{n,a}\left( -1 \right) \right)
-    \]
-    it follows from Lemma \ref{lem:imprimitivity_finite_obstruction} that $K$ cannot be a subfield of $\Q\left[ x \right] / \left( f_{n,a} \right)$.
-  \end{enumerate}
-\end{proof}
-
-We can now use calculated minimal root discriminants of number fields ramified only over primes dividing $a$ to deduce which values of $a$ satisfy the condition of lemma \ref{lem:if_no_number_field_with_small_root_disc_then_galois_group_is_full}. 
-
-\begin{corollary}
-  For any $n \in S\left( 3 \right)$, $\Gal\left( f_{n,\pm3} \right) = S_n$ unless $n = 3, a = -3$.  
-\end{corollary}
-\begin{proof}
-  According to \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&ram_primes=3&rd=-3-3}, the only non-trvial number field that is ramified only over $3$ and whose root discriminant is at most $3$ is the cyclotomic extension $\Q\left( \zeta_3 \right) = \Q\left( \sqrt{-3} \right)$ which is purely imaginary and hence the result follows from Corollary \ref{cor:conditions_that_guarantee_full_galois_group} for any $n > C\left( 3 \right)$.
-  However, according to \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&rd=-5-5&sort_order=rd&showcol=rd&hidecol=galois.class_group_desc&sort_order=rd}, $C\left( 3 \right) = 3$ and the smaller cases can be checked computationally.
+  According to \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&ram_primes=3&rd=-3-3}, the only non-trvial number field that is ramified only over $3$ and whose root discriminant is at most $3$ is the cyclotomic extension $\Q\left( \zeta_3 \right) = \Q\left( \sqrt{-3} \right)$ which is purely imaginary and hence the result follows from Corollary \ref{cor:for_p_power_a}.
 \end{proof}
 
 \begin{corollary}
   For any $n \in S\left( 4 \right)$, $\Gal\left( f_{n,\pm4} \right) = S_n$.
 \end{corollary}
 \begin{proof}
-  According to \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&ram_primes=2&rd=-4-4&sort_order=rd&sort_order=rd}, the only non-trivial number fields that are ramified only over $2$ and whose root discriminant is at most $4$ are the three purely imaginary fields defined by the polynomials $x^2 + 1, x^2 + 2, x^4 + 1$, and the quadratic field $\Q\left( \sqrt{2} \right)$ which is defined by $x^2 -2$ which has no solution mod $3$ which divides $4 + 2 = -\left( -4 \right) + 2$, is inert, and hence the result follows from Corollary \ref{cor:conditions_that_guarantee_full_galois_group} for any $n > C\left( 4 \right)$.
-  However, according to \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&rd=-5-5&sort_order=rd&showcol=rd&hidecol=galois.class_group_desc&sort_order=rd}, $C\left( 4 \right) = 4$ and the smaller cases can be checked computationally.
+  According to \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&ram_primes=2&rd=-4-4&sort_order=rd&sort_order=rd}, the only non-trivial number fields that are ramified only over $2$ and whose root discriminant is at most $4$ are the three purely imaginary fields defined by the polynomials $x^2 + 1, x^2 + 2, x^4 + 1$, and the quadratic field $\Q\left( \sqrt{2} \right)$ which is defined by $x^2 -2$ which has no solution mod $3$ which divides $4 + 2 = -\left( -4 \right) + 2$, is inert, and hence the result follows from Corollary \ref{cor:for_p_power_a}.
 \end{proof}
 
 \begin{corollary}
@@ -685,8 +798,7 @@ We can now use calculated minimal root discriminants of number fields ramified o
 \end{corollary}
 \begin{proof}
   According to \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&ram_primes=5&rd=-5-5&sort_order=rd&sort_order=rd}, the only non-trivial number fields that are ramified only over $5$ and whose root discriminant is at most $5$ are the cyclotomic extension $\Q\left( \zeta_5 \right)$ and the quadratic field $\Q\left( \sqrt{5} \right)$.
-  The first is purely imaginary, and the second may be defined by $x^2 - 5$ which has no solution either mod $7$ which divides $5 + 2$ or mod $3$ which divides $-5 + 2$ and hence the result follows from Corollary \ref{cor:conditions_that_guarantee_full_galois_group} for any $n > C\left( 5 \right)$.
-  However, according to \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&rd=-5-5&sort_order=rd&showcol=rd&hidecol=galois.class_group_desc&sort_order=rd}, $C\left( 5 \right) = 6$ and the smaller cases can be checked computationally.
+  The first is purely imaginary, and the second may be defined by $x^2 - 5$ which has no solution either mod $7$ which divides $5 + 2$ or mod $3$ which divides $-5 + 2$ and hence the result follows from Corollary \ref{cor:for_p_power_a}.
 \end{proof}
 
 \editorial{I cannot reliably check any largegr values since the database is guaranteed to be complete only for root discriminants up to $5.989$.}

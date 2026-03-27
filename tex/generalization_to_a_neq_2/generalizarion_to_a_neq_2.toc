@@ -2,8 +2,10 @@
 \contentsline {section}{\numberline {1}Proof that the Galois group of any irreducible factor of $x^n +ax + b$ is symmetric for different small values of $a$ and $b$}{1}{section.1}%
 \etoc@startlocaltoc {1}
 \contentsline {subsection}{\numberline {1.1}Summary of results}{1}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Notations}{2}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.2}Notations}{3}{subsection.1.2}%
 \contentsline {subsection}{\numberline {1.3}Strategy}{3}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}$a b = \pm 1$}{9}{subsection.1.4}%
-\contentsline {subsection}{\numberline {1.5}$a = \pm 2, b = 1$}{10}{subsection.1.5}%
-\contentsline {subsection}{\numberline {1.6}$a = \pm 3, \pm 4, \pm 5, b = 1$}{19}{subsection.1.6}%
+\contentsline {subsection}{\numberline {1.4}$a b = \pm 1$}{10}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Strategy for harder cases}{11}{subsection.1.5}%
+\contentsline {subsection}{\numberline {1.6}$2 \leq \left | a \right | = \left | b \right |$ square free}{17}{subsection.1.6}%
+\contentsline {subsection}{\numberline {1.7}$a = \pm 2, b = 1$}{21}{subsection.1.7}%
+\contentsline {subsection}{\numberline {1.8}$a = \pm 3, \pm 4, \pm 5, b = 1$}{29}{subsection.1.8}%
