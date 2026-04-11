@@ -2,3 +2,11 @@ P<x> := PolynomialRing(Rationals());
 f:=x^28-2*x+1;
 g := f div (x - 1);
 IsEasySnAn(g)
+
+
+P<x> := PolynomialRing(Rationals());
+f := 1;
+for d:= 2 to 450 by 2 do
+    f *:= IsEasySnAn(x^d+2*x+2);
+end for;
+f;

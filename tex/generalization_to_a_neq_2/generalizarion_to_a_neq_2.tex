@@ -23,9 +23,11 @@ If all the conditions in one of the rows of the table below are satisfied, then 
  \hline
  $\pm 2$ & $1$ & & \\ 
  \hline
- $\pm 2$ & $-2$ & & \\ 
+ $\pm 2$ & $\pm 2$ & & \\ 
  \hline
  $\pm 3$ & $-3$ & & \\ 
+ \hline
+ $\pm 4$ & $-2$ & & \\ 
  \hline
  $\pm 3$ & $1$ & $-a$ & 18 \\
  \hline
@@ -218,6 +220,7 @@ Assume that $ab = \pm 1$.
   \[
     v_p\left( \rd K \right) \leq v_p \left( \rd L \right)
   \]
+  and the inequality is strict iff $L/K$ is ramified over $p$.
 \end{lemma}
 \begin{proof}
   Indeed, 
@@ -231,10 +234,7 @@ Assume that $ab = \pm 1$.
     & \left[ L : K \right] v_p\left( \disc\left( K \right) \right) + v_p\left( \Norm_{K / \Q}\left( \disc\left( L / K \right) \right) \right) \geq \\
     & \left[ L : K \right] v_p\left( \disc\left( K \right) \right)
   \end{align*}
-  and hence 
-  \[
-    v_p \left( \d\left( K \right) \right) \leq v_p\left( \d\left( L \right) \right) / \left[ L : K \right]
-  \]
+  and hence
   \begin{align*}
     & v_p \left( \rd K \right) = \\
     & \frac{v_p\left( \disc\left( K \right) \right)}{\left[ K : \Q \right]} \leq \\
@@ -242,7 +242,9 @@ Assume that $ab = \pm 1$.
     & \frac{v_p\left( \disc\left( L \right) \right)}{\left[ L : \Q \right]} = \\
     & v_p\left( \rd L \right)
   \end{align*}
+  when the inequality in both of the above blocks is sharp iff $L/K$ is ramified over $p$ 
 \end{proof} 
+\editorial{I think the formulation of the rest of this subsection can be simplified, I will try doing it soon (In particular the constant $C_p$ is unnecessary and I don't use it anywhere later).}
 \begin{strategy}
   \label{strategy:harder_cases}
   Let $p$ be a prime that divides $a b$.
@@ -309,6 +311,7 @@ To compose such a list of properties, we will first prove the following:
     \item $K$ is purely imaginary and $g$ has a real root.
     \item There is a prime $p$ not divide $a$ such that $v_p\left( b + a + 1 \right) = 1$ and such that there is a polynomial $h$ defining $K$ over $\Q$ that has no solution mod $p$.
     \item $K$ is of even degree and there is a prime $p$ such that $v_p\left( b - a + 1 \right) = 1$ and such that there is a polynomial defining $K$ over $\Q$ that has no solution mod $p$.
+    \item $v_p\left( \rd K \right) = v_p\left( \rd L \right)$ and the ramification degree of $p$ in $K$ is strictly smaller than the ramification degree of $p$ in $L$.
   \end{enumerate}
   Then the Galois group of $g$ is $S_{\deg g}$ if $v_p\left( \rd L \right) < C_p\left( a,b \right)$ for every prime $p$ dividing $a b$.
 \end{corollary}
@@ -330,50 +333,61 @@ To compose such a list of properties, we will first prove the following:
       1 = v_p\left( b - a + 1 \right) = v_p\left( f\left( -1 \right) \right)
     \]
     it follows from Lemma \ref{lem:imprimitivity_finite_obstruction} that $K$ cannot be a subfield of $\Q\left[ x \right] / \left( f \right)$.
+    \item Assume that the fourth condition holds.
+    Then by Lemma \ref{lem:valuation_of_rd_of_subextensions}, $K$ cannot be a subfield of $\Q\left[ x \right] / \left( f \right)$ since if it were, then $v_p\left( \rd K \right) < v_p\left( \rd L \right)$, contradicting the assumption of the fourth condition.
   \end{enumerate}
 \end{proof}
 
-\subsection{$2 \leq \left| a \right| = \left| b \right|$ square free}
-Assume that $2 \leq \left| a \right| = \left| b \right|$ and that $a$ is square free.
+\subsection{$2 \leq \left| b \right|$ square free and $\left| a \right| = \left| b \right|^d$ for some $d \geq 1$}
+Assume that $2 \leq \left| b \right|$, that $b$ is square free and that $\left| a \right| = \left| b \right|^d$ for some $d \geq 1$.
 Note that in this case $f$ is irreducible over $\Q$ since it is an Eisenstein polynomial with respect to the prime $2$.
 \begin{lemma}
   \label{lem:valuation_of_rd_when_a_equal_b_is_square_free}
   Let $p$ be a prime dividing $a$.
-  Then $v_p\left( \rd\left( L \right) \right) \leq 1$.
+  Then $v_p\left( \rd\left( L \right) \right) \leq d$.
 \end{lemma}
 \begin{proof}
-  The equality
+  According to \cite{Swan62} 
+  \[
+    \d\left( f \right) = n^n b^{n-1} + \left( 1 - n \right)^{n - 1} a^n
+  \]
+  Hence, to bound $v_p\left( \d\left( f \right) \right)$, we will first assume towards a contradiction that
   \[
     v_p\left( n^n b^{n-1} \right) = v_p\left( \left( 1 - n \right)^{n - 1} a^n \right)
   \]
-  is equivalent to
+  However, this equality is equivalent to
   \[
     n v_p\left( n \right) + \left( n - 1 \right)v_p\left( b \right) = \left( n - 1 \right) v_p\left( 1 - n \right) + n v_p\left( a \right)
   \]
   which holds if and only if
   \[
-    n v_p\left( n \right) - \left( n - 1 \right)v_p\left( n-1 \right) = n v_p\left( a \right) - \left( n - 1 \right)v_p\left( b \right) = v_p\left( a \right) = 1
+    n v_p\left( n \right) - \left( n - 1 \right)v_p\left( n-1 \right) = n v_p\left( a \right) - \left( n - 1 \right)v_p\left( b \right) = n d - \left( n - 1 \right) = \left( d - 1 \right) n + 1 
   \]
-  However, the left hand side must be divisible by $p$ and hence cannot be equal to $1$.
+  Since the left hand side is divisible by $p$, and if $d = 1$ then the right hand side is $1$, it follows that $d > 1$.
+  Since the right hand side is positive, it follows that $n v_p\left( n \right) \geq \left( n - 1 \right)v_p\left( n - 1 \right) \geq 0$ and hence $n \equiv 0 \mod p$.
+  However, it hence follows that the right hand side is congruent to $1$ modulo $p$, contradicting the fact that it is divisible by $p$.
   
-  Therefore, according to \cite{Swan62},
+  Therefore, 
   \begin{align*}
     & v_p\left( \d\left( L \right) \right) \leq \\
     & v_p\left( \d\left( f \right) \right) = \\
     & v_p\left( n^n b^{n-1} + \left( 1 - n \right)^{n - 1} a^n \right) = \\
     & \min\left\{ v_p\left( n^n b^{n-1} \right), v_p\left( \left( 1 - n \right)^{n - 1} a^n \right) \right\} = \\
-    & \min\left\{ n v_p\left( n \right) + \left( n - 1 \right), \left( n - 1 \right) v_p\left( 1 - n \right) + n \right\} \leq n
+    & \min\left\{ 
+      n v_p\left( n \right) + \left( n - 1 \right), 
+      \left( n - 1 \right) v_p\left( 1 - n \right) + dn 
+    \right\} \leq d n
   \end{align*}
   and hence 
   \[
-    v_p\left( \rd L \right) \leq 1
+    v_p\left( \rd L \right) \leq d
   \]
   as claimed.
 \end{proof} 
 Assume now that $\left| a \right| = \left| b \right| = p$ for some prime $p$.
 \begin{corollary}
   \label{cor:the_case_of_a_equal_b_equal_p}
-  If there is no number field that is ramified only above $p$ and whose root discriminant is at most $p$ that does not satisfy any of the conditions in Corollary \ref{cor:conditions_that_guarantee_full_galois_group}, then $\Gal\left( f \right) = S_n$ for any $n$.
+  If there is no number field that is ramified only above $p$ and whose root discriminant is at most $p^d$ that does not satisfy any of the conditions in Corollary \ref{cor:conditions_that_guarantee_full_galois_group}, then $\Gal\left( f \right) = S_n$ for any $n$.
 \end{corollary}
 \begin{proof}
   Follows immediately from Corollary \ref{cor:conditions_that_guarantee_full_galois_group} and Lemma \ref{lem:valuation_of_rd_when_a_equal_b_is_square_free}.
@@ -381,13 +395,15 @@ Assume now that $\left| a \right| = \left| b \right| = p$ for some prime $p$.
 \begin{corollary}
   The Galois group of 
   \[
-    f = x^n \pm 2x - 2
+    f = x^n \pm 2x \pm 2
   \]
   is $S_n$ for any $n$.
 \end{corollary}
 \begin{proof}
+  For $n = 2$ the result is clear.
+  Assume that $n \geq 3$.
   According \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&ram_primes=2&rd=-2-2} the only number field that is ramified only above $2$ and whose root discriminant is at most $2$ is the quadratic field $\Q\left( i \right)$.
-  Since it is purely imaginary and $f$ has a real root, it follows from Corollary \ref{cor:the_case_of_a_equal_b_equal_p} that $\Gal\left( f \right) = S_n$ for any $n$ as claimed.
+  However, the ramification degree of $2$ in $\Q\left( i \right)$ is $2$ while the ramification degree of $2$ in $\Q\left[ x \right] / \left( f \right)$ is $n > 2$ and hence it follows from Corollary \ref{cor:the_case_of_a_equal_b_equal_p} that $\Gal\left( f \right) = S_n$ for any $n$ as claimed.
 \end{proof}
 \begin{corollary}
   The Galois group of 
@@ -410,9 +426,46 @@ Assume now that $\left| a \right| = \left| b \right| = p$ for some prime $p$.
 \begin{proof}
   According \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&ram_primes=3&rd=-3-3} the only number field that is ramified only above $3$ and whose root discriminant is at most $3$ is the quadratic field $\Q\left( \sqrt{-3} \right)$.
   Since it is purely imaginary and $f$ has a real root, it follows from Corollary \ref{cor:the_case_of_a_equal_b_equal_p} that $\Gal\left( f \right) = S_n$ for any $n$ as claimed.
+\end{proof}
+\begin{corollary}
+  The Galois group of 
+  \[
+    f = x^n \pm 4x - 2
+  \]
+  is $S_n$ for any $n$.
+\end{corollary}
+\begin{proof}
+  First of all note that $f$ has a real root since $f\left( 0 \right) = -2$. 
+  According \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&ram_primes=2&rd=-4-4} the only number field that is ramified only above $2$ whose root discriminant is at most $4$ and that is not purely imaginary is $\Q\left( \sqrt{2} \right)$.
+  However, it is a field of even degree, that is defined by a polynomial, $x^2 - 2$, that has no solution mod $3$ while if $a = 4$ then
+  \[
+    v_3\left( b + a + 1 \right) = 1
+  \]
+  and if $a = -4$ then 
+  \[
+    v_3\left( b - a + 1 \right) = 1
+  \]
+  Hence, it follows from Corollary \ref{cor:the_case_of_a_equal_b_equal_p} that $\Gal\left( f \right) = S_n$ for any $n$ as claimed.
 \end{proof}
 
+\subsection{$a = \pm 4, b = 4$}
+Assume that $a = \pm 4$ and $b = 4$.
+The case $n = 2$ is easy - the polynomial $f$ factors into two linear factors and hence the Galois group of any of its irreducible factors is symmetric.
+Assume now that $n \geq 3$. 
+\begin{lemma}
+  $f$ is irreducible over $\Q$.
+\end{lemma}
+\begin{proof}
+  First of all, note that by analyzing the Newton polygon of $f$ with respect to the prime $2$, it follows that all  
+  Assume towards a contradiction that $f$ is reducible over $\Q$.
+  
+  
+\end{proof}
+
+
+
 \subsection{$a = \pm 2, b = 1$}
+
 We will handle the case $a = -2$ first.
 Note that in this case $1$ is a root of $f_{n,-2}$, and if we divide $f_{n,-2}$ by $x-1$ we obtain the polynomial 
 \begin{equation}
