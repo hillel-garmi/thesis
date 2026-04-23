@@ -8,10 +8,6 @@ Fix $n > 0$ and $a,b \neq 0$ and let
 \[
   f = x^n + ax + b
 \]
-\editorial{for legacy reasons define also 
-\[
-  f_{n,a} = x^n + ax + 1
-\]}
 If all the conditions in one of the rows of the table below are satisfied, then the Galois group of any irreducible factor of $f$ is the full symmetric group.
 
 \begin{center}
@@ -47,6 +43,7 @@ Denote by $G$ the absolute Galois group $\Gal\left( \overline{\Q}/\Q \right)$, a
 Fix an irreducible factor $g$ of $f$ (which most of the time will be $f$ itself) and a root $\alpha \in \overline{\Q}$ of $g$ and denote $L = \Q\left( \alpha \right)$.
 
 For each polynomial $h$ and number field $K$, we will denote by $\d\left( h \right)$ and $\d\left( K \right)$ \editorial{(or for legacy reasons also $\disc\left( K \right)$)} the discriminant of $h$ and of $K$ respectively and by $\rd\left( K \right)$ the root discriminant of $K$, i.e. $\rd\left( K \right) = \d\left( K \right)^{1/\left[ K : \Q \right]}$.  
+We will also use $Z\left( h \right)$ to denote the set of roots of $h$ in $\overline{\Q}$.
 
 \subsection{Strategy}
 We will first lay down a few results that will provide us with a strategy to show that for any triple $n,a,b$ that satisfies different conditions, the Galois group of any factor of $f$ is symmetric.
@@ -54,7 +51,7 @@ We will first lay down a few results that will provide us with a strategy to sho
   \label{lem:inertia_group_acts_as_transposition}
   For any $p \not | ab$, the action of the inertia group $I\left( p \right)$ on $\Hom_{\Q}\left( \Q\left[ x \right] / \left( f \right), \overline{\Q} \right)$ has at most two non-fixed points. 
 \end{lemma}
-\editorial{I think I saw somewhere a proof that covers this for the irreducible case, but I can't find it now. So I will try to adapt Martin's proof}
+\editorial{It is a generalization of Martin's proof (\cite{MARTIN2004213})}
 \begin{proof}
   If $I\left( p \right)$ acts trivially, we are done.
   Assume that it does not.
@@ -185,11 +182,11 @@ We will first lay down a few results that will provide us with a strategy to sho
 \end{proof}
 
 Our strategy would be to find conditions on $n,a,b$ that would guarantee the conditions of the last corollary for any irreducible factor $g$ of $f$.
-In doing so, I found it useful to rephrase the above corollary as follows: 
-\begin{corollary}
-  \label{cor:the_useful_criterion_rephrased}
-  If the Galois group of $L$ is not the full symmetric group, then there is some subextension $\Q \subsetneq K \subseteq L$ that is ramified only over primes dividing $a b$.
-\end{corollary}
+% In doing so, I found it useful to rephrase the above corollary as follows: 
+% \begin{corollary}
+%   \label{cor:the_useful_criterion_rephrased}
+%   If the Galois group of $L$ is not the full symmetric group, then there is some subextension $\Q \subsetneq K \subseteq L$ that is ramified only over primes dividing $a b$.
+% \end{corollary}
 
 
 \subsection{$a b = \pm 1$}
@@ -198,7 +195,7 @@ Assume that $ab = \pm 1$.
   The Galois group over $\Q$ of any irreducible factor of $f$ is symmetric.
 \end{corollary}
 \begin{remark}
-  According to Selmer \cite{SelmerIrreducibility1956} $f$ can always be reduced to either of the forms 
+  Selmer \cite{SelmerIrreducibility1956} noted that $f$ can always be reduced to either of the forms 
   \[
     x^n - x - 1 \quad \text{or} \quad x^n + x + 1 
   \]
@@ -211,7 +208,26 @@ Assume that $ab = \pm 1$.
   This is immediate from Corollary \ref{cor:the_useful_criterion} since there is no prime that divides $a b \pm 1$ and the discriminant of any non-trivial extension of $\Q$ is divisible by some prime as a result of the Minkowski bound.
 \end{proof}
 
-\subsection{Strategy for harder cases}
+% \subsection{$x^n \pm px \pm p$ for $p > 2$ prime}
+% By substituting $x$ by $-x$ if necessary, we can assume that $f = x^n \pm \left( px + p \right)$.
+% We will use the strategy provided by \ref{cor:the_almost_useful_criterion}.
+% We will start by showing that $L$ has no proper intermediate extensions.
+% Let $\Q \subseteq K \subsetneq L$ be a proper subextension.
+% We will show that $K = \Q$.
+
+% \begin{lemma}
+%   $K$ is solvable.
+% \end{lemma}
+% \begin{proof}
+%   Since $f$ is an Eisenstein polynomial with respect to $p$, it is irreducible over $\Q_p$.
+%   $K$ is ramified only over $p$ by Corollary \ref{cor:ramification_only_over_primes_dividing_a}.
+%   Therefore its 
+% \end{proof}
+
+
+
+
+\subsection{Strategy for slightly harder cases}
 
 \begin{lemma}
   \label{lem:valuation_of_rd_of_subextensions}
@@ -243,8 +259,324 @@ Assume that $ab = \pm 1$.
     & v_p\left( \rd L \right)
   \end{align*}
   when the inequality in both of the above blocks is sharp iff $L/K$ is ramified over $p$ 
+\end{proof}
+It turns out that in some cases, all that we need is the combined strength of Corollary \ref{cor:the_useful_criterion} and Lemma \ref{lem:valuation_of_rd_of_subextensions} to show that the Galois group of $g$ is symmetric.
+Namely, in those cases we can use the following corollary: 
+\begin{corollary}
+  If there are no number fields $K$ that are ramified only over primes dividing $a b$ and such that $v_p\left( \rd K \right) < v_p\left( \rd L \right)$ for all primes $p$ dividing $a b$, then the Galois group of $g$ is $S_{\deg g}$.
+\end{corollary}
+% One lemma that will be useful multiple times in the sequel is the following:
+% \begin{lemma}
+%   For any prime $p$, and for any $a \neq 0$, if $f := x^n + ax - 1$ is irreducible over $\Q$, then
+%   \[
+%     v_p\left( \d\left( f \right) \right) \leq \left( n + 1 \right)v_p\left( a \right)
+%   \]
+% \end{lemma}
+% \editorial{We are showing later that it is almost always irreducible, so maybe it makes sense to change the orbit a bit to make this lemma in a better context.}
+% \begin{proof}
+%   Note that 
+%   \begin{align*}
+%     & f'\left( \alpha \right) = n\alpha^{n-1} + a =
+%     n \frac{\alpha^n}{\alpha} + a = 
+%     n \frac{1 - a\alpha}{\alpha} + a = 
+%     n\alpha^{-1} -an + a
+%   \end{align*}
+%   Since $v_p\left( \alpha \right) = 0$, it follows that if $v_p\left( n \right) < v_p\left( a \right)$ then $v_p\left( f'\left( \alpha \right) \right) = v_p\left( a \right)$ and if $v_p\left( n \right) > v_p\left( a \right)$ then $v_p\left( f'\left( \alpha \right) \right) = v_p\left( n\alpha^{-1} \right) = v_p\left( n \right)$.
+%   In both of these cases, since the same is true for any conjugate of $\alpha$, it follows that 
+%   \[
+%     v_2\left( \d\left( f \right) \right) = 
+%     v_2\left( {\rm N}^L_\Q\left( f'\left( \alpha \right) \right) \right) \leq nv_p\left( a \right) 
+%   \]
+%   Assume then that $v_p\left( n \right) = v_p\left( a \right)$.
+%   Then 
+%   \begin{align*}
+%     & 
+%     v_p\left( f'\left( \alpha \right) \right) = \\
+%     & v_p\left( a \right) + 
+%     v_p\left( \frac{n}{p^{v_p\left( a \right)}} \alpha^{-1} - n\frac{a}{p^{v_p\left( a \right)}} + \frac{a}{p^{v_p\left( a \right)}} \right) = \\
+%     & v_p\left( a \right) + 
+%     v_p\left( \frac{n}{p^{v_p\left( a \right)}} - n\frac{a}{p^{v_p\left( a \right)}}\alpha + \frac{a}{p^{v_p\left( a \right)}}\alpha \right)
+%   \end{align*}
+  
+% \end{proof}
+
+
+\subsection{$a = \pm 2, b = \pm 1$}
+
+Similarly to what we did in the previous section, we can reduce all the cases either to one of the cases 
+\[
+  x^n - 2x + 1 \quad \text{or} \quad x^n + 2x - 1
+\]
+We will handle the case $x^n - 2x + 1$ first.
+Note that in this case $1$ is a root of $f$, and if we divide $f$ by $x-1$ we obtain the polynomial 
+\begin{equation}
+  \label{eq:the_polynomial_for_a_equal_minus_2}
+  g := x^{n-1} + x^{n-2} + \ldots + x - 1
+\end{equation}
+After substituting $x$ by $1/x$ and multiplying by $-x^{n-1}$ we obtain the polynomial 
+\[
+  x^{n-1} - x^{n-2} - \ldots - x - 1
+\]
+which defines the same ring extension over $\Q$ as $g$ and which is none other than the characteristic polynomial of the generalized Fibonacci sequence which was studied by Wolfram \cite{Wolfram1998}.
+Wolfram showed that this polynomial is irreducible over $\Q$, and Martin \cite{MARTIN2004213} showed that whenever $n$ is odd, its Galois group is the full symmetric group.
+We will show that its Galois group is the full symmetric group for any $n$.
+However, we will stick to our version of the polynomial defined in \eqref{eq:the_polynomial_for_a_equal_minus_2}.
+
+We will denote by $d$ the discriminant of $g$. 
+Then:
+
+\begin{lemma}
+  \label{lem:2-adic-valuation-of-discriminant}
+\[
+  v_2\left( d \right) = \begin{cases}
+    n - 2 & n \text{ is even} \\
+    0 & n \text{ is odd}
+  \end{cases}
+\]
+\end{lemma}
+\begin{proof}
+  % Note that 
+  % \begin{align*}
+  %   & g'\left( \alpha \right) = \prod_{\beta \in Z\left( g \right)} \left( \alpha - \beta \right) = 
+  %   \frac{
+  %     \prod_{\beta \in Z\left( f \right)} \left( \alpha - \beta \right)
+  %   }{
+  %     \alpha - 1
+  %   } = 
+  %   \frac{
+  %     f'\left( \alpha \right)
+  %   }{
+  %     \alpha - 1
+  %   } = \\
+  %   & \frac{
+  %     n \alpha^{n-1} - 2
+  %   }{
+  %     \alpha - 1
+  %   } =
+  %   \frac{
+  %     n \frac{\alpha^n}{\alpha} - 2
+  %   }{
+  %     \alpha - 1
+  %   } =
+  %   \frac{
+  %     n \frac{2\alpha - 1}{\alpha} - 2
+  %   }{
+  %     \alpha - 1
+  %   } =
+  %   \frac{
+  %     n \left( 2-\alpha^{-1} \right) - 2
+  %   }{
+  %     \alpha - 1
+  %   } = \\
+  %   & \frac{
+  %     2n - 2 - n \alpha^{-1}
+  %   }{
+  %     \alpha - 1
+  %   } 
+  % \end{align*}
+  % Assume first that $n$ is odd, then $g\left( 1 \right) = -1$ and hence $\alpha \neq 1$ and thus $v_2\left( g'\left( \alpha \right) \right) = 0$.
+  % Assume now that $n$ is even.
+  % Since $v_2\left( \alpha \right) = 0$,
+  % \begin{align*}
+  %   & v_2\left( 2n -2 - n\alpha^{-1} \right) = 
+  %   v_2\left( 2n\alpha - 2\alpha - n  \right) = 
+  %   1 + v_2\left( n\alpha - 1 - \frac{n}{2} \right) = \\
+  %   & 1 + v_2\left( \frac{n}{2}\left( \alpha - 1 \right) + \frac{n - 2}{2} \right)
+  % \end{align*}
+  \editorial{We can also try proving this estimation in a way that is more conceptual and similar to the way we prove similar estimations in the sequel using the characterization of the discriminant as the norm of the derivative at a root.}
+
+  By \cite{MARTIN2004213} 
+  \begin{align*}
+    d = & 
+    \frac{
+      \left( -1 \right)^{\binom{n}{2}}\left( n^n - 2^n \left( n - 1 \right)^{ n - 1 } \right)
+    }{
+      \left( n - 2 \right)^2
+    } 
+  \end{align*}
+  If $n$ is odd it is easy to see that both the denominator and numerator are odd, and hence $v_2\left( d \right) = 0$ as required.
+  Assume now that $n$ is even.
+  Then we can manipulate the expression above and get 
+  \begin{align*}
+    d = &
+    \left( -1 \right)^{\binom{n}{2}}2^n \cdot
+    \frac{
+      \left( \frac{n}{2} \right)^n - \left( n - 1 \right)^{n - 1}
+    }{
+      \left( n - 2 \right)^2
+    }
+  \end{align*}
+
+  and hence if we denote $m = v_2\left( n - 2 \right)$ we get that 
+  \[
+    v_2\left( d \right) = 
+    n - 2m + 
+    v_2\left( 
+      \left( \frac{n}{2} \right)^n - \left( n - 1 \right)^{n - 1} 
+    \right)
+  \]
+Therefore, our claim is equivalent to showing that 
+\[
+  n - 2 = n - 2m + v_2\left( \left( \frac{n}{2} \right)^n - \left( n - 1 \right)^{n - 1} \right)
+\]
+or equivalently, that 
+\[
+  v_2\left( \left( \frac{n}{2} \right)^n - \left( n - 1 \right)^{n - 1} \right) = 2m - 2
+\]
+
+
+  Assume first that $m = 1$, then 
+  \[
+    v_2\left( \frac{n}{2} \right) \geq 1
+  \]
+  and hence 
+  \[
+    v_2\left( \left( \frac{n}{2} \right)^n \right) \geq n > 0 = v_2\left( \left( n - 1 \right)^{n - 1} \right)
+  \]
+  and hence 
+  \[
+    v_2\left( \left( \frac{n}{2} \right)^n - \left( n - 1 \right)^{n - 1} \right) = 0 = 2m - 2
+  \]
+
+Assume now that $m \geq 2$.
+In the rest of the proof we will use greek letters solely to denote different odd integer whose exact value is unknown and immaterial.
+As a first example for this notation, we denote
+\[
+  n - 2 \equiv \epsilon 2^m \mod 2^{2m-1}
+\]
+From this we may deduce that
+\begin{align*}
+  & \left( \frac{n}{2} \right)^{n} - \left( n - 1 \right)^{n - 1} \equiv \\
+  & \left(  
+    \frac{ \epsilon 2^m + 2 }{2}
+  \right)^n - \left( \epsilon 2^m + 1 \right)^{ n - 1} \equiv \\
+  & \left( \eta 2^{m - 1} + 1 \right)^n - \left( \epsilon 2^m + 1 \right)^{ n - 1 } \equiv 
+  \justification{3m - 3 \geq 2m - 1} \\
+  & \binom{n}{2} \eta^2 2^{2m - 2} + \left( n + 1 \right)\epsilon 2^{m - 1} + 1 - \left( n - 1 \right) \epsilon 2^m - 1 \equiv  \\ 
+  & \frac{
+    \left( \epsilon 2^m + 2 \right)\left( \epsilon2^m + 1\right)
+  }{
+    2
+  } \eta^2 2^{2m - 2} + \left( \epsilon 2^m + 2 \right)\epsilon 2^{m - 1} - \left( \epsilon 2^m + 1 \right) \epsilon 2^m \equiv  \\
+  & \iota \eta^2 2^{2m - 2} + \epsilon^2 2^{2m-1} + \epsilon2^m - \epsilon^2 2^{2m} - \epsilon 2^m \equiv \\ 
+  & 2^{2m-2}\left(  
+    \iota \eta^2 - 2\epsilon^2
+  \right) \\ 
+  & 2^{2m-2}\alpha \mod 2^{2m-1} 
+\end{align*}
+and in particular its $2$-adic valuation is $2m - 2$ as required.
 \end{proof} 
-\editorial{I think the formulation of the rest of this subsection can be simplified, I will try doing it soon (In particular the constant $C_p$ is unnecessary and I don't use it anywhere later).}
+\begin{corollary}
+  \label{cor:the_galois_group_of_x^n-2x+1}
+  The Galois group of the non-linear factor of $x^n - 2x + 1$ is $S_{n-1}$.
+\end{corollary}
+\begin{proof}
+  Let $\Q \subsetneq K \subseteq \Q\left[ x \right] / \left( g \right)$ be a sub-extension.
+  Then according to Lemma \ref{lem:valuation_of_rd_of_subextensions} 
+  \[
+    v_2\left( \rd K \right) \leq v_2\left( \rd\left( \Q\left[ x \right] / \left( g \right) \right) \right) \leq \frac{v_2\left( g \right)}{n - 1}  \leq
+    \frac{n - 2}{n - 1} < 1
+  \]
+  Therefore, if $\d\left( K \right)$ is divisible only by $2$, then $\rd\left( K \right) < 2$.
+  However, there are no number fields with root discriminant smaller than $2$ that are ramified only over $2$ \editorial{we can prove it either with the Minkowski bound as I did in the first version of the proof, or just by citing \url{https://www.lmfdb.org/NumberField/?rd=-2-2} like we do in the rest of the cases}.
+  Therefore, the discriminant of $K$ is divisible by a prime that does not divide $a$ and hence the Galois group of $g$ is $S_{n-1}$ by Corollary \ref{cor:the_useful_criterion}.
+\end{proof}
+
+Assume now that $f = x^n + 2x - 1$.
+\begin{lemma}
+  Then $x^n + 2x - 1$ is irreducible over $\Q$.  
+\end{lemma}
+\begin{proof}
+  First of all note that $x^n + 2x - 1$ has no roots on the unit circle in $\C$.
+  Indeed, if $x$ is such a root, then 
+  \[
+    1 = \left| 2x - 1 \right| \geq \left| 2x \right| - \left| 1 \right| = 1 
+  \]
+  and hence $x = 1$.
+  However, 
+  \[
+    1^n + 2 \cdot 1 - 1 = 
+    1 +2 - 1 = 2 \neq 0
+  \]
+  Consider now the polynomial 
+  \[
+    -x^n \left( \left( 1/x \right)^n + 2 \left( 1/x \right) - 1 \right) =
+    x^n - 2x^{n-1} - 1
+  \]
+  whose roots are exactly the inverses of the roots of $x^n + 2x - 1$.
+  For any small enough $\epsilon > 0$, the winding number of $x^n + 2x^{n-1} - 1$ around $0$ as $x$ traverses the circle of radius $1 + \epsilon$ is $n - 1$.
+  Indeed, for such $\epsilon$, 
+  \[
+    |2x^{n-1}| > |x^n| + 1 \geq |x^n - 1|
+  \]
+  since 
+  \[
+    \left( 1+\epsilon \right)^n - 2\left( 1+\epsilon \right)^{n-1} + 1 < 0
+  \]
+  since 
+  \[
+    \frac{d}{dx}\left( x^n - 2x^{n-1} + 1 \right) |_{x=1} = n - 2\left( n - 1 \right) = 2 - n < 0
+  \]
+  However, since $x^n + 2x - 1$ has no roots on the unit circle, and hence so does $x^n + 2x^{n-1} - 1$, it follows that all of these $n - 1$ roots are in the interior of the unit circle.
+  In other words, only one of its roots has absolute value greater than or equal to $1$ (in fact greater).
+  If we assume towards contradiction that $x^n + 2x^{n-1} - 1$ is reducible over $\Q$, then since it is monic, it is reducible over $\Z$ as well, and hence one of its factors is a monic polynomial with integer coefficients whose roots are all of absolute value strictly less than $1$ which is a contradiction (because then for example the norm, which is the free coefficient up to a sign, is less than $1$ in absolute value).
+  Therefore, $x^n + 2x^{n-1} - 1$ is irreducible over $\Q$ and hence so is $x^n + 2x - 1$ as required.
+\end{proof}
+\begin{lemma}
+  $v_2\left( \d\left( x^n + 2x - 1 \right) \right) \leq n + 1$
+\end{lemma}
+\begin{proof}
+  Note that 
+  \begin{align*}
+    & f'\left( \alpha \right) = n\alpha^{n-1} + 2 =
+    n \frac{\alpha^n}{\alpha} + 2 = 
+    n \frac{1 - 2\alpha}{\alpha} + 2 = 
+    n\alpha^{-1} -2n + 2
+  \end{align*}
+  Since $v_2\left( \alpha \right) = 0$, it follows that if $n$ is odd then $v_2\left( f'\left( \alpha \right) \right) = 0$ and if $v_2\left( n \right) \geq 2$, then $v_2\left( f'\left( \alpha \right) \right) = 1$.
+  In both of these cases, since the same is true for any conjugate of $\alpha$, it follows that 
+  \[
+    v_2\left( \d\left( x^n + 2x - 1 \right) \right) = 
+    v_2\left( {\rm N}^L_\Q\left( f'\left( \alpha \right) \right) \right) \leq n 
+  \]
+  Assume then that $v_2\left( n \right) = 1$.
+  Then 
+  \[
+    v_2\left( f'\left( \alpha \right) \right) =
+    1 + v_2\left( \frac{n}{2}\alpha^{-1} - n + 1 \right) =
+    1 + v_2\left( \frac{n}{2} - n\alpha + \alpha \right)  
+  \]
+  
+\end{proof}
+
+\begin{corollary}
+  $x^n + 2x + 1$ is irreducible whenever $n$ is odd and factors into $x + 1$ times an irreducible factor otherwise.
+  The Galois group of any irreducible factor $g$ of $f = x^n + 2x + 1$ is $S_{\deg g}$.
+\end{corollary}
+\begin{proof}
+  Assume first that $n$ is even, then 
+  \[
+    \left( -x \right)^n + 2 \left( -x \right) + 1 = 
+    x^n - 2x + 1
+  \]
+  and hence by the above analysis, $x^n -2x + 1$ factors into $x + 1$ times an irreducible factor whose Galois group is $S_{n-1}$.
+  
+  Assume now that $n$ is odd.
+  According to \cite[Theorem 2]{Swan62} 
+  \[
+    \d\left( f_{n,2} \right) = 
+    \left( -1 \right)^{\frac{n(n-1)}{2}} \left(  
+      n^n + \left( 1 - n \right)^{n - 1} 2^n
+    \right)
+  \]
+  and hence $v_2\left( \d\left( f_{n,2} \right) \right) = 0$.
+  Therefore, discriminant of any intermediate extension $\Q \subsetneq K \subseteq \Q\left[ x \right] / \left( f_{n,2} \right)$ is, odd and in particular it is divisible by a prime that does not divide $2$ and hence the Galois group of $f_{n,2}$ is $S_n$ by Corollary \ref{cor:the_useful_criterion}.
+\end{proof}
+
+\subsection{Strategy for even harder cases}
+
+
+\editorial{I think the formulation of this subsection can be simplified, I will try doing it soon (In particular the constant $C_p$ is unnecessary and I don't use it anywhere later).}
 \begin{strategy}
   \label{strategy:harder_cases}
   Let $p$ be a prime that divides $a b$.
@@ -252,7 +584,7 @@ Assume that $ab = \pm 1$.
   Thus, our strategy would be to compose a list of properties of number fields, such that any number field that satisfies one of these properties, cannot be embedded into $L$ for any value of $n$ (when $a$ and $b$ are fixed).
   Assume that $C_p = C_p\left( a,b \right)$ is the smallest number such that there is a number field $K$ that is ramified only above primes dividing $a b$, does not satisfy any of the properties in our list, and has $v_p\left( \rd K \right) = C_p$.
   Then the Galois group of $L$ may be non-symmetric only if $v_p\left( \rd L \right) \geq C_p$.
-  Indeed, if it is non-symmetric, then by corollary \ref{cor:the_useful_criterion_rephrased}, there is some subextension $\Q \subsetneq K \subseteq L$ that is ramified only over primes dividing $a b$, and hence by the definition of $C_p$, $v_p\left( \rd K \right) \geq C_p$ and hence by Lemma \ref{lem:valuation_of_rd_of_subextensions}, $v_p\left( \rd L \right) \geq v_p\left( \rd K \right) \geq C_p$ as claimed.
+  Indeed, if it is non-symmetric, then by corollary \ref{cor:the_useful_criterion}, there is some subextension $\Q \subsetneq K \subseteq L$ that is ramified only over primes dividing $a b$, and hence by the definition of $C_p$, $v_p\left( \rd K \right) \geq C_p$ and hence by Lemma \ref{lem:valuation_of_rd_of_subextensions}, $v_p\left( \rd L \right) \geq v_p\left( \rd K \right) \geq C_p$ as claimed.
 \end{strategy} 
 To compose such a list of properties, we will first prove the following:
 \begin{lemma}
@@ -384,7 +716,7 @@ Note that in this case $f$ is irreducible over $\Q$ since it is an Eisenstein po
   \]
   as claimed.
 \end{proof} 
-Assume now that $\left| a \right| = \left| b \right| = p$ for some prime $p$.
+
 \begin{corollary}
   \label{cor:the_case_of_a_equal_b_equal_p}
   If there is no number field that is ramified only above $p$ and whose root discriminant is at most $p^d$ that does not satisfy any of the conditions in Corollary \ref{cor:conditions_that_guarantee_full_galois_group}, then $\Gal\left( f \right) = S_n$ for any $n$.
@@ -392,6 +724,7 @@ Assume now that $\left| a \right| = \left| b \right| = p$ for some prime $p$.
 \begin{proof}
   Follows immediately from Corollary \ref{cor:conditions_that_guarantee_full_galois_group} and Lemma \ref{lem:valuation_of_rd_when_a_equal_b_is_square_free}.
 \end{proof}
+
 \begin{corollary}
   The Galois group of 
   \[
@@ -404,17 +737,6 @@ Assume now that $\left| a \right| = \left| b \right| = p$ for some prime $p$.
   Assume that $n \geq 3$.
   According \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&ram_primes=2&rd=-2-2} the only number field that is ramified only above $2$ and whose root discriminant is at most $2$ is the quadratic field $\Q\left( i \right)$.
   However, the ramification degree of $2$ in $\Q\left( i \right)$ is $2$ while the ramification degree of $2$ in $\Q\left[ x \right] / \left( f \right)$ is $n > 2$ and hence it follows from Corollary \ref{cor:the_case_of_a_equal_b_equal_p} that $\Gal\left( f \right) = S_n$ for any $n$ as claimed.
-\end{proof}
-\begin{corollary}
-  The Galois group of 
-  \[
-    f = x^n \pm 3x - 3
-  \]
-  is $S_n$ for any $n$.
-\end{corollary}
-\begin{proof}
-  According \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&ram_primes=3&rd=-3-3} the only number field that is ramified only above $3$ and whose root discriminant is at most $3$ is the quadratic field $\Q\left( \sqrt{-3} \right)$.
-  Since it is purely imaginary and $f$ has a real root, it follows from Corollary \ref{cor:the_case_of_a_equal_b_equal_p} that $\Gal\left( f \right) = S_n$ for any $n$ as claimed.
 \end{proof}
 \begin{corollary}
   The Galois group of 
@@ -448,213 +770,97 @@ Assume now that $\left| a \right| = \left| b \right| = p$ for some prime $p$.
   Hence, it follows from Corollary \ref{cor:the_case_of_a_equal_b_equal_p} that $\Gal\left( f \right) = S_n$ for any $n$ as claimed.
 \end{proof}
 
-\subsection{$a = \pm 4, b = 4$}
-Assume that $a = \pm 4$ and $b = 4$.
-The case $n = 2$ is easy - the polynomial $f$ factors into two linear factors and hence the Galois group of any of its irreducible factors is symmetric.
-Assume now that $n \geq 3$. 
-\begin{lemma}
-  $f$ is irreducible over $\Q$.
-\end{lemma}
-\begin{proof}
-  First of all, note that by analyzing the Newton polygon of $f$ with respect to the prime $2$, it follows that all  
-  Assume towards a contradiction that $f$ is reducible over $\Q$.
+% Assume now that $\left| a \right| = \left| b \right| = p > 2$ for some prime $p$.
+
+% \begin{lemma}
+
+% \end{lemma}
+
+% \begin{lemma}
+%   $L = \Q\left[ x \right] / \left( f \right)$ has no quadratic subextension.
+% \end{lemma}
+% \begin{proof}
+%   Since any subfield of $L$ is ramified only above $p$ according to Corollary \ref{cor:ramification_only_over_primes_dividing_a}, any quadratic subextension of $L$ must be of the form $\Q\left( \sqrt{\pm p} \right)$.
+%   Thus, it suffices to show that $\pm p$ is not a square in the compositum field $L \Q\left[ i \right]$.
+%   Let $\alpha$ be the image of $x$ in $L$.
+%   Assume WLOG that $n$ is even.
+%   By substituting $x$ by $-x$ we can assume that $a = b = \pm p$.
+%   Let $\epsilon$ be the sign of $-a$ and $-b$.
+%   Since $\epsilon \left( p\alpha + p \right) = \alpha^n = \left( \alpha^{n/2} \right)^2$ is a square, it suffices to show that 
+%   \[
+%     \frac{\epsilon \left( p\alpha + p \right)}{p} = \epsilon \left( 1 + \alpha \right)
+%   \]
+%   is not a square in the field $\Q\left[ \epsilon \right]\left( L \otimes_\Q \Q_p \right)$.
+
+%   Assume then towards contradiction that there is some $\gamma \in \Q\left[ \epsilon \right]\left( L \otimes_\Q \Q_p \right)$ such that $\gamma^2 = \epsilon \left( 1 + \alpha \right)$.
+%   Then 
+%   \[
+%     \epsilon \gamma^2 = 1 + \alpha
+%   \]
+%   and hence
+%   \[
+%     -\alpha = 1 - \epsilon\gamma^2 = \left( 1 + \sqrt{\epsilon}\gamma \right) \left( 1 - \sqrt{\epsilon}\gamma \right) 
+%   \]
+%   Note that any symbol in the above expression is integral.
+%   Moreover, since $p$ does not ramify in $\Q\left[ \sqrt{\epsilon} \right]$, the ramification degree of $p$ in $L \Q\left[ \sqrt{\epsilon} \right]$ is $n$.
+%   Therefore, since the $\frac{1}{n} = v_p\left( - \alpha \right)$, it follows that the $p$-valuation of $1 \pm \sqrt{\epsilon}\gamma$ is $1/n$ for exactly one of the two signs. Denote this sign by $\delta$.
+%   Then 
+%   \[
+%     1 + \delta \sqrt{\epsilon}\gamma = u\alpha 
+%   \]
+%   for some $u \in \Q\left[ \epsilon \right]\left( L \otimes_\Q \Q_p \right)$ whose $p$-valuation is $0$.
+%   Therefore, 
+%   \[
+%     \gamma = 
+%     \left( u\alpha - 1  \right)\delta \left( \sqrt{\epsilon} \right)^{-1}
+%   \]
+%   and hence
+%   \[
+%     1 + \alpha = 
+%     \epsilon \gamma^2 = 
+%     \epsilon\left( \left( u\alpha - 1  \right)\delta \left( \sqrt{\epsilon} \right)^{-1} \right)^2 = 
+%     u^2 \alpha^2 - 2 u \alpha + 1
+%   \]
+%   and hence 
+%   \[
+%     0 = 
+%     \epsilon u^2 \alpha^2 - 
+%     \left( 2 u \epsilon + 1 \right) \alpha
+%   \]
+%   which implies, since $0 = v_p\left( \epsilon u^2 \right)$, that 
+%   \[
+%     \frac{1}{n} = v_p\left( 2 u \epsilon + 1 \right)
+%   \]
+%   and hence 
+%   \[
+%     u \equiv \frac{-\epsilon}{2} \mod \sqrt{\left( p \right)}
+%   \]
+%   and hence 
+%   \[
+%     1 + \alpha \equiv
+%     \epsilon \left(  
+%       \frac{
+%         \delta \alpha
+%       }{
+%         2\sqrt{\epsilon}
+%       }
+%     \right)
+%   \]
   
-  
-\end{proof}
+% \end{proof}
 
 
-
-\subsection{$a = \pm 2, b = 1$}
-
-We will handle the case $a = -2$ first.
-Note that in this case $1$ is a root of $f_{n,-2}$, and if we divide $f_{n,-2}$ by $x-1$ we obtain the polynomial 
-\begin{equation}
-  \label{eq:the_polynomial_for_a_equal_minus_2}
-  g := x^{n-1} + x^{n-2} + \ldots + x - 1
-\end{equation}
-After substituting $x$ by $1/x$ and multiplying by $-x^{n-1}$ we obtain the polynomial 
-\[
-  x^{n-1} - x^{n-2} - \ldots - x - 1
-\]
-which defines the same ring extension over $\Q$ as $g$ and which is none other than the characteristic polynomial of the generalized Fibonacci sequence which was studied by Wolfram \cite{Wolfram1998}.
-Wolfram showed that this polynomial is irreducible over $\Q$, and Martin \cite{MARTIN2004213} showed that whenever $n$ is odd, its Galois group is the full symmetric group.
-We will show that its Galois group is the full symmetric group for any $n$.
-However, we will stick to our version of the polynomial defined in \eqref{eq:the_polynomial_for_a_equal_minus_2}.
-
-We will denote by $d$ the discriminant of $g$. 
-Then:
-
-\begin{lemma}
-  \label{lem:2-adic-valuation-of-discriminant}
-\[
-  v_2\left( d \right) = \begin{cases}
-    n - 2 & n \text{ is even} \\
-    0 & n \text{ is odd}
-  \end{cases}
-\]
-\end{lemma}
-\begin{proof}
-  By \cite{MARTIN2004213} 
-  \begin{align*}
-    d = & 
-    \frac{
-      \left( -1 \right)^{\binom{n}{2}}\left( n^n - 2^n \left( n - 1 \right)^{ n - 1 } \right)
-    }{
-      \left( n - 2 \right)^2
-    } 
-  \end{align*}
-  If $n$ is odd it is easy to see that both the denominator and numerator are odd, and hence $v_2\left( d \right) = 0$ as required.
-  Assume now that $n$ is even.
-  Then we can manipulate the expression above and get 
-  \begin{align*}
-    d = &
-    \left( -1 \right)^{\binom{n}{2}}2^n \cdot
-    \frac{
-      \left( \frac{n}{2} \right)^n - \left( n - 1 \right)^{n - 1}
-    }{
-      \left( n - 2 \right)^2
-    }
-  \end{align*}
-
-  and hence if we denote $m = v_2\left( n - 2 \right)$ we get that 
-  \[
-    v_2\left( d \right) = 
-    n - 2m + 
-    v_2\left( 
-      \left( \frac{n}{2} \right)^n - \left( n - 1 \right)^{n - 1} 
-    \right)
-  \]
-Therefore, our claim is equivalent to showing that 
-\[
-  n - 2 = n - 2m + v_2\left( \left( \frac{n}{2} \right)^n - \left( n - 1 \right)^{n - 1} \right)
-\]
-or equivalently, that 
-\[
-  v_2\left( \left( \frac{n}{2} \right)^n - \left( n - 1 \right)^{n - 1} \right) = 2m - 2
-\]
-
-
-  Assume first that $m = 1$, then 
-  \[
-    v_2\left( \frac{n}{2} \right) \geq 1
-  \]
-  and hence 
-  \[
-    v_2\left( \left( \frac{n}{2} \right)^n \right) \geq n > 0 = v_2\left( \left( n - 1 \right)^{n - 1} \right)
-  \]
-  and hence 
-  \[
-    v_2\left( \left( \frac{n}{2} \right)^n - \left( n - 1 \right)^{n - 1} \right) = 0 = 2m - 2
-  \]
-
-Assume now that $m \geq 2$.
-In the rest of the proof we will use greek letters solely to denote different odd integer whose exact value is unknown and immaterial.
-As a first example for this notation, we denote
-\[
-  n - 2 \equiv \epsilon 2^m \mod 2^{2m-1}
-\]
-From this we may deduce that
-\begin{align*}
-  & \left( \frac{n}{2} \right)^{n} - \left( n - 1 \right)^{n - 1} \equiv \\
-  & \left(  
-    \frac{ \epsilon 2^m + 2 }{2}
-  \right)^n - \left( \epsilon 2^m + 1 \right)^{ n - 1} \equiv \\
-  & \left( \eta 2^{m - 1} + 1 \right)^n - \left( \epsilon 2^m + 1 \right)^{ n - 1 } \equiv 
-  \justification{3m - 3 \geq 2m - 1} \\
-  & \binom{n}{2} \eta^2 2^{2m - 2} + \left( n + 1 \right)\epsilon 2^{m - 1} + 1 - \left( n - 1 \right) \epsilon 2^m - 1 \equiv  \\ 
-  & \frac{
-    \left( \epsilon 2^m + 2 \right)\left( \epsilon2^m + 1\right)
-  }{
-    2
-  } \eta^2 2^{2m - 2} + \left( \epsilon 2^m + 2 \right)\epsilon 2^{m - 1} - \left( \epsilon 2^m + 1 \right) \epsilon 2^m \equiv  \\
-  & \iota \eta^2 2^{2m - 2} + \epsilon^2 2^{2m-1} + \epsilon2^m - \epsilon^2 2^{2m} - \epsilon 2^m \equiv \\ 
-  & 2^{2m-2}\left(  
-    \iota \eta^2 - 2\epsilon^2
-  \right) \\ 
-  & 2^{2m-2}\alpha \mod 2^{2m-1} 
-\end{align*}
-and in particular its $2$-adic valuation is $2m - 2$ as required.
-\end{proof} 
-\begin{corollary}
-  \label{cor:the_galois_group_of_x^n-2x+1}
-  The Galois group of the non-linear factor of $x^n - 2x + 1$ is $S_{n-1}$.
-\end{corollary}
-\begin{proof}
-  Let $\Q \subsetneq K \subseteq \Q\left[ x \right] / \left( g \right)$ be a sub-extension.
-  Then according to Lemma \ref{lem:valuation_of_rd_of_subextensions} 
-  \[
-    v_2\left( \rd K \right) \leq v_2\left( \rd\left( \Q\left[ x \right] / \left( g \right) \right) \right) \leq \frac{v_2\left( g \right)}{n - 1}  \leq
-    \frac{n - 2}{n - 1} < 1
-  \]
-  Therefore, if $\d\left( K \right)$ is divisible only by $2$, then $\rd\left( K \right) < 2$.
-  However, theere are no number fields with root discriminant smaller than $2$ that are ramified only over $2$ \editorial{we can prove it either with the Minkowski bound as I did in the first version of the proof, or just by citing \url{https://www.lmfdb.org/NumberField/?rd=-2-2} like we do in the rest of the cases}.
-  Therefore, the discriminant of $K$ is divisible by a prime that does not divide $a$ and hence the Galois group of $g$ is $S_{n-1}$ by Corollary \ref{cor:the_useful_criterion}.
-\end{proof}
-
-\begin{lemma}
-  Assume that $n$ is odd.
-  Then $x^n + 2x + 1$ is irreducible over $\Q$.  
-\end{lemma}
-\begin{proof}
-  First of all note that $x^n + 2x + 1$ has no roots on the unit circle in $\C$.
-  Indeed, if $x$ is such a root, then 
-  \[
-    1 = \left| 2x + 1 \right| \geq \left| 2x \right| - \left| 1 \right| = 1 
-  \]
-  and hence $x = -1$.
-  However, 
-  \[
-    \left( -1 \right)^n + 2 \left( -1 \right) + 1 = 
-    -1 -2 + 1 = -2 \neq 0
-  \]
-  Consider now the polynomial 
-  \[
-    x^n \left( \left( 1/x \right)^n + 2 \left( 1/x \right) + 1 \right) =
-    x^n + 2x^{n-1} + 1
-  \]
-  whose roots are exactly the inverses of the roots of $x^n + 2x + 1$.
-  For any small enough $\epsilon > 0$, the winding number of $x^n + 2x^{n-1} + 1$ around $0$ as $x$ traverses the circle of radius $1 + \epsilon$ is $n - 1$.
-  Indeed, for such $\epsilon$, 
-  \[
-    |2x^{n-1}| > |x^n| + 1 \geq |x^n + 1|
-  \]
-  since 
-  \[
-    \left( 1+\epsilon \right)^n - 2\left( 1+\epsilon \right)^{n-1} + 1 < 0
-  \]
-  since 
-  \[
-    \frac{d}{dx}\left( x^n - 2x^{n-1} + 1 \right) |_{x=1} = n - 2\left( n - 1 \right) = 2 - n < 0
-  \]
-  However, since $x^n + 2x + 1$ has no roots on the unit circle, and hence so does $x^n + 2x^{n-1} + 1$, it follows that all of these $n - 1$ roots are in the interior of the unit circle.
-  In other words, only one of its roots has absolute value greater than or equal to $1$ (in fact greater).
-  If we assume towards contradiction that $x^n + 2x^{n-1} + 1$ is reducible over $\Q$, then since it is monic, it is reducible over $\Z$ as well, and hence one of its factors is a monic polynomial with integer coefficients whose roots are all of absolute value strictly less than $1$ which is a contradiction (because then for example the norm, which is the free coefficient up to a sign, is less than $1$ in absolute value).
-  Therefore, $x^n + 2x^{n-1} + 1$ is irreducible over $\Q$ and hence so is $x^n + 2x + 1$ as required.
-\end{proof}
-
-\begin{corollary}
-  $x^n + 2x + 1$ is irreducible whenever $n$ is odd and factors into $x + 1$ times an irreducible factor otherwise.
-  The Galois group of any irreducible factor $g$ of $f = x^n + 2x + 1$ is $S_{\deg g}$.
-\end{corollary}
-\begin{proof}
-  Assume first that $n$ is even, then 
-  \[
-    \left( -x \right)^n + 2 \left( -x \right) + 1 = 
-    x^n - 2x + 1
-  \]
-  and hence by the above analysis, $x^n -2x + 1$ factors into $x + 1$ times an irreducible factor whose Galois group is $S_{n-1}$.
-  
-  Assume now that $n$ is odd.
-  According to \cite[Theorem 2]{Swan62} 
-  \[
-    \d\left( f_{n,2} \right) = 
-    \left( -1 \right)^{\frac{n(n-1)}{2}} \left(  
-      n^n + \left( 1 - n \right)^{n - 1} 2^n
-    \right)
-  \]
-  and hence $v_2\left( \d\left( f_{n,2} \right) \right) = 0$.
-  Therefore, discriminant of any intermediate extension $\Q \subsetneq K \subseteq \Q\left[ x \right] / \left( f_{n,2} \right)$ is, odd and in particular it is divisible by a prime that does not divide $2$ and hence the Galois group of $f_{n,2}$ is $S_n$ by Corollary \ref{cor:the_useful_criterion}.
-\end{proof}
+% \begin{corollary}
+%   The Galois group of 
+%   \[
+%     f = x^n \pm 3x - 3
+%   \]
+%   is $S_n$ for any $n$.
+% \end{corollary}
+% \begin{proof}
+%   According \url{https://www.lmfdb.org/NumberField/?ram_quantifier=subset&ram_primes=3&rd=-3-3} the only number field that is ramified only above $3$ and whose root discriminant is at most $3$ is the quadratic field $\Q\left( \sqrt{-3} \right)$.
+%   Since it is purely imaginary and $f$ has a real root, it follows from Corollary \ref{cor:the_case_of_a_equal_b_equal_p} that $\Gal\left( f \right) = S_n$ for any $n$ as claimed.
+% \end{proof}
 
 \subsection{$a = \pm 3, \pm 4, \pm 5, b = 1$}
 \begin{lemma}

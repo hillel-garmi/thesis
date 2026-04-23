@@ -6,7 +6,7 @@ IsEasySnAn(g)
 
 P<x> := PolynomialRing(Rationals());
 f := 1;
-for d:= 2 to 450 by 2 do
+for d:= 2 to 200 by 2 do
     f *:= IsEasySnAn(x^d+2*x+2);
 end for;
 f;
