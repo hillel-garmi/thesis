@@ -296,86 +296,87 @@ Then:
 \]
 \end{lemma}
 \begin{proof}
-  By \cite{MARTIN2004213} 
+  First of all note that 
   \begin{align*}
-    d = & 
-    \frac{
-      \left( -1 \right)^{\binom{n}{2}}\left( n^n - 2^n \left( n - 1 \right)^{ n - 1 } \right)
+    & g'\left( \alpha \right) = \\
+    & \prod_{\beta \in Z\left( g \right) - \left\{ \alpha \right\}}\left( \alpha - \beta \right) = \\
+    & \frac{
+      \prod_{\beta \in Z\left( f \right) - \left\{ \alpha \right\}}\left( \alpha - \beta \right)
     }{
-      \left( n - 2 \right)^2
-    } 
-  \end{align*}
-  If $n$ is odd it is easy to see that both the denominator and numerator are odd, and hence $v_2\left( d \right) = 0$ as required.
-  Assume now that $n$ is even.
-  Then we can manipulate the expression above and get 
-  \begin{align*}
-    d = &
-    \left( -1 \right)^{\binom{n}{2}}2^n \cdot
-    \frac{
-      \left( \frac{n}{2} \right)^n - \left( n - 1 \right)^{n - 1}
+      \alpha - 1
+    } = \\
+    & \frac{
+      f'\left( \alpha \right)
     }{
-      \left( n - 2 \right)^2
+      \alpha - 1
+    } = \\
+    & \frac{
+      n \alpha^{n-1} - 2
+    }{
+      \alpha - 1
+    } = \\
+    & \frac{
+      n \frac{2\alpha - 1}{\alpha} - 2
+    }{
+      \alpha - 1
+    } = \\
+    & \frac{
+      2n - n\alpha^{-1} - 2
+    }{
+      \alpha - 1
     }
   \end{align*}
-
-  and hence if we denote $m = v_2\left( n - 2 \right)$ we get that 
+  Therefore, 
   \[
     v_2\left( d \right) = 
-    n - 2m + 
-    v_2\left( 
-      \left( \frac{n}{2} \right)^n - \left( n - 1 \right)^{n - 1} 
-    \right)
+    v_2\left( N^L_\Q\left( 2n - n\alpha^{-1} - 2\right) \right) - 
+    v_2\left( N^L_\Q\left( \alpha - 1 \right) \right) 
   \]
-Therefore, our claim is equivalent to showing that 
-\[
-  n - 2 = n - 2m + v_2\left( \left( \frac{n}{2} \right)^n - \left( n - 1 \right)^{n - 1} \right)
-\]
-or equivalently, that 
-\[
-  v_2\left( \left( \frac{n}{2} \right)^n - \left( n - 1 \right)^{n - 1} \right) = 2m - 2
-\]
-
-
-  Assume first that $m = 1$, then 
+  We will start for the second summand.
+  The norm of $\alpha - 1$ is the constant term of $g\left( x + 1 \right)$ which is $g\left( 1 \right) = n-2$ and hence $v_2\left( N^L_\Q\left( \alpha - 1 \right) \right) = v_2\left( n - 2 \right)$.
+  If $n$ is odd, then $v_2\left( 2n - n\alpha'^{-1} - 2 \right) = 0$ for any conjugate $\alpha'$ of $\alpha$ in $\overline{\Q_2}$, and hence $v_2\left( N^L_\Q\left( 2n - n\alpha^{-1} - 2 \right) \right) = 0$ and hence 
   \[
-    v_2\left( \frac{n}{2} \right) \geq 1
+    v_2\left( d \right) = 0 - v_2\left( n - 2 \right) = 0
   \]
-  and hence 
+  If $v_2\left( n \right) > 1$ then $v_2\left( 2n - n\alpha'^{-1} - 2 \right) = 1$ for any conjugate $\alpha'$ of $\alpha$ in $\overline{\Q_2}$, and hence $v_2\left( N^L_\Q\left( 2n - n\alpha^{-1} - 2 \right) \right) = n-1$ and hence
   \[
-    v_2\left( \left( \frac{n}{2} \right)^n \right) \geq n > 0 = v_2\left( \left( n - 1 \right)^{n - 1} \right)
+    v_2\left( d \right) = n - 1 - v_2\left( n - 2 \right) = n - 2
   \]
-  and hence 
+  Assume now that $v_2\left( n \right) = 1$.
+  Note that in this case 
   \[
-    v_2\left( \left( \frac{n}{2} \right)^n - \left( n - 1 \right)^{n - 1} \right) = 0 = 2m - 2
+    f \equiv x^n + 1 \equiv \left( x^{n/2} + 1 \right)^2 \mod 2 
   \]
-
-Assume now that $m \geq 2$.
-In the rest of the proof we will use greek letters solely to denote different odd integer whose exact value is unknown and immaterial.
-As a first example for this notation, we denote
-\[
-  n - 2 \equiv \epsilon 2^m \mod 2^{2m-1}
-\]
-From this we may deduce that
-\begin{align*}
-  & \left( \frac{n}{2} \right)^{n} - \left( n - 1 \right)^{n - 1} \equiv \\
-  & \left(  
-    \frac{ \epsilon 2^m + 2 }{2}
-  \right)^n - \left( \epsilon 2^m + 1 \right)^{ n - 1} \equiv \\
-  & \left( \eta 2^{m - 1} + 1 \right)^n - \left( \epsilon 2^m + 1 \right)^{ n - 1 } \equiv 
-  \justification{3m - 3 \geq 2m - 1} \\
-  & \binom{n}{2} \eta^2 2^{2m - 2} + \left( n + 1 \right)\epsilon 2^{m - 1} + 1 - \left( n - 1 \right) \epsilon 2^m - 1 \equiv  \\ 
-  & \frac{
-    \left( \epsilon 2^m + 2 \right)\left( \epsilon2^m + 1\right)
-  }{
-    2
-  } \eta^2 2^{2m - 2} + \left( \epsilon 2^m + 2 \right)\epsilon 2^{m - 1} - \left( \epsilon 2^m + 1 \right) \epsilon 2^m \equiv  \\
-  & \iota \eta^2 2^{2m - 2} + \epsilon^2 2^{2m-1} + \epsilon2^m - \epsilon^2 2^{2m} - \epsilon 2^m \equiv \\ 
-  & 2^{2m-2}\left(  
-    \iota \eta^2 - 2\epsilon^2
-  \right) \\ 
-  & 2^{2m-2}\alpha \mod 2^{2m-1} 
-\end{align*}
-and in particular its $2$-adic valuation is $2m - 2$ as required.
+  and hence $f$ has exactly two roots lying above $1$ in $\overline{\Q_2}$, and since one of then is $\alpha$, then $g = \frac{f}{x-1}$ has exactly one root lying above $1$ in $\overline{\Q_2}$.
+  Denote this root by $\alpha_0$.
+  Then for any conjugate $\alpha'$ of $\alpha$ in $\overline{\Q_2}$,  
+  \begin{align*}
+    & v_2\left( 2n - n\alpha'^{-1} - 2 \right) = \\
+    & v_2\left( 2n\alpha' - n - 2\alpha' \right) = \\
+    & v_2\left( \left( \alpha' - 1 \right)n + \left( n - 2 \right)\alpha' \right) = \left( \ast \right)
+  \end{align*}
+  If $\alpha' \neq \alpha_0$, then $v_2\left( \alpha' - 1 \right) = 0$ and hence 
+  \[
+    v_2\left( n - 2 \right) \geq 2 > 1 = v_2\left( \left( \alpha' - 1 \right)n \right)
+  \]
+  and hence $\left( \ast \right) = 1$.
+  If $\alpha' = \alpha_0$, then $v_2\left( \alpha' - 1 \right)$ is again the $2$-adic valuation of the constant term of $g\left( x + 1 \right)$, since $\alpha_0 - 1$ is the only root of $g\left( x + 1 \right)$ lying above $0$ in $\overline{\Q_2}$, and hence $v_2\left( \alpha' - 1 \right) = v_2\left( g\left( 1 \right) \right) = v_2\left( n - 2 \right)$.
+  Therefore, in this case 
+  \[
+    v_2\left( \left( \alpha' - 1 \right)n \right) = v_2\left( n - 2 \right) + 1 > v_2\left( n - 2 \right) = v_2\left( \left( n - 2 \right)\alpha' \right)
+  \]
+   and hence $\left( \ast \right) = v_2\left( n - 2 \right)$.
+   Thus,
+  \begin{align*}
+    & v_2\left( N^L_\Q\left( 2n - n\alpha^{-1} - 2 \right) \right) =
+    \sum_{\alpha' \in Z\left( g \right)} v_2\left( 2n - n\alpha'^{-1} - 2 \right) = \\
+    & \sum_{\alpha' \in Z\left( g \right) - \left\{ \alpha_0 \right\}} v_2\left( 2n - n\alpha'^{-1} - 2 \right) + v_2\left( 2n - n\alpha_0^{-1} - 2 \right) = \\
+    & \sum_{\alpha' \in Z\left( g \right) - \left\{ \alpha_0 \right\}} 1 + v_2\left( n - 2 \right) = n - 2 + v_2\left( n - 2 \right)
+  \end{align*}
+  and hence \[
+    v_2\left( d \right) = n - 2 + v_2\left( n - 2 \right) - v_2\left( n - 2 \right) = n - 2
+  \]
+  as claimed.
 \end{proof} 
 \begin{corollary}
   \label{cor:the_galois_group_of_x^n-2x+1}

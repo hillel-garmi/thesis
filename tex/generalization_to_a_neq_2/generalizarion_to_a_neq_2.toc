@@ -7,6 +7,6 @@
 \contentsline {subsection}{\numberline {1.4}$a b = \pm 1$}{10}{subsection.1.4}%
 \contentsline {subsection}{\numberline {1.5}Strategy for slightly harder cases}{11}{subsection.1.5}%
 \contentsline {subsection}{\numberline {1.6}$a = \pm 2, b = 1$}{13}{subsection.1.6}%
-\contentsline {subsection}{\numberline {1.7}Strategy for even harder cases}{20}{subsection.1.7}%
-\contentsline {subsection}{\numberline {1.8}$2 \leq \left | b \right |$ square free and $\left | a \right | = \left | b \right |^d$ for some $d \geq 1$}{25}{subsection.1.8}%
-\contentsline {subsection}{\numberline {1.9}$a = \pm 3, \pm 4, \pm 5, b = 1$}{30}{subsection.1.9}%
+\contentsline {subsection}{\numberline {1.7}Strategy for even harder cases}{21}{subsection.1.7}%
+\contentsline {subsection}{\numberline {1.8}$2 \leq \left | b \right |$ square free and $\left | a \right | = \left | b \right |^d$ for some $d \geq 1$}{26}{subsection.1.8}%
+\contentsline {subsection}{\numberline {1.9}$a = \pm 3, \pm 4, \pm 5, b = 1$}{31}{subsection.1.9}%
