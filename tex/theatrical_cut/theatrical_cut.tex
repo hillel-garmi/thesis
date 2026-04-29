@@ -13,12 +13,69 @@
 Let $f\left( x \right) = x^n + ax + b$ for some $a,b \in \Z$ and $n \in \N$.
 If $ab = 0$ we can calculate the Galois group over $\Q$ of each factor of $f$ using Kummer's theory.
 When $ab \neq 0$, most existing literature handles the case of an irreducible $f$, and focuses on finding sufficient conditions for its Galois group to be $S_n$.
-% Uchida \cite{Uchida} and Yamamoto \cite{Yamamoto} proved that if $f$ is irreducible, $n$ is prime and $1 = \gcd\left( an - a, bn \right)$, then the Galois group of $f$ is $S_n$.
-Perhaps the most important result of this kind is that of Osada \cite{Osada1987TheGG} which treated the largegr family of polynomials of the form $x^n + ax^l + b$.
-In our setup and for sufficiently large $n$, his result is equivalent to the statement that if $f$ is irreducible and $1 = \gcd\left( an - a, bn \right)$, then the Galois group of $f$ is $S_n$.
-In particular Osaded deduces that the Galois group of $x^n - x - 1$ is $S_n$ for all $n$.
-His work expanded upon the work of Uchida \cite{Uchida} and Yamamoto \cite{Yamamoto} and was later expanded upon by Cohen \cite{COHEN1999561} and Ao, Fei and Hong \cite{AoFeiHong2021}.
-Fixing $a$ and $b$, all of their results, except the mentioned example of $x^n - x - 1$, require some congruence conditions on $n$.
+For example, for all $n \in \N$, Selmer \cite{SelmerIrreducibility1956} showed that $x^n - x - 1$ is irreducible, and Nart and Vila \cite{NartVila1979} showed that its Galois group is $S_n$.
+Uchida \cite{Uchida} and Yamamoto \cite{Yamamoto} showed already beforehand that if $f$ is irreducible, $n$ is prime and $1 = \gcd\left( an - a, bn \right)$, then the Galois group of $f$ is $S_n$.
+Nart and Vila \cite{NartVila1979} and Osada \cite{Osada1987TheGG} found some more general criteria.
+%  and Cohen Movahhedi and Salinier (\cite{Cohen1997} and \cite{COHEN1999}) found even more general criteria that ensure primitivity of the Galois group.
+However, fixing $a$ and $b$, except in the mentioned example of $x^n - x - 1$, each of these criteria includes somce congruence condition on $n$, leaving out a positive density of the natural numbers.
 
+One reducable case that has been studied is the case $f\left( x \right) = x^n - 2x + 1$.
+In this case, $f$ is a product of $x-1$ and the polynomial 
+\[
+  g\left( x \right) = x^{n-1} + x^{n-2} + \cdots + x - 1
+\]
+The roots of $g$ are the reciprocals of the generalized Fibonacci recurrence equation
+\[
+  h\left( x \right) = x^{n-1} - x^{n-2} - \cdots - x - 1
+\]
+which was shown by Miles \cite{Miles1960} and wolfram \cite{Wolfram1998} to be irreducible.
+Therefore, $g$ is also irreducible and has the same Galois group as $h$.
+For any odd value of $n$, the Galois group of $h$ was shown to be $S_{n-1}$ by Martin \cite{MARTIN2004213}.
+Soroker and Shusterman and Zannier \cite[Appendix A]{Soroker_appendix_2017} proved that for any $n$, the field defined over $\Q$ by $h$ has no totally real subextension.
+In fact, to prove that the Galois group of $g$ is $S_{n-1}$, we extended their result and showed that the field defined by $h$ has no nontrivial subextensions at all.
 
+In this paper we proved the following results: 
+\begin{thm}
+  For any pair $\left( a, b \right)$ in the list 
+  \begin{equation}
+    \label{eq:the_list}
+    \left( \pm 1, \pm 1 \right) \quad
+    \left( \pm 2, \pm 1 \right) \quad
+    \left( \pm 2, \pm 2 \right) \quad 
+    \left( \pm 3, -3 \right) \quad 
+    \left( \pm 4, -2 \right)
+  \end{equation}
+  and for any $n \in \N$, the Galois group over $\Q$ of any factor of $x^n + ax + b$ is the full symmetric group.
+\end{thm}
+\editorial{I have not added the cases $\left( \pm 2 -1 \right)$ yet, but I'm pretty sure I will add them soon and it makes phrasing the following theorem a bit easier.} 
+\begin{thm}
+\begin{enumerate}
+  \item If $\left( a, b \right) = \left( \pm 1, \pm 1 \right)$, then by substituting $x$ with $-x$ we can always reduce to on of the cases $\left( 1, 1 \right)$ or $\left( -1, -1 \right)$.
+  In the first case $f$ factors as $x^2 + x + 1$ times an irreducible polynomial.
+  \item If $\left( a, b \right) = \left( \pm 2, \pm 1 \right)$, then by substituting $x$ with $-x$ we can always reduce to on of the cases $\left( -2, 1 \right)$ or $\left( 2, -1 \right)$.
+  In the first case $f$ factors as $x - 1$ times an irreducible polynomial.
+\end{enumerate}
+Except of these two cases, for any pair $\left( a, b \right)$ in the list \eqref{eq:the_list} and for any $n \in \N$, $f$ is irreducible.
+\end{thm}
+\editorial{Of course the factorization of $f$ in the cases $\left( 1, 1 \right)$ and $\left( -2, 1 \right)$ is not new, the only new thing is that the other cases are irreducible, I hope the statement does not give the wrong impression.
+I think even the irreducibility in all of the other cases can be deduced from standard criteria, so maybe we should not state it as a theorem and find some other way to present it.}
+
+We will present the startegy of the proof that the Galois group is $S_n$ in the irreducible cases.
+The startegy for the reducible cases is similar.
+We will first show the key fact, that the inertia group of any prime ideal of $\Q\left[ x \right] / \left( f \right)$ not dividing $ab$ over which $f$ ramifies is generated by a transposition.
+Assume towards contrafiction that the Galois group of $f$ is not $S_n$.
+It is well known that any primitive permutation group that contains a transposition is symmetric.
+Therefore, either the Galois group of $f$ contains no transposition, in which case it follows that $f$ ramifies only above primes that divide $ab$, or the Galois group of $f$ is imprimitive.
+In the latter case, we will show that it follows that $\Q\left[ x \right] / \left( f \right)$ has a nontrivial subextension that is ramified only above primes that divide $ab$.
+Thus, in either case we will deduce that there is some subextension $\Q \subsetneq K \subseteq \Q\left[ x \right] / \left( f \right)$ that is ramified only above primes that divide $ab$.
+Finally, in each of the cases we will bound the $p$-adic valuation of the discriminant of $f$ linearly, allowing us to bound the $p$-adic valuation of the root discriminant of $K$.
+In cases where the bounds are good enough, the finite list of number fields with root discriminant below the bound that are ramified only above the primes that divide $ab$ is enumarated in the LMFDB \cite{lmfdb}, and in some cases we were able to rule out all of these fields by hand.
+
+% We showed that 
+% \begin{enumerate}
+%   \item the galois group of $\Q\left[ x \right] / \left( f \right)$ is primitive in and only if the latter has no nontrivial subextensions.
+%   \item for any $p \not \mid ab$, any inertia group of a prime ideal above $p$ is either trivial or generated by a transposition.
+% \end{enumerate}
+% We used $(2)$ to show that any nontrivial subextension of $\Q\left[ x \right] / \left( f \right)$ is ramified only above primes that divide $ab$.
+% Therefore, if we show that $\Q\left[ x \right] / \left( f \right)$ has no 
 \end{document}
