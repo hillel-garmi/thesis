@@ -1,15 +1,17 @@
 \@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
-\contentsline {part}{I\hspace {1em} The Theatrical Cut }{1}{part.1}%
-\contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
-\contentsline {part}{II\hspace {1em}The Director's Cut}{4}{part.2}%
-\contentsline {section}{\numberline {2}Proof that the Galois group of any irreducible factor of $x^n +ax + b$ is symmetric for different small values of $a$ and $b$}{4}{section.2}%
+\contentsline {part}{I\hspace {1em}IMU Talk Abstract}{1}{part.1}%
+\contentsline {part}{II\hspace {1em}The Theatrical Cut}{3}{part.2}%
+\contentsline {section}{\numberline {1}Introduction}{5}{section.1}%
+\contentsline {part}{III\hspace {1em}The Director's Cut}{8}{part.3}%
+\contentsline {section}{\numberline {2}Proof that the Galois group of any irreducible factor of $x^n +ax + b$ is symmetric for different small values of $a$ and $b$}{8}{section.2}%
 \etoc@startlocaltoc {1}
-\contentsline {subsection}{\numberline {2.1}Summary of results}{4}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Notations}{5}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Strategy}{6}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}$a b = \pm 1$}{9}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}Strategy for slightly harder cases}{10}{subsection.2.5}%
-\contentsline {subsection}{\numberline {2.6}$a = \pm 2, b = 1$}{12}{subsection.2.6}%
-\contentsline {subsection}{\numberline {2.7}Strategy for even harder cases}{17}{subsection.2.7}%
-\contentsline {subsection}{\numberline {2.8}$2 \leq \left | b \right |$ square free and $\left | a \right | = \left | b \right |^d$ for some $d \geq 1$}{21}{subsection.2.8}%
-\contentsline {subsection}{\numberline {2.9}$a = \pm 3, \pm 4, \pm 5, b = 1$}{24}{subsection.2.9}%
+\contentsline {subsection}{\numberline {2.1}Summary of results}{9}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Notations}{9}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Strategy}{10}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}$a b = \pm 1$}{14}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Strategy for slightly harder cases}{14}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}$a = \pm 2, b = 1$}{16}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}The case $f = x^n \pm x \pm 2$}{22}{subsection.2.7}%
+\contentsline {subsection}{\numberline {2.8}Strategy for even harder cases}{26}{subsection.2.8}%
+\contentsline {subsection}{\numberline {2.9}$2 \leq \left | b \right |$ square free and $\left | a \right | = \left | b \right |^d$ for some $d \geq 1$}{29}{subsection.2.9}%
+\contentsline {subsection}{\numberline {2.10}$a = \pm 3, \pm 4, \pm 5, b = 1$}{33}{subsection.2.10}%

@@ -1,7 +1,6 @@
 \documentclass[../main.tex]{subfiles}
 
 \begin{document}
-\part{The Director's Cut}
 \section{Proof that the Galois group of any irreducible factor of $x^n +ax + b$ is symmetric for different small values of $a$ and $b$} 
 \localtableofcontents
 \subsection{Summary of results}
@@ -17,6 +16,8 @@ If all the conditions in one of the rows of the table below are satisfied, then 
  $a = $ & $b = $ & $n \not \equiv$ & $\mod$ \\ [0.5ex] 
  \hline\hline
  $\pm 1$ & $ \pm 1$ & & \\ 
+ \hline
+ $\pm 1$ & $ \pm 2$ & & \\ 
  \hline
  $\pm 2$ & $\pm 1$ & & \\ 
  \hline
@@ -348,20 +349,20 @@ Then:
   \[
     f \equiv x^n + 1 \equiv \left( x^{n/2} + 1 \right)^2 \mod 2 
   \]
-  and hence $f$ has exactly two roots lying above $1$ in $\overline{\Q_2}$, and since one of then is $\alpha$, then $g = \frac{f}{x-1}$ has exactly one root lying above $1$ in $\overline{\Q_2}$.
-  Denote this root by $\alpha_0$.
+  and hence $f$ has exactly two roots lying above $1$ in $\overline{\Q_2}$, and since one of them is $1$, then $g = \frac{f}{x-1}$ has exactly one root lying above $1$ in $\overline{\Q_2}$.
+  Denote this root by $\alpha_1$.
   Then for any conjugate $\alpha'$ of $\alpha$ in $\overline{\Q_2}$,  
   \begin{align*}
     & v_2\left( 2n - n\alpha'^{-1} - 2 \right) = \\
     & v_2\left( 2n\alpha' - n - 2\alpha' \right) = \\
     & v_2\left( \left( \alpha' - 1 \right)n + \left( n - 2 \right)\alpha' \right) = \left( \ast \right)
   \end{align*}
-  If $\alpha' \neq \alpha_0$, then $v_2\left( \alpha' - 1 \right) = 0$ and hence 
+  If $\alpha' \neq \alpha_1$, then $v_2\left( \alpha' - 1 \right) = 0$ and hence 
   \[
     v_2\left( n - 2 \right) \geq 2 > 1 = v_2\left( \left( \alpha' - 1 \right)n \right)
   \]
   and hence $\left( \ast \right) = 1$.
-  If $\alpha' = \alpha_0$, then $v_2\left( \alpha' - 1 \right)$ is again the $2$-adic valuation of the constant term of $g\left( x + 1 \right)$, since $\alpha_0 - 1$ is the only root of $g\left( x + 1 \right)$ lying above $0$ in $\overline{\Q_2}$, and hence $v_2\left( \alpha' - 1 \right) = v_2\left( g\left( 1 \right) \right) = v_2\left( n - 2 \right)$.
+  If $\alpha' = \alpha_1$, then $v_2\left( \alpha' - 1 \right)$ is again the $2$-adic valuation of the constant term of $g\left( x + 1 \right)$, since $\alpha_1 - 1$ is the only root of $g\left( x + 1 \right)$ lying above $0$ in $\overline{\Q_2}$, and hence $v_2\left( \alpha' - 1 \right) = v_2\left( g\left( 1 \right) \right) = v_2\left( n - 2 \right)$.
   Therefore, in this case 
   \[
     v_2\left( \left( \alpha' - 1 \right)n \right) = v_2\left( n - 2 \right) + 1 > v_2\left( n - 2 \right) = v_2\left( \left( n - 2 \right)\alpha' \right)
@@ -371,8 +372,8 @@ Then:
   \begin{align*}
     & v_2\left( N^L_\Q\left( 2n - n\alpha^{-1} - 2 \right) \right) =
     \sum_{\alpha' \in Z\left( g \right)} v_2\left( 2n - n\alpha'^{-1} - 2 \right) = \\
-    & \sum_{\alpha' \in Z\left( g \right) - \left\{ \alpha_0 \right\}} v_2\left( 2n - n\alpha'^{-1} - 2 \right) + v_2\left( 2n - n\alpha_0^{-1} - 2 \right) = \\
-    & \sum_{\alpha' \in Z\left( g \right) - \left\{ \alpha_0 \right\}} 1 + v_2\left( n - 2 \right) = n - 2 + v_2\left( n - 2 \right)
+    & \sum_{\alpha' \in Z\left( g \right) - \left\{ \alpha_1 \right\}} v_2\left( 2n - n\alpha'^{-1} - 2 \right) + v_2\left( 2n - n\alpha_1^{-1} - 2 \right) = \\
+    & \sum_{\alpha' \in Z\left( g \right) - \left\{ \alpha_1 \right\}} 1 + v_2\left( n - 2 \right) = n - 2 + v_2\left( n - 2 \right)
   \end{align*}
   and hence \[
     v_2\left( d \right) = n - 2 + v_2\left( n - 2 \right) - v_2\left( n - 2 \right) = n - 2
@@ -475,6 +476,172 @@ Assume now that $f = x^n + 2x - 1$.
   However, according to \url{https://www.lmfdb.org/NumberField/?rd=0-2}, there are no number fields with root discriminant less than $2$ that are ramified only over $2$.
   Therefore, according to Corollary \ref{cor:the_useful_criterion}, the Galois group of $f$ is $S_n$ as claimed.
 \end{proof}
+
+\subsection{The case $f = x^n \pm x \pm 2$}
+As before, we can always by substituting $x$ by $-x$ if necessary, assume that either:
+\[
+  f = f_1 := x^n - x + 2 \quad \text{or} \quad f = f_2 := x^n + x - 2
+\]
+\begin{lemma}
+  Over $\Q$, $f_1$ is irreducible over and $f_2$ factors as $x - 1$ times an irreducible factor.
+\end{lemma}
+\begin{proof}
+  Let $z \in \C$.
+  If $\left| z \right| < 1$, then 
+  \[
+    \left| x^n \pm x \right| < 2
+  \]
+  and hence $\alpha$ cannot be a root of $f_1$ or $f_2$.
+  Therefore, all the roots of $f_1$ and $f_2$ have absolute value greater than or equal to $1$.
+  Assume that $\left| z \right| = 1$.
+  If $z$ is a root of $f_1$, then $2 = z - z^n$ and hence $1 = z - z^n$ which is a contradiction.
+  If $z$ is a root of $f_2$, then $2 = z + z^n$ and hence $1 = z$ and indeed $1$ is a root of $f_2$.
+
+  Therefore, both $f_1$ and $f_2 / \left( x - 1 \right)$ are monic polynomials whose free coefficient is $\pm 2$ and whose roots are all of absolute value greater than $1$.
+  If any of them would have been reducible over $\Q$, then it would have been reducible over $\Z$ as well, and hence one of its factors would have been a monic polynomial with integer coefficients whose roots are all of absolute value greater than $1$ and whose free coefficient is $\pm 1$ which is a contradiction.
+\end{proof}
+
+\begin{lemma}
+  For any $n$ 
+  \[
+  v_2\left( \d\left( f_1 \right) \right) \leq n
+  \]
+\end{lemma}
+\begin{proof}
+  According to \cite[Theorem 2]{Swan62} 
+  \begin{align*}
+    \left| \d\left( f_1 \right) \right| = &
+    \left|  
+      n^n 2^{n-1} + \left( -1 \right)^{n-1} \left( n-1 \right)^{n-1}\left( -1 \right)^n
+    \right| = n^n 2^{n-1} - \left( n-1 \right)^{n-1}
+  \end{align*}
+  Hence, if $v_2\left( n-1 \right) = 0$ then $v_2\left( \d\left( f_1 \right) \right) = 0$ and if $v_2\left( n-1 \right) > 1$ then $v_2\left( \d\left( f_1 \right) \right) = n - 1$.
+  Assume then that $v_2\left( n-1 \right) = 1$.
+  Then 
+  \[
+    v_2\left( \d\left( f_1 \right) \right) = 
+    n - 1 + v_2\left(  
+      n^n - \left( \frac{n-1}{2} \right)^{n-1}
+    \right)
+  \]
+  However, $n \equiv 3 \pmod{4}$ and hence $n^n \equiv 3 \pmod{4}$ and since $\left( n-1 \right) / 2$ is odd, $\left( \frac{n-1}{2} \right)^{n-1} \equiv 1 \pmod{4}$ and hence 
+  \[
+    n^n - \left( \frac{n-1}{2} \right)^{n-1} \equiv 2 \mod 4
+  \]
+  and hence $v_2\left( \d\left( f_1 \right) \right) = n$ as claimed.
+\end{proof}
+\begin{lemma}
+  For any $n$ 
+  \[
+  v_2\left( \d\left( \frac{f_1}{x - 1} \right) \right) \leq n
+  \]
+\end{lemma}
+\begin{proof}
+  According to \cite[Theorem 2]{Swan62} 
+  \begin{align*}
+    \left| \d\left( f_1 \right) \right| = &
+    \left|  
+      n^n \left( -2 \right)^{n-1} + \left( -1 \right)^{n-1} \left( n-1 \right)^{n-1}
+    \right| = n^n 2^{n-1} + \left( n-1 \right)^{n-1}
+  \end{align*}
+  The only non-trivial case is again when $v_2\left( n-1 \right) = 1$.
+  In this case, denote $g = f_1 / \left( x - 1 \right)$ and note that for any root $\alpha$ of $g$, 
+  \begin{align*}
+    & g'\left( \alpha \right) = \\
+    & \prod_{\beta \in Z\left( g \right) - \left\{ \alpha \right\}}\left( \alpha - \beta \right) = \\
+    & \frac{
+      \prod_{\beta \in Z\left( f \right) - \left\{ \alpha \right\}}\left( \alpha - \beta \right)
+    }{
+      \alpha - 1
+    } = \\
+    & \frac{
+      f'\left( \alpha \right)
+    }{
+      \alpha - 1
+    } = \\
+    & \frac{
+      n \alpha^{n-1} - 1
+    }{
+      \alpha - 1
+    } = \\
+    & \frac{
+      n \frac{\alpha - 2}{\alpha} - 1
+    }{
+      \alpha - 1
+    } = \\
+    & \frac{
+      n - 2n\alpha^{-1} - 1
+    }{
+      \alpha - 1
+    }
+  \end{align*}
+  Therefore, 
+  \[
+    v_2\left( d \right) = 
+    v_2\left( N^L_\Q\left( n - 2n\alpha^{-1} - 1\right) \right) - 
+    v_2\left( N^L_\Q\left( \alpha - 1 \right) \right) 
+  \]
+  We will start for the second summand.
+  The norm of $\alpha - 1$ is the constant term of $g\left( x + 1 \right)$ which is $g\left( 1 \right)$.
+  Note then that 
+  \[
+    g\left( x \right) = x^{n-1} + x^{n-2} + \ldots + x + 2
+  \]
+  Therefore, $g\left( 1 \right) = n + 1$ and hence $v_2\left( N^L_\Q\left( \alpha - 1 \right) \right) = v_2\left( n + 1 \right)$.
+  
+  To evaluate the first summand, note that
+  \[
+    f \equiv x^n + x \equiv x \left( x^{\left( n - 1 \right)/2} + 1 \right)^2 \mod 2 
+  \]
+  and hence $f$ has exactly two roots lying above $1$ in $\overline{\Q_2}$, and since one of them is $1$, then $g = \frac{f}{x-1}$ has exactly one root lying above $1$ in $\overline{\Q_2}$.
+  Denote this root by $\alpha_1$.
+  There is also one root of $g$ lying above $0$ in $\overline{\Q_2}$.
+  Denote this root by $\alpha_0$.
+  By considering the Newto polygon of $f$ with respect to $2$, we see that $v_2\left( \alpha_0 \right) = 1$.
+  Hence,
+  \begin{align*}
+    & v_2\left( n - 2n\alpha_0^{-1} - 1 \right) = \\
+    & v_2\left( \left( n - 1 \right)\alpha_0 - 2n \right) - 1 = \\
+    & 1 - 1 = 0
+  \end{align*}
+  For any conjugate $\alpha' \neq \alpha_1$ of $\alpha$ in $\overline{\Q_2}$,
+  \begin{align*}
+    & v_2\left( n - 2n\alpha'^{-1} - 1 \right) = \\
+    & v_2\left( n\alpha' - 2n - \alpha' \right) = \\
+    & v_2\left( \left( \alpha' - 1 \right)2n - \left( n + 1 \right)\alpha' \right) = \left( \ast \right)
+  \end{align*}
+  If $\alpha' \neq \alpha_1$, then $v_2\left( \alpha' - 1 \right) = 0$ and hence 
+  \[
+    v_2\left( n + 1 \right) \geq 2 > 1 = v_2\left( \left( \alpha' - 1 \right)2n \right)
+  \]
+  and hence $\left( \ast \right) = 1$.
+  If $\alpha' = \alpha_1$, then $v_2\left( \alpha' - 1 \right)$ is again the $2$-adic valuation of the constant term of $g\left( x + 1 \right)$, since $\alpha_1 - 1$ is the only root of $g\left( x + 1 \right)$ lying above $0$ in $\overline{\Q_2}$, and hence $v_2\left( \alpha' - 1 \right) = v_2\left( g\left( 1 \right) \right) = v_2\left( n + 1 \right)$.
+  Therefore, in this case 
+  \[
+    v_2\left( \left( \alpha' - 1 \right)2n \right) = v_2\left( n + 1 \right) + 1 > v_2\left( n + 1 \right) = v_2\left( \left( n + 1 \right)\alpha' \right)
+  \]
+   and hence $\left( \ast \right) = v_2\left( n + 1 \right)$.
+   Thus,
+  \begin{align*}
+    & v_2\left( N^L_\Q\left( n - 2n\alpha^{-1} - 1 \right) \right) =
+    \sum_{\alpha' \in Z\left( g \right)} v_2\left( n - 2n\alpha'^{-1} - 1 \right) = \\
+    & \sum_{\alpha' \in Z\left( g \right) - \left\{ \alpha_0, \alpha_1 \right\}} v_2\left( n - 2n\alpha'^{-1} - 1 \right) + v_2\left( n - 2n\alpha_0^{-1} - 1 \right) + v_2\left( n - 2n\alpha_1^{-1} - 1 \right) = \\
+    & \sum_{\alpha_0, \alpha' \in Z\left( g \right) - \left\{ \alpha_1 \right\}} 1 + 0 + v_2\left( n - 2 \right) = n - 3 + v_2\left( n + 1 \right)
+  \end{align*}
+  and hence \[
+    v_2\left( \d\left( g \right) \right) = n - 3 + v_2\left( n + 1 \right) - v_2\left( n + 1 \right) = n - 3
+  \]
+  as claimed.
+\end{proof}
+
+\begin{corollary}
+  The Galois group of $f_1$ is $S_n$ and the Galois group of $f_2 / \left( x - 1 \right)$ is $S_{n-1}$.
+\end{corollary}
+\begin{proof}
+  Routine using the previous two lemmas and Corollary \ref{cor:the_useful_criterion}.
+\end{proof}
+
+
 
 \subsection{Strategy for even harder cases}
 

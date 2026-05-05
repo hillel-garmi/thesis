@@ -11,6 +11,8 @@
 \usepackage{hyperref}
 \usepackage{etoc}
 \usepackage{fullpage}
+\usepackage{pgffor}
+\usepackage{titling}
 
 \doublespacing
 
@@ -34,6 +36,24 @@
 \def\Norm{\text{\rm Norm}}
 \def\d{\text{\rm d}}
 \def\rd{\text{\rm rd}}
+\def\ProvenCases{
+  {\left( \pm 1, \pm 1 \right)} ,
+  {\left( \pm 1, \pm 2 \right)} ,
+  {\left( \pm 2, \pm 1 \right)} ,
+  {\left( \pm 2, \pm 2 \right)} , 
+  {\left( \pm 3, -3 \right) } ,
+  {\left( \pm 4, -2 \right)}
+}
+\def\QuadSeparatedProvenCases{
+  \foreach \case in \ProvenCases {
+    \case\quad
+  }
+}
+\def\InlineProvenCases{
+  \foreach \case in \ProvenCases {
+    $\case$, 
+  }
+}
 
 \newcommand{\justification}[1]{
   \textcolor{lightgray}{ \backslash #1}
@@ -51,7 +71,11 @@
 \newtheorem{strategy}[thm]{Strategy}
 
 \begin{document}
+  \part{IMU Talk Abstract}
+  \subfile{imu_talk/imu_talk.tex}
+  \part{The Theatrical Cut}
   \subfile{theatrical_cut/theatrical_cut.tex}
+  \part{The Director's Cut}
   \subfile{generalization_to_a_neq_2/generalizarion_to_a_neq_2.tex}
   % \subfile{complete_proof/complete_proof.tex}
   % \subfile{generalization_to_k_neq_1/generalization_to_k_neq_1.tex}
