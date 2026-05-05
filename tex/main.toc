@@ -1,6 +1,6 @@
 \@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
 \contentsline {part}{I\hspace {1em}IMU Talk Abstract}{1}{part.1}%
-\contentsline {part}{II\hspace {1em}The Theatrical Cut}{3}{part.2}%
+\contentsline {part}{II\hspace {1em}The Theatrical Cut}{4}{part.2}%
 \contentsline {section}{\numberline {1}Introduction}{5}{section.1}%
 \contentsline {part}{III\hspace {1em}The Director's Cut}{8}{part.3}%
 \contentsline {section}{\numberline {2}Proof that the Galois group of any irreducible factor of $x^n +ax + b$ is symmetric for different small values of $a$ and $b$}{8}{section.2}%
