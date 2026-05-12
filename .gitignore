@@ -9,3 +9,5 @@
 *.run.xml
 *.pdf
 *.bash
+*.toc
+*.out
