@@ -1,6 +1,7 @@
 \documentclass[../main.tex]{subfiles}
 
 \begin{document}
+
 \section{Proof that the Galois group of any irreducible factor of $x^n +ax + b$ is symmetric for different small values of $a$ and $b$} 
 \localtableofcontents
 \subsection{Summary of results}
@@ -46,10 +47,20 @@ Fix an irreducible factor $g$ of $f$ (which most of the time will be $f$ itself)
 
 For each polynomial $h$ and number field $K$, we will denote by $\d\left( h \right)$ and $\d\left( K \right)$ \editorial{(or for legacy reasons also $\disc\left( K \right)$)} the discriminant of $h$ and of $K$ respectively and by $\rd\left( K \right)$ the root discriminant of $K$, i.e. $\rd\left( K \right) = \d\left( K \right)^{1/\left[ K : \Q \right]}$.  
 
+% \subsection{Discriminant $p$-adic bounds}
+% \begin{proposition}
+%   We will see soon
+% \end{proposition}
+% \begin{proof}
+  
+% \end{proof}
+
+
+
 \subsection{Strategy}
 We will first lay down a few results that will provide us with a strategy to show that for any triple $n,a,b$ that satisfies different conditions, the Galois group of any factor of $f$ is symmetric.
 \begin{lemma}
-  \label{lem:inertia_group_acts_as_transposition}
+  \label{lem:inertia_group_acts_as_transposition_director}
   For any $p \not | ab$, the action of the inertia group $I\left( p \right)$ on $\Hom_{\Q}\left( \Q\left[ x \right] / \left( f \right), \overline{\Q} \right)$ has at most two non-fixed points. 
 \end{lemma}
 \editorial{It is a generalization of Martin's proof (\cite{MARTIN2004213})}
@@ -86,7 +97,7 @@ We will first lay down a few results that will provide us with a strategy to sho
   and hence since $p$ does not divide $a \left( n - 1 \right)$ there is exactly one double root of $f$ in $\overline{\F_p}$.
 \end{proof}
 \begin{corollary}
-  \label{cor:inertia_group_acts_as_transposition}
+  \label{cor:inertia_group_acts_as_transposition_director}
   Let $g$ be an irreducible factor of $f$, then for any $p \not | ab$, the action of the inertia group $I\left( p \right)$ on $\Hom_{\Q}\left( \Q\left[ x \right] / \left( g \right), \overline{\Q} \right)$ has at most two non-fixed points.
 \end{corollary}
 \begin{proof}
@@ -100,7 +111,7 @@ We will first lay down a few results that will provide us with a strategy to sho
     \pi^\ast : \Hom_{\Q}\left( \Q\left[ x \right] / \left( g \right), \overline{\Q} \right) \to 
     \Hom_{\Q}\left( \Q\left[ x \right] / \left( f \right), \overline{\Q} \right)
   \]
-  is a monomorphism of $G$-sets and hence the result follows from the previous lemma - \ref{lem:inertia_group_acts_as_transposition}.
+  is a monomorphism of $G$-sets and hence the result follows from the previous lemma - \ref{lem:inertia_group_acts_as_transposition_director}.
 \end{proof}
 \begin{corollary}
   \label{cor:ramification_only_over_primes_dividing_a}
@@ -117,7 +128,7 @@ We will first lay down a few results that will provide us with a strategy to sho
     \Hom_{\Q}\left( K, \overline{\Q} \right)
   \]
   is a surjective $G$-equivariant map.
-  Thus, $I\left( p \right)$ acts trivially on $\Hom_{\Q}\left( K, \overline{\Q} \right)$ since any non-trivial action of $I\left( p \right)$ on $\Hom_{\Q}\left( K, \overline{\Q} \right)$ would lift to an action on $\Hom_{\Q}\left( \Q\left[ x \right] / \left( g \right), \overline{\Q} \right)$ that would have at least $4$ non-fixed points, contradicting Corollary \ref{cor:inertia_group_acts_as_transposition}.
+  Thus, $I\left( p \right)$ acts trivially on $\Hom_{\Q}\left( K, \overline{\Q} \right)$ since any non-trivial action of $I\left( p \right)$ on $\Hom_{\Q}\left( K, \overline{\Q} \right)$ would lift to an action on $\Hom_{\Q}\left( \Q\left[ x \right] / \left( g \right), \overline{\Q} \right)$ that would have at least $4$ non-fixed points, contradicting Corollary \ref{cor:inertia_group_acts_as_transposition_director}.
 \end{proof}
 
 \begin{lemma}
@@ -171,7 +182,7 @@ We will first lay down a few results that will provide us with a strategy to sho
 \end{corollary}
 \begin{proof}
   Let $p$ be a prime that divides the discriminant of $\Q\left[ x \right] / \left( g \right)$ but does not divide $a b$.
-  Then by Corollary \ref{cor:inertia_group_acts_as_transposition}, $I\left( p \right)$ acts on $\Hom_{\Q}\left( \Q\left[ x \right] / \left( g \right), \overline{\Q} \right)$ as a single transposition and hence the Galois group of $g$ contains a transposition.
+  Then by Corollary \ref{cor:inertia_group_acts_as_transposition_director}, $I\left( p \right)$ acts on $\Hom_{\Q}\left( \Q\left[ x \right] / \left( g \right), \overline{\Q} \right)$ as a single transposition and hence the Galois group of $g$ contains a transposition.
   The result the follows from Corollary \ref{cor:galois_group_with_transposition_ando_intermediate_extensions_is_full_symmetric}.
 \end{proof}
 \begin{corollary}
@@ -1047,7 +1058,7 @@ Let $S\left( \left| a \right| \right)$ be the set of positive integers $n$ that 
 %     \left|\disc\left( \Q\left( \alpha \right) \right) \right| > 22^n
 %   \]
 %   (or $> 44^n$ assuming GRH) and hence there is a prime dividing $\disc\left( \Q\left( \alpha \right) \right)$ that does not divide $a$.
-%   The consequence follows from Lemma \ref{lem:inertia_group_acts_as_transposition}.
+%   The consequence follows from Lemma \ref{lem:inertia_group_acts_as_transposition_director}.
 % \end{proof}
 
 % \begin{lemma}
@@ -1090,7 +1101,7 @@ Let $S\left( \left| a \right| \right)$ be the set of positive integers $n$ that 
 %   Assume that $n$ satisfies the above conditions.
 %   Then by Lemma \ref{lem:bound_on_disc_of_intermediate_extensions}, $\Q\left( \alpha \right)$ has no proper intermediate extensions.
 %   Therefore, $\Hom\left( \Q\left( \alpha \right), \overline{\Q} \right)$ has no $G$-equivariant quotients and hence $G$ acts primitively on $\Hom\left( \Q\left( \alpha \right), \overline{\Q} \right)$.
-%   However, by Lemma \ref{lem:inertia_group_acts_as_transposition} and Lemma \ref{lem:there_is_a_prime_dividing_disc_but_not_a}, there is a prime $p$ such that $I\left( p \right)$ acts on $\Hom\left( \Q\left( \alpha \right), \overline{\Q} \right)$ as a single transposition and hence $G$ contains a transposition.
+%   However, by Lemma \ref{lem:inertia_group_acts_as_transposition_director} and Lemma \ref{lem:there_is_a_prime_dividing_disc_but_not_a}, there is a prime $p$ such that $I\left( p \right)$ acts on $\Hom\left( \Q\left( \alpha \right), \overline{\Q} \right)$ as a single transposition and hence $G$ contains a transposition.
 %   Therefore, since any primitive subgroup of $S_n$ that contains a transposition is $S_n$, it follows that $G = S_n$.
 % \end{proof} 
 
