@@ -126,7 +126,7 @@ The previous two lemmas together give us the following corollary:
 We shall then prove that for some values of $a,b$ such subextension $K$ does not exist.
 
 \section{$p$-adic bounds on the discriminant}
-Let $a,b,n,f,g,L$ be as in the previous section. let $\alpha$ be the image of $x$ in $L = \Q\left[ x \right] / \left( f \right)$, and let $p$ be a prime dividing $ab$.
+Let $a,b,n,f,g,L$ be as in the previous section. let $\alpha$ be the image of $x$ in $L = \Q\left[ x \right] / \left( g \right)$, and let $p$ be a prime dividing $ab$.
 Let $\pi: \O_{\overline{\Q_p}} \to \overline{\F_p}$ be the cannonical quotient map from the integral closure of $\Z_p$ inside $\overline{\Q_p}$ to the algebraic closure of the finite field with $p$ elements.
 Let $v_p: \overline{Q_p} \to \Q$ be the unique extension of the $p$ adic valuation on $\Q_p$. 
 % Let $\iota: \overline{\Q} \hookrightarrow \overline{\Q_p}$ be an embedding.
@@ -147,53 +147,54 @@ Let $v_p: \overline{Q_p} \to \Q$ be the unique extension of the $p$ adic valuati
 \end{proof}
 \begin{lemma}
   Assume that $n > v_p\left( b \right)$.
-  For any ring homomorphism $\rho: \Q\left[ x \right] / \left( f \right) \to \overline{Q_p}$ one of the following holds: 
+  For any ring homomorphism $\iota: L \to \overline{\Q_p}$ one of the following holds: 
   \begin{enumerate}
-    \item $v_p\left( f'\left( \rho\left( \alpha \right) \right) \right) < \max\left\{ v_p\left( a \right), v_p\left( b \right) \right\}$.
-    \item $v_p\left( b \right) = 0$, $v_p\left( a \right) = v_p\left( n \right)$ and $\rho$ is one of the only $p^{v_p\left( n \right)}$ embeddings for which $\pi\left( \rho\left( \alpha \right) \right) = \pi\left( \frac{nb}{\left( 1 - n \right)a} \right)$.
-    \item $v_p\left( b \right) > v_p\left( a \right)$ and $\rho$ is the unique embedding for which $v_p\left( \rho\left( \alpha \right) \right) = v_p\left( b \right) - v_p\left( a \right)$.
-    \item $v_p\left( b \right) > v_p\left( a \right) = 0$, $v_p\left( b \right) = v_p\left( n - 1 \right)$ and $\rho$ is one of the only $p^{v_p\left( n-1 \right)}$ embeddings $\pi\left( \rho\left( \alpha \right) \right) = \pi\left( \frac{nb}{\left( 1 - n \right)a} \right)$.
+    \item $v_p\left( f'\left( \iota\left( \alpha \right) \right) \right) < \max\left\{ v_p\left( a \right), v_p\left( b \right) \right\}$.
+    \item $v_p\left( b \right) = 0$, $v_p\left( a \right) = v_p\left( n \right)$ and $\iota$ is one of the only $p^{v_p\left( n \right)}$ embeddings for which $\pi\left( \iota\left( \alpha \right) \right) = \pi\left( \frac{nb}{\left( 1 - n \right)a} \right)$.
+    \item $v_p\left( b \right) > v_p\left( a \right)$ and $\iota$ is the unique embedding for which $v_p\left( \iota\left( \alpha \right) \right) = v_p\left( b \right) - v_p\left( a \right)$.
+    \item $v_p\left( a \right) = 0$, $v_p\left( b \right) = v_p\left( n - 1 \right)$ and $\iota$ is one of the only $p^{v_p\left( n-1 \right)}$ embeddings $\pi\left( \iota\left( \alpha \right) \right) = \pi\left( \frac{nb}{\left( 1 - n \right)a} \right)$.
   \end{enumerate}
 \end{lemma}
 \begin{proof}
   Assume first that 
   \[
     v_p\left( n - 1 \right) + v_p\left( a \right) \neq 
-    v_p\left( n \right) + v_p\left( b \right) - v_p\left( \rho\left( \alpha \right) \right)
+    v_p\left( n \right) + v_p\left( b \right) - v_p\left( \iota\left( \alpha \right) \right)
   \]
   Then by Lemma \ref{lem:derivative_formula} 
   \begin{align*}
-    v_p\left( f'\left( \rho\left( \alpha \right) \right) \right) = 
-    & v_p\left( \left( 1 - n \right)a - nb\rho\left( \alpha \right)^{-1} \right) = \\ 
+    v_p\left( f'\left( \iota\left( \alpha \right) \right) \right) = 
+    & v_p\left( \left( 1 - n \right)a - nb\iota\left( \alpha \right)^{-1} \right) = \\ 
     & \min{\left\{ 
       v_p\left( n - 1 \right) + v_p\left( a \right), 
-      v_p\left( n \right) + v_p\left( b \right) - v_p\left( \rho\left( \alpha \right) \right) 
+      v_p\left( n \right) + v_p\left( b \right) - v_p\left( \iota\left( \alpha \right) \right) 
     \right\}} \leq \\
     & \min{\left\{ 
       v_p\left( n - 1 \right) + v_p\left( a \right), 
       v_p\left( n \right) + v_p\left( b \right) 
     \right\}}
   \end{align*}
-  However, since either $v_p\left( n \right) = 0$ or $v_p\left( n - 1\right) = 0$, it then follows that inded 
+  However, since either $v_p\left( n \right) = 0$ or $v_p\left( n - 1\right) = 0$, it then follows that indeed 
   \[
-    v_p\left( f'\left( \rho\left( \alpha \right) \right) \right) \leq \max\left\{ v_p\left( a \right), v_p\left( b \right) \right\}
+    v_p\left( f'\left( \iota\left( \alpha \right) \right) \right) \leq \max\left\{ v_p\left( a \right), v_p\left( b \right) \right\}
   \]
 
   Assume now that 
   \begin{equation}
     \label{eq:valuation_inequality}
-    v_p\left( f'\left( \rho\left( \alpha \right) \right) \right) > \max\left\{ v_p\left( a \right), v_p\left( b \right) \right\}
+    v_p\left( f'\left( \iota\left( \alpha \right) \right) \right) > \max\left\{ v_p\left( a \right), v_p\left( b \right) \right\}
   \end{equation}
   The contrapositive of the argument presented in the above paragraph implies that
   \begin{equation}
     \label{eq:valuation_equality}
     v_p\left( n - 1 \right) + v_p\left( a \right) = 
-    v_p\left( n \right) + v_p\left( b \right) - v_p\left( \rho\left( \alpha \right) \right)
+    v_p\left( n \right) + v_p\left( b \right) - v_p\left( \iota\left( \alpha \right) \right)
   \end{equation}
-  In particular, it follows that $v_p\left( \rho\left( \alpha \right) \right) \in \Z$.
-  By recalling that $n > v_p\left( b \right)$ and analyzing the Newton polygon of $f$ with respect to $v_p$, one could deduce that their are only three possible cases:
+  In particular, it follows that $v_p\left( \iota\left( \alpha \right) \right) \in \Z$.
+  Therefore, $\iota\left( \alpha \right)$ must correspond to a segment of the Newton polygon of $f$ with respect to $v_p$ whose slope is an integer.
+  Recalling that $n > v_p\left( b \right)$, one can see that it can possibly happen in one of only three ways:
   \begin{itemize}
-    \item $v_p\left( b \right) = 0$. In this case it follows that $v_p\left( \rho\left( \alpha \right) \right) = 0$ and hence Equation \ref{eq:valuation_equality} implies that 
+    \item $v_p\left( b \right) = 0 = v_p\left( \iota\left( \alpha \right) \right) = 0$. In this case the Equation \ref{eq:valuation_equality} implies that 
     \[
       v_p\left( n - 1 \right) + v_p\left( a \right) = v_p\left( n \right) + v_p\left( b \right)
     \]
@@ -202,14 +203,14 @@ Let $v_p: \overline{Q_p} \to \Q$ be the unique extension of the $p$ adic valuati
     By inequality \ref{eq:valuation_inequality} and Lemma \ref{lem:derivative_formula}, 
     \[
       v_p\left( a \right) < 
-      v_p\left( f'\left( \rho\left( \alpha \right) \right) \right) = 
+      v_p\left( f'\left( \iota\left( \alpha \right) \right) \right) = 
       v_p\left( a \right) v_p\left(  
-        \left( 1 - n \right)\frac{a}{p^{v_p\left( a \right)}} - \frac{n}{v_p\left( n \right)}b\rho\left( \alpha \right)^{-1}
+        \left( 1 - n \right)\frac{a}{p^{v_p\left( a \right)}} - \frac{n}{v_p\left( n \right)}b\iota\left( \alpha \right)^{-1}
       \right)
     \]
     and hence 
     \[
-      \pi\left( \rho\left( \alpha \right) \right) = 
+      \pi\left( \iota\left( \alpha \right) \right) = 
       \pi\left( \frac{nb}{\left( 1 - n \right)a} \right)
     \]
     Since 
@@ -217,9 +218,15 @@ Let $v_p: \overline{Q_p} \to \Q$ be the unique extension of the $p$ adic valuati
       x^n + ax + b \equiv
       \left( x^{\left( p^{v_p\left( n \right)} \right)} \right)^{n/p^{v_p\left( n \right)}} + b \mod p
     \]
-    and hence the fiber of each root of $f$ in $\overline{\F_p}$ contains exactly $p^{v_p\left( n \right)}$ of its roots in $\overline{\Q_p}$, and consequently, tere are exactly $p^{v_p\left( n \right)}$ homomorphisms $\rho: \Q\left[ x \right] / \left( f \right) \to \overline{\Q_p}$ for which $\pi\left( \rho\left( \alpha \right) \right) = \pi\left( \frac{nb}{\left( 1 - n \right)a} \right)$.
-    \item $v_p\left( b \right) > v_p\left( a \right)$ and $v_p\left( \rho\left( \alpha \right) \right) = v_p\left( b \right) - v_p\left( a \right)$. The analysis of the Newton polygon implies in particular that there is a unique homomorphism belonging to this case.
-    \item $v_p\left( b \right) > v_p\left( a \right) = 0$, $v_p\left( b \right) = v_p\left( n - 1 \right)$ and $v_p\left( \rho\left( \alpha \right) \right) = 0$. The analysis of this case is similar to that of the first one.
+    and hence the fiber of each root of $f$ in $\overline{\F_p}$ contains exactly $p^{v_p\left( n \right)}$ of its roots in $\overline{\Q_p}$, and consequently, tere are exactly $p^{v_p\left( n \right)}$ homomorphisms $\iota: L \to \overline{\Q_p}$ for which $\pi\left( \iota\left( \alpha \right) \right) = \pi\left( \frac{nb}{\left( 1 - n \right)a} \right)$.
+    \item $v_p\left( \iota\left( \alpha \right) \right) = v_p\left( b \right) - v_p\left( a \right) > 0$.
+    In this case it follows from Equation \ref{eq:valuation_equality} that
+    \[
+      v_p\left( n - 1 \right) + v_p\left( a \right) = 
+      v_p\left( n \right) + v_p\left( b \right) - \left( v_p\left( b \right) - v_p\left( a \right) \right) = v_p\left( n \right) + v_p\left( a \right)
+    \]
+    from which it follows that $v_p\left( n - 1 \right) = v_p\left( n \right)$ and hence $v_p\left( n \right) = v_p\left( n - 1 \right) = 0$.
+    \item $v_p\left( b \right) > v_p\left( a \right) = 0$, $v_p\left( b \right) = v_p\left( n - 1 \right)$ and $v_p\left( \iota\left( \alpha \right) \right) = 0$. The analysis of this case is similar to that of the first one.
   \end{itemize}
 \end{proof}
 \begin{corollary}
@@ -227,16 +234,32 @@ Let $v_p: \overline{Q_p} \to \Q$ be the unique extension of the $p$ adic valuati
   There 
   \[
     v_p\left( \d\left( L \right) \right) \leq 
-    \deg L + p^{2 \max\left\{ v_p\left( a \right), v_p\left( b \right) \right\}} + p^{\max\left\{ v_p\left( a \right), v_p\left( b \right) \right\}} \leq
-    \deg L + 2 a^2 b^2
+    \deg L + p^{2 \max\left\{ v_p\left( a \right), v_p\left( b \right) \right\}} + p^{ \max\left\{ v_p\left( a \right), v_p\left( b \right) \right\}}\leq
+    \deg L + a^2 b^2 + ab
   \]
 \end{corollary}
 \begin{proof}
-  For each ring extension $B/A$, let $\D\left( B/ A \right)$ denote the different of $B$ over $A$. 
-  By the lemma above,
+  For each ring extension $B/A$, let $\D\left( B/ A \right)$ denote the different of $B$ over $A$.
+  % Fix an embedding of $\overline{\Q}$ into $\overline{\Q_p}$, and consequently, an extension of $v_p$ to $\overline{\Q}$.
+  For each numberfield $K$, let $\D\left( K \right)$ denote the different of $K$ over $\Q$. 
+  By the lemma above, each embedding $\iota: L \hookrightarrow \overline{\Q_p}$ either satifies,
+  \begin{equation}
+    \tag{Common Bound}
+    \label{eq:common_bound}
+    v_p\left( \D\left( \iota\left( L \right)\Q_p / \Q_p \right) \right) \leq
+    v_p\left( f'\left( \iota\left( \alpha \right) \right) \right) \leq 
+    \max\left\{ v_p\left( a \right), v_p\left( b \right) \right\}
+  \end{equation}
+  and for the rest of them, we can use the well known bound (e.g. \cite[p. 58]{SerreLocalFields}) 
+  \[
+    v_p\left( \D\left( \iota\left( L \right)\Q_p / \Q_p \right) \right) \leq
+  \]
+  
   \begin{align*}
     v_p\left( \d\left( L \right) \right) = &
-    \sum_{\iota: L \hookrightarrow \overline{\Q}} v_p\left( \D\left( L \right) \right)
+    \sum_{\iota: L \hookrightarrow \overline{\Q}} v_p\left( \D\left( \iota\left( L \right) \right) \right) \leq
+    \sum_{\iota: L \hookrightarrow \overline{\Q}} v_p\left( f'\left( \iota\left( \alpha \right) \right) \right) \leq \\
+    & \deg L + \left( p^{\max\left\{ v_p\left( a \right), v_p\left( b \right) \right\}} + 1 \right) p^{\max\left\{ v_p\left( a \right), v_p\left( b \right) \right\}}
   \end{align*}
 \end{proof}
 
@@ -383,7 +406,6 @@ Let $v_p: \overline{Q_p} \to \Q$ be the unique extension of the $p$ adic valuati
     1 + n_0 p^{v_p\left( a \right)} \mod p^{v_p\left( a \right) + 1} 
   \]
   However, the left hand side is a $\left( p - 1 \right)$ root of unity in $\left( \Z / p^{v_p\left( a \right) + 1} \Z \right)^\times$, while the right hand side is not, which is a contradiction.
-
 
   Assume now that $a = \pm 1$ and $v_p\left( b \right) = v_p\left( n - 1 \right)$.
   Denote 
