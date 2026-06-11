@@ -151,6 +151,7 @@ Let $v_p: \overline{\Q_p} \to \Q$ be the unique extension of the $p$ adic valuat
 
 To bound the valuation of the discriminant of $L$, we will first bound the valuation of the different of $\iota\left( L \right)\Q_p$ over $\Q_p$ for each embedding $\iota: L \to \overline{\Q_p}$, for which we will first bound the valuation of $f'\left( \iota\left( \alpha \right) \right)$ as follows:
 \begin{lemma}
+  \label{lem:valuation_of_derivative}
   Assume that $n > v_p\left( b \right)$.
   For any ring homomorphism $\iota: L \to \overline{\Q_p}$ one of the following holds: 
   \begin{enumerate}
@@ -252,6 +253,7 @@ Fix an embedding of $\overline{\Q}$ into $\overline{\Q_p}$, and consequently, an
 % For each rational integer $m$, denote $ = p^{v_p\left( m \right)}$.
 As promised, we can now utilize the previous lemma to bound the valuation of the different of $\iota\left( L \right)\Q_p$ over $\Q_p$ for each embedding $\iota: L \hookrightarrow \overline{\Q_p}$.
 \begin{lemma}
+  \label{lem:different_valuation}
   Assume that $n > v_p\left( b \right)$.
   Then for each $\iota: L \to \overline{\Q_p}$, one of the following holds:
   \begin{enumerate}
@@ -319,11 +321,11 @@ We can now utilize this lemma to finally obtain a bound on the $p$-adic valuatio
   \]
 \end{corollary}
 \begin{proof}
-  By the last corollary,  
+  By the last lemma,  
   \begin{align*}
     v_p\left( \d\left( L \right) \right) = &  
     \sum_{\iota: L \hookrightarrow \overline{Q}} v_p\left( \D\left( \iota\left( L \right) / \Q \right) \right) \leq \\
-    & \left( n - \maxppart \right) + 
+    & \left( \deg L - \maxppart \right) + 
     \maxppart \left( \diffbnd \right) \leq \\
     & \discbnd 
     % & \deg L\maxpval + 2a^2b^2
@@ -332,12 +334,23 @@ We can now utilize this lemma to finally obtain a bound on the $p$-adic valuatio
 \begin{example}
   \label{ex:discriminant_bound}
   We consider again Example \ref{ex:different_valuation} where $f = x^3 - 3x - 1$.
-  The last corollary implies that
+  The last lemma implies that
   \[
     v_3\left( \d\left( L \right) \right) \leq 3 \cdot 1 + 3 \cdot 1 - 1 = 5
   \]
   In fact one can calculate that $\d\left( L \right) = 3^4$.
 \end{example}
+Before continuing with the proof of Theorem \ref{thm:criterion}, we will record a slight improvement of the previous corollary that will be useful in the analysis of some of the cases in the next section:
+\begin{corollary}
+  \label{cor:discriminant_bound_Eisenstein}
+  If $f$ is Eisenstein at $p$ and $n > v_p\left( b \right)$, then
+  \[
+    v_p\left( \d\left( L \right) \right) \leq \deg L \cdot \maxpval
+  \]
+\end{corollary}
+\begin{proof}
+  Since the $p$-adic valuations of both $a$ and $b$ are positive, it follows that in Lemma \ref{lem:valuation_of_derivative} only the first and third case might hold, and hence in Lemma \ref{lem:different_valuation} only the first case might hold, and hence the sum in the proof of Corollary \ref{cor:discriminant_bound} is bounded by $\deg L \cdot \maxpval$.
+\end{proof}
 
 Finally we can prove the criterion for the Galois group of $L$ to be the full symmetric group:
 \begin{thm}
