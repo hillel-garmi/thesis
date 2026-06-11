@@ -239,7 +239,8 @@ To bound the valuation of the discriminant of $L$, we will first bound the valua
   \end{itemize}
 \end{proof}
 \begin{example}
-  As an example for the second case in the above lemma, consider $f = x^3 - 3x - 1$. 
+  \label{ex:derivative_valuation}
+  As an example for the second case in the above lemma, assume that $f = x^3 - 3x - 1$. 
   The only root of $f$ in $\overline{\F_3}$ is $1$, and hence for any embedding $\iota: L \to \overline{\Q_3}$, 
   \[
     v_3\left( f'\left( \iota\left( \alpha \right) \right) \right) = 
@@ -250,17 +251,18 @@ For each extension $K/F$ of field of fractions of Dedekind domains $B/A$, let $\
 Fix an embedding of $\overline{\Q}$ into $\overline{\Q_p}$, and consequently, an extension of $v_p$ to $\overline{\Q}$, and use the standard notation for the $p$-adic norm $\pnorm{\cdot} = p^{-v_p\left( \cdot \right)}$.
 % For each rational integer $m$, denote $ = p^{v_p\left( m \right)}$.
 As promised, we can now utilize the previous lemma to bound the valuation of the different of $\iota\left( L \right)\Q_p$ over $\Q_p$ for each embedding $\iota: L \hookrightarrow \overline{\Q_p}$.
-\begin{corollary}
+\begin{lemma}
   Assume that $n > v_p\left( b \right)$.
   Then for each $\iota: L \to \overline{\Q_p}$, one of the following holds:
   \begin{enumerate}
     \item $v_p\left( \D\left( \iota\left( L \right)\Q_p / \Q_p \right) \right) \leq \maxpval$.
     \item $v_p\left( a \right) + v_p\left( n - 1 \right) = v_p\left( b \right) + v_p\left( n \right)$, $\iota$ is one of the only $\maxppart$ embeddings for which $\pi\left( \iota\left( \alpha \right) \right) = \pi\left( \frac{nb}{\left( 1 - n \right)a} \right)$, and 
-    \[
-      v_p\left( \D\left( \iota\left( L \right)\Q_p / \Q_p \right) \right) \leq \maxppart - 1 + \maxpval \leq 2ab
-    \]
+    \begin{align*}
+      v_p\left( \D\left( \iota\left( L \right)\Q_p / \Q_p \right) \right) \leq & 
+      \diffbnd 
+    \end{align*}
   \end{enumerate}
-\end{corollary}
+\end{lemma}
 \begin{proof}
   Use the same division into cases as in the previous lemma.
   In the first case, 
@@ -281,44 +283,74 @@ As promised, we can now utilize the previous lemma to bound the valuation of the
   \]
   and $\iota$ is one of the exactly $\maxppart$ embeddings for which $\pi\left( \iota\left( \alpha \right) \right) = \pi\left( \frac{nb}{\left( 1 - n \right)a} \right)$.
   Denote by $e\left( \iota\left( L \right) \right)$ the ramification index of $\iota\left( L \right)\Q_p$ over $\Q_p$.
-  Since the ramification index of $\iota\left( L \right)\Q_p$ over $\Q_p$ is the cardinality of $\iota\left( \alpha \right)$ under the action of the absolute inertia group of $\Q_p$, it follows that $e\left( \iota\left( L \right) \right) \leq \maxppart$.
-  We can combine this inequality with the well known bound (e.g. \cite[p. 58]{SerreLocalFields}) 
+  Since the ramification index of $\iota\left( L \right)\Q_p$ over $\Q_p$ is the cardinality of $\iota\left( \alpha \right)$ under the action of the absolute inertia group of $\Q_p$, it follows that $$e\left( \iota\left( L \right) \right) \leq \maxppart$$ and in particular that 
+  \[
+    v_p\left( e\left( \iota\left( L \right) \right) \right) \leq \maxpval
+  \]
+  We can combine these two inequalities with the well known bound (e.g. \cite[p. 58]{SerreLocalFields}) 
   \[
     v_p\left( \D\left( \iota\left( L \right)\Q_p / \Q_p \right) \right) \leq 
-     e\left( \iota\left( L \right) \right) - 1 + v_p\left( e\left( \iota\left( L \right) \right) \right)
+    1 - e\left( \iota\left( L \right) \right)^{-1} + v_p\left( e\left( \iota\left( L \right) \right) \right)
   \]
   to deduce that
   \begin{align*}
     & v_p\left( \D\left( \iota\left( L \right)\Q_p / \Q_p \right) \right) \leq
-     \maxppart - 1 + \maxpval
+     \diffbnd
   \end{align*}
 \end{proof}
-We can now utilize this corollary to obtain a Galois invariant bound:
+\begin{example}
+  \label{ex:different_valuation}
+  Return to the setting of Example \ref{ex:derivative_valuation} where $f = x^3 - 3x - 1$.
+  The last lemma implies that
+  \[
+    v_3\left( \D\left( \iota\left( L \right)\Q_3 / \Q_3 \right) \right) \leq
+    1 - \frac{1}{3} + 1 = \frac{5}{3}
+  \]
+\end{example}
+
+We can now utilize this lemma to finally obtain a bound on the $p$-adic valuation of the discriminant of $L$:
 \begin{corollary}
   \label{cor:discriminant_bound}
   Assume that $n > v_p\left( b \right)$.
   Then
   \[
     v_p\left( \d\left( L \right) \right) \leq 
-    \deg L\maxpval + 2a^2b^2
+    \discbnd
   \]
 \end{corollary}
 \begin{proof}
   By the last corollary,  
   \begin{align*}
     v_p\left( \d\left( L \right) \right) = &  
-    \sum_{\iota: L \hookrightarrow \overline{Q}} v_p\left( \D\left( \iota\left( L \right) / \Q \right) \right) \leq \\ 
-    & \deg L\maxpval + \maxppart 2ab \leq \\
-    & \deg L\maxpval + 2a^2b^2
+    \sum_{\iota: L \hookrightarrow \overline{Q}} v_p\left( \D\left( \iota\left( L \right) / \Q \right) \right) \leq \\
+    & \left( n - \maxppart \right) + 
+    \maxppart \left( \diffbnd \right) \leq \\
+    & \discbnd 
+    % & \deg L\maxpval + 2a^2b^2
   \end{align*}
 \end{proof}
+\begin{example}
+  \label{ex:discriminant_bound}
+  We consider again Example \ref{ex:different_valuation} where $f = x^3 - 3x - 1$.
+  The last corollary implies that
+  \[
+    v_3\left( \d\left( L \right) \right) \leq 3 \cdot 1 + 3 \cdot 1 - 1 = 5
+  \]
+  In fact one can calculate that $\d\left( L \right) = 3^4$.
+\end{example}
 
+Finally we can prove the criterion for the Galois group of $L$ to be the full symmetric group:
 \begin{thm}
   \label{thm:criterion}
-  For each prime $p|ab$ let $C_p > \maxpval$ be such that for any number field $K$ that is ramified only above primes dividing $ab$ and for which $v_p\left( \rd\left( K \right) \right) < C_p$ for each $p|ab$ is not contained in $L$.
+  Assume that there are constants $C_p > \maxpval$ for each prime $p|ab$, such that if a number field $K$ satisfies 
+  \begin{enumerate}
+    \item $v_p\left( \rd\left( K \right) \right) < C_p$ for each $p|ab$.
+    \item $K$ is ramified only above primes dividing $ab$.
+  \end{enumerate} 
+  then $K$ is not contained in $L$.
   Assume that
   \[
-    \deg L > \max_{p| ab}\left( \frac{2a^2 b^2}{C_p - \maxpval} \right)
+    \deg L > \max_{p| ab}\left( \frac{\error}{C_p - \maxpval} \right)
   \] 
   Then the Galois group of $L$ over $\Q$ is $S_{\deg L}$.
 \end{thm}
@@ -328,10 +360,10 @@ We can now utilize this corollary to obtain a Galois invariant bound:
   Assume towards a contradiction that $K \subseteq L$.
   The inequality in the statement of the theorem is equivalent to the statement that 
   \[
-    C_p > \maxpval + \frac{2a^2b^2}{\deg L}
+    C_p > \maxpval + \frac{\error}{\deg L}
   \]
   for each $p|ab$.
-  It hence follows that there is a prime $p|ab$ such that 
+  It hence follows, by the contrapositive of the first assumption in the theorem statement, that there is a prime $p|ab$ such that 
   \[
     C_p \leq v_p\left( \rd\left( K \right) \right) 
   \] 
@@ -339,10 +371,13 @@ We can now utilize this corollary to obtain a Galois invariant bound:
   \begin{align*}
     & v_p\left( d\left( L \right) \right) = 
     v_p\left( \d\left( K \right)^{\left[ L:K \right]} N\left( \d\left( L/K \right) \right) \right) \geq \deg L \cdot v_p\left( \rd\left( K \right) \right) \geq \\
-    & \deg L \cdot C_p > \deg L\maxpval + 2a^2b^2
+    & \deg L \cdot C_p > \deg L \cdot \left( \maxpval + \frac{\error}{\deg L} \right) = \\
+    & \discbnd 
   \end{align*}
   which is a contradiction to corollary \ref{cor:discriminant_bound}.
 \end{proof}
+
+
 
 % \begin{corollary}
 %   If $v_p\left( a \right), v_p\left( b \right) \leq p$ and either $1\leq v_p\left( a \right), v_p\left( b \right)$ or $v_p\left( a \right) = v_p\left( n \right)$ and $b = \pm 1$ or $a = \pm 1$ and $v_p\left( b \right) = v_p\left( n - 1 \right)$,

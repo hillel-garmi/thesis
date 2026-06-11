@@ -16,10 +16,16 @@
 
 \doublespacing
 
+\def\lcm{\rm{lcm}}
 \newcommand{\pnorm}[1]{\left| #1 \right|_p}
 \newcommand{\ppart}[1]{\pnorm{#1}^{-1}}
-\newcommand{\maxppart}{\max\left\{ \ppart{a}, \ppart{b} \right\}}
-\newcommand{\maxpval}{\max\left\{ v_p\left( a \right), v_p\left( b \right) \right\}}
+\newcommand{\maxppart}{\ppart{\lcm\left( a,b \right)}}
+\newcommand{\maxpval}{v_p\left( \lcm\left( a,b \right) \right)}
+\newcommand{\minpnorm}{\pnorm{\lcm\left( a,b \right)}}
+\newcommand{\diffbnd}{1 - \minpnorm + \maxpval}
+\newcommand{\error}{\maxppart \maxpval - 1}
+% \newcommand{\asmptbnd}{\deg L \cdot \maxpval}
+\newcommand{\discbnd}{\deg L \cdot \maxpval + \error}
 
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
@@ -80,10 +86,10 @@
 \newtheorem{strategy}[thm]{Strategy}
 
 \begin{document}
-  \part{IMU Talk Abstract}
-  \subfile{imu_talk/imu_talk.tex}
   \part{The Theatrical Cut}
   \subfile{theatrical_cut/theatrical_cut.tex}
+  \part{IMU Talk Abstract}
+  \subfile{imu_talk/imu_talk.tex}
   \part{The Director's Cut}
   \subfile{generalization_to_a_neq_2/generalizarion_to_a_neq_2.tex}
   % \subfile{complete_proof/complete_proof.tex}
