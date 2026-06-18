@@ -15,19 +15,6 @@
 
 \doublespacing
 
-\def\lcm{\rm{lcm}}
-\newcommand{\pnorm}[1]{\left| #1 \right|_p}
-\newcommand{\ppart}[1]{\pnorm{#1}^{-1}}
-\newcommand{\maxppart}{\ppart{\lcm\left( a,b \right)}}
-\newcommand{\maxpval}{v_p\left( \lcm\left( a,b \right) \right)}
-\newcommand{\minpnorm}{\pnorm{\lcm\left( a,b \right)}}
-\newcommand{\diffbnd}{1 - \minpnorm + \maxpval}
-\newcommand{\error}{\maxppart \maxpval - 1}
-% \newcommand{\asmptbnd}{\deg L \cdot \maxpval}
-\newcommand{\discbnd}{\deg L \cdot \maxpval + \error}
-\newcommand{\Lroot}{\overline{x}}
-% \newcommand{\prime_not_dividing_ab}{\ell}
-
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\F}{\mathbb{F}}
@@ -46,10 +33,26 @@
 \def\Hom{\text{\rm Hom}}
 \def\Res{\text{\rm Res}}
 \def\Norm{\text{\rm Norm}}
+\def\G{\text{\rm G}}
 \def\d{\text{\rm d}}
 \def\rd{\text{\rm rd}}
-\def\D{\text{\rm D}}
+\def\D{\mathfrak{D}}
 \def\Sym{\text{\rm Sym}}
+
+\def\lcm{\rm{lcm}}
+\newcommand{\pnorm}[1]{\left| #1 \right|_p}
+\newcommand{\ppart}[1]{\pnorm{#1}^{-1}}
+\newcommand{\maxppart}{\ppart{\lcm\left( a,b \right)}}
+\newcommand{\maxpval}{v_p\left( \lcm\left( a,b \right) \right)}
+\newcommand{\minpnorm}{\pnorm{\lcm\left( a,b \right)}}
+\newcommand{\diffbnd}{1 - \minpnorm + \maxpval}
+\newcommand{\error}{\maxppart - 1}
+% \newcommand{\asmptbnd}{\deg L \cdot \maxpval}
+\newcommand{\discbnd}{\deg L \cdot \maxpval + \error}
+\newcommand{\Lroot}{\overline{x}}
+\newcommand{\Lembedding}{\eta}
+\newcommand{\Deta}{\D_\eta}
+% \newcommand{\prime_not_dividing_ab}{\ell}
 
 \def\ProvenCases{
   {\left( \pm 1, \pm 1 \right)} ,

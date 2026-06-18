@@ -67,8 +67,8 @@ Our new approach utilizes global bounds on the discriminant of number fields, li
 
 % For each polynomial $h$ and number field $K$, we will denote by $\d\left( h \right)$ and $\d\left( K \right)$ the discriminant of $h$ and of $K$ respectively and by $\rd\left( K \right)$ the root discriminant of $K$, i.e. $\rd\left( K \right) = \d\left( K \right)^{1/\left[ K : \Q \right]}$.
 
-\section{Generalities }
-\subsection{Setup and Notations}
+\section{Sufficient Condition }
+\subsection{Setup and notations \label{subsection:strategy_setup}}
 Let $a, b \in \Z - \left\{ 0 \right\}$ and $2 \leq n \in \Z$ and let $f\left( x \right) = x^n + ax + b$.
 Let $g$ be an irreducible factor of $f$, let $L = \Q\left[ x \right] / \left( g \right)$, and denote by $\Lroot$ the image of $x$ in $L$.
 $a,b,n,f,g,L$ will be fixed throughout this section and the next one.
@@ -80,13 +80,8 @@ Note that each embedding $\iota: \overline{\Q} \hookrightarrow \overline{\Q_\ell
 Denote by $I\left( \iota \right)$ the image of the inertia group of $\Q_p$ under this embdding.
 Let $H$ be the product of all the inertia groups $I\left( \iota \right)$ for all of the embeddings $\iota: \overline{\Q} \hookrightarrow \overline{\Q_\ell}$ and all of the primes $\ell$ not dividing $ab$.
 
-Let $p$ be a prime dividing $ab$.
-$p$ will be fixed throughout this section and the next one, except for the last subsection of the next section \editorial{add a more accurate reference}.
-Let $\pi = \pi_p: \O_{\overline{\Q_p}} \to \overline{\F_p}$ be the cannonical quotient map from the integral closure of $\Z_p$ inside $\overline{\Q_p}$.
-Let $v_p: \overline{\Q_p} \to \Q$ be the unique extension of the $p$ adic valuation on $\Q_p$.
-
-\subsection{Strategy \editorial{Think of a better name?}}
-We will start with a lemma that will be useful in a few places in the sequel. 
+\subsection{General Properties of $f$}
+We will prove two lemmas that will be useful in a few places in the sequel. 
 \begin{lemma}
   \label{lem:derivative_formula}
   If $\alpha$ is a root of $f$ in some field in which $b \neq 0$, then $\alpha$ is invertible and
@@ -104,32 +99,39 @@ We will start with a lemma that will be useful in a few places in the sequel.
   \end{align*}
 \end{proof}
 
-When we say that a group acts on a set $X$, as a single transposition, we mean that its image in $\Sym\left( X \right)$
-Our startegy relies on two lemmas, the first is the following local one:
 \begin{lemma}
-  \label{lem:inertia_group_acts_as_transposition}
-  For any prime $\ell \not | ab$ and an embedding $\iota: \overline{\Q} \hookrightarrow \overline{\Q_\ell}$, the inertia group $I\left( \iota \right)$ acts on $\Hom_{\Q}\left( L, \overline{\Q} \right)$ either trivially or as a single transposition.
+  \label{lem:multiple_root}
+  If $\F$ is a field in which $ab \neq 0$, then $f$ is either separable over $\F$ or has $n-2$ simple roots and one double root in $\overline{\F}$.
 \end{lemma}
 \begin{proof}
-  It suffices to show the lemma for the $\Q$-algebra $\Q\left[ x \right] / \left( f \right)$ instead of $L$.
-  We will assume that $I\left( \iota \right)$ acts non-trivially on $\Hom_{\Q}\left( \Q\left[ x \right] / \left( f \right), \overline{\Q} \right)$ and we will show that it acts as a single transposition.
-  Since $f$ is integral, it suffices to show that $f$ has $n-2$ simple roots and one double root in $\overline{\F_\ell}$,
-
-  Let $\alpha \in \overline{\F_p}$ be a multiple root of $f$.
-  Then, $\alpha$ is also a root of $f'$ and hence, since $p \nmid b$, it follows from Lemma \ref{lem:derivative_formula} that $\alpha \neq 0$ and that
+  Let $\alpha \in \overline{\F}$ be a multiple root of $f$.
+  Then, $\alpha$ is also a root of $f'$ and hence, since $b \neq 0$, it follows from Lemma \ref{lem:derivative_formula} that $\alpha \neq 0$ and that
   \[
     0 = f'\left( \alpha \right) = \left( 1 - n \right)a - nb\alpha^{-1}
   \]
-  However, since $a$ is also non zero in $\F_p$, and since $n$ and $n-1$ cannot both be divisible by $p$, it follows that neither $n$ nor $n-1$ is zero in $\F_p$.
-  Therefore, the equation above is linear with non zero coefficients and hence has a unique solution in $\overline{\F_p}$.
-  Thus, this solution is the unique double root of $f$ in $\overline{\F_p}$ and it is only left to show that it is not a triple root of $f$. 
-  However, the only root of $f''$ is zero which is not a root of $f$ and hence $f$ has no triple roots.
+  However, since $a$ is also non zero in $\F$, and since $n$ and $n-1$ cannot both be zero in $\F$, it follows that neither $n$ nor $n-1$ is zero in $\F$.
+  Therefore, the equation above is linear with non zero coefficients and hence has a unique solution in $\overline{\F}$.
+  Thus, this solution is the unique double root of $f$ in $\overline{\F}$ and it is only left to show that it is not a triple root of $f$. 
+  However, the only root of $f''$ is zero which is not a root of $f$ and hence $f$ has no triple roots.  
+\end{proof}
+
+\subsection{Proof of the condition}
+
+When we say that a group acts on a set $X$, as a single transposition, we mean that its image in $\Sym\left( X \right)$.
+This terminology allows us to translate Lemma \ref{lem:multiple_root} into the following corollary which will be usefl in the proof of our condition:
+\begin{corollary}
+  \label{cor:inertia_group_acts_as_transposition}
+  For any prime $\ell \not | ab$ and an embedding $\iota: \overline{\Q} \hookrightarrow \overline{\Q_\ell}$, the inertia group $I\left( \iota \right)$ acts on $\Hom_{\Q}\left( L, \overline{\Q} \right)$ either trivially or as a single transposition.
+\end{corollary}
+\begin{proof}
+  It suffices to show the lemma for the $\Q$-algebra $\Q\left[ x \right] / \left( f \right)$ instead of $L$.
+  Since $f$ is integral, it follows from \ref{lem:multiple_root} applied to $\F = \F_\ell$.
 \end{proof}
 \begin{remark}
-  During the above proof we in fact showed that the conditions of \cite[lemma 3]{Osada1987TheGG} are satisfied and hence could have used Osada's lemma to conclude our own. 
+  During the above proof we showed that $\ell \mid a b \left( n - 1 \right)$, which is the first sentence in the proof of \cite[lemma 3]{Osada1987TheGG}, and hence could have used Osada's lemma to conclude our own. 
 \end{remark}
 
-The second lemma of our startegy relies on is the following global one:
+The second lemma that our proof relies on is the following global one:
 \begin{lemma}
   \label{lem:transitive_action}
   If $H$ acts non transitively on $\Hom_{\Q}\left( L, \overline{\Q} \right)$, then there is some subextension $\Q \subsetneq K \subseteq L$ that is ramified only above primes that divide $ab$.
@@ -145,76 +147,93 @@ The second lemma of our startegy relies on is the following global one:
 \end{proof}
 
 The previous two lemmas together give us the following corollary:
-\begin{corollary}
-  \label{cor:strategy}
+\begin{thm}
+  \label{thm:strategy}
   If there is no subextension $\Q \subsetneq K \subseteq L$ that is ramified only above primes that divide $ab$, then the Galois group of $g$ over $\Q$ is $S_{\deg\left( g \right)}$.
-\end{corollary}
+\end{thm}
 \begin{proof}
-  By \cite[Lemma 5]{Osada1987TheGG}, any transitive permutation group is symmetric.
-  Since $H$ is generated by subgroups that act on $\Hom_{\Q}\left( L, \overline{\Q} \right)$ either trivially or as a transposition according to Lemma \ref{lem:inertia_group_acts_as_transposition}, it follows that the image of $H$ in $\Sym\left( \Hom_{\Q}\left( L, \overline{\Q} \right) \right)$ is generated by trnaspositions.
+  By \cite[Lemma 5]{Osada1987TheGG}, any transitive permutation group generated by transpositions is symmetric.
+  Since $H$ is generated by subgroups that act on $\Hom_{\Q}\left( L, \overline{\Q} \right)$ either trivially or as a transposition according to Lemma \ref{cor:inertia_group_acts_as_transposition}, it follows that the image of $H$ in $\Sym\left( \Hom_{\Q}\left( L, \overline{\Q} \right) \right)$ is generated by trnaspositions.
   However, this image is also transitive as a result of Lemma \ref{lem:transitive_action} and hence it is the full symmetric group.
 \end{proof}
 We shall then prove that for some values of $a,b$, the discriminant of $L$ is too small for such subextension $K$ to exist.
 
-\section{$p$-adic bounds on the discriminant}
-In this section we will prove Theorem \ref{thm:criterion} \editorial{which will have appeared in the Introduction} by bounding the valuation of the discriminant of $L$.
-Carry over the notations from the previous section. 
-% Let $\iota: \overline{\Q} \hookrightarrow \overline{\Q_p}$ be an embedding.
+\section{Effective Sufficient Condition}
+The main aim of this section is proving Theorem \ref{thm:criterion} \editorial{which will have appeared in the Introduction}.
+We will do it by proving some bounds on the $p$-adic valuation of the discriminant of $L$. Some of these bounds will be useful in their own right in the next section.
 
-To bound the valuation of the discriminant of $L$, we will first bound the valuation of the different of $\iota\left( L \right)\Q_p$ over $\Q_p$ for each embedding $\iota: L \to \overline{\Q_p}$, for which we will first bound the valuation of $f'\left( \iota\left( \Lroot \right) \right)$ as follows:
+\subsection{Setup and notations}
+Let $a,b,n,f,g,L,\Lroot$ be as defined in subsection \ref{subsection:strategy_setup}.
+Let $\d\left( L \right)$ be the discriminant of $L$ and $\rd\left( L \right)$ be the root discriminant of $L$, i.e. $\rd\left( L \right) = \d\left( L \right)^{1/\left[ L : \Q \right]}$.
+Let $p$ be a prime dividing $ab$.
+$p$ will be fixed throughout this subsection and subsection \ref{subsection:discriminant_bounds}.
+Let $\pi = \pi_p: \O_{\overline{\Q_p}} \to \overline{\F_p}$ be the cannonical quotient map from the integral closure of $\Z_p$ inside $\overline{\Q_p}$.
+Let $v_p: \overline{\Q_p} \to \Q$ be the unique extension of the $p$ adic valuation on $\Q_p$.
+Fix an embedding of $\overline{\Q}$ into $\overline{\Q_p}$.
+This embedding induces a valuation on $\overline{\Q}$ which will be denoted by $v_p$ as well. Use the standard notation for the $p$-adic norm $\pnorm{\cdot} = p^{-v_p\left( \cdot \right)}$.
+For each embedding $\Lembedding: L \to \overline{\Q}$, we will denote by $\Lembedding\left( L \right)\Q_p$ the compositum of $\Lembedding\left( L \right)$ and $\Q_p$ inside $\overline{\Q_p}$, and by $\D\left( \Lembedding \right)$ the different of $\Lembedding\left( L \right)\Q_p$ over $\Q_p$.
+We press that in contrast to the previous section, where the embeddings $\iota: \overline{\Q} \hookrightarrow \overline{\Q_\ell}$ vary, in this section the embedding $\overline{\Q} \hookrightarrow \overline{\Q_p}$ is fixed and the embeddings $\Lembedding: L \to \overline{\Q}$ vary.
+
+\subsection{$p$-adic bounds on the discriminant \label{subsection:discriminant_bounds}}
+To bound the valuation of the discriminant of $L$, we first bound the valuation of $\Deta$ for each embedding $\Lembedding: L \to \overline{\Q_p}$.
+To bound this valuation in turn, we wish we could bound the valuation of $f'\left( \Lembedding\left( \Lroot \right) \right)$ for each $\Lembedding$.
+Instead we bound the valuation of $f'\left( \Lembedding\left( \Lroot \right) \right)$ for most of the embeddings $\Lembedding$, and characterize the remaining ones.
 \begin{lemma}
   \label{lem:valuation_of_derivative}
   Assume that $n > v_p\left( b \right)$.
-  For every homomorphism $\iota: L \to \overline{\Q_p}$ one of the following holds: 
+  For every homomorphism $\Lembedding: L \to \overline{\Q_p}$ one of the following holds: 
   \begin{enumerate}
-    \item \label{case:good} $v_p\left( f'\left( \iota\left( \Lroot \right) \right) \right) \leq \maxpval$.
-    \item \label{case:single_slope} $v_p\left( b \right) = 0$, $v_p\left( a \right) = v_p\left( n \right)$ and $\iota$ is one of the $\ppart{a}$ embeddings for which $\pi\left( \iota\left( \Lroot \right) \right) = \pi\left( \frac{nb}{\left( 1 - n \right)a} \right)$.
-    \item \label{case:longer_slope} $v_p\left( a \right) = 0$, $v_p\left( b \right) = v_p\left( n - 1 \right)$ and $\iota$ is one of the $\ppart{b}$ embeddings for which $\pi\left( \iota\left( \Lroot \right) \right) = \pi\left( \frac{nb}{\left( 1 - n \right)a} \right)$.
-    \item \label{case:shorter_slope} $v_p\left( b \right) > v_p\left( a \right)$, $v_p\left( n-1 \right) = 0$ and $\iota$ is the unique embedding for which $v_p\left( \iota\left( \Lroot \right) \right) = v_p\left( b \right) - v_p\left( a \right)$.
+    \item \label{case:good} $v_p\left( f'\left( \Lembedding\left( \Lroot \right) \right) \right) \leq \maxpval$.
+    \item \label{case:single_slope} $v_p\left( b \right) = 0$, $v_p\left( a \right) = v_p\left( n \right)$ and $\Lembedding$ is one of the $\ppart{a}$ embeddings for which $\pi\left( \Lembedding\left( \Lroot \right) \right) = \pi\left( \frac{nb}{\left( 1 - n \right)a} \right)$.
+    \item \label{case:longer_slope} $v_p\left( a \right) = 0$, $v_p\left( b \right) = v_p\left( n - 1 \right)$ and $\Lembedding$ is one of the $\ppart{b}$ embeddings for which $\pi\left( \Lembedding\left( \Lroot \right) \right) = \pi\left( \frac{nb}{\left( 1 - n \right)a} \right)$.
+    \item \label{case:shorter_slope} $v_p\left( b \right) > v_p\left( a \right)$, $v_p\left( n-1 \right) = 0$ and $\Lembedding$ is the unique embedding for which $v_p\left( \Lembedding\left( \Lroot \right) \right) = v_p\left( b \right) - v_p\left( a \right)$.
   \end{enumerate}
 \end{lemma}
 \begin{proof}
   Assume first that 
   \[
     v_p\left( n - 1 \right) + v_p\left( a \right) \neq 
-    v_p\left( n \right) + v_p\left( b \right) - v_p\left( \iota\left( \Lroot \right) \right).
+    v_p\left( n \right) + v_p\left( b \right) - v_p\left( \Lembedding\left( \Lroot \right) \right).
   \]
   Then by Lemma \ref{lem:derivative_formula} 
   \begin{align*}
-    v_p\left( f'\left( \iota\left( \Lroot \right) \right) \right) = 
-    & v_p\left( \left( 1 - n \right)a - nb\iota\left( \Lroot \right)^{-1} \right) = \\ 
+    v_p\left( f'\left( \Lembedding\left( \Lroot \right) \right) \right) = 
+    & v_p\left( \left( 1 - n \right)a - nb\Lembedding\left( \Lroot \right)^{-1} \right) = \\ 
     & \min{\left\{ 
       v_p\left( n - 1 \right) + v_p\left( a \right), 
-      v_p\left( n \right) + v_p\left( b \right) - v_p\left( \iota\left( \Lroot \right) \right) 
+      v_p\left( n \right) + v_p\left( b \right) - v_p\left( \Lembedding\left( \Lroot \right) \right) 
     \right\}} \leq \\
     & \min{\left\{ 
       v_p\left( n - 1 \right) + v_p\left( a \right), 
       v_p\left( n \right) + v_p\left( b \right) 
-    \right\}}
+    \right\}}.
   \end{align*}
   However, since either $v_p\left( n \right) = 0$ or $v_p\left( n - 1\right) = 0$, it then follows that indeed 
   \[
-    v_p\left( f'\left( \iota\left( \Lroot \right) \right) \right) \leq
+    v_p\left( f'\left( \Lembedding\left( \Lroot \right) \right) \right) \leq
     \max\left\{ v_p\left( a \right), v_p\left( b \right) \right\} = 
     \maxpval
   \]
+  and hence item $\ref{case:good}$ holds.
 
-  Assume now that 
+  Therefore, we can assume that
   \begin{equation}
     \label{eq:valuation_inequality}
-    v_p\left( f'\left( \iota\left( \Lroot \right) \right) \right) > \maxpval
-  \end{equation}
-  The contrapositive of the argument presented in the above paragraph implies that
+    v_p\left( f'\left( \Lembedding\left( \Lroot \right) \right) \right) > \maxpval
+  \end{equation} 
+  and as a result that
   \begin{equation}
     \label{eq:valuation_equality}
     v_p\left( n - 1 \right) + v_p\left( a \right) = 
-    v_p\left( n \right) + v_p\left( b \right) - v_p\left( \iota\left( \Lroot \right) \right)
+    v_p\left( n \right) + v_p\left( b \right) - v_p\left( \Lembedding\left( \Lroot \right) \right)
   \end{equation}
-  In particular, it follows that $v_p\left( \iota\left( \Lroot \right) \right) \in \Z$.
-  Therefore, $\iota\left( \Lroot \right)$ must correspond to a segment of the Newton polygon of $f$ with respect to $v_p$ whose slope is an integer.
+  In particular, it follows that $v_p\left( \Lembedding\left( \Lroot \right) \right) \in \Z$.
+  Therefore, $\Lembedding\left( \Lroot \right)$ must correspond to a segment of the Newton polygon of $f$ with respect to $v_p$ whose slope is an integer.
   Recalling that $n > v_p\left( b \right)$, one can see that, as illustrated in figure \editorial{add a figure and a reference to it}, it can possibly happen in one of only three ways:
   \begin{itemize}
-    \item $v_p\left( b \right) = 0 = v_p\left( \iota\left( \Lroot \right) \right)$. In this case Equation \ref{eq:valuation_equality} specializes to 
+    \item $v_p\left( b \right) = 0 = v_p\left( \Lembedding\left( \Lroot \right) \right)$. 
+    We will show that item $\ref{case:single_slope}$ holds.
+    Indeed, Equation \ref{eq:valuation_equality} specializes to 
     \[
       v_p\left( n - 1 \right) + v_p\left( a \right) = v_p\left( n \right) + v_p\left( b \right)
     \]
@@ -223,14 +242,14 @@ To bound the valuation of the discriminant of $L$, we will first bound the valua
     By inequality \ref{eq:valuation_inequality} and Lemma \ref{lem:derivative_formula}, 
     \[
       v_p\left( a \right) < 
-      v_p\left( f'\left( \iota\left( \Lroot \right) \right) \right) = 
+      v_p\left( f'\left( \Lembedding\left( \Lroot \right) \right) \right) = 
       v_p\left( a \right) + v_p\left(  
-        \left( 1 - n \right)a\pnorm{a} - n\pnorm{n}b\iota\left( \Lroot \right)^{-1}
+        \left( 1 - n \right)a\pnorm{a} - n\pnorm{n}b\Lembedding\left( \Lroot \right)^{-1}
       \right)
     \]
     and hence 
     \[
-      \pi\left( \iota\left( \Lroot \right) \right) = 
+      \pi\left( \Lembedding\left( \Lroot \right) \right) = 
       \pi\left( \frac{nb}{\left( 1 - n \right)a} \right)
     \]
     Since 
@@ -239,12 +258,13 @@ To bound the valuation of the discriminant of $L$, we will first bound the valua
       \left( x^{\left( \ppart{a} \right)} \right)^{n\pnorm{a}} + b \mod p
     \]
     the fiber of each root of $f$ in $\overline{\F_p}$ contains exactly $\ppart{a}$ among the roots of $f$ in $\overline{\Q_p}$. 
-    Consequently, there are exactly $\ppart{a}$ homomorphisms $\iota: L \to \overline{\Q_p}$ for which $\pi\left( \iota\left( \Lroot \right) \right) = \pi\left( \frac{nb}{\left( 1 - n \right)a} \right)$.
+    Consequently, there are exactly $\ppart{a}$ homomorphisms $\Lembedding: L \to \overline{\Q_p}$ for which $\pi\left( \Lembedding\left( \Lroot \right) \right) = \pi\left( \frac{nb}{\left( 1 - n \right)a} \right)$.
     
-    \item $v_p\left( b \right) > v_p\left( a \right) = 0 = v_p\left( \iota\left( \Lroot \right) \right)$. 
-    The analysis of this case is similar to that of the previous one.
+    \item $v_p\left( b \right) > v_p\left( a \right) = 0 = v_p\left( \Lembedding\left( \Lroot \right) \right)$.
+    The analysis of this case is similar to the previous one, and we will show that item $\ref{case:longer_slope}$ holds.
 
-    \item $v_p\left( \iota\left( \Lroot \right) \right) = v_p\left( b \right) - v_p\left( a \right) > 0$.
+    \item $v_p\left( \Lembedding\left( \Lroot \right) \right) = v_p\left( b \right) - v_p\left( a \right) > 0$.
+    We will show that item $\ref{case:shorter_slope}$ holds.
     Substituting into Equation \ref{eq:valuation_equality} we get
     \[
       v_p\left( n - 1 \right) + v_p\left( a \right) = 
@@ -253,78 +273,62 @@ To bound the valuation of the discriminant of $L$, we will first bound the valua
     from which it follows that $v_p\left( n - 1 \right) = v_p\left( n \right)$ and hence $0 = v_p\left( n \right) = v_p\left( n - 1 \right)$.
   \end{itemize}
 \end{proof}
-\begin{example}
-  \label{ex:derivative_valuation}
-  As an example for the second case in the above lemma, assume that $f = x^3 - 3x - 1$. 
-  The only root of $f$ in $\overline{\F_3}$ is $1$, and hence for any embedding $\iota: L \to \overline{\Q_3}$, 
-  \[
-    v_3\left( f'\left( \iota\left( \Lroot \right) \right) \right) = 
-    v_3\left( 6 + 3\iota\left( \Lroot \right)^{-1} \right) > 1 
-  \]
-\end{example}
-For each extension $K/F$ of field of fractions of Dedekind domains $B/A$, let $\D\left( K/F \right)$ denote the different of $B$ over $A$. 
-Fix an embedding of $\overline{\Q}$ into $\overline{\Q_p}$, and consequently, an extension of $v_p$ to $\overline{\Q}$, and use the standard notation for the $p$-adic norm $\pnorm{\cdot} = p^{-v_p\left( \cdot \right)}$.
+
+% For each extension $K/F$ of field of fractions of Dedekind domains $B/A$, let $\D\left( K/F \right)$ denote the different of $B$ over $A$.
 % For each rational integer $m$, denote $ = p^{v_p\left( m \right)}$.
-As promised, we can now utilize the previous lemma to bound the valuation of the different of $\iota\left( L \right)\Q_p$ over $\Q_p$ for each embedding $\iota: L \hookrightarrow \overline{\Q_p}$.
+As promised, we now utilize the previous lemma to bound the $v_p\left( \D_\eta \right)$ for each embedding $\Lembedding: L \hookrightarrow \overline{\Q_p}$.
 \begin{lemma}
   \label{lem:different_valuation}
   Assume that $n > v_p\left( b \right)$.
-  Then for each $\iota: L \to \overline{\Q_p}$, one of the following holds:
+  Then for each $\Lembedding: L \to \overline{\Q_p}$, one of the following holds:
   \begin{enumerate}
-    \item $v_p\left( \D\left( \iota\left( L \right)\Q_p / \Q_p \right) \right) \leq \maxpval$.
-    \item $v_p\left( a \right) + v_p\left( n - 1 \right) = v_p\left( b \right) + v_p\left( n \right)$, $\iota$ is one of the only $\maxppart$ embeddings for which $\pi\left( \iota\left( \Lroot \right) \right) = \pi\left( \frac{nb}{\left( 1 - n \right)a} \right)$, and 
+    \item $v_p\left( \Deta \right) \leq \maxpval$.
+    \item $v_p\left( a \right) + v_p\left( n - 1 \right) = v_p\left( b \right) + v_p\left( n \right)$, $\Lembedding$ is one of the only $\maxppart$ embeddings for which $\pi\left( \Lembedding\left( \Lroot \right) \right) = \pi\left( \frac{nb}{\left( 1 - n \right)a} \right)$, and 
     \begin{align*}
-      v_p\left( \D\left( \iota\left( L \right)\Q_p / \Q_p \right) \right) \leq & 
+      v_p\left( \Deta \right) \leq & 
       \diffbnd 
     \end{align*}
   \end{enumerate}
 \end{lemma}
 \begin{proof}
-  Use the same division into cases as in the previous lemma.
+  We use the same division into cases as in the previous lemma.
   In the first case, 
   \begin{equation*}
-    v_p\left( \D\left( \iota\left( L \right)\Q_p / \Q_p \right) \right) \leq
-    v_p\left( f'\left( \iota\left( \Lroot \right) \right) \right) \leq 
+    v_p\left( \Deta \right) \leq
+    v_p\left( f'\left( \Lembedding\left( \Lroot \right) \right) \right) \leq 
     \maxpval
   \end{equation*}
   and hence the first item of the corollary holds.
 
-  Assume the third case holds, i.e., $v_p\left( b \right) > v_p\left( a \right)$, $v_p\left( n-1 \right) = 0$ and $\iota$ is the unique embedding for which $v_p\left( \iota\left( \Lroot \right) \right) = v_p\left( b \right) - v_p\left( a \right)$.
-  However, since $\iota$ is the only one for which $v_p\left( \iota\left( \Lroot \right) \right)$, it follows in particular that $\iota\left( \Lroot \right)$ is not conjugate over $\Q_p$ to any of its conjugates over $\Q$, and hence belongs to $\Q_p$ and hence $v_p\left( \D\left( \iota\left( L \right)\Q_p / \Q_p \right) \right) = 0$.
+  Assume the third case holds, i.e., $v_p\left( b \right) > v_p\left( a \right)$, $v_p\left( n-1 \right) = 0$ and $\Lembedding$ is the unique embedding for which $v_p\left( \Lembedding\left( \Lroot \right) \right) = v_p\left( b \right) - v_p\left( a \right)$.
+  We will show that in this case the first item of the corollary also holds.
+  Indeed, since $\Lembedding$ is the only embedding for which $v_p\left( \Lembedding\left( \Lroot \right) \right)$, it follows in particular that $\Lembedding\left( \Lroot \right)$ is not conjugate over $\Q_p$ to any of its conjugates over $\Q$, and hence belongs to $\Q_p$ and hence $v_p\left( \Deta \right) = 0$.
 
   Assume that either the second or the fourth case holds.
-  In both cases 
+  We will show that in both cases the second item of the corollary holds.
+  Indeed, in both cases 
   \[
     v_p\left( a \right) + v_p\left( n - 1 \right) = v_p\left( b \right) + v_p\left( n \right)
   \]
-  and $\iota$ is one of the exactly $\maxppart$ embeddings for which $\pi\left( \iota\left( \Lroot \right) \right) = \pi\left( \frac{nb}{\left( 1 - n \right)a} \right)$.
-  Denote by $e\left( \iota\left( L \right) \right)$ the ramification index of $\iota\left( L \right)\Q_p$ over $\Q_p$.
-  Since the ramification index of $\iota\left( L \right)\Q_p$ over $\Q_p$ is the cardinality of $\iota\left( \Lroot \right)$ under the action of the absolute inertia group of $\Q_p$, it follows that $$e\left( \iota\left( L \right) \right) \leq \maxppart$$ and in particular that 
+  and $\Lembedding$ is one of the exactly $\maxppart$ embeddings for which $\pi\left( \Lembedding\left( \Lroot \right) \right) = \pi\left( \frac{nb}{\left( 1 - n \right)a} \right)$.
+  Denote by $e\left( \Lembedding \right)$ the ramification index of $\Lembedding\left( L \right)\Q_p$ over $\Q_p$.
+  Since the ramification index of $\Lembedding\left( L \right)\Q_p$ over $\Q_p$ is the cardinality of $\Lembedding\left( \Lroot \right)$ under the action of the absolute inertia group of $\Q_p$, it follows that $$e\left( \Lembedding \right) \leq \maxppart$$ and in particular that 
   \[
-    v_p\left( e\left( \iota\left( L \right) \right) \right) \leq \maxpval
+    v_p\left( e\left( \Lembedding \right) \right) \leq \maxpval
   \]
   We can combine these two inequalities with the well known bound (e.g. \cite[p. 58]{SerreLocalFields}) 
   \[
-    v_p\left( \D\left( \iota\left( L \right)\Q_p / \Q_p \right) \right) \leq 
-    1 - e\left( \iota\left( L \right) \right)^{-1} + v_p\left( e\left( \iota\left( L \right) \right) \right)
+    v_p\left( \Deta \right) \leq 
+    1 - e\left( \Lembedding \right)^{-1} + v_p\left( e\left( \Lembedding \right) \right)
   \]
   to deduce that
   \begin{align*}
-    & v_p\left( \D\left( \iota\left( L \right)\Q_p / \Q_p \right) \right) \leq
+    & v_p\left( \Deta \right) \leq
      \diffbnd
   \end{align*}
 \end{proof}
-\begin{example}
-  \label{ex:different_valuation}
-  Return to the setting of Example \ref{ex:derivative_valuation} where $f = x^3 - 3x - 1$.
-  The last lemma implies that
-  \[
-    v_3\left( \D\left( \iota\left( L \right)\Q_3 / \Q_3 \right) \right) \leq
-    1 - \frac{1}{3} + 1 = \frac{5}{3}
-  \]
-\end{example}
 
-We can now utilize this lemma to finally obtain a bound on the $p$-adic valuation of the discriminant of $L$:
+We now utilize this lemma to finally obtain a bound on the $p$-adic valuation of the discriminant of $L$:
 \begin{corollary}
   \label{cor:discriminant_bound}
   Assume that $n > v_p\left( b \right)$.
@@ -335,26 +339,18 @@ We can now utilize this lemma to finally obtain a bound on the $p$-adic valuatio
   \]
 \end{corollary}
 \begin{proof}
-  By the last lemma,  
+  By the last lemma,\editorial{Check this again!}  
   \begin{align*}
-    v_p\left( \d\left( L \right) \right) = &  
-    \sum_{\iota: L \hookrightarrow \overline{Q}} v_p\left( \D\left( \iota\left( L \right) / \Q \right) \right) \leq \\
-    & \left( \deg L - \maxppart \right) + 
+    & v_p\left( \d\left( L \right) \right) = \\
+    &  \sum_{\eta: L \hookrightarrow \overline{Q}} v_p\left( \Deta \right) \leq \\
+    & \left( \deg L - \maxppart \right)\maxpval + 
     \maxppart \left( \diffbnd \right) \leq \\
     & \discbnd 
     % & \deg L\maxpval + 2a^2b^2
   \end{align*}
 \end{proof}
-\begin{example}
-  \label{ex:discriminant_bound}
-  We consider again Example \ref{ex:different_valuation} where $f = x^3 - 3x - 1$.
-  The last lemma implies that
-  \[
-    v_3\left( \d\left( L \right) \right) \leq 3 \cdot 1 + 3 \cdot 1 - 1 = 5
-  \]
-  In fact one can calculate that $\d\left( L \right) = 3^4$.
-\end{example}
-Before continuing with the proof of Theorem \ref{thm:criterion}, we will record a slight improvement of the previous corollary that will be useful in the analysis of some of the cases in the next section:
+
+Before continuing with the proof of Theorem \ref{thm:criterion}, we will record a slight improvement to the previous corollary that will be useful in the analysis of some of the cases in the next section:
 \begin{corollary}
   \label{cor:discriminant_bound_Eisenstein}
   If $f$ is Eisenstein at $p$ and $n > v_p\left( b \right)$, then
@@ -366,13 +362,15 @@ Before continuing with the proof of Theorem \ref{thm:criterion}, we will record 
   Since the $p$-adic valuations of both $a$ and $b$ are positive, it follows that in Lemma \ref{lem:valuation_of_derivative} only the first and third case might hold, and hence in Lemma \ref{lem:different_valuation} only the first case might hold, and hence the sum in the proof of Corollary \ref{cor:discriminant_bound} is bounded by $\deg L \cdot \maxpval$.
 \end{proof}
 
-Finally we can prove the criterion for the Galois group of $L$ to be the full symmetric group:
+\subsection{Proof of the effective condition}
+
+Finally we can prove a sufficient condition for the Galois group of $L$ to be the full symmetric group:
 \begin{thm}
   \label{thm:criterion}
   Assume that there are constants $C_p > \maxpval$ for each prime $p|ab$, such that if a number field $K$ satisfies 
   \begin{enumerate}
-    \item $v_p\left( \rd\left( K \right) \right) < C_p$ for each $p|ab$.
-    \item $K$ is ramified only above primes dividing $ab$.
+    \item $v_p\left( \rd\left( K \right) \right) < C_p$ for each $p|ab$,
+    \item $K$ is ramified only above primes dividing $ab$,
   \end{enumerate} 
   then $K$ is not contained in $L$.
   Assume that
@@ -382,7 +380,7 @@ Finally we can prove the criterion for the Galois group of $L$ to be the full sy
   Then the Galois group of $L$ over $\Q$ is $S_{\deg L}$.
 \end{thm}
 \begin{proof}
-  We will show that the conditions of Corollary \ref{cor:strategy} hold.
+  We will show that the conditions of Corollary \ref{thm:strategy} hold.
   Let $K$ be a number field ramified only above primes dividing $ab$.
   Assume towards a contradiction that $K \subseteq L$.
   The inequality in the statement of the theorem is equivalent to the statement that 
@@ -390,7 +388,7 @@ Finally we can prove the criterion for the Galois group of $L$ to be the full sy
     C_p > \maxpval + \frac{\error}{\deg L}
   \]
   for each $p|ab$.
-  It hence follows, by the contrapositive of the first assumption in the theorem statement, that there is a prime $p|ab$ such that 
+  It follows, by the contrapositive of the first assumption in the theorem statement, that there is a prime $p|ab$ such that 
   \[
     C_p \leq v_p\left( \rd\left( K \right) \right) 
   \] 
@@ -404,68 +402,111 @@ Finally we can prove the criterion for the Galois group of $L$ to be the full sy
   which is a contradiction to corollary \ref{cor:discriminant_bound}.
 \end{proof}
 
+\section{Application Examples}
+Carry over the notations and setup from the previous section.
+We will now show how to apply Theorem \ref{thm:criterion} to prove that for some small values of $a,b$, the Galois group of $f$ is the largest that its factorization allows for all but at most finitely many values of $n$.
+\subsection{$\lcm\left( a,b \right) = 1$}
+If $\lcm\left( a,b \right) = 1$, then $f = x^n \pm x \pm 1$ and can always be reduced to either of the forms 
+\[
+  x^n - x - 1 \quad \text{or} \quad x^n + x + 1 
+\]
+by substituting $-x$ instead of $x$ if necessary.
+Selmer \cite{SelmerIrreducibility1956} showed that the first form is always irreducible, while the second one is irreducible whenever $n \not \equiv 2 \mod 3$ and factors into $x^2 + x + 1$ times an irreducible factor otherwise.
+When $x^n \pm x + 1$ is irreducible, the symmetry of its Galois group was established by \cite{NartVila1979} and \cite[Corollary 3]{Osada1987TheGG}.
+It seems that this is the first time the reducible case is been analyzed as well:
+\begin{corollary}
+  \begin{align*}
+    & \G\left( x^n  - x - 1 \right) = S_n \\
+    & \G\left( x^n  + x + 1 \right) = 
+    \begin{cases}
+      S_n & n \not \equiv 2 \mod 3 \\
+      S_{n-2} \times C_2 & n \equiv 2 \mod 3
+    \end{cases}
+  \end{align*}
+\end{corollary}
+\begin{proof}
+  The Galois group of any divisor $g$ of $x^n \pm x \pm 1$ is $S_{\deg\left( g \right)}$ as a result of Theorem \ref{thm:strategy}:
+  Indeed, there is no prime that divides $a b = \pm 1$ and the discriminant of any non-trivial extension of $\Q$ is divisible by some prime as a result of the Minkowski bound.
+  It thus only remains to show that if $f = x^n + x + 1$ and $n \equiv 2 \mod 3$, then the Galois group of $x^2 + x + 1$ and the Galois group of the other irreducible factor of $f$, which shall be denoted by $g$, are disjoint.
+  
+  It suffices to show that that $\Q\left[ x \right] / \left( g \right)$ is not ramified at $3$, or equivalently, since $g$ is integral, that $g$ has only simple roots in $\F_3$.
+  However, by Lemma $\ref{lem:multiple_root}$, $f$ has at least $n-2$ simple roots in $\overline{\F_3}$, and hence, since $x^2 + x + 1 \equiv \left( x - 1 \right)^2 \mod 3$, all of the $n-2$ roots of $g$ in $\overline{\F_3}$ are simple roots of $f$ and are in particular simple roots of $g$.
+  \editorial{I could also show it using the explicit formula for $g$, but this argument felt nicer.}
+\end{proof}
 
+\subsection{Polynomial factorization}
+We will record a few result about the factorization of $f$ for some values of $a,b,n$ that will be useful in the following examples.
+\begin{lemma}
+  \label{lem:irreducibility_b_1}
+  Assume $\left| b \right| = 1$.
+  \begin{enumerate}
+    \item If $\left| a \right| > 2$ or $f = x^n + 2x - 1$, then $f$ is irreducible.
+    \item If $f = x^n - 2x + 1$, then $f$ factors as $\left( x - 1 \right) g$ for some irreducible polynomial $g$.
+  \end{enumerate}
+  Up to substituting $-x$ instead of $x$, these are all the possible cases.
+\end{lemma}
+\begin{proof}
+  In both cases, one can use Rouch\'{e}'s theorem to show that $f$ has a unique complex root inside the open unit disk.
+  In the first case, $f$ has no roots on the unit circle, and hence is irreducible.
+  Therefore, since its free term is $\pm 1$, any of its irreducible factors must have a root inside the unit circle, and hence $f$ can not have more than one irreducible factor.
+  The second case is analogous to the case $x^n - 2x^{n-1} + 1$ which was proven by Martin \cite[Corollary 2]{MARTIN2004213}
+\end{proof}
 
-% \begin{corollary}
-%   If $v_p\left( a \right), v_p\left( b \right) \leq p$ and either $1\leq v_p\left( a \right), v_p\left( b \right)$ or $v_p\left( a \right) = v_p\left( n \right)$ and $b = \pm 1$ or $a = \pm 1$ and $v_p\left( b \right) = v_p\left( n - 1 \right)$,
-%   then 
-%   \[
-%     v_p\left( \d\left( f \right) \right) \leq \left( n + 1 \right) \maxpval
-%   \]
-% \end{corollary}
-% \begin{proof}
-%   According to the previous lemma, there are only two cases left to verify.
-%   Assume first that $b = \pm 1$ and $v_p\left( a \right) = v_p\left( n \right)$.
-%   Denote 
-%   \[
-%     n = n_0 p^{v_p\left( a \right)} \quad \text{and} \quad a = a_0 p^{v_p\left( a \right)}
-%   \]
-%   Then 
-%   \[
-%     v_p\left( \d\left( f \right) \right) = 
-%     v_p\left( n^n b^{n-1} + \left( 1 - n \right)^{n - 1} a^n \right) = 
-%     n + v_p\left( n_0^n b^{n-1} + \left( 1 - n  \right)^{n - 1} a_0^n \right)
-%   \]
-%   Thus it suffices to show that 
-%   \[
-%     n_0^n b^{n-1} + \left( 1 - n  \right)^{n - 1} a_0^n \not \equiv 0 \mod p^{v_p\left( a \right) + 1}
-%   \]
-%   Assume towards a contradiction that it does.
-%   It then follows that 
-%   \[
-%     \pm \left( \frac{n_0}{a_0} \right)^n \equiv 
-%     \left( 1 - n_0 p^{v_p\left( a \right)} \right)^{n - 1} \equiv
-%     1 - n_0\left( n - 1 \right) p^{v_p\left( a \right)} \equiv
-%     1 + n_0 p^{v_p\left( a \right)} \mod p^{v_p\left( a \right) + 1} 
-%   \]
-%   However, the left hand side is a $\left( p - 1 \right)$ root of unity in $\left( \Z / p^{v_p\left( a \right) + 1} \Z \right)^\times$, while the right hand side is not, which is a contradiction.
+\begin{lemma}
+  \label{lem:irreducibility_a_1}
+  Assume that $\left| a \right| = 1$ and that $\left| b \right| = p^e$ for some positive integer $e$ and some prime $p$.
+  \begin{enumerate}
+    \item If $b > 2$ or $f = x^n - x + 2$, then $f$ is irreducible.
+    \item If $f = x^n + x - 2$, then $f$ factors as $\left( x - 1 \right)$ times an irreducible polynomial.
+  \end{enumerate}
+  up to substituting $-x$ instead of $x$, these are all the possible cases.
+\end{lemma}
+\begin{proof}
+  Again, by Rouch\'{e}'s theorem, $f$ has no roots inside the open unit disk, and in the first case, $f$ has no roots on the unit circle as well.
+  In the second case one can show that the only root of $f$ on the unit circle is $1$.
+  Let $f_0$ be $f$ in the first case and $f / \left( x - 1 \right)$ in the second case.
+  In both cases, $f_0$ has no roots inside the closed unit disk, and we will show that $f_0$ is irreducible.
 
-%   Assume now that $a = \pm 1$ and $v_p\left( b \right) = v_p\left( n - 1 \right)$.
-%   Denote 
-%   \[
-%     n - 1 = n_0 p^{v_p\left( b \right)} \quad \text{and} \quad b = b_0 p^{v_p\left( b \right)}
-%   \]
-%   Then 
-%   \[
-%     v_p\left( \d\left( f \right) \right) = 
-%     v_p\left( n^n b^{n-1} + \left( 1 - n \right)^{n - 1} a^n \right) = 
-%     n + v_p\left( n^n b_0^{n-1} + \left( -n_0  \right)^{n - 1} a^n \right)
-%   \]
-%   Thus it suffices to show that 
-%   \[
-%     n^n b_0^{n-1} + \left( -n_0  \right)^{n - 1} a^n \not \equiv 0 \mod p^{v_p\left( b \right) + 1}
-%   \]
-%   Assume towards a contradiction that it does.
-%   It then follows that 
-%   \[
-%     \pm \left( \frac{n_0}{b_0} \right)^{n - 1} \equiv 
-%     \left( 1 + n_0 p^{v_p\left( b \right)} \right)^n \equiv
-%     1 + n_0n p^{v_p\left( b \right)} \equiv
-%     1 + n_0 p^{v_p\left( b \right)} \mod p^{v_p\left( b \right) + 1} 
-%   \]
-%   However, the left hand side is a $\left( p - 1 \right)$ root of unity in $\left( \Z / p^{v_p\left( b \right) + 1} \Z \right)^\times$, while the right hand side is not, which is a contradiction.
-% \end{proof}
+  Assume that $f_0$ factors as $g h$ for some non-constant polynomials $g,h \in \Z\left[ x \right]$.
+  By analyzing the Newton polygon of $f$ with respect to $p$, it follows that $f$ has one root in $\overline{\Q_p}$ of valuation $e$ and $n-1$ roots of valuation $0$.
+  Therefore, without loss of generality, we can assume that $g$ has only roots of valuation $0$.
+  In particular, it follows that the free term of $g$ is $\pm 1$ and hence $g$ has a root in $\overline{\Q}$ of absolute value not greater than $1$ and that's a contradiction.
+\end{proof}
 
-% \section{}
-
+\subsection{$\lcm\left( a,b \right) = 2$}
+Assume that $\lcm\left( a,b \right) = 2$.
+According to the LMFDB \cite{lmfdb}, the only number field with root discriminant not greater than $2$ that is ramified only above $2$ is $\Q\left( i \right)$.
+The next real number realized as the root discriminant of a number field ramified only above $2$ is $\sqrt{8}$.
+Therefore, once we rule out the possibility that $\Q\left( i \right)$ is contained in $\Q\left[ x \right] / \left( f \right)$ for any $n\geq 3$, we can apply Theorem \ref{thm:criterion} with $C_2 = \sqrt{8}$ which would hence apply whenever 
+\[
+  \deg L > \frac{\error}{\sqrt{8} - 2} = \frac{1}{\sqrt{8} - 2} < 1
+\]
+i.e., for all $n \geq 3$.
+Therefore, we can conclude the following characterization of the Galois group of $f$ for all $n \geq 3$:
+\begin{corollary}
+  If $\lcm\left( a,b \right) = 2$ then up to substituting $-x$ instead of $x$, either of the following holds:
+  \begin{enumerate}
+    \item $f = x^n - 2x + 1, x^n + x - 2$ and $\G\left( f \right) = S_{n-1}$.
+    \item $G\left( f \right) = S_n$ 
+  \end{enumerate}
+\end{corollary}
+\begin{proof}
+  For $n = 2$ the validity of the corollary can be checked manually.
+  Assume that $n \geq 3$. 
+  By Lemma \ref{lem:irreducibility_b_1} and Lemma \ref{lem:irreducibility_a_1}, in the first case $f$ factors as $\left( x - 1 \right)$ times an irreducible polynomial, and in the second case $f$ is irreducible. 
+  Therefore, by the discussion above, we only need to show that $\Q\left( i \right)$ is not contained in $\Q\left[ x \right] / \left( f \right)$.
+  Indeed, one of the following holds:
+  \begin{itemize}
+    \item $\left| a \right| = \left| b \right| = 2$. 
+    Assume towards a contradiction that $\Q\left( i \right)$ is contained in $\Q\left[ x \right] / \left( f \right) = L$.
+    Then the ramification index of $2$ in $L$ is $n$, and hence $\left( 1 + i \right)$ is ramified in $L$, and hence for each embedding $\Lembedding: L \to \overline{\Q_2}$, 
+    \[
+      v_2\left( \D_\iota \right) = 
+      v_2\left( \D\left( \Q\left( i \right) / \Q \right) \right) + v_2\left( \D\left( \iota\left( L \right) \right) / \Q\left( i \right) \right) > v_2\left( \D\left( \Q\left( i \right) / \Q \right) \right) = 1 
+    \]
+    in contradiction to Corollary \ref{lem:different_valuation}.
+    \item $f = x^n \pm 2x \pm 1$. In this case $f$ has a real root, and hence $\Q\left[ x \right] / \left( f \right)$ can not contain a totally imaginary number field as $\Q\left( i \right)$.
+    \item $f = x^n \pm 2x \pm 1$. 
+  \end{itemize}
+\end{proof}
 \end{document}
