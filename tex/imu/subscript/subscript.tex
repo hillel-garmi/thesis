@@ -1,0 +1,166 @@
+% !TEX root = ../../main.tex
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+\title{
+  Galois Groups of Trinomials with Small Coefficients
+}
+\author{Hilel Garmi}
+\maketitle
+
+Hello everyone, I am Hilel Garmi, and I will talk about Galois groups of trinomials with small coefficients.
+Our main example is going to be the family of polynomials of the form [frame]
+\[
+  f = x^n - 2x + 1
+\]
+I will first try to convince why it is interesting.
+[frame]
+The first reason is that in 1892 Hilbert proved his Irreducibility Theorem, which implies that [slide] in some sense, "almost all" polynomials of degree $n$ have Galois group $S_n$ over $\Q$.
+However, contrary to what one might expect upon hearing about this theorem for the first time, it turns out to be very hard to give explicit examples of a polynomial of degree $n$ with Galois group $S_n$ for every $n$.
+Almost 40 years later, Schur found the first example [slide] of such a family:
+\[
+  f := \sum_{k=0}^n \binom{n}{k} \frac{x^k}{k!}
+\]
+My problem with this example, is that both the numerator and the denominator of the coefficients grow insanely fast with $n$, and I would like to be able to find examples whose coefficients are (1) integers, and (2) bounded.
+And while until recently it might have seemed like an arbitrary challenge to choose, in 2020 Lior Bary-Soroker from Tel Aviv and Gady Kozma from the Weizmann proved that [slide] if you sample the coefficients of a monic polynomial of degree $n$ uniformly and independently from $\left\{ 1,\dots,210 \right\}$ then the probability that its Galois group is either $A_n$ or $S_n$ tends to $1$ as $n$ tends to infinity, and they conjecture that the same is true for $S_n$.
+So just as Hilbert's theorem implied that we should be able to find many examples as the one that Schur eventually provided, Bary-Soroker and Kozma's result makes it a bit embarrassing for number theorists that it seems like the only known example with bounded integer coefficients is [slide] 
+\[
+  f = x^n - x - 1
+\]
+which was proven to be irreducible by Selmer in 1956, and to have Galois group $S_n$ by Nart and Vila in 1979.
+So our first motivation is just ease this embarrassment a bit.
+
+% [frame]
+% The second motivation is the embaressment arising from the fact that we know almost nothing about how to calculate Galois groups of polynomials over $\Q$. I mean [slide] Kummer theory solves completely the case $x^n + b$, but once we try to consider trinomials of the form [slide] $x^n + ax^k + b$, apart from calculating it using a computer if $n$ is small enough we are pretty much lost. 
+% So if we will be able to solve the case $x^n - 2x + 1$, and generalize it a bit further, it can maybe be a first step towards developing a more satisfactory theory for Galois groups of trinomials.
+
+Before, I will get to talk about $x^n -2x + 1$, I will sketch the proof of the case $x^n - x - 1$, which will be instructive for us.
+To do that, I will first need to tell you about inertia groups.
+[frame]
+
+First a piece of notation, for any field $\F$, let $\overline{\F}$ denote its algebraic closure, and $G_\F := \Gal\left( \overline{\F}/\F \right)$ denote its absolute Galois group.
+Secondly, just like $\Z_p$ [slide] is a local ring with maximal ideal $p\Z_p$ and residue field $\F_p$, the same image appears in each algebraic extension $L/\Q_p$.
+The integral closure $\mathcal{O}_L$ of $\Z_p$ inside of $L$ is again a local ring, and its residue field is some algebraic extension of $\F_p$.
+The same is true even when $L$ is the algebraic closure $\overline{\Q_p}$ of $\Q_p$, and in this case the residue field is the algebraic closure $\overline{\F_p}$ of $\F_p$.
+Now it turns out that [slide] any automorphism in $\overline{\Q_p}$ over $\Q_p$ induces an automorphism of $\overline{\F_p}$.
+[slide]
+Thus we have a map $G_{\Q_p} \to G_{\F_p}$.
+The absolute inertia group $I_{\Q_p}$ [slide] is the kernel of this map, i.e. the group of automorphisms of $\overline{\Q_p}$ over $\Q_p$ that induce the identity on $\overline{\F_p}$.
+So in this picture, each of the automorphisms in $I_{\Q_p}$ move each element of $\overline{\Q_p}$ into some element within the same circle.
+
+Now we may view the roots of $f$ as elements of $\overline{\Q_p}$, and ask what we can say about the action of $I_{\Q_p}$ on them.
+Well, by the definition we just gave, for two roots to be in the same orbit of $I_{\Q_p}$, they must live in the same circle.
+Hence, this circle represnts an element of $\overline{\F_p}$, that is a double root of $f$.
+If three roots are in the same orbit, then this circle represents a triple root of $f$ and so forth. 
+If we derive $f$ twice we get $f'' = n\left( n-1 \right) x^{n-2}$.
+And well, at least if $p$ does not divide $n\left( n-1 \right)$, then the only root of $f''$ is $0$, which is not a root of $f$, and hence $f$ does not have a triple root.
+This is just to give you a taste of the kind of arguments that go into the proof.
+It turns out that we can bypass the problem of $p$ dividing $n\left( n-1 \right)$, and show that for any prime $p$, $f$ has no triple roots, and in fact has at most one double root.
+Therefore, there is at most one pair of roots of $f$ that live in the same circle, and hence $I_{\Q_p}$ acts on the roots of $f$ either trivially, or as a single transposition, transposing these two roots that live in the same circle.
+
+Now all of this is related to the Galois group of our polynomial over $\Q$?
+[slide]
+Well inside $\overline{\Q_p}$, there is a copy of $\overline{\Q}$, and hence we can reduce any automorphism in $I_{\Q_p}$ to an automorphism of $\overline{\Q}$.
+Thus, we have an image of $I_{\Q_p}$ inside $G_\Q$, and since it was obtained from $I_{\Q_p}$, just by reducing to $\overline{\Q}$, it acts on the roots of $f$ in the same way as $I_{\Q_p}$ does, i.e. either trivially or as a single transposition.
+Note by the way, that this upper arrow is not cannonic at all, since we can precompose it with any of the many automorphisms of $\overline{\Q}$.
+Each such choice of embdding is called a place above $p$ for reasons I will not discuss, so each place above $p$ induces another embedding of $I_{\Q_p}$ into $G_\Q$ which is called the inertia at this place.
+We can now utilize a theorem which is called Hermite's Theorem, which says, certainly not in its most well known form, that the Galois group of a polynomial over $\Q$ is generated by its inertia groups.
+In our case, we just saw that each inertia group acts on the roots of $f$ either trivially or as a single transposition, and hence the Galois group of $f$ over $\Q$ is generated by transpositions.
+
+Finally, we can speak about $x^n -2x + 1$.  
+[frame]
+The first reason that I can not show you that the Galois group of $f = x^n - 2x + 1$ is $S_n$, is that it is not $S_n$, and for every obvious reason: 
+Its Galois group is not transitive, because $f$ is reducible:
+Indeed $1$ is a root of $f$, and hence $f$ factors as [slide]
+\[
+  x^n - 2x + 1 = \left( x-1 \right) g 
+\]
+where 
+\[
+  g = x^{n-1} + x^{n-2} + \cdots + x - 1
+\]
+So the biggest the Galois group can be is $S_{n-1}$.
+But never mind, both motivations I stated at the beginning still apply, $g$ will give us an example of a polynomial with bounded integer coefficients and Galois group $S_{n-1}$, and we will have one more trinomial whose Galois group we can calculate.
+$g$ attracted its own share of attention, because it is kind of another disguise of the [slide] generalized Fibonacci polynomial 
+\[
+  x^{n-1} - x^{n-2} - \cdots - x - 1
+\]
+which was proven to be irreducible by Miles in 1960, and more explicitly Wolfram in 1998.
+The irreducibility of $g$ can then be easily deduced.
+We are also not the first to try to calculate its Galois group and in 2003 Martin succeeded to show that [slide] it is $S_{n-1}$ for any odd value of $n$.
+What he did is essentially running the same argument that I just sketched for $x^n - x - 1$.
+The fact that $x^n - 2x + 1$ is reducible, does not hurt the argument, since the roots of $g$ are all roots of $f$ and hence if $f$ has at most on double root above each prime, then so does $g$, and also all the details that I hid from you worked just fine.
+The reason it fails for even values of $n$, is that in this case
+\[
+  x^n - 2x + 1 \equiv x^n - 1 \equiv \left( x^{n/2} - 1\right)^2 \mod 2
+\]
+and hence every root of $f$ in $\overline{\F_2}$ is a double root, and hence, all the roots of $g$ in $\overline{\F_2}$, well except $1$, are double roots, and thus nothing prevents a membed of the inertia group over $\Q_2$ from tranposing for example the two roots in this circle at the same time.
+So, we do not know that the Galois group of $g$ over $\Q$ is generated by transpositions anymore. 
+
+But do not you worry, we found a remedy.
+Over all the primes $p \neq 2$, the inertia group at every plce still acts on the roots of $g$ either trivially or as a single transposition.
+Let then $N$ denote the subgroup of $G_\Q$ generated by the inertia groups at all the places over all the primes $p \neq 2$. 
+group of $g$ generated by the inertia groups at all of these places.
+If we show that $N$ is transitive, then by the same fact we used earlier, $N$ is $S_{n-1}$, and hence the Galois group of $g$ over $\Q$ is $S_{n-1}$ as well.
+
+Now we are going to do a slight change of perspective.
+Let $L = \Q\left[ x \right] / (g)$ be the extension of $\Q$ defined by $g$.
+By the universal properties of $\Q\left[ x \right]$ and of $g$, roots of $g$ in $\overline{\Q}$ are like embeddings of $L$ into $\overline{\Q}$, and the action of the Galois group of $g$ over $\Q$ on its roots is like the action of $G_\Q$ on these embeddings.
+The reason I am doing this change of perspectives, is to utilize the fact that the functor, $\Hom_\Q\left( -, \overline{\Q} \right)$, is a contravariant equivalence between the category of finite extensions of $\Q$ and finite transitive $G_\Q$-sets.  
+
+Now assume this is the set of embeddings of $L$ into $\overline{\Q}$, we can divide it into orbits of $N$.
+As its name suggests, $N$ turns out to be a normal subgroup of the Galois group of $g$, and hence the action of $G$ on $\Hom\left( L, \overline{\Q} \right)$ respect the divison into orbits of $N$, and hence induces an action on the set of orbits of $N$.
+Therefore, we got a $G_\Q$-equivariant map from $\Hom\left( L, \overline{\Q} \right)$ to another set $\Hom\left( L, \overline{\Q} \right) / N$.
+Therefore, we have a corresponding morphism in the opposite direction in the category of finite extensions of $\Q$, i.e. some corresponding intermediate extension $K/ \Q$.
+If we assume towards contradiction that $N$ is not transitive, then the quotint by it consists of more than one element, and hence $K$ has more than one embedding into $\overline{\Q}$, and hence $K$ is not $\Q$.
+Therefore, it suffices for us to show that such an intermediate extension $K$ does not exist.
+
+However, note that in this picture, each element of each inertia group at a place over a prime $p \neq 2$, act on the members of this set, either trivially or by transposition.
+Therefore, the two elments it transposes must be in the same orbit of $N$, otherwise it would have to move more than two elements around.
+Therefore, the action that it induces on the set of orbits of $N$ is trivial, and hence its action on $K$ is trivial as well.
+Therefore, $K$ is fixed by all inertia groups, except those that are over $2$.
+Now I do not have time to talk about it, but it turns out that this condition is pretty restrictive, and by proving some bounds on the discriminant of $L$, for those of you who know what this means, we were able also bound the root discriminant of $K$. 
+Combining this fact with known listings of number fields with small root discriminant, we were able to show that such a $K$ does not exist, from which it follows that $N$ is transitive, from which it follows that the Galois group of $g$ over $\Q$ is $S_{n-1}$.
+
+
+
+No one said we need to show that the entire Galois group of $g$ is generated by a transpositions, we only need to show that some transitive subgroup of it is generated by transpositions, and at every place over any prime $p \neq 2$ the inertia group does act on $g$ is either trivially or as a single transposition.  
+Let then $N$ denote the subgroup of the Galois group of $g$ over $\Q$ that is generated by the inertia groups of all the places over all the primes $p \neq 2$.
+
+
+
+
+% and a lot of time it turns out, it is easier to understand the action of $G_{\Q_p}$ on the roots of a polynomial than the action of $G_\Q$ on them.
+% If we have done so for different primes $p$, we can then combine the information we have about the action of $G_{\Q_p}$ on the roots of a polynomial to get information about the action of $G_\Q$ on them.
+% [slide]
+% What Schur did in his proof, was to show that there is a prime $\frac{n}{2} < p < n - 2$ such that the Galois group of $f$ over $\Q_p$ contains a $p$-cycle.
+% Hence the action of $G_\Q$ on the roots of his $f$ is transitive, because one can show that  
+
+
+% The first part of the argument is called the local part, and the second part is called the global part.
+% So 
+% In particular, any automorphism in $I_{\Q_p}$ does so, and it might be easier   
+
+
+% When we ask what is the Galois group of a polynomial $f$ as a subgroup of $S_n$, we essentially ask what are all the permutations of its roots that are induced by automorphisms of $\overline{\Q}$.
+
+
+
+% Firs of all, [slide] I can view the $p$-adic integers $\Z_p$ as an infinite $p$-regular tree, in which each vertex of depth $d$ consists of all the $p$-adic integers that are equivalent modulo $p^d$.
+
+% Now it turns out, that the same image appears in any algebraic extension $L/\Q_p$. 
+% The integral closure [slide] $\mathcal{O}_L$ of $\Z_p$ inside of $L$ is again a local ring, and if we denote its maximal ideal by $\p_L$, we can view $\mathcal{O}_L$ as an infinite tree, [slide] in which each vertex of depth $d$ consists of all the elements of $\mathcal{O}_L$ that are equivalent modulo $\p_L^d$.
+% Where earlier the children of each vertex were indexed by $\F_p$, now they are indexed by the residue field $\mathcal{O}_L/\p_L$ of $L$, which is some field extension of $\F_p$.
+% As a warning I will say that sometimes there are also more intermediate levels between each two levels corresponding to two consecutive powers of $p$ in the first tree, but we are not going to talk about it.
+
+% The same is true even when $L$ is the algebraic closure $\overline{\Q_p}$ of $\Q_p$, and in this case the residue field is the algebraic closure $\overline{\F_p}$ of $\F_p$.
+
+% Now any automorphism of $\overline{\Q_p}$ over $\Q_p$ preserves this tree structure, and we can define the absolute inertia group $I_{\Q_p}$ to be the subgroup of $\Gal\left( \overline{\Q_p}/\Q_p \right)$ that fixes the first level of the tree, which is just $\overline{\F_p}$.
+% In an algebraic language, $I_{\Q_p}$ is the subgroup of 
+
+% $\Z_p$ is a local ring with maximal ideal $p\Z_p$ and residue field $\F_p$, and I can use this fact to define the weird $p$-adic metric, which assign to each pair of $p$-adic numbers a distance out of 
+
+% First of all note that if we choose an algebraic closure $\overline{\Q_p}$ of $\Q_p$, it contains an algebraic closure of $\Q$, so we can choose an embedding that makes [slide] this diagram commute.
+
+
+\end{document}

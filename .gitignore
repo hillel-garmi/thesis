@@ -13,3 +13,6 @@
 *.out
 *.snm
 *.nav
+*.venv~
+*.vrb
+*.synctex(busy)
