@@ -58,17 +58,17 @@
 
 \begin{frame}[fragile]
     \frametitle{
-        \only<1-15>{Inertia Groups} 
-        \only<12-15>{:}
-        \only<12->{ $f = x^n - x - 1$ }
-        \only<16->{:}
-        \only<16->{ Back to $\Q$}
+        \only<1-17>{Inertia Groups} 
+        \only<11-17>{:}
+        \only<11->{ $f = x^n - x - 1$ }
+        \only<18->{:}
+        \only<18->{ Back to $\Q$}
     }
-    \only<1-7>{
-        \begin{block}{Notation}
-            \only<2->{For any field $\F$, }
+    \only<1-8>{
+        \begin{block}{\only<2-6>{Notation}}
+            \only<2-6>{For any field $\F$, }
             \begin{itemize}
-                \item<2-> Let $\overline{\F}$ be an algebraic closure of $\F$.
+                \item<2-6> Let $\overline{\F}$ be an algebraic closure of $\F$.
                 \item<3-> Let $G_\F := \Gal\left( \overline{\F} / \F \right)$ be its absolute Galois group. 
             \end{itemize}
         \end{block}
@@ -79,29 +79,41 @@
                 \begin{column}{8 cm}
                     \[
                         \begin{tikzcd}[ampersand replacement=\&]
-                            \only<4-9>{
+                            \only<4-13>{
                                 0 \arrow[r] \& p\Z_p \arrow[r] \& \Z_p \arrow[r] \& \F_p \arrow[r] \& 0 
                                 \only<5->\\
                             }
-                            \only<5-14>{ 
-                                0 \arrow[r] \& \p \arrow[r] \& \OO_L \arrow[r] \& \F_q \arrow[r] \& 0 \only<6->\\
+                            % \only<5-14>{ 
+                            %     0 \arrow[r] \& \p \arrow[r] \& \OO_L \arrow[r] \& \F_q \arrow[r] \& 0 \only<6->\\
+                            % }
+                            \only<5-15>{
+                                0 \arrow[r] \& \p \arrow[r] \& \OO_{\overline{\Q_p}} \arrow[r] \& \overline{\F_p} \arrow[r] \& 0 \only<7->\\
                             }
-                            \only<6-15>{
-                                0 \arrow[r] \& \p \arrow[r] \& \OO_{\overline{\Q_p}} \arrow[r] \& \overline{\F_p} \arrow[r] \& 0 \only<8->\\
-                            }
-                            \only<8-16>{
-                                \& \& \overline{\Q_p} \arrow[d, "\sigma"{name=L}] \& \only<9-16> {\overline{\F_p} \arrow[d, "\overline{\sigma}"'{name=R}]}\& \\
-                                \& \& \overline{\Q_p} \& \only<9-16> {\overline{\F_p}} \&
-                                \only<9-16>{
+                            \only<7-17>{
+                                \& \& 
+                                \overline{\Q_p} 
+                                \arrow[d, "\sigma"{name=L}] 
+                                \& 
+                                \only<8-> {\overline{\F_p} \arrow[d, "\overline{\sigma}"'{name=R}]}
+                                \& \\
+                                \& \& 
+                                \overline{\Q_p} \& 
+                                \only<8-> {\overline{\F_p}} 
+                                \&
+                                \only<8->{
                                     \arrow[rightarrow, from=L, to=R, squiggly, shorten <=2pt]
-                                } \only<10->\\
+                                } 
+                                \only<9->\\
                             }
-                            \only<10->{
-                                \only<11->{1 \arrow[r]}\& \only<11->{I_{\Q_p} \arrow[r]} \& G_{\Q_p} \arrow[r] \& G_{\F_p} \&
+                            \only<9->{
+                                \only<10->{1 \arrow[r]}\& 
+                                \only<10->{I_{\Q_p} \arrow[r]} \& 
+                                G_{\Q_p} \arrow[r] \& 
+                                G_{\F_p} \&
                             }
                         \end{tikzcd}
                     \]
-                    \only<15->{
+                    \only<14->{
                         \[
                             f''\left( x \right) = n\left( n-1 \right) x^{n-2}
                         \]
@@ -111,16 +123,16 @@
                     % }
                 \end{column}
                 \begin{column}{4 cm}
-                    \only<7-11>{\includegraphics[height=4cm]{Zp.png}}
-                    \only<12>{\includegraphics[height=4cm]{roots_in_Zp.png}}
-                    \only<13>{\includegraphics[height=4cm]{double_root_in_Zp.png}}
-                    \only<14-15>{\includegraphics[height=4cm]{triple_root_in_Zp.png}}
-                    \only<16->{\includegraphics[height=4cm]{double_root_in_Zp.png}}
+                    \only<6-10>{\includegraphics[height=4cm]{Zp.png}}
+                    \only<11>{\includegraphics[height=4cm]{roots_in_Zp.png}}
+                    \only<12>{\includegraphics[height=4cm]{double_root_in_Zp.png}}
+                    \only<13-14>{\includegraphics[height=4cm]{triple_root_in_Zp.png}}
+                    \only<15->{\includegraphics[height=4cm]{double_root_in_Zp.png}}
                 \end{column}
             \end{columns}
         \end{block}
     }
-    \only<16-21>{
+    \only<16-22>{
         \begin{block}{}
             For any primes $p$:
             \only<16->{
@@ -139,32 +151,48 @@
                 \begin{column}{6cm}
                     \[
                         \begin{tikzcd}[ampersand replacement=\&]
-                            \overline{\Q} \arrow[r] \& \overline{\Q_p} \\
-                            \Q \arrow[r] \arrow[u] \& \Q_p \arrow[u]      
+                            \overline{\Q} \arrow[r, hook] \& \overline{\Q_p} \\
+                            \Q \arrow[r, hook] \arrow[u, hook] \& \Q_p \arrow[u, hook]      
                         \end{tikzcd}
                     \]
                 \end{column}
                 \begin{column}{6cm}
                     \only<19->{
                         \[
-                            I_{\Q_p} \hookrightarrow G_\Q
+                            \begin{tikzcd}[ampersand replacement=\&]
+                                I_{\Q_p} \arrow[r, hook] 
+                                \only<20->{\arrow[d, two heads]} 
+                                \& 
+                                G_\Q
+                                \only<20->{\arrow[d, two heads]}
+                                \only<20->{\\}
+                                \only<20->{
+                                    \overline{I_{\Q_p}} 
+                                    \arrow[r, hook] 
+                                    \& 
+                                    G\left( f \right)
+                                }      
+                            \end{tikzcd}
                         \]
+                        % \[
+                        %     I_{\Q_p} \hookrightarrow G_\Q
+                        % \]
                     }
                 \end{column}
             \end{columns}
-            \only<20->{
+            \only<21->{
                 \begin{center}
                     \includegraphics[width=4cm]{roots_0.png}
                 \end{center}
             }
         \end{block}
     }
-    \only<21->{
+    \only<22->{
         \begin{alertblock}{(A version of ) Hermite's Theorem}
             The Galois group of a polynomial over $\Q$ is generated by its inertia groups.
         \end{alertblock}
     }
-    \only<22->{
+    \only<23->{
         \begin{alertblock}{Permutation Groups Theory Fact:}
             A transitive permutation group which is generated by transpositions is the full symmetric group.
         \end{alertblock}
@@ -173,9 +201,9 @@
 
 \begin{frame}[fragile]
     \frametitle{$f = x^n - 2x + 1$}
-    \only<2-9>{
+    \only<2-7>{
         \begin{block}{}
-            \only<2-9>{
+            \only<2-7>{
                 \[
                     f = \left( x - 1 \right)g
                 \]
@@ -193,58 +221,63 @@
         \end{block}
     }
     \only<4-11>{
-        \begin{alertblock}{Miles (1960) \& Wolfram (1998)}
+        \begin{alertblock}{\only<4-10>{Miles (1960) \& Wolfram (1998)}}
             $g$ is irreducible over $\Q$ for all $n \geq 2$.
         \end{alertblock}
     }
-    \only<5-12>{
-        \begin{alertblock}{Matin (2003)}
+    \only<5-11>{
+        \begin{alertblock}{Martin (2003)}
             The Galois group of $g$ is $S_{n-1}$ for any odd $n$.
         \end{alertblock}
     }
-    \only<6->{
+    \only<6-12>{
+        \begin{alertblock}{G. (2026)}
+            The Galois group of $g$ is $S_{n-1}$ for any $n$.
+        \end{alertblock}
+    }
+    \only<7->{
         \begin{block}{}
             \begin{center}
-                \only<6-7>{
+                \only<7-8>{
                     \includegraphics[width=4cm]{exceptional_root.png}
                 }
-                \only<8>{
+                \only<9>{
                     \includegraphics[width=4cm]{f_double_roots.png}
                 }
-                \only<9-14>{
+                \only<10-15>{
                     \includegraphics[width=4cm]{g_double_roots.png}
                 }
-                \only<15>{
+                \only<16>{
                     \includegraphics[width=4cm]{9_roots.png}
                 }
-                \only<16>{
+                \only<17>{
                     \includegraphics[width=4cm]{grouped_roots.png}
                 }
-                \only<17->{
+                \only<18->{
                     \includegraphics[width=4cm]{tree.png}
                 }
             \end{center}
-            \only<7-16>{
+            \only<8-17>{
                 \[
                     f \equiv x^n -1 \equiv \left( x^{n/2} - 1 \right)^2 \mod 2
                 \]
             }
-            \only<10-13>{
+            \only<11-14>{
                 \begin{itemize}
-                    \item<10-13> If $p \neq 2$, $I_{\Q_p}$ acts on the roots of $g$ either trivially or as a single transposition.
+                    \item<11-> If $p \neq 2$, $I_{\Q_p}$ acts on the roots of $g$ either trivially or as a single transposition.
                 \end{itemize}
             }
-            \only<11-17>{
+            \only<12-18>{
                 \[
                     N := \prod_{p \neq 2 \ \overline{\Q} \hookrightarrow \overline{\Q_{p}}} I_{\Q_p}
                 \]
             }
-            \only<12->{
+            \only<13-18>{
                 \[
                     L := \Q\left[ x \right] / \left( g \right)
                 \]
             }
-            \only<13->{
+            \only<14->{
                 \[
                     \begin{tikzcd}[ampersand replacement=\&]
                         \left\{ \text{Roots of } g \right\} 
@@ -253,36 +286,51 @@
                     \end{tikzcd}
                 \]
             }
-            \only<14->{
+            \only<15->{
                 \[
                     \begin{tikzcd}[ampersand replacement=\&]
                         \left\{ \text{Finite extensions of } \Q \right\}
                         \arrow[rr, squiggly, "{\Hom\left( -, \overline{\Q} \right)}"]
                         \& \&
                         \left\{ \text{Finite transitive } G_\Q \text{ sets} \right\}
+                        \only<19-> {\\
+                            \only<20-> {L } 
+                            \&\& 
+                            \Hom_\Q\left( L, \overline{\Q} \right) \arrow[d, two heads, ""{name=R}] 
+                            \\
+                            \only<20-> {K \arrow[u, hook, ""'{name=L}]} 
+                            \only<20->{
+                                \arrow[rightarrow, from=L, to=R, squiggly, shorten <=2pt, shorten >=2pt]
+                            } 
+                            \&\& \
+                            \Hom_\Q\left( L, \overline{\Q} \right) / N
+                        }
                     \end{tikzcd}
                 \]
             }
-            \only<18->{
-                \[
-                    \begin{tikzcd}[ampersand replacement=\&]
-                        \Hom_\Q\left( L, \overline{\Q} \right) \arrow[d, two heads, ""{name=L}] \& 
-                        \only<19-> {L } \\
-                        \Hom_\Q\left( L, \overline{\Q} \right) / N \& \
-                        \only<19-> {K \arrow[u, hook, ""'{name=R}]} 
-                        \only<19->{
-                            \arrow[rightarrow, from=L, to=R, squiggly, shorten <=2pt, shorten >=2pt]
-                        } 
-                    \end{tikzcd}
-                \]
-            }
+            % \only<19->{
+            %     \[
+            %         \begin{tikzcd}[ampersand replacement=\&]
+            %             \only<20-> {L } 
+            %             \&\& 
+            %             \Hom_\Q\left( L, \overline{\Q} \right) \arrow[d, two heads, ""{name=R}] 
+            %             \\
+            %             \only<20-> {K \arrow[u, hook, ""'{name=L}]} 
+            %             \only<20->{
+            %                 \arrow[rightarrow, from=L, to=R, squiggly, shorten <=2pt, shorten >=2pt]
+            %             } 
+            %             \&\& \
+            %             \Hom_\Q\left( L, \overline{\Q} \right) / N 
+            %         \end{tikzcd}
+            %     \]
+            % }
         \end{block}
     }
 \end{frame}
 
 \begin{frame}
     \frametitle{Additional Results}
-    \begin{alertblock}<2->{Theorem}
+    \begin{alertblock}<2->{G. (2026)}
         Let $a,b \in \Z_{\neq 0}$.
         If ${\rm lcm}\left( a,b \right) \leq 2$ or if 
         \[
@@ -292,7 +340,7 @@
                 \left( \pm 3, - 3 \right)
             \right\}
         \]
-        then for any $n > 3$, the Galois group of $x^n + ax + b$ is the largest that its factorization type allows.
+        then for any $n > 3$, the Galois group of $f = x^n + ax + b$ is the largest that its factorization type allows.
     \end{alertblock}
     \begin{alertblock}<3->{Conjecture}
         For any integers $0 < k < n$, such that ${\rm gcd}\left( n,k \right) = 1$, and $n > 7$, let 
