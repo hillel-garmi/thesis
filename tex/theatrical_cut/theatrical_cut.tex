@@ -67,7 +67,7 @@ Our new approach utilizes global bounds on the discriminant of number fields, li
 
 % For each polynomial $h$ and number field $K$, we will denote by $\d\left( h \right)$ and $\d\left( K \right)$ the discriminant of $h$ and of $K$ respectively and by $\rd\left( K \right)$ the root discriminant of $K$, i.e. $\rd\left( K \right) = \d\left( K \right)^{1/\left[ K : \Q \right]}$.
 
-\section{Sufficient Condition }
+\section{Abstract Sufficient Condition }
 \subsection{Setup and notations \label{subsection:strategy_setup}}
 Let $a, b, k \in \Z - \left\{ 0 \right\}$ and $1 < n \in \Z$ such that $1 = \gcd\left( n, k \right)$ and let $f\left( x \right) = x^n + ax^k + b$.
 Let $g$ be an irreducible factor of $f$, let $L = \Q\left[ x \right] / \left( g \right)$, and denote by $\Lroot$ the image of $x$ in $L$.
@@ -81,7 +81,12 @@ Denote by $I\left( \iota \right)$ the image of the inertia group of $\Q_p$ under
 Let $H$ be the product of all the inertia groups $I\left( \iota \right)$ for all of the embeddings $\iota: \overline{\Q} \hookrightarrow \overline{\Q_\ell}$ and all of the primes $\ell$ not dividing $ab$.
 
 \subsection{General Properties of $f$}
-We will prove two lemmas that will be useful in a few places in the sequel. 
+Our entire work relies on the following two identities:
+\begin{align}
+    & nf - xf' = nax^k - kax^k + nb = \left( n-k \right)ax^k + nb \label{eq:small_linear_combination} \\
+    & kf - xf' = kx^n + kb - nx^n = (k - n)x^n + kb \label{eq:big_linear_combination}
+\end{align}
+An immediate consequence of them is:
 \begin{lemma}
   \label{lem:derivative_formula}
   If $\alpha$ is a root of $f$ in some field in which $b \neq 0$, then $\alpha$ is invertible and
@@ -92,44 +97,47 @@ We will prove two lemmas that will be useful in a few places in the sequel.
   \]
 \end{lemma}
 \begin{proof}
-  \begin{align*}
-    f'\left( \alpha \right) = &
-    n \frac{\alpha^n}{\alpha} + ka\alpha^{k-1} = 
-    n \frac{-a\alpha^k - b}{\alpha} + ka\alpha^{k-1} =
-     \left( k - n \right)a\alpha^{k-1} - nb\alpha^{-1} 
-  \end{align*}
-  and similarly
-  \begin{align*}
-    f'\left( \alpha \right) = &
-    n \alpha^{n-1} + ka\frac{\alpha^k}{\alpha} = 
-    n \alpha^{n-1} + k\frac{-\alpha^n - b}{\alpha} =
-     \left( n - k \right)\alpha^{n-1} - kb\alpha^{-1} 
-  \end{align*}
+  Immediate from identities \ref{eq:small_linear_combination} and \ref{eq:big_linear_combination}.
+  % \begin{align*}
+  %   f'\left( \alpha \right) = &
+  %   n \frac{\alpha^n}{\alpha} + ka\alpha^{k-1} = 
+  %   n \frac{-a\alpha^k - b}{\alpha} + ka\alpha^{k-1} =
+  %    \left( k - n \right)a\alpha^{k-1} - nb\alpha^{-1} 
+  % \end{align*}
+  % and similarly
+  % \begin{align*}
+  %   f'\left( \alpha \right) = &
+  %   n \alpha^{n-1} + ka\frac{\alpha^k}{\alpha} = 
+  %   n \alpha^{n-1} + k\frac{-\alpha^n - b}{\alpha} =
+  %    \left( n - k \right)\alpha^{n-1} - kb\alpha^{-1} 
+  % \end{align*}
 \end{proof}
-
+Another consequence of identities \ref{eq:small_linear_combination} and \ref{eq:big_linear_combination} is:
 \begin{lemma}
   \label{lem:multiple_root}
   If $\F$ is a field in which $ab \neq 0$, then $f$ is either separable over $\F$ or has $n-2$ simple roots in $\overline{\F}$ and one double root in $\F$.
 \end{lemma}
 \begin{proof}
   Let $\alpha \in \overline{\F}$ be a multiple root of $f$.
-  Then, $\alpha$ is also a root of $f'$ and hence, since $b \neq 0$, it follows from Lemma \ref{lem:derivative_formula} that $\alpha \neq 0$ and that
-  \[
-    0 = \alpha f'\left( \alpha \right) =
-    \left( k - n \right)a\alpha^{k} - nb =
-    \left( n - k \right)\alpha^{n} - kb
-  \]
-  Therefore, since $a \neq 0$ as well, the first expression implies that $n = 0$ if and only if $n - k = 0$ and the second expression implies that $n - k = 0$ if and only if $k = 0$.
+  Then, both identities \ref{eq:small_linear_combination} and \ref{eq:big_linear_combination} specialize to zero at $\alpha$.
+  %  i.e. 
+  % \[
+  %   0 =
+  %   \left( k - n \right)a\alpha^{k} - nb =
+  %   \left( n - k \right)\alpha^{n} - kb
+  % \]
+  Therefore, since $ab \neq 0$, identity \ref{eq:small_linear_combination} implies that $n = 0$ if and only if $n - k = 0$ and identity \ref{eq:big_linear_combination} implies that $n - k = 0$ if and only if $k = 0$.
   However, since $1 = \gcd\left( n, k \right)$, it follows that at most one among $n, k, n - k$ can be zero in $\F$.
   Therefore, none of the three is zero.
-  Thus, we showed that all of the terms in the above expressions are non zero in $\F$ and hence both $\alpha^k$ and $\alpha^n$ are determined uniquely by $a,b,n,k$ in $\F$.
+  Thus, we showed that all of the terms in identities \ref{eq:small_linear_combination} and \ref{eq:big_linear_combination} are non zero in $\F$ and hence both $\alpha^k$ and $\alpha^n$ are determined uniquely by $a,b,n,k$ in $\F$.
   However, again since $1 = \gcd\left( n, k \right)$, $\alpha$ is uniquely determined by $\alpha^k$ and $\alpha^n$ in $\F$ as well. 
 
-  It is only left to show that it $\alpha$ is not a triple root of $f$. 
-  However, the only root of $f''$ is zero which is not a root of $f$ and hence $f$ has no triple roots.
+  It is only left to show that $\alpha$ is not a triple root of $f$. 
+  If it was, it would have been a multiple root of iedntity \ref{eq:big_linear_combination}.
+  However, since as proven above $n \neq 0$ and also $\left( k - n \right)k \neq 0$, iedntity \ref{eq:big_linear_combination} is a separable polynomial over $\F$ and hence does not have any multiple root in $\overline{\F}$.
 \end{proof}
 
-\subsection{Proof of the condition}
+\subsection{Proof of the abstract condition}
 
 When we say that a group acts on a set $X$, as a single transposition, we mean that its image in $\Sym\left( X \right)$.
 This terminology allows us to translate Lemma \ref{lem:multiple_root} into the following corollary which will be usefl in the proof of our condition:
@@ -471,106 +479,113 @@ If $a = \pm 1$, then Theorem \ref{thm:strategy} clearly applies.
 
 \subsection{Polynomial factorization}
 We will record a few result about the factorization of $f$ for some values of $a,b,n$ that will be useful in the following examples.
+\begin{lemma}
+  \label{lem:filaseta_et_al}
+  If $n > 7$ and $1 = \gcd\left( n,k \right)$ then the non reciprocal part of $x^n \pm 2x^k \pm 1$ is irreducible.
+\end{lemma}
 \begin{proof}
-  Let 
-  \[
-    \widetilde{f} = bx^n + ax^{n-k} + 1 = b \left( x^n + ab x^{n-k} + 1 \right)
-  \]
-  then 
-  \[
-    f \widetilde{f} = bx^{2n} + a x^{2n-k} + ax^{n+k} + 6 x^n + \cdots
-  \]
-  when $\cdots$ are terms of degree less than $n$.
-  Assume that 
-  \[
-    f\widetilde{f} = h \widetilde{h}
-  \]
-  for some $h \neq \pm f, \pm \widetilde{f}$.
-  Then $h$ and $\widetilde{h}$ are of degree $n$ and we can assume that the leading coefficient of $h$ is $1$ and the leading coefficient of $\widetilde{h}$ is $b$.
-  Since the sum of the squares of the coefficients of $h$ is $6$, it follows that one of two cases holds:
-  
-  The first case is that $h$ has $6$ coefficients equal to $\pm 1$ and the rest are $0$.
-  We shall denote then 
-  \[
-    h = \epsilon_5 x^n + \sum_{i=1}^{4} \epsilon_i x^{k_i} + \epsilon_0
-  \]
-  when $\epsilon_i \in \left\{ -1, 1 \right\}$ and $0 < k_1 < k_2 < k_3 < k_4 < n$.
-  Then the degree of the second largest term of $h\widetilde{h}$ before adding similar terms is either $n + k_4$ or $2n - k_1$.
-  However, since all the coefficients of $f\widetilde{f}$ except for the leading one and the constant term are even, it follows that $n + k_4 = 2n - k_1$ and hence $k_1 + k_4 = n$.
-  % Moreover, it follows that 
-  % \[
-  %   0 = \epsilon_4 + \epsilon_1 \epsilon_0
-  % \] 
-
-  The degree of the third largest term of $h\widetilde{h}$ can be any of the following:
-  \[
-    n + k_3,\quad 2n - k_2,\quad n + k_4 - k_1
-  \]
-  For the same argument as before, it follows that exactly two among these three degrees are equal to each other and the third one is strictly smaller than them.
-  Thus, we have two possibilities:
-  \begin{enumerate}
-    \item $k_3 = n - k_2$.
-    By looking at the table, we see that it follows that exactly one among $k_2$ and $n - k_3$ is eqaul to $k_4 - k_1$ and the other one is strictly smaller than them which is a contradiction.
-    \item WLOG (by replacing $h$ with $\widetilde{h}$ if necessary) 
-    \[
-      n - k_2 < k_3 = k_4 - k_1 = n - 2k_1
-    \]
-    In particular, 
-    \[
-      k_4 = k_1 + k_3 = n - k_47
-    \]
-    % By looking at the table, 
-    % \[
-    %   n - k_2 > k_2
-    % \]
-    % and hence 
-    % \[
-    %   n > 2k_2
-    % \]
-    Now again one of two cases happens:
-    \begin{enumerate}
-      \item $n - k_3 < k_2 = n - k_2$.
-      In particular 
-      \[
-        n = 2k_2
-      \]
-      \item $k_2 < n - k_2 = k_3 - k_1$.
-      In particular
-      \[
-        k_3 = 2k_1
-      \]
-    \end{enumerate}
-    % \item WLOG (by replacing $h$ with $\widetilde{h}$ if necessary) 
-    % \[
-    %   k_3 < n - k_2 = k_4 - k_1 = n - 2k_1
-    % \]
-    % In particular, 
-    % \[
-    %   k_2 = 2k_1 < n - k_3
-    % \]
-    % By looking at the table, 
-    % \[
-    %   n - k_2 > k_2
-    % \]
-    % and hence 
-    % \[
-    %   n > 2k_2
-    % \]
-    % Now again one of two cases happens:
-    % \begin{enumerate}
-    %   \item $k_4 - k_2 < n - k_3 = k_3$.
-    %   In particular 
-    %   \[
-    %     n = 2k_3
-    %   \]
-    %   \item $n - k_3 < k_3 = k_4 - k_2 = n - 2k_1$.
-    %   In particular
-    %   \[
-    %     k_3 = 2k_1
-    %   \]
-    % \end{enumerate}
-  \end{enumerate}
+  \editorial{Add citation to the paper of Filaseta et. al. and maybe state the more detailed version of the result.}
 \end{proof}
+% \begin{proof}
+%   Let 
+%   \[
+%     \widetilde{f} = bx^n + ax^{n-k} + 1 = b \left( x^n + ab x^{n-k} + 1 \right)
+%   \]
+%   then 
+%   \[
+%     f \widetilde{f} = bx^{2n} + a x^{2n-k} + ax^{n+k} + 6 x^n + \cdots
+%   \]
+%   when $\cdots$ are terms of degree less than $n$.
+%   Assume that 
+%   \[
+%     f\widetilde{f} = h \widetilde{h}
+%   \]
+%   for some $h \neq \pm f, \pm \widetilde{f}$.
+%   Then $h$ and $\widetilde{h}$ are of degree $n$ and we can assume that the leading coefficient of $h$ is $1$ and the leading coefficient of $\widetilde{h}$ is $b$.
+%   Since the sum of the squares of the coefficients of $h$ is $6$, it follows that one of two cases holds:
+  
+%   The first case is that $h$ has $6$ coefficients equal to $\pm 1$ and the rest are $0$.
+%   We shall denote then 
+%   \[
+%     h = \epsilon_5 x^n + \sum_{i=1}^{4} \epsilon_i x^{k_i} + \epsilon_0
+%   \]
+%   when $\epsilon_i \in \left\{ -1, 1 \right\}$ and $0 < k_1 < k_2 < k_3 < k_4 < n$.
+%   Then the degree of the second largest term of $h\widetilde{h}$ before adding similar terms is either $n + k_4$ or $2n - k_1$.
+%   However, since all the coefficients of $f\widetilde{f}$ except for the leading one and the constant term are even, it follows that $n + k_4 = 2n - k_1$ and hence $k_1 + k_4 = n$.
+%   % Moreover, it follows that 
+%   % \[
+%   %   0 = \epsilon_4 + \epsilon_1 \epsilon_0
+%   % \] 
+
+%   The degree of the third largest term of $h\widetilde{h}$ can be any of the following:
+%   \[
+%     n + k_3,\quad 2n - k_2,\quad n + k_4 - k_1
+%   \]
+%   For the same argument as before, it follows that exactly two among these three degrees are equal to each other and the third one is strictly smaller than them.
+%   Thus, we have two possibilities:
+%   \begin{enumerate}
+%     \item $k_3 = n - k_2$.
+%     By looking at the table, we see that it follows that exactly one among $k_2$ and $n - k_3$ is eqaul to $k_4 - k_1$ and the other one is strictly smaller than them which is a contradiction.
+%     \item WLOG (by replacing $h$ with $\widetilde{h}$ if necessary) 
+%     \[
+%       n - k_2 < k_3 = k_4 - k_1 = n - 2k_1
+%     \]
+%     In particular, 
+%     \[
+%       k_4 = k_1 + k_3 = n - k_47
+%     \]
+%     % By looking at the table, 
+%     % \[
+%     %   n - k_2 > k_2
+%     % \]
+%     % and hence 
+%     % \[
+%     %   n > 2k_2
+%     % \]
+%     Now again one of two cases happens:
+%     \begin{enumerate}
+%       \item $n - k_3 < k_2 = n - k_2$.
+%       In particular 
+%       \[
+%         n = 2k_2
+%       \]
+%       \item $k_2 < n - k_2 = k_3 - k_1$.
+%       In particular
+%       \[
+%         k_3 = 2k_1
+%       \]
+%     \end{enumerate}
+%     % \item WLOG (by replacing $h$ with $\widetilde{h}$ if necessary) 
+%     % \[
+%     %   k_3 < n - k_2 = k_4 - k_1 = n - 2k_1
+%     % \]
+%     % In particular, 
+%     % \[
+%     %   k_2 = 2k_1 < n - k_3
+%     % \]
+%     % By looking at the table, 
+%     % \[
+%     %   n - k_2 > k_2
+%     % \]
+%     % and hence 
+%     % \[
+%     %   n > 2k_2
+%     % \]
+%     % Now again one of two cases happens:
+%     % \begin{enumerate}
+%     %   \item $k_4 - k_2 < n - k_3 = k_3$.
+%     %   In particular 
+%     %   \[
+%     %     n = 2k_3
+%     %   \]
+%     %   \item $n - k_3 < k_3 = k_4 - k_2 = n - 2k_1$.
+%     %   In particular
+%     %   \[
+%     %     k_3 = 2k_1
+%     %   \]
+%     % \end{enumerate}
+%   \end{enumerate}
+% \end{proof}
 % \begin{lemma}
 %   \label{lem:irreducibility_b_1}
 %   Assume $\left| b \right| = 1$.
@@ -608,8 +623,8 @@ We will record a few result about the factorization of $f$ for some values of $a
 %   In particular, it follows that the free term of $g$ is $\pm 1$ and hence $g$ has a root in $\overline{\Q}$ of absolute value not greater than $1$ and that's a contradiction.
 % \end{proof}
 
-\subsection{$a = \pm 2$}
-Assume that $a = \pm 2$.
+\subsection{$f = x^n \pm 2x \pm 1$}
+Assume that $f = x^n \pm 2x \pm 1$.
 According to the LMFDB \cite{lmfdb}, the only number field with root discriminant not greater than $2$ that is ramified only above $2$ is $\Q\left( i \right)$.
 The next real number realized as the root discriminant of a number field ramified only above $2$ is $\sqrt{8}$.
 Therefore, once we rule out the possibility that $\Q\left( i \right)$ is contained in $\Q\left[ x \right] / \left( f \right)$ for any $n\geq 3$, we can apply Theorem \ref{thm:criterion} with $C_2 = v_p\left( \sqrt{8} \right) = \frac{3}{2}$ which would hence apply whenever 
@@ -617,31 +632,42 @@ Therefore, once we rule out the possibility that $\Q\left( i \right)$ is contain
   \deg L > \frac{\error}{\frac{3}{2} - 1} = 2
 \]
 and if $\deg L = 2$ then its Galois group is $S_2$.
-Therefore, we can conclude the following characterization of the Galois group of $f$ for all $n \geq 3$:
+Therefore, we can conclude the following characterization of the Galois group of $f$ for all $n > 7$ and $1 = \gcd\left( k,n \right)$:
 \begin{corollary}
   If $\lcm\left( a,b \right) = 2$ then up to substituting $-x$ instead of $x$, either of the following holds:
   \begin{enumerate}
-    \item $f = x^n - 2x + 1, x^n + x - 2$ and $\G\left( f \right) = S_{n-1}$.
-    \item $G\left( f \right) = S_n$ 
+    \item $0 = f\left( 1 \right)f\left( -1 \right)$ and $\G\left( f \right) = S_{n-1}$.
+    \item $0 \neq f\left( 1 \right)f\left( -1 \right)$ and $G\left( f \right) = S_n$. 
   \end{enumerate}
 \end{corollary}
-\begin{proof}
-  For $n = 2$ the validity of the corollary can be checked manually.
-  Assume that $n \geq 3$. 
-  By Lemma \ref{lem:irreducibility_b_1} and Lemma \ref{lem:irreducibility_a_1}, in the first case $f$ factors as $\left( x - 1 \right)$ times an irreducible polynomial, and in the second case $f$ is irreducible. 
-  Therefore, by the discussion above, we only need to show that $\Q\left( i \right)$ is not contained in $\Q\left[ x \right] / \left( f \right)$.
-  Indeed, one of the following holds:
-  \begin{itemize}
-    \item $\left| a \right| = \left| b \right| = 2$. 
-    Assume towards a contradiction that $\Q\left( i \right)$ is contained in $\Q\left[ x \right] / \left( f \right) = L$.
-    Then the ramification index of $2$ in $L$ is $n$, and hence $\left( 1 + i \right)$ is ramified in $L$, and hence for each embedding $\Lembedding: L \to \overline{\Q_2}$, 
-    \[
-      v_2\left( \D_\iota \right) = 
-      v_2\left( \D\left( \Q\left( i \right) / \Q \right) \right) + v_2\left( \D\left( \iota\left( L \right) \right) / \Q\left( i \right) \right) > v_2\left( \D\left( \Q\left( i \right) / \Q \right) \right) = 1 
-    \]
-    in contradiction to Corollary \ref{lem:different_valuation}.
-    \item $f = x^n \pm 2x \pm 1$. In this case $f$ has a real root, and hence $\Q\left[ x \right] / \left( f \right)$ can not contain a totally imaginary number field as $\Q\left( i \right)$.
-    \item $f = x^n \pm 2x \pm 1$. 
-  \end{itemize}
+\begin{proof} 
+  By Lemma \ref{lem:filaseta_et_al}, in the first case $f$ factors as $\left( x - 1 \right)$ times an irreducible polynomial or $\left( x + 1 \right)$ times an irreducible polynomial, and in the second case $f$ is irreducible. 
+  Therefore, by the discussion above, we only need to show that $\Q\left( i \right)$ is not contained in $\Q\left[ x \right] / \left( f \right)$, for which it suffices to show that any irreducible factor of $f$ has a real root.
+
+  Assume first that $f\left( 1 \right)f\left( -1 \right) \neq 0$ and hence $f$ is irreducible.
+  In this case we need to show that $f$ has a real root.
+  However, for $f$ to not have a real root, $n$ must be even $k$ must be odd and $b$ must be $1$ and it can be verified that in such a case $0 = f\left( 1 \right)f\left( -1 \right)$ which is a contradiction.
+  
+  Assume now that $f\left( 1 \right)f\left( -1 \right) = 0$ and let $g$ be the non-linear factor of $f$.
+  For $g$ to not have a real root, $n$ must be odd, however in this case $f$ is separable over $\F_2$ and hence so does $g$ and hence $L$ is an unramified above $2$ and in particular can not contain $\Q\left[ i \right]$.
+  % Indeed, one of the following holds:
+  % \begin{itemize}
+  %   \item $\left| a \right| = \left| b \right| = 2$. 
+  %   Assume towards a contradiction that $\Q\left( i \right)$ is contained in $\Q\left[ x \right] / \left( f \right) = L$.
+  %   Then the ramification index of $2$ in $L$ is $n$, and hence $\left( 1 + i \right)$ is ramified in $L$, and hence for each embedding $\Lembedding: L \to \overline{\Q_2}$, 
+  %   \[
+  %     v_2\left( \D_\iota \right) = 
+  %     v_2\left( \D\left( \Q\left( i \right) / \Q \right) \right) + v_2\left( \D\left( \iota\left( L \right) \right) / \Q\left( i \right) \right) > v_2\left( \D\left( \Q\left( i \right) / \Q \right) \right) = 1 
+  %   \]
+  %   in contradiction to Corollary \ref{lem:different_valuation}.
+  %   \item $f = x^n \pm 2x \pm 1$. In this case $f$ has a real root, and hence $\Q\left[ x \right] / \left( f \right)$ can not contain a totally imaginary number field as $\Q\left( i \right)$.
+  %   \item $f = x^n \pm 2x \pm 1$. 
+  % \end{itemize}
 \end{proof}
+
+\editorial{The following is an initial draft:}
+Assume now that $h = x^{nd} \pm 2x^{kd} \pm 1 = f\left( x^d \right)$.
+\begin{lemma}
+  
+\end{lemma}
 \end{document}
