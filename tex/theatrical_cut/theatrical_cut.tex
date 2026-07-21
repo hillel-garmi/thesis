@@ -77,108 +77,136 @@ For any field $\F$ fix a separable closure $\overline{\F}$ and denote by $G_\F$ 
 
 Let $\ell$ be a prime not dividing $ab$.
 Note that each embedding $\iota: \overline{\Q} \hookrightarrow \overline{\Q_\ell}$ induces an embedding $G_{\Q_\ell} \hookrightarrow G_\Q$.
-Denote by $I\left( \iota \right)$ the image of the inertia group of $\Q_p$ under this embdding.
-Let $H$ be the product of all the inertia groups $I\left( \iota \right)$ for all of the embeddings $\iota: \overline{\Q} \hookrightarrow \overline{\Q_\ell}$ and all of the primes $\ell$ not dividing $ab$.
+Denote by $I\left( \iota \right)$ the image of the inertia group of $\Q_\ell$ under this embdding.
+Let $N$ be the product of all the inertia groups $I\left( \iota \right)$ for all of the embeddings $\iota: \overline{\Q} \hookrightarrow \overline{\Q_\ell}$ and all of the primes $\ell$ not dividing $ab$.
 
-\subsection{General Properties of $f$}
-Our entire work relies on the following two identities:
+A few of the technical lemmas in the sequel will be based on the following three identities:
 \begin{align}
-    & nf - xf' = nax^k - kax^k + nb = \left( n-k \right)ax^k + nb \label{eq:small_linear_combination} \\
-    & kf - xf' = kx^n + kb - nx^n = (k - n)x^n + kb \label{eq:big_linear_combination}
+  & h_0 := xf' = nx^{n} + kax^{k} = x^{k} \left( nx^{n-k} + ka \right) \label{eq:derivative} \\
+  & h_1 := nf - xf' = nax^k - kax^k + nb = \left( n-k \right)ax^k + nb \label{eq:small_linear_combination} \\
+  & h_2 := kf - xf' = kx^n + kb - nx^n = (k - n)x^n + kb \label{eq:big_linear_combination}
 \end{align}
-An immediate consequence of them is:
-\begin{lemma}
-  \label{lem:derivative_formula}
-  If $\alpha$ is a root of $f$ in some field in which $b \neq 0$, then $\alpha$ is invertible and
-  \[
-    f'\left( \alpha  \right) = 
-    \left( k - n \right)a\alpha^{k-1} - nb\alpha^{-1} = 
-    \left( n - k \right)\alpha^{n-1} - kb\alpha^{-1}
-  \]
-\end{lemma}
-\begin{proof}
-  Immediate from identities \ref{eq:small_linear_combination} and \ref{eq:big_linear_combination}.
-  % \begin{align*}
-  %   f'\left( \alpha \right) = &
-  %   n \frac{\alpha^n}{\alpha} + ka\alpha^{k-1} = 
-  %   n \frac{-a\alpha^k - b}{\alpha} + ka\alpha^{k-1} =
-  %    \left( k - n \right)a\alpha^{k-1} - nb\alpha^{-1} 
-  % \end{align*}
-  % and similarly
-  % \begin{align*}
-  %   f'\left( \alpha \right) = &
-  %   n \alpha^{n-1} + ka\frac{\alpha^k}{\alpha} = 
-  %   n \alpha^{n-1} + k\frac{-\alpha^n - b}{\alpha} =
-  %    \left( n - k \right)\alpha^{n-1} - kb\alpha^{-1} 
-  % \end{align*}
-\end{proof}
-Another consequence of identities \ref{eq:small_linear_combination} and \ref{eq:big_linear_combination} is:
+and the observations that if $\alpha$ is a root of $f$ in some field then 
+\[
+  h_0\left( \alpha \right) = h_1\left( \alpha \right) = h_2\left( \alpha \right)
+\]
+and they all equal $0$ if and only if $\alpha$ is a multiple root of $f$.
+
+\subsection{Ramification away from $ab$}
+\editorial{Revise the division into subsections}
+% \editorial{Revise this subsection to see which of the lemmas are needed:}
+% The first property of $f$ that we will need is the following formula for its derivative:
+% \begin{lemma}
+%   \label{lem:derivative_formula}
+%   If $\alpha$ is a root of $f$ in some field in which $b \neq 0$, then $\alpha$ is invertible and
+%   \[
+%     f'\left( \alpha  \right) = 
+%     \left( k - n \right)a\alpha^{k-1} - nb\alpha^{-1} = 
+%     \left( n - k \right)\alpha^{n-1} - kb\alpha^{-1}
+%   \]
+% \end{lemma}
+% \begin{proof}
+%   Immediate from identities \ref{eq:small_linear_combination} and \ref{eq:big_linear_combination}.
+%   % \begin{align*}
+%   %   f'\left( \alpha \right) = &
+%   %   n \frac{\alpha^n}{\alpha} + ka\alpha^{k-1} = 
+%   %   n \frac{-a\alpha^k - b}{\alpha} + ka\alpha^{k-1} =
+%   %    \left( k - n \right)a\alpha^{k-1} - nb\alpha^{-1} 
+%   % \end{align*}
+%   % and similarly
+%   % \begin{align*}
+%   %   f'\left( \alpha \right) = &
+%   %   n \alpha^{n-1} + ka\frac{\alpha^k}{\alpha} = 
+%   %   n \alpha^{n-1} + k\frac{-\alpha^n - b}{\alpha} =
+%   %    \left( n - k \right)\alpha^{n-1} - kb\alpha^{-1} 
+%   % \end{align*}
+% \end{proof}
+A consequence of identities \ref{eq:small_linear_combination} and \ref{eq:big_linear_combination} is:
 \begin{lemma}
   \label{lem:multiple_root}
   If $\F$ is a field in which $ab \neq 0$, then $f$ is either separable over $\F$ or has $n-2$ simple roots in $\overline{\F}$ and one double root in $\F$.
 \end{lemma}
 \begin{proof}
   Let $\alpha \in \overline{\F}$ be a multiple root of $f$.
-  Then, both identities \ref{eq:small_linear_combination} and \ref{eq:big_linear_combination} specialize to zero at $\alpha$.
+  % Then, both identities \ref{eq:small_linear_combination} and \ref{eq:big_linear_combination} specialize to zero at $\alpha$.
   %  i.e. 
   % \[
   %   0 =
   %   \left( k - n \right)a\alpha^{k} - nb =
   %   \left( n - k \right)\alpha^{n} - kb
   % \]
-  Therefore, since $ab \neq 0$, identity \ref{eq:small_linear_combination} implies that $n = 0$ if and only if $n - k = 0$ and identity \ref{eq:big_linear_combination} implies that $n - k = 0$ if and only if $k = 0$.
+  Since $ab \neq 0$, the equality $h_1\left( \alpha \right) = 0$ implies that $n = 0$ if and only if $n - k = 0$ and the equality $h_2\left( \alpha \right) = 0$ implies that $n - k = 0$ if and only if $k = 0$.
   However, since $1 = \gcd\left( n, k \right)$, it follows that at most one among $n, k, n - k$ can be zero in $\F$.
   Therefore, none of the three is zero.
-  Thus, we showed that all of the terms in identities \ref{eq:small_linear_combination} and \ref{eq:big_linear_combination} are non zero in $\F$ and hence both $\alpha^k$ and $\alpha^n$ are determined uniquely by $a,b,n,k$ in $\F$.
+  Thus, we showed that all of the coefficients of $h_1$ and $h_2$ are non zero in $\F$ and hence, again since $0 = h_1\left( \alpha \right) = h_2\left( \alpha \right)$, both $\alpha^k$ and $\alpha^n$ are determined uniquely by $f$ in $\F$.
   However, again since $1 = \gcd\left( n, k \right)$, $\alpha$ is uniquely determined by $\alpha^k$ and $\alpha^n$ in $\F$ as well. 
 
   It is only left to show that $\alpha$ is not a triple root of $f$. 
-  If it was, it would have been a multiple root of iedntity \ref{eq:big_linear_combination}.
-  However, since as proven above $n \neq 0$ and also $\left( k - n \right)k \neq 0$, iedntity \ref{eq:big_linear_combination} is a separable polynomial over $\F$ and hence does not have any multiple root in $\overline{\F}$.
+  If it was, it would have been a multiple root of iedntity $h_2$.
+  However, since as proven above $n \neq 0$ and also $\left( k - n \right)k \neq 0$, $h_2$ is a separable polynomial over $\F$ and hence does not have any multiple root in $\overline{\F}$.
 \end{proof}
 
-\subsection{Proof of the abstract condition}
-
 When we say that a group acts on a set $X$, as a single transposition, we mean that its image in $\Sym\left( X \right)$.
-This terminology allows us to translate Lemma \ref{lem:multiple_root} into the following corollary which will be usefl in the proof of our condition:
+This terminology allows us to translate Lemma \ref{lem:multiple_root} into the following corollary:
 \begin{corollary}
   \label{cor:inertia_group_acts_as_transposition}
   For any prime $\ell \not | ab$ and an embedding $\iota: \overline{\Q} \hookrightarrow \overline{\Q_\ell}$, the inertia group $I\left( \iota \right)$ acts on $\Hom_{\Q}\left( L, \overline{\Q} \right)$ either trivially or as a single transposition.
 \end{corollary}
 \begin{proof}
   It suffices to show the lemma for the $\Q$-algebra $\Q\left[ x \right] / \left( f \right)$ instead of $L$.
-  Since $f$ is integral, it follows from \ref{lem:multiple_root} applied to $\F = \F_\ell$.
+  To show the lemma for $\Q\left[ x \right] / \left( f \right)$ it suffices to show that $f$ is separable over $\F_\ell$ or has a double root in $\F_\ell$ and $n-2$ simple roots in $\overline{\F_\ell}$.
+  Since $f$ is integral, this in turn follows from Lemma \ref{lem:multiple_root}.
 \end{proof}
 \begin{remark}
-  We could have used \cite[Lemma 1]{Osada1987TheGG} and \cite[Lemma 3]{Osada1987TheGG} to prove Lemma \ref{lem:multiple_root} and Corollary \ref{cor:inertia_group_acts_as_transposition}, but instead provided similar proofs in a slightly different language. 
+  The argument presented in Lemma \ref{lem:multiple_root} and Corollary \ref{cor:inertia_group_acts_as_transposition} is similar to the one used by Osada \cite[Lemma 1]{Osada1987TheGG} and \cite[Lemma 3]{Osada1987TheGG}.
+  The main difference is that we relaxed the conditions on the polynomial $f$ but hence had to impose more restrictive conditions on the prime $\ell$. 
 \end{remark}
 
-The second lemma that our proof relies on is the following global one:
-\begin{lemma}
-  \label{lem:transitive_action}
-  If $H$ acts non transitively on $\Hom_{\Q}\left( L, \overline{\Q} \right)$, then there is some subextension $\Q \subsetneq K \subseteq L$ that is ramified only above primes that divide $ab$.
-\end{lemma}
-\begin{proof}
-  We will show it using the famous fact that the functor $\Hom\left( -, \overline{\Q} \right)$ is a contravariant equivalence between the category of \'{e}tale $\Q$-algebras and the category of finite $G_\Q$-sets.
-  Since $H$ is normal in $G_\Q$, $G_\Q$ acts on $\Hom_{\Q}\left( L, \overline{\Q} \right) / H$  through $G_\Q/H$.
-  In particular, the quotient map $\Hom_{\Q}\left( L, \overline{\Q} \right) \to \Hom_{\Q}\left( L, \overline{\Q} \right) / H$ is an epimorphism in the category of $G_\Q$-sets.
-  Therefore, there is a corresponding embedding of fields $K \hookrightarrow L$.
-  
-  Since $H$ acts non transitively on $\Hom_{\Q}\left( L, \overline{\Q} \right)$, $\Hom_{\Q}\left( L, \overline{\Q} \right) / H$ has at least two elements and hence $K \neq \Q$.
-  Additionally, since $\Hom_{\Q}\left( L, \overline{\Q} \right) / H$ is fixed by $H$, it follows that $K$ is fixed by $H$ and is hence ramified only above primes that divide $ab$.
-\end{proof}
+\subsection{Proof of the abstract condition}
 
-The previous two lemmas together give us the following corollary:
+Corollary \ref{cor:inertia_group_acts_as_transposition} allows us to prove the following corollary:
+\begin{corollary}
+  \label{cor:transitive_action}
+  If $N$ acts transitively on $\Hom_{\Q}\left( L, \overline{\Q} \right)$, then the Galois group of $g$ over $\Q$ is $S_{\deg\left( g \right)}$.
+\end{corollary}
+\begin{proof}
+  It follows from Corollary \ref{cor:inertia_group_acts_as_transposition} and the fact that any transitive permutation group generated by transpositions is symmetric (see for example \cite[Lemma 5]{Osada1987TheGG}).
+\end{proof}
+% \begin{lemma}
+%   \label{lem:transitive_action}
+%   If $H$ acts non transitively on $\Hom_{\Q}\left( L, \overline{\Q} \right)$, then there is some subextension $\Q \subsetneq K \subseteq L$ that is ramified only above primes that divide $ab$.
+% \end{lemma}
+% \begin{proof}
+%   We will show it using the famous fact that the functor $\Hom\left( -, \overline{\Q} \right)$ is a contravariant equivalence between the category of \'{e}tale $\Q$-algebras and the category of finite $G_\Q$-sets.
+%   Since $H$ is normal in $G_\Q$, $G_\Q$ acts on $\Hom_{\Q}\left( L, \overline{\Q} \right) / H$  through $G_\Q/H$.
+%   In particular, the quotient map $\Hom_{\Q}\left( L, \overline{\Q} \right) \to \Hom_{\Q}\left( L, \overline{\Q} \right) / H$ is an epimorphism in the category of $G_\Q$-sets.
+%   Therefore, there is a corresponding embedding of fields $K \hookrightarrow L$.
+  
+%   Since $H$ acts non transitively on $\Hom_{\Q}\left( L, \overline{\Q} \right)$, $\Hom_{\Q}\left( L, \overline{\Q} \right) / H$ has at least two elements and hence $K \neq \Q$.
+%   Additionally, since $\Hom_{\Q}\left( L, \overline{\Q} \right) / H$ is fixed by $H$, it follows that $K$ is fixed by $H$ and is hence ramified only above primes that divide $ab$.
+% \end{proof}
+
+That corollary in turns allows us to prove the abstract sufficient condition for the Galois group of $g$ to be symmetric:
 \begin{thm}
   \label{thm:strategy}
-  If there is no subextension $\Q \subsetneq K \subseteq L$ that is ramified only above primes that divide $ab$, then the Galois group of $g$ over $\Q$ is $S_{\deg\left( g \right)}$.
+  If $\Q$ is the only subextension of $L$ that is unramified away from $ab$, then the Galois group of $g$ over $\Q$ is $S_{\deg\left( g \right)}$.
 \end{thm}
 \begin{proof}
-  By \cite[Lemma 5]{Osada1987TheGG}, any transitive permutation group generated by transpositions is symmetric.
-  Since $H$ is generated by subgroups that act on $\Hom_{\Q}\left( L, \overline{\Q} \right)$ either trivially or as a transposition according to Lemma \ref{cor:inertia_group_acts_as_transposition}, it follows that the image of $H$ in $\Sym\left( \Hom_{\Q}\left( L, \overline{\Q} \right) \right)$ is generated by trnaspositions.
-  However, this image is also transitive as a result of Lemma \ref{lem:transitive_action} and hence it is the full symmetric group.
+  By Corollary \ref{cor:transitive_action}, it suffices to show that $N$ acts transitively on $\Hom_{\Q}\left( L, \overline{\Q} \right)$.
+  We will show it using the famous fact that the functor $\Hom\left( -, \overline{\Q} \right)$ is a contravariant equivalence between the category of \'{e}tale $\Q$-algebras and the category of finite $G_\Q$-sets.
+  Since $N$ is normal in $G_\Q$, $G_\Q$ acts on $\Hom_{\Q}\left( L, \overline{\Q} \right) / N$  through $G_\Q/N$.
+  In particular, the quotient map $\Hom_{\Q}\left( L, \overline{\Q} \right) \to \Hom_{\Q}\left( L, \overline{\Q} \right) / N$ is an epimorphism in the category of $G_\Q$-sets.
+  Therefore, there is a corresponding embedding of fields $K \hookrightarrow L$.
+  
+  However, since $N$ acts trivially on $\Hom_{\Q}\left( L, \overline{\Q} \right) / N$, it follows that $K$ is fixed by $N$ and is hence ramified only above primes that divide $ab$.
+  Therefore, $K = \Q$ and hence 
+  \[
+    \Hom_\Q\left( L, \overline{\Q} \right) / N \simeq 
+    \Hom_\Q\left( \Q, \overline{\Q} \right) 
+  \] 
+  and is hence a singleton implying that $N$ indeed acts transitively on $\Hom_{\Q}\left( L, \overline{\Q} \right)$.
 \end{proof}
-We shall then prove that for some values of $a,b$, the discriminant of $L$ is too small for such subextension $K$ to exist.
+We shall then prove that for some values of $a,b$, the discriminant of $L$ is small enough to force any subextension $K$ of $L$ unramified away from $ab$ to be $\Q$.
 
 \section{Effective Sufficient Condition}
 The main aim of this section is proving Theorem \ref{thm:criterion} \editorial{which will have appeared in the Introduction}.
@@ -186,21 +214,92 @@ We will do it by proving some bounds on the $p$-adic valuation of the discrimina
 
 \subsection{Setup and notations}
 Let $a,b,k,n,f,g,L,\Lroot$ be as defined in subsection \ref{subsection:strategy_setup}.
-Assume that $b = \pm 1$.
 Let $\d\left( L \right)$ be the discriminant of $L$ and $\rd\left( L \right)$ be the root discriminant of $L$, i.e. $\rd\left( L \right) = \d\left( L \right)^{1/\left[ L : \Q \right]}$.
 Let $p$ be a prime dividing $a$.
 $p$ will be fixed throughout this subsection and subsection \ref{subsection:discriminant_bounds}.
 Let $\pi = \pi_p: \O_{\overline{\Q_p}} \to \overline{\F_p}$ be the cannonical quotient map from the integral closure of $\Z_p$ inside $\overline{\Q_p}$.
 Let $v_p: \overline{\Q_p} \to \Q$ be the unique extension of the $p$ adic valuation on $\Q_p$.
-Fix an embedding of $\overline{\Q}$ into $\overline{\Q_p}$.
-This embedding induces a valuation on $\overline{\Q}$ which will be denoted by $v_p$ as well. Use the standard notation for the $p$-adic norm $\pnorm{\cdot} = p^{-v_p\left( \cdot \right)}$.
-For each embedding $\Lembedding: L \to \overline{\Q}$, we will denote by $\Lembedding\left( L \right)\Q_p$ the compositum of $\Lembedding\left( L \right)$ and $\Q_p$ inside $\overline{\Q_p}$, and by $\D\left( \Lembedding \right)$ the different of $\Lembedding\left( L \right)\Q_p$ over $\Q_p$.
-We press that in contrast to the previous section, where the embeddings $\iota: \overline{\Q} \hookrightarrow \overline{\Q_\ell}$ vary, in this section the embedding $\overline{\Q} \hookrightarrow \overline{\Q_p}$ is fixed and the embeddings $\Lembedding: L \to \overline{\Q}$ vary.
+% Fix an embedding of $\overline{\Q}$ into $\overline{\Q_p}$.
+% This embedding induces a valuation on $\overline{\Q}$ which will be denoted by $v_p$ as well. 
+Use the standard notation for the $p$-adic norm $\pnorm{\cdot} = p^{-v_p\left( \cdot \right)}$.
+% For each root $\embeddedroot$ of $g$ in $\overline{\Q_p}$, we will denote by 
+% % $\Lembedding: L \to \overline{\Q_p}$ the embedding that sends $\Lroot$ to $\embeddedroot$, and by 
+% $\Deta$ the different of $\Q_p\left( \embeddedroot \right)$ over $\Q_p$.
+Let $\alpha$ be a root of $g$ in $\overline{\Q_p}$.
+Let $N_p\left( f \right)$ be the Newton polygon of $f$ with respect to $v_p$.
+% We press that in contrast to the previous section, where we var over embeddings $\iota: \overline{\Q} \hookrightarrow \overline{\Q_\ell}$ vary, in this section we vary over roots of $g$ in $\overline{\Q_p}$ and the embeddings $\Lembedding: L \to \overline{\Q_p}$ vary.
 
+Finally, let us itroduce a definition that will be useful in bounding the discriminant of $L$.
+\begin{definition}
+  \label{def:exceptional}
+  % Consider the following three pairs of equivalent conditions
+  % The chain of equalities
+  % \[
+  %   \alpha f'\left( \alpha \right) = h_0\left( \alpha \right) = h_1\left( \alpha \right) = h_2\left( \alpha \right)
+  % \]
+  % implies that
+  We will say that $\alpha$ is\textbf{\exceptional}if two or equivalently all of the following have positive $p$-adic valuation:
+  \begin{align}
+    & v_p\left( \alpha^n - \frac{kb}{n - k} \right) > 0 
+    % & \Longleftrightarrow &
+    % v_p\left( \alpha f'\left( \alpha \right) \right) >
+    % \min\left\{ v_p\left( \left( n - k \right)a \alpha^k \right), \ v_p\left( nb \right) \right\}
+    % \label{eq:exceptional_1} 
+    \\
+    & v_p\left( \alpha^k + \frac{nb}{\left( n - k \right)a } \right) > 0  
+    % & \Longleftrightarrow &
+    % v_p\left( \alpha f'\left( \alpha \right) \right) >
+    % \min\left\{ v_p\left( \left( n - k \right)a \alpha^k \right), \ v_p\left( nb \right) \right\}
+    % \label{eq:exceptional_2} 
+    \\
+    & v_p\left( \alpha^{n-k} + \frac{ka}{n} \right) > 0 
+    % & \Longleftrightarrow &
+    % v_p\left( \alpha f'\left( \alpha \right) \right) >
+    % \min\left\{ v_p\left( \left( n - k \right)a \alpha^k \right), \ v_p\left( nb \right) \right\} 
+    % \label{eq:exceptional_3}
+  \end{align}
+  % \[
+  %   \alpha^n - \frac{kb}{n - k}\ , \quad \quad 
+  %   \alpha^k + \frac{nb}{\left( n - k \right)a }\ , \quad \quad  
+  %   \alpha^{n-k} + \frac{ka}{n}\ .
+  % \]
+\end{definition}
 \subsection{$p$-adic bounds on the discriminant \label{subsection:discriminant_bounds}}
-To bound the valuation of the discriminant of $L$, we first bound the valuation of $\Deta$ for each embedding $\Lembedding: L \to \overline{\Q_p}$.
-To bound this valuation in turn, we wish we could bound the valuation of $f'\left( \embeddedroot \right)$ for each $\Lembedding$.
-Instead we bound the valuation of $f'\left( \embeddedroot \right)$ for most of the embeddings $\Lembedding$, and characterize the remaining ones.
+To bound the valuation of the discriminant of $L$, we first bound the valuation of $\Deta$ for each root $\embeddedroot$ of $g$ in $\overline{\Q_p}$.
+To bound this valuation in turn, we wish we could bound the valuation of $f'\left( \embeddedroot \right)$ for each $\embeddedroot$.
+Instead we bound the valuation of $f'\left( \embeddedroot \right)$ for all the non-exceptional roots, and bound $\Deta$ for the exceptional roots afterwards.
+To do that we first need a small lemma:
+\begin{lemma}
+  The positivity of the valuation each of the expressions \ref{eq:exceptional_1}, \ref{eq:exceptional_2} and \ref{eq:exceptional_3} is equivalent respectively to the following three inequalities 
+  \begin{align}
+    & v_p\left( \alpha f'\left( \alpha \right) \right) >
+    \min\left\{ v_p\left( \left( n - k \right)a \alpha^k \right), \ v_p\left( nb \right) \right\} , \\
+    & v_p\left( \alpha f'\left( \alpha \right) \right) >
+    \min\left\{ v_p\left( \left( n - k \right) \alpha^n \right), \   v_p\left( kb \right) \right\} , \\
+    & v_p\left( \alpha f'\left( \alpha \right) \right) >
+    \min\left\{ v_p\left( n \alpha^n \right), \ v_p\left( ak\alpha^k \right) \right\} .
+  \end{align}
+\end{lemma}
+\begin{proof}
+  The first inequality is equivalent to the conjunction of 
+  \[
+    v_p\left( \left( n - k \right)a\alpha^k \right) =
+    v_p\left( nb \right)
+    \quad \& \quad 
+  \]  
+\end{proof}
+\begin{lemma}
+  Let $\embeddedroot$ be a non-exceptional root of $g$ in $\overline{\Q_p}$.
+  One of the following occurs:
+  \begin{enumerate}
+    \item $N_p\left( f \right)$ has only one segment and $v_p\left( \embeddedroot f'\left( \embeddedroot \right) \right) \leq v_p\left( a \right) + kv_p\left( \embeddedroot \right)$.
+    \item $\embeddedroot$ is associated with the leftmost segment of $N_p\left( f \right)$ and $v_p\left( \embeddedroot f'\left( \embeddedroot \right) \right) \leq \frac{n}{k} v_p\left( \frac{b}{a} \right)$
+    \item $\embeddedroot$ is associated with the rightmost segment of $N_p\left( f \right)$ and $v_p\left( \embeddedroot f'\left( \embeddedroot \right) \right) \leq v_p\left( b \right)$.
+  \end{enumerate}
+\end{lemma}
+\begin{proof}
+  
+\end{proof}
 \begin{lemma}
   \label{lem:valuation_of_derivative}
   % Assume that $n > v_p\left( b \right)$.
