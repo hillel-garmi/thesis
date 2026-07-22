@@ -41,12 +41,13 @@
 \def\Sym{\text{\rm Sym}}
 
 \def\lcm{\rm{lcm}}
-\newcommand{\pnorm}[1]{\left| #1 \right|_p}
+\newcommand{\pnorm}[1]{p^{-v_p\left( #1 \right)}}
 \newcommand{\ppart}[1]{p^{v_p\left( #1 \right)}}
 \newcommand{\maxppart}{\max\left( \ppart{a}, \ppart{b} \right)}
 \newcommand{\minppart}{\min\left( \ppart{a}, \ppart{b} \right)}
 % \newcommand{\maxppart}{\ppart{\lcm\left( a,b \right)}}
-\newcommand{\maxpval}{v_p\left( \lcm\left( a,b \right) \right)}
+\newcommand{\maxpval}{\max\left( v_p\left( a \right), v_p\left( b \right) \right)}
+\newcommand{\minpval}{\min\left( v_p\left( a \right), v_p\left( b \right) \right)}
 \newcommand{\minpnorm}{\pnorm{\lcm\left( a,b \right)}}
 \newcommand{\diffbnd}{1 - \minpnorm + \maxpval}
 \newcommand{\error}{\maxppart - 1}
@@ -58,7 +59,7 @@
 \newcommand{\embeddedroot}{\alpha}
 \newcommand{\Deta}{\D_\alpha}
 \newcommand{\NP}{N_p\left( f \right)}
-\newcommand{\exceptional}{exceptional} 
+\newcommand{ \exceptional }{\text{exceptional }} 
 % \newcommand{\prime_not_dividing_ab}{\ell}
 
 \def\ProvenCases{

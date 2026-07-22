@@ -82,15 +82,15 @@ Let $N$ be the product of all the inertia groups $I\left( \iota \right)$ for all
 
 A few of the technical lemmas in the sequel will be based on the following three identities:
 \begin{align}
-  & h_0 := xf' = nx^{n} + kax^{k}
+  & h_1 := xf' = nx^{n} + kax^{k}
   %  = x^{k} \left( nx^{n-k} + ka \right)
     \label{eq:derivative} \\
-  & h_1 := nf - xf' = nax^k - kax^k + nb = \left( n-k \right)ax^k + nb \label{eq:small_linear_combination} \\
-  & h_2 := kf - xf' = kx^n + kb - nx^n = (k - n)x^n + kb \label{eq:big_linear_combination}
+  & h_2 := nf - xf' = nax^k - kax^k + nb = \left( n-k \right)ax^k + nb \label{eq:small_linear_combination} \\
+  & h_3 := kf - xf' = kx^n + kb - nx^n = (k - n)x^n + kb \label{eq:big_linear_combination}
 \end{align}
 and the observations that if $\alpha$ is a root of $f$ in some field then 
 \[
-  h_0\left( \alpha \right) = h_1\left( \alpha \right) = h_2\left( \alpha \right)
+  h_1\left( \alpha \right) = h_2\left( \alpha \right) = h_3\left( \alpha \right)
 \]
 and they all equal $0$ if and only if $\alpha$ is a multiple root of $f$.
 
@@ -137,15 +137,15 @@ A consequence of identities \ref{eq:small_linear_combination} and \ref{eq:big_li
   %   \left( k - n \right)a\alpha^{k} - nb =
   %   \left( n - k \right)\alpha^{n} - kb
   % \]
-  Since $ab \neq 0$, the equality $h_1\left( \alpha \right) = 0$ implies that $n = 0$ if and only if $n - k = 0$ and the equality $h_2\left( \alpha \right) = 0$ implies that $n - k = 0$ if and only if $k = 0$.
+  Since $ab \neq 0$, the equality $h_2\left( \alpha \right) = 0$ implies that $n = 0$ if and only if $n - k = 0$ and the equality $h_3\left( \alpha \right) = 0$ implies that $n - k = 0$ if and only if $k = 0$.
   However, since $1 = \gcd\left( n, k \right)$, it follows that at most one among $n, k, n - k$ can be zero in $\F$.
   Therefore, none of the three is zero.
-  Thus, we showed that all of the coefficients of $h_1$ and $h_2$ are non zero in $\F$ and hence, again since $0 = h_1\left( \alpha \right) = h_2\left( \alpha \right)$, both $\alpha^k$ and $\alpha^n$ are determined uniquely by $f$ in $\F$.
+  Thus, we showed that all of the coefficients of $h_2$ and $h_3$ are non zero in $\F$ and hence, again since $0 = h_2\left( \alpha \right) = h_3\left( \alpha \right)$, both $\alpha^k$ and $\alpha^n$ are determined uniquely by $f$ in $\F$.
   However, again since $1 = \gcd\left( n, k \right)$, $\alpha$ is uniquely determined by $\alpha^k$ and $\alpha^n$ in $\F$ as well. 
 
   It is only left to show that $\alpha$ is not a triple root of $f$. 
-  If it was, it would have been a multiple root of iedntity $h_2$.
-  However, since as proven above $n \neq 0$ and also $\left( k - n \right)k \neq 0$, $h_2$ is a separable polynomial over $\F$ and hence does not have any multiple root in $\overline{\F}$.
+  If it was, it would have been a multiple root of iedntity $h_3$.
+  However, since as proven above $n \neq 0$ and also $\left( k - n \right)k \neq 0$, $h_3$ is a separable polynomial over $\F$ and hence does not have any multiple root in $\overline{\F}$.
 \end{proof}
 
 When we say that a group acts on a set $X$, as a single transposition, we mean that its image in $\Sym\left( X \right)$.
@@ -215,7 +215,7 @@ The main aim of this section is proving Theorem \ref{thm:criterion} \editorial{w
 We will do it by proving some bounds on the $p$-adic valuation of the discriminant of $L$. Some of these bounds will be useful in their own right in the next section.
 
 \subsection{Setup and notations}
-Let $a,b,k,n,f,g,L,h_0,h_1,h_2$ be as defined in subsection \ref{subsection:strategy_setup}.
+Let $a,b,k,n,f,g,L,h_1,h_2,h_3$ be as defined in subsection \ref{subsection:strategy_setup}.
 Let $p$ be a prime dividing $ab$.
 $p$ will be fixed throughout this subsection and subsection \ref{subsection:discriminant_bounds}.
 Let $\alpha$ be a root of $g$ in $\overline{\Q_p}$.
@@ -229,6 +229,8 @@ Let $\d\left( L \right)$ be the discriminant of $L$ and $\rd\left( L \right)$ be
 % % $\Lembedding: L \to \overline{\Q_p}$ the embedding that sends $\Lroot$ to $\embeddedroot$, and by 
 % $\Deta$ the different of $\Q_p\left( \embeddedroot \right)$ over $\Q_p$.
 Let $N_p\left( f \right)$ be the Newton polygon of $f$ with respect to $v_p$.
+
+
 We postpone the definition of \exceptional roots of $f$ (Definition \ref{def:exceptional}) since it can be understood better in the context of Lemma \ref{lem:equivalent_conditions}.
 % We press that in contrast to the previous section, where we var over embeddings $\iota: \overline{\Q} \hookrightarrow \overline{\Q_\ell}$ vary, in this section we vary over roots of $g$ in $\overline{\Q_p}$ and the embeddings $\Lembedding: L \to \overline{\Q_p}$ vary.
 
@@ -238,7 +240,7 @@ We postpone the definition of \exceptional roots of $f$ (Definition \ref{def:exc
 %   % Consider the following three pairs of equivalent conditions
 %   % The chain of equalities
 %   % \[
-%   %   \alpha f'\left( \alpha \right) = h_0\left( \alpha \right) = h_1\left( \alpha \right) = h_2\left( \alpha \right)
+%   %   \alpha f'\left( \alpha \right) = h_1\left( \alpha \right) = h_2\left( \alpha \right) = h_3\left( \alpha \right)
 %   % \]
 %   % implies that
 %   We will say that $\alpha$ is\textbf{\exceptional}if two or equivalently all of the following three inequalities hold:
@@ -301,7 +303,7 @@ To do that we first need a small lemma:
   We will first prove the equivalence of the two conditions in the first row.
   Recall that 
   \[
-    \alpha f'\left( \alpha \right) = h_0\left( \alpha \right) = n\alpha^n + ka\alpha^k
+    \alpha f'\left( \alpha \right) = h_1\left( \alpha \right) = n\alpha^n + ka\alpha^k
     \]
     Therefore, the left condition in the first row is equivalent to the conjunction of
     \[
@@ -310,51 +312,100 @@ To do that we first need a small lemma:
       v_p\left( n\alpha^n + ka\alpha^k \right) > v_p\left( ka\alpha^k \right) 
     \]
     which is equivalent to the right condition in the first row.
-    The proof for the other two rows is exactly the same, using $h_1$ and $h_2$ instead of $h_0$.
+    The proof for the other two rows is exactly the same, using $h_2$ and $h_3$ instead of $h_1$.
       
     Let us now prove that any two rows imply the third one.
     Indeed, let 
     \[
-      u_0 = \frac{
+      u_1 = \frac{
         - n\alpha^{n-k}
       }{
         ka
       },
       \quad
-      u_1 = \frac{
+      u_2 = \frac{
         -\left( n - k \right) a \alpha^{k}
       }{
         nb
       } 
       \quad \text{ and } \quad
-      u_2 = \frac{
+      u_3 = \frac{
         \left( n-k \right)\alpha^n
       }{
         kb
       } 
     \] 
-    Then, $u_0 u_1 = u_2$, and the right condition in each row is equivalent to $u_i$ being in $\Z_p$ and equivalent to $1$ modulo $p\Z_p$ for another $i$.
+    Then, $u_1 u_2 = u_3$, and the right condition in each row is equivalent to $u_i$ being in $\Z_p$ and equivalent to $1$ modulo $p\Z_p$ for another $i$.
     Therefore, if the conditions in two rows hold, then two among the $u_i$ are in $\Z_p$ and equivalent to $1$ modulo $p\Z_p$, and hence the third one is as well.
 \end{proof}
 \begin{definition}
   \label{def:exceptional}
-  We will say that $\alpha$ is \exceptional if it satifies all of the conditions in Lemma \ref{lem:equivalent_conditions} or equivalently two conditions that belong to different rows.
+  We say that $\alpha$ is \textbf{\exceptional} if it satifies all of the conditions in Lemma \ref{lem:equivalent_conditions} or equivalently two conditions that belong to different rows.
 \end{definition}
-
 \begin{lemma}
-  If $f$ has \exceptional roots, then:
+  $f$ has \exceptional roots if and only if
+  \[
+    v_p\left( a \right) = v_p\left( n \right)
+    \quad \text{ and } \quad
+    v_p\left( b \right) = v_p\left( n - k \right)
+  \]
+  and if it does then:
   \begin{enumerate}
-    \item It has at most $\maxppart$ \exceptional roots .
-    \item They all have $p$-adic valuation $0$.
+    \item 
+    It has at most $\maxppart$ \exceptional roots.
+    \label{item:maxppart}
+    \item 
+    They all share the same non-zero image in $\overline{\F_p}$.
+    \label{item:same_image}
+    % \item 
+    % $\minpval = 0$.
+    % \label{item:minpval}
+    % \item They all have $p$-adic valuation $0$.
   \end{enumerate}  
   % If $f$ has \exceptional roots then:
   % $f$ has at most $\maxppart$ \exceptional roots and they all have $p$-adic valuation $0$.
 \end{lemma}
+\editorial{
+  I think I can also prove that there are exactly $\maxppart$ \exceptional roots, and that it happens if and only if $v_p\left( n \right) = v_p\left( a \right)$ and $v_p\left( n - k \right) = v_p\left( b \right)$. 
+  Shall I do it?
+}
 \begin{proof}
+  Assume that $\alpha$ is an \exceptional root of $f$.
+  The three condition in the right column of Lemma \ref{lem:equivalent_conditions} determine uniquely the images of $\alpha^{n-k}$, $\alpha^k$ and $\alpha^n$ in $\overline{\F_p}$ and imply that they are non-zero.
+  However, since $1 = \gcd\left( n, k \right)$, the images of $\alpha^n$ and $\alpha^k$ determine the image of $\alpha$, and since the first two are non-zero, so must be the third.
+  Thus, the image of $\alpha$ in $\overline{\F_p}$ is uniquely determined and non-zero, proving item \ref{item:same_image}.
   
+  Since the image of $\alpha$ in $\overline{\F_p}$ is non-zero, $v_p\left( \alpha \right) = 0$.
+  Therefore, since 
+  \[
+    \alpha f'\left( \alpha \right) = h_2\left( \alpha \right) = \left( n - k \right) a \alpha^k + nb
+  \]
+  the left condition in the second row of Lemma \ref{lem:equivalent_conditions} implies that
+  \begin{equation}
+    v_p\left( n \right) + v_p\left( b \right) = 
+    v_p\left( nb \right) =
+    v_p\left( \left( n - k \right) a \alpha^k \right) =
+    v_p\left( n - k \right) + v_p\left( a \right) 
+    \label{eq:exceptional_valuation}
+  \end{equation}
+  However, the fact that $v_p\left( \alpha \right) = 0$ also implies that the Newton polygon $N_p\left( f \right)$ has a segment of slope $0$ and hence one of two cases occurs:
+  \begin{enumerate}
+    \item $v_p\left( a \right) = 0$. 
+    In this case, since $p|ab$ it follows that $v_p\left( b \right) > 0$ and equation \ref{eq:exceptional_valuation} implies that $v_p\left( b \right) = v_p\left( n - k \right)$ and hence 
+    \[
+      f \equiv 
+      x^n + ax^k \equiv 
+      x^k\left( x^{n-k} + a \right) \equiv
+      x^k \left( x^{\left( n-k \right)\pnorm{b}} + a \right)^{\ppart{b}} \mod p 
+    \]
+    and hence $f$ has at most $\ppart{b}$ roots sharing the same image in $\overline{\F_p}$, and in particular at most $\ppart{b} = \maxppart$ \exceptional roots.
+    \item $v_p\left( b \right) = 0$.
+    The proof of this case is similar to the previous one, and we conclude that $f$ has at most $\ppart{a} = \maxppart$ \exceptional roots.
+  \end{enumerate}
 \end{proof}
 
-Recall that we denote by $N_p\left( f \right)$ the Newton polygon of $f$ with respect to $v_p$.
+% Recall that we denote by $N_p\left( f \right)$ the Newton polygon of $f$ with respect to $v_p$.
+Now we shall handle the non-exceptional roots of $f$:
 \begin{lemma}
   Let $\embeddedroot$ be a non-exceptional root of $g$ in $\overline{\Q_p}$.
   One of the following occurs:
@@ -365,9 +416,15 @@ Recall that we denote by $N_p\left( f \right)$ the Newton polygon of $f$ with re
   \end{enumerate}
 \end{lemma}
 \begin{proof}
-  Consider the following six algebraic integers
-  Assume that $N_p\left( f \right)$ has only one segment.
-  Then, either 
+  Consider the following matrix of algebraic integers:
+  \begin{align*}
+    A = \begin{pmatrix}
+      n\alpha^n & ka\alpha^k \\
+      \left( n - k \right) a \alpha^k & nb \\
+      -\left( n - k \right) \alpha^n & kb
+    \end{pmatrix}
+  \end{align*}
+
 \end{proof}
 \begin{lemma}
   \label{lem:valuation_of_derivative}
