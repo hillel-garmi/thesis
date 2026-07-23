@@ -485,32 +485,58 @@ To do that we first need a small lemma:
   \end{enumerate}
 \end{lemma}
 \begin{proof}
-  By Lemma \ref{lem:principal_unit_criterion}, 
+  Assume first that $N_p\left( f \right)$ has only one segment.
+  To show that the first case holds, note that 
+  \begin{gather*}
+    v_p\left( \hR{1}\left( \embeddedroot \right) \right) = v_p\left( a \right) + kv_p\left( \embeddedroot \right) + v_p\left( k \right) 
+    \\ 
+    \quad \text{and} \quad
+    \\
+    v_p\left( \hL{2}\left( \embeddedroot \right) \right) = v_p\left( a \right) + kv_p\left( \embeddedroot \right) + v_p\left( n - k \right)
+  \end{gather*}
+  Therefore, it suffices to show that either
+  \begin{align}
+    \label{eq:sufficient_condition}
+    \begin{matrix}
+      v_p\left( \embeddedroot f'\left( \embeddedroot \right) \right) \leq \hR{1}\left( \embeddedroot \right) \\
+      \text{and} \\
+      v_p\left( k \right) = 0
+    \end{matrix}
+    \quad \text{or} \quad
+    \begin{matrix}
+      v_p\left( \embeddedroot f'\left( \embeddedroot \right) \right) \leq \hL{2}\left( \embeddedroot \right) \\
+      \text{and} \\
+      v_p\left( n - k \right) = 0
+    \end{matrix}
+  \end{align}
+  Indeed, by Lemma \ref{lem:principal_unit_criterion}, 
   \begin{align}
     \label{eq:valuation_inequality} 
     v_p\left( \embeddedroot f'\left( \embeddedroot \right) \right) 
     \leq 
     \min\left\{ v_p\left( \hL{i}\left( \embeddedroot \right) \right), v_p\left( \hR{i}\left( \embeddedroot \right) \right) \right\}
   \end{align}
-  for at least two values of $i \in \left\{ 1, 2, 3 \right\}$.
-  Assume first that $N_p\left( f \right)$ has only one segment.
-  Then, at least one of two cases holds:
+  for at least two values of $i \in \left\{ 1, 2, 3 \right\}$ and hence at least one of two cases holds:
   \begin{enumerate}
-    \item Inequality \ref{eq:valuation_inequality} does not hold for $i = 1,2$, and in particular 
-    \begin{align*}
-      v_p\left( \embeddedroot f'\left( \embeddedroot \right) \right) \leq 
-      &
-      \min\left\{  
-        \hR{1}\left( \embeddedroot \right),
-        \hL{2}\left( \embeddedroot \right)
-      \right\} = 
-      \min\left\{  
-        v_p\left( ka\embeddedroot^k \right),
-        v_p\left( \left( n - k \right) a\embeddedroot^k \right)
-      \right\} =
-      v_p\left( a \right) + kv_p\left( \embeddedroot \right)
-    \end{align*}
+    \item Inequality \ref{eq:valuation_inequality} does holds for $i = 1,2$, and in particular 
+    \[
+      v_p\left( \embeddedroot f'\left( \embeddedroot \right) \right) \leq \hR{1}\left( \embeddedroot \right)
+      \quad \text{and} \quad
+      v_p\left( \embeddedroot f'\left( \embeddedroot \right) \right) \leq \hL{2}\left( \embeddedroot \right)
+    \]
+    and hence, since either $v_p\left( k \right) = 0$ or $v_p\left( n - k \right) = 0$, at least one of the sides of condition \ref{eq:sufficient_condition} holds.
+    \item Inequality \ref{eq:valuation_inequality} holds for $i = 3$, i.e. 
+    \[
+      v_p\left( \left( n - k \right) \alpha^n \right) = 
+      v_p\left( kb \right). 
+    \]
+    However, since $N_p\left( f \right)$ has only one segment, $n v_p\left( \embeddedroot \right) = v_p\left( b \right)$ and hence it follows from the previous equality that $v_p\left( n - k \right) = v_p\left( k \right)$, from which it follows that $v_p\left( n - k \right) = v_p\left( k \right) = 0$.
+    Therefore, since either $v_p\left( \embeddedroot f'\left( \embeddedroot \right) \right) \leq v_p\left( \hL{2}\left( \embeddedroot \right) \right)$ or $v_p\left( \embeddedroot f'\left( \embeddedroot \right) \right) \leq v_p\left( \hR{1}\left( \embeddedroot \right) \right)$, at least one of the sides of condition \ref{eq:sufficient_condition} holds. 
   \end{enumerate}
+
+  The proof of the second and third cases is similar:
+  If $\embeddedroot$ is associated with the leftmost segment of $N_p\left( f \right)$, we carry out the same argument with with $\hL{1}$ and $\hL{3}$ and the observation that $k v_p\left( \embeddedroot \right) = v_p\left( b \right) - v_p\left( a \right)$.
+  If $\embeddedroot$ is associated with the rightmost segment of $N_p\left( f \right)$, we do it with $\hR{2}$ and $\hR{3}$ and the observation that $\left( n - k \right)v_p\left( \embeddedroot \right) = v_p\left( a \right)$.
 \end{proof}
 \begin{lemma}
   \label{lem:valuation_of_derivative}
