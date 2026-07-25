@@ -221,9 +221,10 @@ We will do it by proving some bounds on the $p$-adic valuation of the discrimina
 \subsection{Setup and notations}
 Let $a,b,k,n,f,g,L,\h{1},\h{2},\h{3}$ be as defined in subsection \ref{subsection:strategy_setup}.
 Let $p$ be a prime dividing $ab$.
-$p$ will be fixed throughout this subsection and subsection \ref{subsection:discriminant_bounds}.
-Let $\alpha$ be a root of $g$ in $\overline{\Q_p}$.
+$p$ will be fixed throughout this subsection and subsection \ref{subsection:different_bounds}.
 Let $v_p: \overline{\Q_p} \to \Q$ be the unique extension of the $p$ adic valuation on $\Q_p$.
+Let $\alpha$ be a root of $g$ in $\overline{\Q_p}$.
+Let $\Deta$ be the different of $\Q_p\left( \alpha \right)$ over $\Q_p$.
 Let $\d\left( L \right)$ be the discriminant of $L$ and $\rd\left( L \right)$ be the root discriminant of $L$, i.e. $\rd\left( L \right) = \d\left( L \right)^{1/\left[ L : \Q \right]}$.
 % Let $\pi = \pi_p: \O_{\overline{\Q_p}} \to \overline{\F_p}$ be the cannonical quotient map from the integral closure of $\Z_p$ inside $\overline{\Q_p}$.
 % Fix an embedding of $\overline{\Q}$ into $\overline{\Q_p}$.
@@ -314,7 +315,7 @@ In light of this last identity, we can make the following definition:
   % \]
   % \end{definition}
   
-\subsection{$p$-adic bounds on the discriminant \label{subsection:discriminant_bounds}}
+\subsection{Bounding the valuation of the different ideal \label{subsection:different_bounds}}
 To bound the valuation of the discriminant of $L$, we first bound the valuation of $\Deta$ for each root $\embeddedroot$ of $g$ in $\overline{\Q_p}$.
 To bound this valuation in turn, we wish we could bound the valuation of $f'\left( \embeddedroot \right)$ for each $\embeddedroot$.
 Instead we bound the valuation of $f'\left( \embeddedroot \right)$ for all the non-exceptional roots, and bound $\Deta$ for the \exceptional roots afterwards.
@@ -380,47 +381,40 @@ To do that we first need a small lemma:
 %   We say that $\alpha$ is \textbf{\exceptional} if it satifies all of the conditions in Lemma \ref{lem:equivalent_conditions} or equivalently two conditions that belong to different rows.
 % \end{definition}
 \begin{lemma}
-  $f$ has \exceptional roots if and only if
-  \[
-    v_p\left( a \right) = v_p\left( n \right)
-    \quad \text{ and } \quad
-    v_p\left( b \right) = v_p\left( n - k \right)
-    \]
-    and if it does then:
-    \begin{enumerate}
-      \item 
-      It has at most $\maxppart$ \exceptional roots.
-      \label{item:maxppart}
-      \item 
-    They all share the same non-zero image in $\overline{\F_p}$.
-    \label{item:same_image}
-    % \item 
-    % $\minpval = 0$.
-    % \label{item:minpval}
-    % \item They all have $p$-adic valuation $0$.
-  \end{enumerate}  
-  % If $f$ has \exceptional roots then:
-  % $f$ has at most $\maxppart$ \exceptional roots and they all have $p$-adic valuation $0$.
+  If $\alpha$ is an \exceptional root of $f$, then:
+  \begin{enumerate}
+    \item $v_p\left( n \right) = v_p\left( a \right)$ and $v_p\left( n - k \right) = v_p\left( b \right)$.
+    \label{item:coefficient_valuation}
+    \item 
+    $f$ has at most $\maxppart$ \exceptional roots.
+    \label{item:maxppart}
+    \item 
+    $v_p\left( \alpha \right) = 0$.
+    \label{item:root_valuation}
+    \item $v_p\left( \Deta \right) \leq 1 - p^{-\maxpval} + \maxpval$.
+    \label{item:ramification_degree}
+  \end{enumerate}
 \end{lemma}
 \editorial{
-  I think I can also prove that there are exactly $\maxppart$ \exceptional roots, and that it happens if and only if $v_p\left( n \right) = v_p\left( a \right)$ and $v_p\left( n - k \right) = v_p\left( b \right)$. 
+  I think I can also prove that there are exactly $\maxppart$ \exceptional roots, all sharing the same image in $\overline{\F_p}$, and that it happens if and only if $v_p\left( n \right) = v_p\left( a \right)$ and $v_p\left( n - k \right) = v_p\left( b \right)$. 
   Shall I do it?
   }
   \begin{proof}
   Assume that $\alpha$ is an \exceptional root of $f$.
   The facts that
   \begin{gather*}
-    0 < v_p\left( 1 + \hLR{1}\left( \alpha \right) \right) = v_p\left( 1 + \frac{n}{ka}\alpha^{n-k} \right) \\
-    \quad \text{ and } \quad \\ 
     0 < v_p\left( 1 + \hLR{2}\left( \alpha  \right) \right) = v_p\left( 1 + \frac{\left( n-k \right)a}{nb}\alpha^k \right)
+    \\
+    \quad \text{ and } \quad \\ 
+    0 < v_p\left( 1 + \hLR{3}\left( \alpha \right) \right) = v_p\left( 1 + \frac{n - k}{kb}\alpha^{n} \right) 
   \end{gather*} 
-  determine uniquely the images of $\alpha^{n-k}$ and $\alpha^k$ respectively in $\overline{\F_p}$ and imply that they are non-zero.
+  determine uniquely the images of $\alpha^{k}$ and $\alpha^n$ respectively in $\overline{\F_p}$ and imply that they are non-zero.
   However, since $1 = \gcd\left( n, k \right)$, the images of $\alpha^n$ and $\alpha^k$ determine the image of $\alpha$, and since the first two are non-zero, so must be the third.
-  Thus, the image of $\alpha$ in $\overline{\F_p}$ is uniquely determined and non-zero, proving item \ref{item:same_image}.
+  Thus, the image of $\alpha$ in $\overline{\F_p}$ is uniquely determined and non-zero, proving item \ref{item:root_valuation}.
   
   Moreover, because $-\hLR{2}\left( \alpha \right)$ specfically is a principal unit, it follows that 
   $$v_p\left( \left( n - k \right) a \alpha^k \right) = v_p\left( nb \right)$$ 
-  and hence, since the image of $\alpha$ in $\overline{\F_p}$ is non-zero, i.e. $v_p\left( \alpha \right) = 0$, it follows that
+  and hence, since $v_p\left( \alpha \right) = 0$, it follows that
   \begin{equation}
     v_p\left( n - k \right) + v_p\left( a \right) = 
     v_p\left( n \right) + v_p\left( b \right)
@@ -429,16 +423,31 @@ To do that we first need a small lemma:
   However, the fact that $v_p\left( \alpha \right) = 0$ also implies that the Newton polygon $N_p\left( f \right)$ has a segment of slope $0$ and hence one of two cases occurs:
   \begin{enumerate}
     \item $v_p\left( a \right) = 0$. 
-    In this case, since $p|ab$ it follows that $v_p\left( b \right) > 0$ and equation \ref{eq:exceptional_valuation} implies that $v_p\left( b \right) = v_p\left( n - k \right)$ and hence 
+    In this case, since $p|ab$ it follows that $v_p\left( b \right) > 0$ and hence equation \ref{eq:exceptional_valuation} implies that $v_p\left( b \right) = v_p\left( n - k \right)$ proving item \ref{item:coefficient_valuation}.
+    Therefore, 
     \[
       f \equiv 
       x^n + ax^k \equiv 
-      x^k\left( x^{n-k} + a \right) \equiv
-      x^k \left( x^{\left( n-k \right)\pnorm{b}} + a \right)^{\ppart{b}} \mod p 
-      \]
-      and hence $f$ has at most $\ppart{b}$ roots sharing the same image in $\overline{\F_p}$, and in particular at most $\ppart{b} = \maxppart$ \exceptional roots.
+      x^k\left( x^{n-k} + a \right) 
+      \equiv
+      x^k \left( x^{\left( n-k \right)\pnorm{b}} + a \right)^{\ppart{b}} 
+      \mod p 
+    \]
+    Since any exceptional root of $f$ has zero $p$-adic valuation, the last congruence implies that its image in $\overline{\F_p}$ is a root of $x^{\left( n-k \right)\pnorm{b}} + a$.
+    The last congruence also implies, since $v_p\left( a \right) = v_p\left( \left( n-k \right)\ppart{b} \right) = 0$, that each root of $x^{\left( n-k \right)\pnorm{b}} + a$ in $\overline{\F_p}$ is the image of $\ppart{b}$ roots of $f$ in $\overline{\Q_p}$.
+    Therefore, since we showed that all the \exceptional roots of $f$ share the same image in $\overline{\F_p}$, it follows that there are at most $\ppart{b}$ \exceptional roots of $f$ in $\overline{\Q_p}$, proving item \ref{item:maxppart}.
+    Finally, the fact that there are $\ppart{b}$ roots of $f$ having the same image in $\overline{\F_p}$ as $\alpha$ implies that the ramification degree of $\Q_p\left( \alpha \right)$ over $\Q_p$ is at most $\ppart{b}$.
+    Denote this ramification degree by $e$.
+    Then, $1-e^{-1} + v_p\left( e \right)$ is a well known upper bound on the valuation of $\Deta$, the different of $\Q_p\left( \alpha \right)$ over $\Q_p$ (see for example \cite[Remark 1 to Proposition 13 of Chapter. III \S 7]{SerreLocalFields}).
+    However, $1 - e^{-1} + v_p\left( e \right) \leq 1 - p^{-\maxpval} + \maxpval$ and hence we conclude that $v_p\left( \Deta \right) \leq 1 - p^{-\maxpval} + \maxpval$, proving item \ref{item:ramification_degree}. 
     \item $v_p\left( b \right) = 0$.
-    The proof of this case is similar to the previous one, and we conclude that $f$ has at most $\ppart{a} = \maxppart$ \exceptional roots.
+    The proof of this case is similar to the previous one, only with $v_p\left( b \right) = 0$, $v_p\left( n \right) = v_p\left( a \right)$ and 
+    \[
+      f \equiv 
+      x^n + b \equiv 
+      \left( x^{\pnorm{a}} + b \right)^{\ppart{a}} 
+      \mod p.
+    \]
   \end{enumerate}
 \end{proof}
 
@@ -476,35 +485,44 @@ To do that we first need a small lemma:
   However, by the definition of $\h{i},\hL{i}$ and $\hR{i}$, the left hand side of the last inequality is equal to $v_p\left( \alpha f'\left( \alpha \right) \right)$.
 \end{proof}
 \begin{lemma}
+  \label{lem:non_exceptional_root}
   Let $\embeddedroot$ be a non-exceptional root of $g$ in $\overline{\Q_p}$.
   One of the following occurs:
   \begin{enumerate}
-    \item $N_p\left( f \right)$ has only one segment and $v_p\left( \embeddedroot f'\left( \embeddedroot \right) \right) \leq v_p\left( a \right) + kv_p\left( \embeddedroot \right)$.
+    \item $N_p\left( f \right)$ has only one segment and $v_p\left( \embeddedroot f'\left( \embeddedroot \right) \right) \leq v_p\left( a \right) + \frac{k}{n}v_p\left( b \right)$.
     \item $\embeddedroot$ is associated with the leftmost segment of $N_p\left( f \right)$ and $v_p\left( \embeddedroot f'\left( \embeddedroot \right) \right) \leq \frac{n}{k} v_p\left( \frac{b}{a} \right)$
     \item $\embeddedroot$ is associated with the rightmost segment of $N_p\left( f \right)$ and $v_p\left( \embeddedroot f'\left( \embeddedroot \right) \right) \leq v_p\left( b \right)$.
   \end{enumerate}
 \end{lemma}
 \begin{proof}
   Assume first that $N_p\left( f \right)$ has only one segment.
-  To show that the first case holds, note that 
+  To show that the first case holds, note that since $v_p\left( \embeddedroot \right) = \frac{k}{n}v_p\left( b \right)$, it follows that
   \begin{gather*}
-    v_p\left( \hR{1}\left( \embeddedroot \right) \right) = v_p\left( a \right) + kv_p\left( \embeddedroot \right) + v_p\left( k \right) 
+    v_p\left( \hR{1}\left( \embeddedroot \right) \right) 
+    = 
+    % v_p\left( a \right) + kv_p\left( \embeddedroot \right) + v_p\left( k \right) 
+    % =
+    v_p\left( a \right) + \frac{k}{n}v_p\left( b \right) + v_p\left( k \right)
     \\ 
     \quad \text{and} \quad
     \\
-    v_p\left( \hL{2}\left( \embeddedroot \right) \right) = v_p\left( a \right) + kv_p\left( \embeddedroot \right) + v_p\left( n - k \right)
+    v_p\left( \hL{2}\left( \embeddedroot \right) \right) 
+    = 
+    % v_p\left( a \right) + kv_p\left( \embeddedroot \right) + v_p\left( n - k \right)
+    % =
+    v_p\left( a \right) + \frac{k}{n}v_p\left( b \right) + v_p\left( n - k \right)
   \end{gather*}
   Therefore, it suffices to show that either
   \begin{align}
     \label{eq:sufficient_condition}
     \begin{matrix}
-      v_p\left( \embeddedroot f'\left( \embeddedroot \right) \right) \leq \hR{1}\left( \embeddedroot \right) \\
+      v_p\left( \embeddedroot f'\left( \embeddedroot \right) \right) \leq v_p\left( \hR{1}\left( \embeddedroot \right) \right) \\
       \text{and} \\
       v_p\left( k \right) = 0
     \end{matrix}
     \quad \text{or} \quad
     \begin{matrix}
-      v_p\left( \embeddedroot f'\left( \embeddedroot \right) \right) \leq \hL{2}\left( \embeddedroot \right) \\
+      v_p\left( \embeddedroot f'\left( \embeddedroot \right) \right) \leq v_p\left( \hL{2}\left( \embeddedroot \right) \right) \\
       \text{and} \\
       v_p\left( n - k \right) = 0
     \end{matrix}
@@ -520,9 +538,9 @@ To do that we first need a small lemma:
   \begin{enumerate}
     \item Inequality \ref{eq:valuation_inequality} does holds for $i = 1,2$, and in particular 
     \[
-      v_p\left( \embeddedroot f'\left( \embeddedroot \right) \right) \leq \hR{1}\left( \embeddedroot \right)
+      v_p\left( \embeddedroot f'\left( \embeddedroot \right) \right) \leq v_p\left( \hR{1}\left( \embeddedroot \right) \right)
       \quad \text{and} \quad
-      v_p\left( \embeddedroot f'\left( \embeddedroot \right) \right) \leq \hL{2}\left( \embeddedroot \right)
+      v_p\left( \embeddedroot f'\left( \embeddedroot \right) \right) \leq v_p\left( \hL{2}\left( \embeddedroot \right) \right)
     \]
     and hence, since either $v_p\left( k \right) = 0$ or $v_p\left( n - k \right) = 0$, at least one of the sides of condition \ref{eq:sufficient_condition} holds.
     \item Inequality \ref{eq:valuation_inequality} holds for $i = 3$, i.e. 
@@ -538,6 +556,57 @@ To do that we first need a small lemma:
   If $\embeddedroot$ is associated with the leftmost segment of $N_p\left( f \right)$, we carry out the same argument with with $\hL{1}$ and $\hL{3}$ and the observation that $k v_p\left( \embeddedroot \right) = v_p\left( b \right) - v_p\left( a \right)$.
   If $\embeddedroot$ is associated with the rightmost segment of $N_p\left( f \right)$, we do it with $\hR{2}$ and $\hR{3}$ and the observation that $\left( n - k \right)v_p\left( \embeddedroot \right) = v_p\left( a \right)$.
 \end{proof}
+
+\begin{corollary}
+  \label{cor:valuation_of_different}
+  Let $\embeddedroot$ be a non-exceptional root of $g$ in $\overline{\Q_p}$.
+  One of the following occurs:
+  \begin{enumerate}
+    \item $N_p\left( f \right)$ has only one segment and $v_p\left( \Deta \right) \leq v_p\left( a \right) + \frac{k - 1}{n}v_p\left( b \right)$.
+    \item $\embeddedroot$ is associated with the leftmost segment of $N_p\left( f \right)$ and $v_p\left( \Deta \right) \leq \frac{n - 1}{k} v_p\left( \frac{b}{a} \right)$
+    \item $\embeddedroot$ is associated with the rightmost segment of $N_p\left( f \right)$ and $v_p\left( \Deta \right) \leq v_p\left( b \right) - \frac{1}{n - k} v_p\left( a \right)$.
+  \end{enumerate}
+\end{corollary}
+\begin{proof}
+  It follows from Lemma \ref{lem:non_exceptional_root}, the fact that $\Deta$ contians the principal ideal generated by $f'\left( \embeddedroot \right)$ and calculation of $v_p\left( \embeddedroot \right)$ in each of the three cases.
+\end{proof}
+
+\subsection{Bounding the valuation of the discriminant}
+Let 
+\[
+  A\left( f, p \right) = \begin{cases}
+    n v_p\left( a \right) + \ppart{a} - 1 & v_p\left( b \right) = 0 \\ 
+    n v_p\left( a \right) + \left( k - 1 \right)v_p\left( b \right) &  
+    \begin{matrix}
+      v_p\left( b \right) > 0 \text{ and } N_p\left( f \right) 
+      \\
+      \text{ has only one segment } 
+    \end{matrix} \\
+    \left( 2n - k - 1 \right)v_p\left( b \right) + \ppart{b} - 1 & v_p\left( a \right) = 0 \\
+    \left( 2n - k - 1 \right)v_p\left( b \right) - n v_p\left( a \right) & 
+    \begin{matrix}
+      v_p\left( a \right) > 0 \text{ and } N_p\left( f \right) 
+      \\
+      \text{ has two segments }
+    \end{matrix}
+  \end{cases}
+\]
+\begin{lemma}
+  One of 5 cases occurs:
+  \begin{enumerate}
+    \item 
+  \end{enumerate}
+\end{lemma}
+Recall that 
+% \begin{gather*}
+%   C = \begin{cases}
+    
+%   \end{cases}
+% \end{gather*}
+\begin{lemma}
+  
+\end{lemma}
+
 \begin{lemma}
   \label{lem:valuation_of_derivative}
   % Assume that $n > v_p\left( b \right)$.
