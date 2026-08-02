@@ -1,19 +1,274 @@
 \documentclass[../main.tex]{subfiles}
 
 \begin{document}
-  \section{Ramification at ab}
-  Let $\F$ be a local field and $v$ an extension of its valuation to its algebraic closure $\overline{\F}$.
+  \section{New Setup}
+  Let $\F$ be a local non-Archimedean local field with residue field $\mathbb{F}_p$ for some prime $p$. 
+  Let $v$ be an extension of the valuation of $\F$ to its algebraic closure $\overline{\F}$.
+  % Fix $n,m,k$ pairwise distinct non-negative integers with $\gcd\left( n,m,k \right) = 1$.
   Let 
   \[
     f = a_n x^n + a_m x^m + a_k x^k \in \F\left[ x \right]
   \]
-  be a trinomial with $a_n, a_m, a_k \neq 0$, with $\gcd\left( n,m,k \right) = 1$ and with $n,m,k$ pairwise distinct. 
+  be a trinomial with $a_n, a_m, a_k \neq 0$, with 
+  \[
+    1 = \gcd\left( n - m, m - k, k - n \right) = \gcd\left( n - m, m - k \right).
+  \]
   Let $\alpha \in \overline{\F}^\times$ be a root of $f$.
   Note that 
   \[
     \alpha f'\left( \alpha \right) = 
     n a_n \alpha^n + m a_m \alpha^m + k a_k \alpha^k =
-    (m - n) a_m \alpha^m + (k - n) a_k \alpha^k
+    (m - n) a_m \alpha^m + (k - n) a_k \alpha^k.
   \] 
-  Therefore, 
+  Thus, let us denote
+  \[
+    \h{n} = (m - n) a_m x^m + (k - n) a_k x^k
+  \]
+  and similarly define $\h{m}$ and $\h{k}$.
+  For most cases, we can bound $v\left( f'\left( \alpha \right) \right)$ using the non-Archimedean triangle inequality and the dominant term of either $\h{n}$, $\h{m}$ or $\h{k}$.
+  We will try to first characterize the cases where this strategy fails.
+  
+  We denote 
+  \[
+    f_{\left( n,m \right)} = (m - n) a_m x^m 
+  \]
+  and similarly for any other ordered pair of $n,m,k$.
+  Note that 
+  \begin{align*}
+    & v\left( \alpha f'\left( \alpha \right) \right) > 
+    \min\left\{  
+      f_{\left( n,m \right)}\left( \alpha \right), f_{\left( n,k \right)}\left( \alpha \right)
+    \right\}
+  \end{align*}
+  if and only if 
+  \[
+    v\left( 1 + \frac{f_{\left( n,m \right)}\left( \alpha \right)}{f_{\left( n,k \right)}\left( \alpha \right)} \right) > 0,
+  \]
+  i.e. if and only if 
+  \[
+    -\frac{f_{\left( n,m \right)}\left( \alpha \right)}{f_{\left( n,k \right)}\left( \alpha \right)} 
+    % =
+    % \frac{f_{\left( m,n \right)}\left( \alpha \right)}{f_{\left( n,k \right)}\left( \alpha \right)} 
+    % = 
+    % \frac{f_{\left( n,m \right)}\left( \alpha \right)}{f_{\left( k,n \right)}\left( \alpha \right)}
+  \] 
+  is a principal unit.
+  % Note that equivelently, 
+  % \[
+  %   \left( \frac{f_{\left( m,n \right)}\left( \alpha \right)}{f_{\left( n,k \right)}\left( \alpha \right)} \right)^{-1} = 
+  %   \frac{f_{\left( n,k \right)}\left( \alpha \right)}{f_{\left( m,n \right)}\left( \alpha \right)} = 
+  %   \frac{f_{\left( k,n \right)}\left( \alpha \right)}{f_{\left( n,m \right)}\left( \alpha \right)}
+  % \]
+  % is a principal unit.
+  \begin{definition}
+    If the above condition holds, we say that $\alpha$ is an \textbf{\es{n}} root of $f$, or just \es{n} when $f$ is clear from context.
+  \end{definition}
+  \begin{definition}
+    We say that $\alpha$ is an \textbf{\anex} root of $f$ if it is an \es{n}, \es{m} and \es{k} root of $f$, or just \ex when $f$ is clear from context.
+  \end{definition}
+  \begin{lemma}
+    \label{lem:two_escaping_implies_ex}
+    If $\alpha$ is \es{n} and \es{m}, then $\alpha$ is \ex.
+  \end{lemma}
+  \begin{proof}
+    \[
+      \left( -\frac{
+        f_{n,m}\left( \alpha \right)
+      }{
+        f_{n,k}\left( \alpha \right)
+      } \right)
+      \left( -\frac{
+        f_{m,k}\left( \alpha \right)
+      }{  
+        f_{m,n}\left( \alpha \right)
+      } \right) =
+      \frac{
+        \left( m - n \right)a_m \alpha^m \left( k - m \right)a_k \alpha^k
+      }{
+        \left( k - n \right)a_k \alpha^k \left( n - m \right)a_n \alpha^n
+      } =
+      -\frac{
+        \left( m - k \right) a_m \alpha^m
+      }{
+        \left( n - k \right) a_n \alpha^n
+      } = 
+      -\frac{
+        f_{m,k}\left( \alpha \right)
+      }{
+        f_{n,k}\left( \alpha \right)
+      }
+    \]
+  \end{proof}
+  \begin{lemma}
+    Fix $e \in \Z$. 
+    Then 
+    \[
+      f\left( p^{-e} x \right)_{n,m}\left( p^e \alpha \right) = f_{n,m}\left( \alpha \right)
+    \]
+    and similarly for any other ordered pair of $n,m,k$.
+  \end{lemma}
+  \begin{proof}
+    \[
+      f\left( p^{-e} x \right)_{n,m}\left( p^e \alpha \right) =
+      (m - n) a_m p^{-em} \left( p^e \alpha \right)^m =
+      (m - n) a_m \alpha^m = 
+      f_{n,m}\left( \alpha \right)
+    \]
+    and similarly for any other ordered pair of $n,m,k$.
+  \end{proof}
+  \begin{corollary}
+    If $\alpha$ is an \es{n} root of $f$ then $p^e \alpha$ is an \es{n} root of $f\left( p^{-e}x \right)$ for any $e \in \Z$, and similarly for \es{m} and \es{k}.
+  \end{corollary}
+  \begin{corollary}
+    \label{cor:scalability}
+    If $\alpha$ is \anex root of $f$ then $p^e \alpha$ is \anex root of $f\left( p^{-e}x \right)$ for any $e \in \Z$.
+  \end{corollary}
+  \begin{lemma}
+    If $\alpha$ is an \es{n} root of $f$, then $v_p\left( \alpha \right) \in \frac{1}{m - k} \Z$.
+  \end{lemma}
+  \begin{proof}
+    Follows from the fact that 
+    \[
+      0 = 
+      v\left(  
+        \frac{
+          f_{n,m}\left( \alpha \right)
+        }{
+          f_{n,k}\left( \alpha \right)
+        }
+      \right) =
+      v\left( m - n \right) + v\left( a_m \right) - v\left( n - k \right) - v\left( a_k \right) + (m - k) v\left( \alpha \right).
+    \]
+  \end{proof}
+  \begin{corollary}
+    \label{cor:integral_valuation}
+    If $\alpha$ is \anex root of $f$, then $v_p\left( \alpha \right) \in \Z$.
+  \end{corollary}
+  \begin{proof}
+    By the previous lemma, 
+    \[
+      v\left( \alpha \right) \in
+      \frac{1}{m - n} \Z \cap \frac{1}{n - k} \Z =
+      \frac{1}{\gcd\left( m - n, n - k \right)} \Z =
+      \Z.
+    \]
+  \end{proof}
+  In light of corollaries \ref{cor:scalability} and \ref{cor:integral_valuation}, it makes sense to study first the \ex roots with valuation $0$, and in retrospect, these will be the only \ex roots that will matter for our purposes. 
+  \begin{definition}
+    We call \ex roots with valuation $0$, \textbf{\inex} roots. 
+  \end{definition}
+  If $f$ has an \inex root $\alpha$, it follows, by considering its Newton polygon, that two of its coefficients must be of the same valuation, and the third must be of at least that valuation.
+  Thus, we make the following definition.
+  \begin{definition}
+    We say that $\alpha$ is an $n$-\textbf{\inex} root of $f$ if 
+    \[
+      v\left( a_n \right) \geq v\left( a_m \right) = v\left( a_k \right)
+    \]
+    In this situation, we also say that $f$ is an $n$-\textbf{\redex polynomial}.
+    We do similarly for $m$ and $k$. 
+    % We say that $f$ is \textbf{\redex} polynomial if it is either $n$-\redex, $m$-\redex or $k$-\redex polynomial.
+  \end{definition}
+  \begin{lemma}
+    \label{lem:slope_length_valuation}
+    Assume that $\alpha$ is an $n$-\inex root of $f$.
+    Then 
+    \[
+      v\left( m - k \right) = v\left( a_n \right) - v\left( a_m \right)
+    \]
+  \end{lemma}
+  \begin{proof}
+    The equalities 
+    \[
+      v\left( f_{k,n}\left( \alpha \right) \right) = 
+      v\left( f_{k,m}\left( \alpha \right) \right)
+      \quad \text{and} \quad
+      v\left( f_{m,n}\left( \alpha \right) \right) = 
+      v\left( f_{m,k}\left( \alpha \right) \right)
+    \]
+    imply respectively that
+    \begin{gather*}
+      v\left( m - k \right) = v\left( n - k \right) + v\left( a_n \right) - v\left( a_m \right) \\
+      \text{ and } \\
+      v\left( m - k \right) = v\left( n - m \right) + v\left( a_n \right) - v\left( a_k \right)
+    \end{gather*}
+    However, since $v\left( a_m \right) = v\left( a_k \right)$, these two equalities imply together that $v\left( n - k \right) = v\left( n - m \right)$.
+    Since $1 = \gcd\left( n - m, n - k \right)$, it follows that $v\left( n - k \right) = v\left( n - m \right) = 0$, and thus the desired equality is true.
+  \end{proof}
+  In light of the previous lemma, we make the following definition.
+  \begin{definition}
+    We say that $f$ is an \textbf{$n$-\redex} polynomial if 
+    \[
+      v\left( m - k \right) = v\left( a_n \right) - v\left( a_m \right) = v\left( a_n \right) - v\left( a_k \right)
+    \]
+  \end{definition}
+  \begin{lemma}
+    \label{lem:escaping_image_equivalence}
+    Assume that $f$ is an $n$-\redex polynomial.
+    Then $\alpha$ is \es{k} if and only if $v\left( \alpha \right) = 0$ and the image of $\alpha^{n - m}$ in $\overline{\F_p}^\times$ is equal to the image of $-\frac{m - k}{k - n}\frac{a_m}{a_n}$ in $\F_p^\times \hookrightarrow \overline{\F_p}^\times$.  
+    % \[
+    %   v\left( \alpha^{n - m} - \frac{m - k}{k - n}\frac{a_m}{a_n} \right) > 0 
+    % \]
+  \end{lemma}
+  \begin{proof}
+    By definition, $\alpha$ is \es{k} if and only if
+    \[
+      0 < v\left( 1 + \frac{f_{\left( k,m \right)}\left( \alpha \right)}{f_{\left( k,n \right)}\left( \alpha \right)} \right)
+       = 
+       v\left(  
+        1 + \frac{(m - k) a_m \alpha^m}{(n - k) a_n \alpha^n}
+       \right)
+    \]
+    However, one of two cases occurs:
+    \begin{itemize}
+      \item $v\left( a_n \right) = v\left( a_m \right)$ from which it follows that $v\left( \alpha \right) = 0$.
+      \item $v\left( a_n \right) > v\left( a_m \right)$ from which it follows by the definition of $n$-\redex polynomial that $v\left( m - k \right) = v\left( a_n \right) - v\left( a_m \right) > 0$, and thus $v\left( n - k \right) = 0$ by coprimality, from which it follows that 
+      \[
+        0 = 
+        v_p\left( 1 \right) = 
+        v_p\left( m - k \right) + v_p\left( a_m \right) - v\left( a_n \right) + \left( m - n \right) v_p\left( \alpha \right),
+      \] 
+      from which it follows again that $v\left( \alpha \right) = 0$.
+    \end{itemize} 
+    In both cases, we can now multiply the above inequality by $\alpha^{n - m}$ to get that
+    \[
+      0 < v\left( \alpha^{n - m} + \frac{m - k}{k - n}\frac{a_m}{a_n} \right),
+    \]
+    from which it follows that the image of $\alpha^{n - m}$ in $\overline{\F_p}^\times$ is equal to the image of $-\frac{m - k}{k - n}\frac{a_m}{a_n}$ in $\F_p^\times \hookrightarrow \overline{\F_p}^\times$.
+  \end{proof}
+  \begin{lemma}
+    Assume that $f$ is an $n$-\redex polynomial.
+    Then there is $u \in \F_p^\times$ such that $\alpha$ is an $n$-\inex root of $f$ if and only if $v\left( \alpha - u \right) > 0$.
+  \end{lemma}
+  \begin{proof}
+    Since $1 = \gcd\left( n - m, n - k \right)$, there is a unique $u \in \F_p^\times$ such that
+    \[
+      \label{eq:unique_u}
+      u^{n - m} = \frac{m - k}{k - n}\frac{a_m}{a_n} \in \F_p^\times
+      \quad \text{and} \quad
+      u^{n - k} = \frac{k - m}{m - n}\frac{a_k}{a_n} \in \F_p^\times.
+    \]
+    By Lemma \ref{lem:two_escaping_implies_ex}, $\alpha$ is \ex, if and only if it is \es{m} and \es{k}, which is equivalent by Lemma \ref{lem:escaping_image_equivalence} and the choice of $u$ to the image of $\alpha$ in $\overline{\F_p}^\times$ being equal to $u$.
+  \end{proof}
+  \begin{corollary}
+    $f$ has an $n$-\inex root if and only if it is an $n$-\redex polynomial.
+  \end{corollary}
+  \begin{definition}
+    We say that $f$ is 
+    \textbf{\st $n$-\redex} 
+    if it is an $n$-\redex polynomial and $v\left( m - k \right) > 0$.
+  \end{definition}
+  \begin{lemma}
+    If $f$ is \st $n$-\redex, then it has exactly $p^{v\left( m - k \right)}$ distinct $n$-\inex roots.
+  \end{lemma}
+  \begin{proof}
+    We can assume without loss of generality that
+    \[
+      v\left( a_m \right) = v\left( a_k \right) = 0
+    \]
+    Therefore, 
+    \[
+      f \equiv a_m x^m + a_k x^k \mod p
+    \]
+    \editorial{Now I need to think what this means since $f$ is not monic}
+  \end{proof}
 \end{document}
