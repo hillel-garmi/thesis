@@ -17,7 +17,7 @@
 
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
-\newcommand{\F}{\mathbb{F}}
+\newcommand{\F}{K}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\R}{\mathbb{R}}
@@ -71,9 +71,13 @@
 \newcommand{\aredex}{\text{a \red \ex}}
 \newcommand{\redoex}{\text{(\red) \ex}}
 \newcommand{\aredoex}{\text{a (\red) \ex}}
+\newcommand{\nredex}[1]{\text{$#1$-\red \ex}}
+\newcommand{\anredex}[1]{\text{a $#1$-\red \ex}}
+\newcommand{\nredir}[1]{\text{$#1$-\red ferromagnetic}}
 \newcommand{\anex}{\text{a \ex}} 
-\newcommand{\inex}{\text{\red \ex}} 
-\newcommand{\es}[1]{\text{$#1$-escaping}} 
+\newcommand{\inex}{\text{invertible \ex}} 
+\newcommand{\es}[1]{\text{$#1$-\ex}} 
+\newcommand{\ines}[1]{\text{invertible \es{#1}}} 
 \newcommand{\st}{\text{strict}} 
 \newcommand{\degreelowerbound}{2 \maxpval} 
 \newcommand{\U}{U} 
@@ -113,6 +117,20 @@
 \newcommand{\tomyself}[1]{
   {\color{blue}#1}
 }
+\newcommand{\directorscut}[1]{
+  \ifdirectorscut
+  {\color{cyan}#1}
+  \fi
+}
+% \newenvironment{tomyselfenv}{
+%   \ifdirectorscut
+%   \color{cyan}
+%   \fi
+% }{
+%   \ifdirectorscut
+%   \color{black}
+%   \fi
+% }
 
 \newtheorem{thm}{Theorem}[section] 
 \newtheorem{lemma}[thm]{Lemma}
