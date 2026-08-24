@@ -215,17 +215,21 @@
   \begin{lemma}
     \label{lem:slope_length_valuation}
     Assume that $f$ is \anredex{n} polynomial.
-    Then 
-    \[
-      v\left( m - k \right) 
-      = 
-      v\left( a_n \right) - v\left( a_m \right)
-      % =
-      % v\left( a_n \right) - v\left( a_k \right)
-      .
-    \]
+    Then
+    \begin{enumerate}
+      \item \label{item:smaller_slope_length_valuation} 
+      $v\left( n - k \right) = v\left( n - m \right) = 0$.
+      \item \label{item:bigger_slope_length_valuation} 
+      $v\left( m - k \right) 
+        = 
+        v\left( a_n \right) - v\left( a_m \right)
+        % =
+        % v\left( a_n \right) - v\left( a_k \right)
+        .$
+    \end{enumerate}
   \end{lemma}
   \begin{proof}
+    Assume that $\alpha$ is one of the \ex roots of $f$ with valuation $0$.
     The equalities 
     \[
       v\left( f_{k,n}\left( \alpha \right) \right) = 
@@ -235,23 +239,36 @@
       v\left( f_{m,k}\left( \alpha \right) \right)
     \]
     imply respectively that
-    \begin{gather*}
-      v\left( m - k \right) = v\left( n - k \right) + v\left( a_n \right) - v\left( a_m \right) \\
-      \text{ and } \\
-      v\left( m - k \right) = v\left( n - m \right) + v\left( a_n \right) - v\left( a_k \right)
-    \end{gather*}
+    \begin{gather}
+      v\left( m - k \right) = v\left( n - k \right) + v\left( a_n \right) - v\left( a_m \right) 
+      \label{eq:first_relation_between_slope_length_valuations}
+      \\
+      \notag
+      \text{ and } 
+      \\
+      v\left( m - k \right) = v\left( n - m \right) + v\left( a_n \right) - v\left( a_k \right) 
+      \label{eq:second_relation_between_slope_length_valuations}
+    \end{gather}
     However, since $v\left( a_m \right) = v\left( a_k \right)$, these two equalities imply together that $v\left( n - k \right) = v\left( n - m \right)$.
-    Since $1 = \gcd\left( n - m, n - k \right)$, it follows that $v\left( n - k \right) = v\left( n - m \right) = 0$, and thus the desired equality is true.
+    Since $1 = \gcd\left( n - m, n - k \right)$, it follows that $v\left( n - k \right) = v\left( n - m \right) = 0$, proving item \ref{item:smaller_slope_length_valuation}.
+    Substituting back in either equation \ref{eq:first_relation_between_slope_length_valuations} or equation \ref{eq:second_relation_between_slope_length_valuations} proves item \ref{item:bigger_slope_length_valuation}.
   \end{proof}
   In light of the previous lemma, we make the following:
   \begin{definition}
     We say that $f$ is an \textbf{\nredir{n}} polynomial if 
-    \[
-      v\left( m - k \right) = v\left( a_n \right) - v\left( a_m \right)
-      %  = v\left( a_n \right) - v\left( a_k \right)
-      .
-    \]
-     
+    \begin{enumerate}
+      \item 
+      % \label{item:smaller_slope_length_valuation} 
+      $v\left( n - k \right) = v\left( n - m \right) = 0$.
+      \item 
+      % \label{item:bigger_slope_length_valuation} 
+      $v\left( m - k \right) 
+        = 
+        v\left( a_n \right) - v\left( a_m \right)
+        % =
+        % v\left( a_n \right) - v\left( a_k \right)
+        .$
+    \end{enumerate} 
   \end{definition}
   As the name ferromagnetic suggests, Lemme \ref{lem:slope_length_valuation} shows that every \nredex{n} polynomial is also \nredir{n}.
     (Historically, the term ferromagnetic was used in Physics to describe any material that is easily magnetized.
