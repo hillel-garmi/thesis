@@ -21,6 +21,7 @@
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\R}{\mathbb{R}}
+\newcommand{\A}{\mathbb{A}}
 \def\O{\mathcal{O}}
 \def\P{\mathfrak{P}}
 \def\p{\mathfrak{p}}
@@ -40,6 +41,7 @@
 \def\rd{\text{\rm rd}}
 \def\D{\mathfrak{D}}
 \def\Sym{\text{\rm Sym}}
+\def\Spec{\text{\rm Spec}}
 
 \def\lcm{\rm{lcm}}
 \newcommand{\pnorm}[1]{p^{-v_p\left( #1 \right)}}
@@ -79,6 +81,7 @@
 \newcommand{\es}[1]{\text{$#1$-\ex}} 
 \newcommand{\ines}[1]{\text{invertible \es{#1}}} 
 \newcommand{\st}{\text{strict}} 
+\newcommand{\eq}{\text{equivalent }} 
 \newcommand{\degreelowerbound}{2 \maxpval} 
 \newcommand{\U}{U} 
 \renewcommand{\u}[1]{u_{#1}} 
@@ -112,7 +115,9 @@
   \textcolor{lightgray}{ \backslash #1}
 }
 \newcommand{\editorial}[1]{
+  \ifeditorial
   {\color{red}#1}
+  \fi
 }
 \newcommand{\tomyself}[1]{
   {\color{blue}#1}
