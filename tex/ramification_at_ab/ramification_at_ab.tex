@@ -18,8 +18,8 @@
   Note that no assumption is made about the order of $n,m,k$ and thus all statements about them are true for all of the permutations of $n,m,k$.
   In light of this, in the sequel we often state or define something for some permutaion of $n,m,k$ and then use it for other permutations as well. 
   
-  Let $\alpha \in \overline{\F}^\times$ be a root of $\h{}$.
-  Note that 
+  Let $\alpha \in \overline{\F}^\times$.
+  Note that if $\alpha$ is a root of $\h{}$, then
   \[
     \alpha \h{}'\left( \alpha \right) 
     = 
@@ -32,7 +32,7 @@
   \[
     \h{n} 
     =
-    x\h{} - n\h{} 
+    x\h{}' - n\h{} 
     = 
     (m - n) a_m x^m + (k - n) a_k x^k
   \]
@@ -40,14 +40,14 @@
   We will try to first characterize the cases where this strategy fails.
   
   \subsection{Magnetic roots}
-  So we can speak of each of the summation terms of $\h{n}$ separately, let us also denote
+  So we can speak of each of the summation terms of $\h{n}$ separately, let us denote
   \[
     \h{n,m} = (m - n) a_m x^m.
   \]
   Note that 
   \begin{align}
     \label{eq:valuation_inequality_condition}
-    & v\left( \alpha \h{}'\left( \alpha \right) \right) 
+    & v\left( \h{n}\left( \alpha \right) \right) 
     > 
     \min\left\{  
       v\left( \h{n,m}\left( \alpha \right) \right), 
@@ -66,170 +66,320 @@
     -\frac{\h{n,m}\left( \alpha \right)}{\h{n,k}\left( \alpha \right)}
     =
     -\frac{
-      \left( m - n \right)a_m x^m
+      \left( m - n \right)a_m \alpha^m
     }{
-      \left( k - n \right)a_k x^k
+      \left( k - n \right)a_k \alpha^k
     }
     \text{ is a principal unit.}
-  \end{equation} 
-  If we denote by $\pu$ the group of principal units, by 
+  \end{equation}
+  To state the last condition in a more useful language, we will introduce some more notation: 
+  Let $\pu$ and $\rpu$ be the groups of principal units in $\overline{\F}$ and $\F$ respectively, i.e the groups of elements in the respective fields whose difference from $1$ has positive valuation. 
+  Let 
   \[
-    \pi: \F^\times \to \frac{\F^\times}{\pu}
+    \pi: \overline{\F}^\times \to \frac{\overline{\F}^\times}{\pu}
   \]
-  the canonical quotient map, then condtion \ref{eq:principal_unit_condition} is equivalne in turn to 
+  the canonical quotient map and let 
+  \[
+    \q{n}{m} = -\frac{
+      \left( m - n \right)a_m
+    }{
+      \left( k - n \right)a_k
+    }
+  \]
+  In this language condtion \ref{eq:principal_unit_condition} can be stated as
   \begin{equation}
     \label{eq:mod_principal_units_condition}
     \pi\left(  
-      -\frac{
-        \left( m - n \right)a_m \alpha^m
-      }{
-        \left( k - n \right)a_k \alpha^k
-      }
+      \q{n}{m}
     \right) = 
     \pi\left( \alpha^{k - m} \right)
   \end{equation}
-  Since $\F\left[ x, x^{-1} \right]^\times = \F^\times x^{\Z}$, if condition \ref{eq:principal_unit_condition} holds for $h{}$ then it also holds for any polynomial in the ideal $\left( \h{} \right)$.
+  Since $\F\left[ x, x^{-1} \right]^\times = \F^\times x^{\Z}$, if condition \ref{eq:mod_principal_units_condition} holds for $h{}$ then it also holds for any polynomial in the ideal $\left( \h{} \right)$.
   Thus, we can make the following
   \begin{definition}
-    If the equivalent conditions \ref{eq:valuation_inequality_condition}, \ref{eq:valuation_positivity_condition}, \ref{eq:principal_unit_condition} and \ref{eq:mod_principal_units_condition} hold, we say that $\alpha$ is an \textbf{\es{n}} root of $\left( \h{} \right)$ or simply of $\h{}$.
+    If the equivalent conditions \ref{eq:valuation_inequality_condition}, \ref{eq:valuation_positivity_condition}, \ref{eq:principal_unit_condition} and \ref{eq:mod_principal_units_condition} hold, we say that $\left( \alpha, \left( \h{} \right) \right)$ is an \textbf{\es{n}} pair.
     % , or just \es{n} when $\h{}$ is clear from context
-    We say that $\alpha$ is \textbf{\anex} root of $\left( \h{} \right)$,
-    or simply of $\h{}$,
+    We say that $\left( \alpha, \left( \h{} \right) \right)$ is \textbf{\anex} pair
     % or just \anex root when $\h{}$ is clear from context
-    if it is an \es{n}, \es{m} and \es{k} root of $\h{}$.
+    if it is \es{n}, \es{m} and \es{k}.
+    In many cases we write $\h{}$ instead of $\left( \h{} \right)$, and if $\alpha$ is also a root of $\h{}$ we say that it is \anex (respectively an \es{n}) root of $\h{}$.
   \end{definition}
-  We use the analogy of magnetism, because, as explained above, magnetic roots are closed to each other in the mertic induced by $v$ than as one might expect by trying to bound the valuations of $\h{i,j}$ for each pair of distinct $i,j \in \left\{ m,n,k \right\}$.
+  We use the analogy of magnetism because, as explained above, for a magnetic root $\alpha$ $v\left( \h{}'\left( \alpha \right) \right)$ is bigger than, i.e., in the metric induced by $v$, $\alpha$ is on avarage closer to its conjugates than, one might expect by bounding the valuations of $\h{i,j}$ for each pair of distinct $i,j \in \left\{ m,n,k \right\}$.
 
   \begin{lemma}
-    \label{lem:two_escaping_implies_ex}
-    If $\alpha$ is \es{n} and \es{m}, then $\alpha$ is \ex.
-  \end{lemma}
-  \begin{proof}
-    Since $-\frac{
-        \h{n,m}\left( \alpha \right)
-      }{
-        \h{n,k}\left( \alpha \right)
-      }$ and $-\frac{
-        \h{m,k}\left( \alpha \right)
-      }{  
-        \h{m,n}\left( \alpha \right)
-      }$ are both principal units, it follows that so is
-    \begin{align*}
-      & 
-      \left( -\frac{
-        \h{n,m}\left( \alpha \right)
-      }{
-        \h{n,k}\left( \alpha \right)
-      } \right)
-      \left( -\frac{
-        \h{m,k}\left( \alpha \right)
-      }{  
-        \h{m,n}\left( \alpha \right)
-      } \right) = 
-      -\frac{
-        \h{m,k}\left( \alpha \right)
-      }{
-        \h{n,k}\left( \alpha \right)
-      }.
-    \end{align*}
-    \directorscut{
-      In more details 
-      \begin{align*}
-        & 
-        \left( -\frac{
-          \h{n,m}\left( \alpha \right)
-        }{
-          \h{n,k}\left( \alpha \right)
-        } \right)
-        \left( -\frac{
-          \h{m,k}\left( \alpha \right)
-        }{  
-          \h{m,n}\left( \alpha \right)
-        } \right) =
-        \frac{
-          \left( m - n \right)a_m \alpha^m \left( k - m \right)a_k \alpha^k
-        }{
-          \left( k - n \right)a_k \alpha^k \left( n - m \right)a_n \alpha^n
-        } =
-        % \ifdirectorscut
-        % \\ & 
-        % \fi
-        -\frac{
-          \left( m - k \right) a_m \alpha^m
-        }{
-          \left( n - k \right) a_n \alpha^n
-        } = 
-        -\frac{
-          \h{m,k}\left( \alpha \right)
-        }{
-          \h{n,k}\left( \alpha \right)
-        }.
-      \end{align*} 
-    }
-  \end{proof}
-
-  \begin{lemma}
-    \label{cor:scalability}
-    Let $\alpha$ be \anex root of $\h{}$ $a \in \F^\times$ and $\delta =\pm 1$.
-    Then $a\alpha^\delta$ is \anex root of $\h{}\left( x^\delta / \alpha \right)$.
+    \label{lem:scalability}
+    Let $\expair$ be \anex pair, $a \in \F^\times$ and $\delta =\pm 1$.
+    Then $\left( a\alpha^\delta, \h{}\left( x^\delta / \alpha \right) \right)$ is \anex pair.
   \end{lemma}
   \begin{proof}
     Let $u\left( x \right)$ be $a x^\delta $.
     Then $\h{} \circ u$ is a trinomial with coefficients $\delta m, \delta n, \delta k$ and.
     One can check that 
     \[
-      \left( \h{} \circ u^{-1} \right)_{\delta m,\delta n}\left( u\left( \alpha \right) \right) = \left( \h{} \circ u \right)_{m,n}\left( \alpha \right)
+      \left( \h{} \circ u^{-1} \right)_{\delta m,\delta n}\left( u\left( \alpha \right) \right) = \left( \h{} \right)_{m,n}\left( \alpha \right)
     \]
     and the rest follows from opening the definition of \ex roots.
   \end{proof}
-  In light of Lemma \ref{cor:scalability}, we make the following
+
   \begin{lemma}
-    If $\alpha$ is an \es{n} root of $\h{}$, then $v\left( \alpha \right) \in \frac{1}{m - k} \Z$.
+    \label{lem:two_escaping_implies_ex}
+    If $\expair$ is \es{n} and \es{m}
+    then it is \ex.
   \end{lemma}
   \begin{proof}
-    Follows from the fact that 
+    It can be verified that 
     \[
-      0 = 
-      v\left(  
-        \frac{
-          \h{n,m}\left( \alpha \right)
-        }{
-          \h{n,k}\left( \alpha \right)
-        }
-      \right) =
-      v\left( m - n \right) + v\left( a_m \right) - v\left( n - k \right) - v\left( a_k \right) + (m - k) v\left( \alpha \right).
+      1 = \q{n}{m} \q{m}{k} \q{k}{n}
     \]
+    and hence, the result follows from condition \ref{eq:mod_principal_units_condition}.
+    % \[
+    %   \q{k}{n} 
+    %   = 
+    %   \left( \q{n}{m} \q{m}{k} \right)^{-1}
+    %   =
+    %   \left( 
+    %     \pi\left( \alpha^{k - m} \right)
+    %     \pi\left( \alpha^{n - k} \right)
+    %   \right)^{-1}  
+    %   =
+    %   \pi\left( \alpha^{} \right)
+    % \]
+
+    % Since $-\frac{
+    %     \h{n,m}\left( \alpha \right)
+    %   }{
+    %     \h{n,k}\left( \alpha \right)
+    %   }$ and $-\frac{
+    %     \h{m,k}\left( \alpha \right)
+    %   }{  
+    %     \h{m,n}\left( \alpha \right)
+    %   }$ are both principal units, it follows that so is
+    % \begin{align*}
+    %   & 
+    %   \left( -\frac{
+    %     \h{n,m}\left( \alpha \right)
+    %   }{
+    %     \h{n,k}\left( \alpha \right)
+    %   } \right)
+    %   \left( -\frac{
+    %     \h{m,k}\left( \alpha \right)
+    %   }{  
+    %     \h{m,n}\left( \alpha \right)
+    %   } \right) = 
+    %   -\frac{
+    %     \h{k,m}\left( \alpha \right)
+    %   }{
+    %     \h{k,n}\left( \alpha \right)
+    %   }.
+    % \end{align*}
+    % \directorscut{
+    %   In more details 
+    %   \begin{align*}
+    %     & 
+    %     \left( -\frac{
+    %       \h{n,m}\left( \alpha \right)
+    %     }{
+    %       \h{n,k}\left( \alpha \right)
+    %     } \right)
+    %     \left( -\frac{
+    %       \h{m,k}\left( \alpha \right)
+    %     }{  
+    %       \h{m,n}\left( \alpha \right)
+    %     } \right) =
+    %     \frac{
+    %       \left( m - n \right)a_m \alpha^m \left( k - m \right)a_k \alpha^k
+    %     }{
+    %       \left( k - n \right)a_k \alpha^k \left( n - m \right)a_n \alpha^n
+    %     } =
+    %     % \ifdirectorscut
+    %     % \\ & 
+    %     % \fi
+    %     -\frac{
+    %       \left( m - k \right) a_m \alpha^m
+    %     }{
+    %       \left( n - k \right) a_n \alpha^n
+    %     } = 
+    %     -\frac{
+    %       \h{k,m}\left( \alpha \right)
+    %     }{
+    %       \h{k,n}\left( \alpha \right)
+    %     }.
+    %   \end{align*} 
+    % }
   \end{proof}
   \begin{corollary}
-    \label{cor:integral_valuation}
-    If $\alpha$ is \anex root of $\h{}$, then $v\left( \alpha \right) \in \Z$.
+    \label{cor:ex_disk}
+    There are $r,s \in \Z$ depenfing only on $n-m$ and $m-k$, such that $\expair$ is \ex if and only if $\pi\left( \alpha \right)$ solves the equation
+    \begin{equation}
+      \label{eq:ex}
+      \begin{bmatrix}
+        1 \\
+        0
+      \end{bmatrix} x 
+      = 
+      \begin{bmatrix}
+        \pi\left( \q{n}{m}^r \q{m}{k}^s \right) \\
+        \pi\left( \q{n}{m}^{-\left( m - k \right)} \q{m}{k}^{n - m} \right)
+      \end{bmatrix} .
+    \end{equation}
   \end{corollary}
   \begin{proof}
-    By the previous lemma, 
+    Another way to state Lemma \ref{lem:two_escaping_implies_ex} is that condition $\alpha$ is \anex root of $\h{}$ if and only if $\pi\left( \alpha \right)$ solves the $\Z$-linear equation
+    \begin{equation}
+      \label{eq:raw_ex_equation}
+      \begin{bmatrix}
+        n - m \\
+        m - k
+      \end{bmatrix} x 
+      = 
+      \begin{bmatrix}
+        \pi\left( \q{n}{m} \right) \\
+        \pi\left( \q{m}{k} \right)
+      \end{bmatrix}.
+    \end{equation}
+    Since by assumption $n - m$ and $m - k$ are coprime, by the Euclidean algorithm there are $r,s \in \Z$ such that 
     \[
-      v\left( \alpha \right) \in
-      \frac{1}{m - n} \Z \cap \frac{1}{n - k} \Z =
-      \frac{1}{\gcd\left( m - n, n - k \right)} \Z =
-      \Z.
+      r(n - m) + s(m - k) = 1.
     \]
+    Therefore, multiplying both sides of equation \ref{eq:raw_ex_equation} by 
+    \[
+      \begin{bmatrix}
+        r & s \\
+        -\left( m - k \right) & n - m
+      \end{bmatrix}
+    \]
+    shows that it is equivalent to the required equation.
   \end{proof}
   
-  \begin{corollary}
-    \label{cor:reduction}
-    If $\alpha$ is \anex root of $\h{}$, then there is a $h \in \F^\times x^{\pm 1}$ such that $v\left( h\left( \alpha \right) \right) = 0$ and $\h{} \circ h^{-1}$ is integral over $R$.
-  \end{corollary}
+  \begin{lemma}
+    \label{lem:reduction}
+    If $\expair$ is \anex pair, then there is a $u \in \F^\times x^{\pm 1}$ such that: 
+    \begin{enumerate}
+      \item 
+      $\pi\left( u\left( \alpha \right) \right) = 1$.
+      % \item 
+      % $u\left( \alpha \right)$ is \anex root of $u\left( \h{} \right)$.
+      \item 
+      $\h{} \circ u^{-1}$ is integral over $R$.
+    \end{enumerate}
+  \end{lemma}
   \begin{proof}
-    By Corollary \ref{cor:integral_valuation}, $v\left( \alpha \right) \in \Z$, and hence we can choose $a \in K \cap v^{-1}\left( -v\left( \alpha \right) \right)$.
-    Then $v\left( a\alpha \right) = 0$.
-    Since $\h{}\left( a^{-1}x \right)$ is a trinomial, its Newton polygon has at most two segments, and hence the set of valuations of roots is of cardinality at most $2$.
+    According to Corollary \ref{cor:ex_disk}, $\pi\left( \alpha \right) = \q{n}{m}^r \q{m}{k}^s$ when $r$ and $s$ are as defined in Lemma \ref{lem:ex_equivalent_conditions}.
+    Since $\q{n}{m}^r \q{m}{k}^s \in \rpu$, we can choose $q \in \F$ for which $\pi\left( q \right) = \q{n}{m}^r \q{m}{k}^s$.
+    Therefore, $\pi\left( q^{-1}\alpha \right) = 1$ and in particular $v\left( q^{-1}\alpha \right) = 0$.
+    Since $\h{}\left( qx \right)$ is a trinomial, its Newton polygon has at most two segments, and hence the set of valuations of its roots is of cardinality at most $2$.
     Hence, as we have already shown that $0$ is in the set of valuations of roots of $\h{}$, it follows that this set is either non negative or non positive.
-    We can set $\delta = 1$ in the first plave and $\delta = -1$ in the second place (and either of them if both cases hold) and verify that the corollary holds for $h = a x^\delta$.
+    We can set $\delta = 1$ in the first plave and $\delta = -1$ in the second place (and either of them if both cases hold) and verify that the lemma holds for $u = q x^\delta$.
+  \end{proof}
+  
+  \begin{lemma}
+    If $\h{}$ is part of \anex pair then it has \anex root.  
+  \end{lemma}
+  \begin{proof}
+    By Lemma \ref{lem:scalability} and Lemma \ref{lem:reduction} we can assume without loss of generality that $\left( 1, \h{} \right)$ is \anex pair and that $\h{}$ is integral over $R$.
+    In this situation, it suffices to show that $1$ lifts to a root of $\h{}$, or equivalently, by the integrality of $\h{}$, that $\h{}\left( 1 \right) = 0 \in \kappa$.
+    Indeed 
+    \begin{align*}
+      & 
+    \end{align*}
   \end{proof}
 
+  \begin{lemma}
+    \label{lem:ex_equivalent_conditions}
+    The following conditions are equivalent:
+    \begin{enumerate}
+      \item \label{item:ex}
+      $\h{}$ has \anex root.
+      \item \label{item:coherence}
+      $
+        \pi\left(  
+          \q{n}{m}^{n-m}
+        \right)
+        =
+        \pi\left(  
+          \q{m}{k}^{m-k}
+        \right)
+      $.
+      \item \label{item:symmetric}
+      $
+      \pi\left( 
+          a_n^{m - k} 
+          a_m^{k - n}
+          a_k^{n - m}
+          \right) 
+        = 
+        \pi\left( 
+          \left( n - m \right)^{n - m} 
+          \left( m - k \right)^{m - k} 
+          \left( k - n \right)^{k - n} 
+          \right)      
+          $.       
+    \end{enumerate}
+    % If they hold, then there is a (unique) $\qh \in \rpu$ for which a root $\alpha$ of $\h{}$ is \ex if and only if $\pi\left( \alpha \right) = \qh$.
+    % \begin{enumerate}[label=(\alph*)]
+    %   \item \label{item:group_generated_by_qh}
+    %   $
+    %   \left\langle \qh \right\rangle 
+    %   = 
+    %   \left\langle \q{n}{m}, \q{m}{k} \right\rangle
+    %   \subseteq 
+    %   \rpu
+    %   .$
+    %   \item A root $\alpha$ of $\h{}$ is \ex if and only if $\pi\left( \alpha \right) = \qh$.
+    % \end{enumerate}
+  \end{lemma}
+  \begin{proof}
+    The equivalence of conditions \ref{item:coherence} and \ref{item:symmetric} follows by direct computation.
+    By Corollary \ref{cor:ex_disk}, condition \ref{item:ex} implies condition \ref{item:coherence}.
+    Assume on the other hand that condition \ref{item:coherence} holds.
+    Then equation \ref{eq:ex} has a solution $x \in \rpu$. 
+    For any lift $\alpha \in \overline{\F}$ of $x$, $\left( \alpha,  \right)$ 
+
+    Another way to state Lemma \ref{lem:two_escaping_implies_ex} is that condition \ref{item:ex} holds if and only if there is $\alpha \in \overline{\F}^\times$ for which $\pi\left( \alpha \right)$ solves the $\Z$-linear equation
+    \begin{equation}
+      \label{eq:raw_ex_equation}
+      \begin{bmatrix}
+        n - m \\
+        m - k
+      \end{bmatrix} x 
+      = 
+      \begin{bmatrix}
+        \pi\left( \q{n}{m} \right) \\
+        \pi\left( \q{m}{k} \right)
+      \end{bmatrix}.
+    \end{equation}
+    Since by assumption $n - m$ and $m - k$ are coprime, by the Euclidean algorithm there are $r,s \in \Z$ such that 
+    \[
+      r(n - m) + s(m - k) = 1.
+      \]
+    Therefore, multiplying both sides of equation \ref{eq:raw_ex_equation} by 
+    \[
+      \begin{bmatrix}
+        r & s \\
+        -\left( m - k \right) & n - m
+      \end{bmatrix}
+    \]
+    shows that it is equivalent to the equation
+    \[
+      \begin{bmatrix}
+        1 \\
+        0
+      \end{bmatrix} x 
+      = 
+      \begin{bmatrix}
+        \pi\left( \q{n}{m}^r \q{m}{k}^s \right) \\
+        \pi\left( \q{n}{m}^{-\left( m - k \right)} \q{m}{k}^{n - m} \right)
+      \end{bmatrix}.
+    \]
+    This equation has a solution if and only if condition \ref{item:coherence} holds and in this case a root a root $\alpha$ of $\h{}$ is \ex if and only if $\pi\left( \alpha \right)$ equals to the unique solution of that equation which is $\qh := \q{n}{m}^r \q{m}{k}^s$.
+    Therefore, if condition \ref{item:ex} holds then so does condition \ref{item:coherence} and it only remains to show the converse.
+    More sepecifically, assuming condition \ref{item:coherence}, it suffices to show that $\qh$ lifts to a root of $\h{}$.
+  \end{proof} 
+      
   \subsection{Reduced magnetic roots}
-  In light of this Corollary \ref{cor:reduction} we make the following
+  In light of Corollary \ref{lem:reduction} we make the following
   \begin{definition}
-    We say that $\alpha$ ia \textbf{\aredex root} of $\h{}$ and that $\h{}$ is \\ \textbf{\aredex polynomial} if $v\left( \alpha \right) = 0$ and $\h{}$ is intagral and primitive over $R$.
+    We say that $\alpha$ ia \textbf{\aredex root} of $\h{}$ and that $\h{}$ is \\ \textbf{\aredex polynomial} if $\pi\left( \alpha \right) = 1$ and $\h{}$ is intagral and primitive over $R$.
   \end{definition} 
   
   % it makes sense to study first the \ex roots with valuation $0$, of polynomials that have no roots of negative valuation.
@@ -272,7 +422,7 @@
   \end{lemma}
   \begin{proof}
     Assume that $\alpha$ is one of the \ex roots of $\h{}$ with valuation $0$.
-    The equalities 
+    Condition \ref{eq:valuation_inequality_condition} implies the equalities 
     \[
       v\left( \h{k,n}\left( \alpha \right) \right) = 
       v\left( \h{k,m}\left( \alpha \right) \right)
@@ -280,7 +430,7 @@
       v\left( \h{m,n}\left( \alpha \right) \right) = 
       v\left( \h{m,k}\left( \alpha \right) \right)
     \]
-    imply respectively that
+    which in turn imply respectively that
     \begin{gather}
       v\left( m - k \right) = v\left( n - k \right) + v\left( a_n \right) - v\left( a_m \right) 
       \label{eq:first_relation_between_slope_length_valuations}
@@ -295,88 +445,90 @@
     Since $1 = \gcd\left( n - m, n - k \right)$, it follows that $v\left( n - k \right) = v\left( n - m \right) = 0$, proving item \ref{item:smaller_slope_length_valuation}.
     Substituting back in either equation \ref{eq:first_relation_between_slope_length_valuations} or equation \ref{eq:second_relation_between_slope_length_valuations} proves item \ref{item:bigger_slope_length_valuation}.
   \end{proof}
-  In light of the previous lemma, we make the following:
-  \begin{definition}
-    We say that $\h{}$ is an \textbf{\nredir{n}} polynomial if 
-    \begin{enumerate}
-      \item 
-      % \label{item:smaller_slope_length_valuation} 
-      $v\left( n - k \right) = v\left( a_m \right) = v\left( n - m \right) = v\left( a_k \right) = 0$.
-      \item 
-      % \label{item:bigger_slope_length_valuation} 
-      $v\left( m - k \right) 
-        = 
-        v\left( a_n \right)
-        .$
-    \end{enumerate} 
-  \end{definition}
-  As the name ferromagnetic suggests, Lemme \ref{lem:slope_length_valuation} shows that every \nredex{n} polynomial is also \nredir{n}.
-    (Historically, the term ferromagnetic was used in Physics to describe any material that is easily magnetized.
-    Following the work of Louis Néel, for which he won the 1970 Physics Nobel Prize, this is not the way it is used today, but this is the context in which the analogy and the choice of the name should be understood. \editorial{add source?})
-  We now analyze under which conditions an \nredir{n} polynomial is also \nredex{n}.
-  % \begin{lemma}
-  %   Assume that $\h{}$ is an \nredex{n} polynomial.
-    
-  % \end{lemma}
-  \begin{lemma}
-    \label{lem:escaping_image_equivalence}
-    Assume that $\h{}$ is an \nredir{n} polynomial and that $v\left( \alpha \right) = 0$.
-    Then $\alpha$ is \es{k} if and only if the image of $\alpha^{n - m}$ in $\overline{\kappa}^\times$ is equal to the image of $-\frac{m - k}{k - n}\frac{a_m}{a_n}$ in $\kappa^\times \hookrightarrow \overline{\kappa}^\times$.  
-    % \[
-    %   v\left( \alpha^{n - m} - \frac{m - k}{k - n}\frac{a_m}{a_n} \right) > 0 
-    % \]
-  \end{lemma}
-  \begin{proof}
-    By definition, $\alpha$ is \es{k} if and only if
-    \[
-      0 < v\left( 1 + \frac{\h{k,m}\left( \alpha \right)}{\h{k,n}\left( \alpha \right)} \right)
-       = 
-       v\left(  
-        1 + \frac{(m - k) a_m \alpha^m}{(n - k) a_n \alpha^n}
-       \right)
-    \]
-    % However, one of two cases occurs:
-    % \begin{itemize}
-    %   \item $v\left( a_n \right) = v\left( a_m \right)$ from which it follows that $v\left( \alpha \right) = 0$.
-    %   \item $v\left( a_n \right) > v\left( a_m \right)$ from which it follows by the definition of an \nredir{n} polynomial that $v\left( m - k \right) = v\left( a_n \right) - v\left( a_m \right) > 0$, and thus  
-    %   \[
-    %     0 = 
-    %     % v\left( 1 \right) = 
-    %     v\left( m - k \right) + v\left( a_m \right) - v\left( a_n \right) + \left( m - n \right) v\left( \alpha \right)
-    %     =
-    %     \left( m - n \right) v\left( \alpha \right)
-    %     ,
-    %   \] 
-    %   from which it follows again that $v\left( \alpha \right) = 0$.
-    % \end{itemize} 
-    % In both cases, 
-    We can now multiply the above inequality by $\alpha^{n - m}$ to get 
-    \[
-      0 < v\left( \alpha^{n - m} + \frac{m - k}{k - n}\frac{a_m}{a_n} \right),
-    \]
-    which is equivalent to the image of $\alpha^{n - m}$ in $\overline{\kappa}^\times$ is equal to the image of $-\frac{m - k}{k - n}\frac{a_m}{a_n}$ in $\kappa^\times \hookrightarrow \overline{\kappa}^\times$.
-  \end{proof}
 
-  Assume now that $\h{}$ is an \nredir{n} polynomial.
-  Since $1 = \gcd\left( n - m, n - k \right)$, there is a unique $u \in \kappa^\times$ such that
-  \begin{equation}
-    \label{eq:unique_u}
-    u^{n - m} = \frac{m - k}{k - n}\frac{a_m}{a_n} \in \kappa^\times
-    \quad \text{and} \quad
-    u^{n - k} = \frac{k - m}{m - n}\frac{a_k}{a_n} \in \kappa^\times.
-  \end{equation}
-  Thus we make the following
-  \begin{definition}
-    We define $u\left( \h{} \right)$ to be the unique member of $\kappa^\times$ satisfying condition \ref{eq:unique_u}.
-  \end{definition}
-  \begin{lemma}
-    \label{lem:magnetic_roots_image}
-    Assume that $v\left( \alpha \right) = 0$.
-    Then $\alpha$ is a \ex root of $\h{}$ if and only if its image in $\overline{\kappa}^\times$ is $u\left( \h{} \right)$.
-  \end{lemma}
-  \begin{proof}
-    By Lemma \ref{lem:two_escaping_implies_ex}, $\alpha$ is \ex, if and only if it is \es{m} and \es{k}, which is equivalent by Lemma \ref{lem:escaping_image_equivalence} and the choice of $u$ to the image of $\alpha$ in $\overline{\kappa}$ being equal to $u$.
-  \end{proof}
+  % In light of the previous lemma, we make the following:
+  % \begin{definition}
+  %   We say that $\h{}$ is an \textbf{\nredir{n}} polynomial if 
+  %   \begin{enumerate}
+  %     \item 
+  %     % \label{item:smaller_slope_length_valuation} 
+  %     $v\left( n - k \right) = v\left( a_m \right) = v\left( n - m \right) = v\left( a_k \right) = 0$.
+  %     \item 
+  %     % \label{item:bigger_slope_length_valuation} 
+  %     $v\left( m - k \right) 
+  %       = 
+  %       v\left( a_n \right)
+  %       .$
+  %   \end{enumerate} 
+  % \end{definition}
+
+  % As the name ferromagnetic suggests, Lemme \ref{lem:slope_length_valuation} shows that every \nredex{n} polynomial is also \nredir{n}.
+  %   (Historically, the term ferromagnetic was used in Physics to describe any material that is easily magnetized.
+  %   Following the work of Louis Néel, for which he won the 1970 Physics Nobel Prize, this is not the way it is used today, but this is the context in which the analogy and the choice of the name should be understood. \editorial{add source?})
+  % We now analyze under which conditions an \nredir{n} polynomial is also \nredex{n}.
+  % % \begin{lemma}
+  % %   Assume that $\h{}$ is an \nredex{n} polynomial.
+    
+  % % \end{lemma}
+  % \begin{lemma}
+  %   \label{lem:escaping_image_equivalence}
+  %   Assume that $\h{}$ is an \nredir{n} polynomial and that $v\left( \alpha \right) = 0$.
+  %   Then $\alpha$ is \es{k} if and only if the image of $\alpha^{n - m}$ in $\overline{\kappa}^\times$ is equal to the image of $-\frac{m - k}{k - n}\frac{a_m}{a_n}$ in $\kappa^\times \hookrightarrow \overline{\kappa}^\times$.  
+  %   % \[
+  %   %   v\left( \alpha^{n - m} - \frac{m - k}{k - n}\frac{a_m}{a_n} \right) > 0 
+  %   % \]
+  % \end{lemma}
+  % \begin{proof}
+  %   By definition, $\alpha$ is \es{k} if and only if
+  %   \[
+  %     0 < v\left( 1 + \frac{\h{k,m}\left( \alpha \right)}{\h{k,n}\left( \alpha \right)} \right)
+  %      = 
+  %      v\left(  
+  %       1 + \frac{(m - k) a_m \alpha^m}{(n - k) a_n \alpha^n}
+  %      \right)
+  %   \]
+  %   % However, one of two cases occurs:
+  %   % \begin{itemize}
+  %   %   \item $v\left( a_n \right) = v\left( a_m \right)$ from which it follows that $v\left( \alpha \right) = 0$.
+  %   %   \item $v\left( a_n \right) > v\left( a_m \right)$ from which it follows by the definition of an \nredir{n} polynomial that $v\left( m - k \right) = v\left( a_n \right) - v\left( a_m \right) > 0$, and thus  
+  %   %   \[
+  %   %     0 = 
+  %   %     % v\left( 1 \right) = 
+  %   %     v\left( m - k \right) + v\left( a_m \right) - v\left( a_n \right) + \left( m - n \right) v\left( \alpha \right)
+  %   %     =
+  %   %     \left( m - n \right) v\left( \alpha \right)
+  %   %     ,
+  %   %   \] 
+  %   %   from which it follows again that $v\left( \alpha \right) = 0$.
+  %   % \end{itemize} 
+  %   % In both cases, 
+  %   We can now multiply the above inequality by $\alpha^{n - m}$ to get 
+  %   \[
+  %     0 < v\left( \alpha^{n - m} + \frac{m - k}{k - n}\frac{a_m}{a_n} \right),
+  %   \]
+  %   which is equivalent to the image of $\alpha^{n - m}$ in $\overline{\kappa}^\times$ is equal to the image of $-\frac{m - k}{k - n}\frac{a_m}{a_n}$ in $\kappa^\times \hookrightarrow \overline{\kappa}^\times$.
+  % \end{proof}
+
+  % Assume now that $\h{}$ is an \nredir{n} polynomial.
+  % Since $1 = \gcd\left( n - m, n - k \right)$, there is a unique $u \in \kappa^\times$ such that
+  % \begin{equation}
+  %   \label{eq:unique_u}
+  %   u^{n - m} = \frac{m - k}{k - n}\frac{a_m}{a_n} \in \kappa^\times
+  %   \quad \text{and} \quad
+  %   u^{n - k} = \frac{k - m}{m - n}\frac{a_k}{a_n} \in \kappa^\times.
+  % \end{equation}
+  % Thus we make the following
+  % \begin{definition}
+  %   We define $u\left( \h{} \right)$ to be the unique member of $\kappa^\times$ satisfying condition \ref{eq:unique_u}.
+  % \end{definition}
+  % \begin{lemma}
+  %   \label{lem:magnetic_roots_image}
+  %   Assume that $v\left( \alpha \right) = 0$.
+  %   Then $\alpha$ is a \ex root of $\h{}$ if and only if its image in $\overline{\kappa}^\times$ is $u\left( \h{} \right)$.
+  % \end{lemma}
+  % \begin{proof}
+  %   By Lemma \ref{lem:two_escaping_implies_ex}, $\alpha$ is \ex, if and only if it is \es{m} and \es{k}, which is equivalent by Lemma \ref{lem:escaping_image_equivalence} and the choice of $u$ to the image of $\alpha$ in $\overline{\kappa}$ being equal to $u$.
+  % \end{proof}
 
   \subsubsection{The equal valuation case \editorial{(think of a better name?)}}
   Assume now that $v\left( a_n \right) = v\left( a_m \right) = v\left( a_k \right) = 0$.
