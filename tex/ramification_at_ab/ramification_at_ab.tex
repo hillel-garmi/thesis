@@ -264,7 +264,7 @@
     \end{enumerate}
   \end{lemma}
   \begin{proof}
-    According to Corollary \ref{cor:ex_disk}, $\pi\left( \alpha \right) = \q{n}{m}^r \q{m}{k}^s$ when $r$ and $s$ are as defined in Lemma \ref{lem:ex_equivalent_conditions}.
+    According to Corollary \ref{cor:ex_disk}, $\pi\left( \alpha \right) = \q{n}{m}^r \q{m}{k}^s$ when $r$ and $s$ are as defined in Lemma \ref{cor:ex_equivalent_conditions}.
     Since $\q{n}{m}^r \q{m}{k}^s \in \rpu$, we can choose $q \in \F$ for which $\pi\left( q \right) = \q{n}{m}^r \q{m}{k}^s$.
     Therefore, $\pi\left( q^{-1}\alpha \right) = 1$ and in particular $v\left( q^{-1}\alpha \right) = 0$.
     Since $\h{}\left( qx \right)$ is a trinomial, its Newton polygon has at most two segments, and hence the set of valuations of its roots is of cardinality at most $2$.
@@ -273,19 +273,32 @@
   \end{proof}
   
   \begin{lemma}
+    \label{lem:ex_lift}
     If $\h{}$ is part of \anex pair then it has \anex root.  
   \end{lemma}
   \begin{proof}
     By Lemma \ref{lem:scalability} and Lemma \ref{lem:reduction} we can assume without loss of generality that $\left( 1, \h{} \right)$ is \anex pair and that $\h{}$ is integral over $R$.
     In this situation, it suffices to show that $1$ lifts to a root of $\h{}$, or equivalently, by the integrality of $\h{}$, that $\h{}\left( 1 \right) = 0 \in \kappa$.
-    Indeed 
+    Indeed, by condition \ref{eq:mod_principal_units_condition}
     \begin{align*}
-      & 
+      \h{}\left( 1 \right) 
+      = 
+      & \
+      a_n + a_m + a_k
+      =
+      a_n + a_m \q{k}{n} + a_k \q{m}{n}
+      =
+      % \\
+      % &
+      a_n - \frac{\left( n - k \right)a_n}{\left( m - k \right)} - \frac{\left( n - m \right)a_n}{\left( k - m \right)} 
+      = 
+      0
+      .
     \end{align*}
   \end{proof}
 
-  \begin{lemma}
-    \label{lem:ex_equivalent_conditions}
+  \begin{corollary}
+    \label{cor:ex_equivalent_conditions}
     The following conditions are equivalent:
     \begin{enumerate}
       \item \label{item:ex}
@@ -327,59 +340,23 @@
     %   .$
     %   \item A root $\alpha$ of $\h{}$ is \ex if and only if $\pi\left( \alpha \right) = \qh$.
     % \end{enumerate}
-  \end{lemma}
+  \end{corollary}
   \begin{proof}
     The equivalence of conditions \ref{item:coherence} and \ref{item:symmetric} follows by direct computation.
-    By Corollary \ref{cor:ex_disk}, condition \ref{item:ex} implies condition \ref{item:coherence}.
-    Assume on the other hand that condition \ref{item:coherence} holds.
-    Then equation \ref{eq:ex} has a solution $x \in \rpu$. 
-    For any lift $\alpha \in \overline{\F}$ of $x$, $\left( \alpha,  \right)$ 
-
-    Another way to state Lemma \ref{lem:two_escaping_implies_ex} is that condition \ref{item:ex} holds if and only if there is $\alpha \in \overline{\F}^\times$ for which $\pi\left( \alpha \right)$ solves the $\Z$-linear equation
-    \begin{equation}
-      \label{eq:raw_ex_equation}
-      \begin{bmatrix}
-        n - m \\
-        m - k
-      \end{bmatrix} x 
-      = 
-      \begin{bmatrix}
-        \pi\left( \q{n}{m} \right) \\
-        \pi\left( \q{m}{k} \right)
-      \end{bmatrix}.
-    \end{equation}
-    Since by assumption $n - m$ and $m - k$ are coprime, by the Euclidean algorithm there are $r,s \in \Z$ such that 
-    \[
-      r(n - m) + s(m - k) = 1.
-      \]
-    Therefore, multiplying both sides of equation \ref{eq:raw_ex_equation} by 
-    \[
-      \begin{bmatrix}
-        r & s \\
-        -\left( m - k \right) & n - m
-      \end{bmatrix}
-    \]
-    shows that it is equivalent to the equation
-    \[
-      \begin{bmatrix}
-        1 \\
-        0
-      \end{bmatrix} x 
-      = 
-      \begin{bmatrix}
-        \pi\left( \q{n}{m}^r \q{m}{k}^s \right) \\
-        \pi\left( \q{n}{m}^{-\left( m - k \right)} \q{m}{k}^{n - m} \right)
-      \end{bmatrix}.
-    \]
-    This equation has a solution if and only if condition \ref{item:coherence} holds and in this case a root a root $\alpha$ of $\h{}$ is \ex if and only if $\pi\left( \alpha \right)$ equals to the unique solution of that equation which is $\qh := \q{n}{m}^r \q{m}{k}^s$.
-    Therefore, if condition \ref{item:ex} holds then so does condition \ref{item:coherence} and it only remains to show the converse.
-    More sepecifically, assuming condition \ref{item:coherence}, it suffices to show that $\qh$ lifts to a root of $\h{}$.
+    If condition \ref{item:ex} holds then so does \ref{item:coherence} by Corollary \ref{cor:ex_disk}.
+    Assume conversely that condition holds.
+    Then by Corollary \ref{cor:ex_disk} $\h{}$ is parto of \anex pair and hence by Lemma \ref{lem:ex_lift} condition \ref{item:ex} holds.
   \end{proof} 
       
   \subsection{Reduced magnetic roots}
-  In light of Corollary \ref{lem:reduction} we make the following
+  In light of Lemma \ref{lem:reduction} we make the following
   \begin{definition}
-    We say that $\alpha$ ia \textbf{\aredex root} of $\h{}$ and that $\h{}$ is \\ \textbf{\aredex polynomial} if $\pi\left( \alpha \right) = 1$ and $\h{}$ is intagral and primitive over $R$.
+    We say that $\alpha$ ia \textbf{\aredex root} of $\h{}$ and that $\h{}$ is \\ \textbf{\aredex polynomial} if:
+    \begin{enumerate}
+      \item $\alpha$ is \anex root of $h$.
+      \item $\pi\left( \alpha \right) = 1$. 
+      \item $\h{}$ is intagral and primitive over $R$.
+    \end{enumerate}
   \end{definition} 
   
   % it makes sense to study first the \ex roots with valuation $0$, of polynomials that have no roots of negative valuation.
@@ -531,7 +508,7 @@
   % \end{proof}
 
   \subsubsection{The equal valuation case \editorial{(think of a better name?)}}
-  Assume now that $v\left( a_n \right) = v\left( a_m \right) = v\left( a_k \right) = 0$.
+  Assume now that $v\left( a_n \right) = v\left( a_m \right) = v\left( a_k \right) = 0$ and that $\h{}$ is \aredex polynomial.
 
   \begin{lemma}
     \label{lem:magnetism_away_from_ab}
@@ -544,8 +521,9 @@
       \min\left\{  
         v\left( \h{n,m}\left( \alpha \right) \right),
         v\left( \h{n,k}\left( \alpha \right) \right)
-      \right\} = 0.
+      \right\} = 0
     \]
+    and hence the result follows from condition \ref{eq:valuation_inequality_condition} defining magnetism.
   \end{proof}
 
   \begin{lemma}
@@ -553,10 +531,10 @@
     $\h{}$ has at most $2$ magnetic roots.
   \end{lemma}
   \begin{proof}
-    Assume that it has \anex root.
-    Then by Lemma \ref{lem:slope_length_valuation}, $\h{}$ is an \nredir{n} polynomial and in particular $v\left( m - k \right) = 0$ and $u\left( \h{} \right) \in \kappa^\times$ can be defined.
-    Since all of the slopes of the Newton polygon of $\h{}$ are of slope $0$, all of its roots are of valuation $0$.
-    Therefore, by Lemma \ref{lem:magnetic_roots_image} all of the magnetic roots of $\h{}$ lie in the fiber of $u\left( \h{} \right)$ and thus it suffices to show that $u\left( \h{} \right)$ is not a triple root of $\h{}$.
+    % Assume that it has \anex root.
+    % Then by Lemma \ref{lem:scalability} and Lemma \ref{lem:reduction} we can assume that it has \anex above $1$, and hence, 
+    By Corollary \ref{cor:ex_disk} all of its \ex roots are above $1$.
+    Therefore, it suffices to show that $1 \in \kappa$ is not a triple root of $\h{}$.
     However if it was it would have been a double root of 
     \[
       \h{n} 
@@ -565,7 +543,7 @@
       =
       x^k \left( a_m x^{m - k} + a_k \right) 
     \] 
-    contradicting the reducedness of $\left( a_m x^{m - k} + a_k \right) \leq \kappa\left[ x, x^{-1} \right]$ which follows in turn form the mentioned fact that $v\left( m - k \right) = 0$.
+    contradicting the reducedness of $\left( a_m x^{m - k} + a_k \right) \leq \kappa\left[ x, x^{-1} \right]$ which follows form the fact that $v\left( m - k \right) = 0$ which follows in turn from Lemma \ref{lem:slope_length_valuation} and the fact that $\h{}$ is an \es{n} reduced polynomial.
   \end{proof}
 
   \begin{corollary}
@@ -574,35 +552,38 @@
   \begin{proof}
     It suffices to show that $\h{}$ has at most $2$ roots $\alpha$ at which $v\left( \h{}'\left( \alpha \right) \right) > 0$, or equivalently, according to Lemma \ref{lem:magnetism_away_from_ab}, to show that $\h{}$ has at most two \ex roots, which is true by Lemma \ref{lem:2_magnetic_roots}. 
   \end{proof}
+  % \begin{corollary}
+  %   If $v_p\left( ab \right) = 0$ then the inertia group at any place above $p$ acts on the roots of $f$ either trivially or as a single transposition.
+  % \end{corollary}
 \subsubsection{The non equal valuation case \editorial{(think of a better name?)}}
-  Assume now that $\h{}$ is an \nredir{n} polynomial with 
+  Assume now that $\h{}$ is an \nredex{n} polynomial with 
   \[
     v\left( m - k \right) = v\left( a_n \right) > 0.
   \]
   It follows in particular that $p := {\rm char}\left( \kappa \right) > 0$ and we assume moreover that $\kappa$ is perfect.
   \begin{lemma}
     \label{lem:counting_ex_roots}
-    $\h{}$ has exactly $p^{v\left( m - k \right)}$ \ex roots of valuation $0$ (in particular, $\h{}$ is \ex).
+    $\h{}$ has exactly $p^{v\left( m - k \right)}$ \ex roots.
   \end{lemma}
   \begin{proof}
-    The fact that $u\left( \h{} \right)$ satisfies condition \ref{eq:unique_u} by definition, can be utilized
-    \directorscut{
-      as follows
-      \begin{align*}
-        & 
-        u\left( \h{} \right)^{-n}\h{}\left( u\left( \h{} \right) \right) 
-        = 
-        a_m u\left( \h{} \right)^{m-n} + a_k u\left( \h{} \right)^{k-n} 
-        =
-        a_n \frac{k - n}{m - k} + a_n \frac{m - n}{k - m} 
-        =
-        -a_n
-        =
-        0 \in \kappa, 
-      \end{align*}
-    }
-    to show that it is a root of $\h{}$ in $\kappa$.
-    Moreover, we can show that the multiplicity of $u\left( \h{} \right)$ as a root of $\h{}$ is exactly $p^{v\left( m - k \right)}$ since 
+    % The fact that $u\left( \h{} \right)$ satisfies condition \ref{eq:unique_u} by definition, can be utilized
+    % \directorscut{
+    %   as follows
+    %   \begin{align*}
+    %     & 
+    %     u\left( \h{} \right)^{-n}\h{}\left( u\left( \h{} \right) \right) 
+    %     = 
+    %     a_m u\left( \h{} \right)^{m-n} + a_k u\left( \h{} \right)^{k-n} 
+    %     =
+    %     a_n \frac{k - n}{m - k} + a_n \frac{m - n}{k - m} 
+    %     =
+    %     -a_n
+    %     =
+    %     0 \in \kappa, 
+    %   \end{align*}
+    % }
+    % to show that it is a root of $\h{}$ in $\kappa$.
+    % Moreover, we can show that the multiplicity of $u\left( \h{} \right)$ as a root of $\h{}$ is exactly $p^{v\left( m - k \right)}$ since 
     \[
       \h{} 
       = 
@@ -624,17 +605,16 @@
     %   The more conceptual one is just by thinking of them as the corresponding geometrical terms applied to the variety cut out by that Laurent polynomial out of pucture affine line above the relevant base field.
     %   Shall I clarify any of this somewhere in the text?
     % }
-    Therefore, since we assume here that $\h{}$ is \nredir{n} and in particular integral over $R$, it follows that $\h{}$ has exactly $p^{v\left( m - k \right)}$ roots in $\overline{\F}$ lying over $u\left( \h{} \right)$, which means, according to Lemma \ref{lem:magnetic_roots_image}, that $\h{}$ has exactly $p^{v\left( m - k \right)}$ \ex roots.
+    Therefore, since we assume here that $\h{}$ is \nredex{n} and in particular integral over $R$, it follows that $\h{}$ has exactly $p^{v\left( m - k \right)}$ roots in $\overline{\F}$ lying over $1$, which means, according to Corollary \ref{cor:ex_disk}, that $\h{}$ has exactly $p^{v\left( m - k \right)}$ \ex roots.
   \end{proof}
-  We denote by $\D_\alpha$ the different ideal of $\\h{}\left( \alpha \right)$ and deduce from Lemma \ref{lem:counting_ex_roots} the following
+  We denote by $\D_\alpha$ the different ideal of $\h{}\left( \alpha \right)$ and deduce from Lemma \ref{lem:counting_ex_roots} the following
   \begin{corollary}
-    If $\alpha$ is a magnetic root of $\h{}$ with valuation $0$, then
+    If $\alpha$ is a magnetic root of $\h{}$, then
     $$v\left( \D_\alpha \right) \leq 1 - p^{-v\left( a_n \right)} + v\left( a_n \right).$$
   \end{corollary}
   \begin{proof}
-    By Lemma \ref{lem:magnetic_roots_image} the \ex roots, 
-    the image of $\alpha$ in $\overline{\kappa}$ is $u\left( \h{} \right)$, and so is the image of any other \ex root of $\h{}$ with valuation $0$.
-    However, by Lemma \ref{lem:counting_ex_roots}, $\h{}$ has at most $p^{v\left( m - k \right)}$ \ex roots of valuation $0$, and in praticular at most $p^{v\left( m - k \right)}$ whose image in $\overline{\kappa}$ is $u\left( \h{} \right)$.
+    By Corollary \ref{cor:ex_disk} the image of $\alpha$ in $\overline{\kappa}$ is $1$, and so is the image of any other \ex root of $\h{}$.
+    However, by Lemma \ref{lem:counting_ex_roots}, $\h{}$ has at most $p^{v\left( m - k \right)}$ \ex roots, and in praticular at most $p^{v\left( m - k \right)}$ whose image in $\overline{\kappa}$ is $1$.
     Therefore, the ramification degree of $\alpha$ is at most $p^{v\left( m - k \right)}$.
     Denote this ramification degree by $e$.
     Then, $1-e^{-1} + v\left( e \right)$ is a well known upper bound on the valuation of $\Deta$, the different of $\Q_p\left( \alpha \right)$ over $\Q_p$ (see for example \cite[Remark 1 to Proposition 13 of Chapter. III \S 7]{SerreLocalFields}).
