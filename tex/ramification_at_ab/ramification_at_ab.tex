@@ -359,31 +359,11 @@
     \end{enumerate}
   \end{definition} 
   
-  % it makes sense to study first the \ex roots with valuation $0$, of polynomials that have no roots of negative valuation.
-  % In retrospect, these are also the only cases that come up in the cases in which we are interested.
-  Note that if $\h{}$ is \aredex polynomial, then by considering its Newton polygon, it follows that two of its coefficients must be of valuation $0$.
-  Thus, we also make the following
-  \begin{definition}
-    If $\h{}$ is \aredex polynomial and
-    \[
-      0 = v\left( a_m \right) = v\left( a_k \right)
-    \]
-    we say that $\h{}$ is an \textbf{\nredex{n}} polynomial.
-  \end{definition}
-  % If $\h{}$ has an \inex root $\alpha$, it follows, by considering its Newton polygon, that two of its coefficients must be of the same valuation, and the third must be of at least that valuation.
-  % Thus, we make the following definition.
-  % \begin{definition}
-  %   We say that $\alpha$ is a \textbf{\ines{n}} root of $\h{}$ if 
-  %   \[
-  %     v\left( a_n \right) \geq v\left( a_m \right) = v\left( a_k \right)
-  %   \]
-  %   In this situation, we also say that $\h{}$ is an \textbf{\ines{n} polynomial}.
-  %   % We do similarly for $m$ and $k$. 
-  %   % We say that $\h{}$ is \textbf{\redex} polynomial if it is either \nredex{n}, $m$-\redex or $k$-\redex polynomial.
-  % \end{definition}
+  Note that if $\alpha$ is \aredex root of $\h{}$, then the Newton polygon of $\h{}$ has a segment of slope $0$.
+  Therefore, no loss of generality arrieses from replacing the condition that $\alpha$ is \anex root of $\h{}$ with the condition of the following
   \begin{lemma}
     \label{lem:slope_length_valuation}
-    Assume that $\h{}$ is \anredex{n} polynomial.
+    Assume that $\alpha$ is \aredex root of $\h{}$ and that the segment connecting the points $\left( k, v\left( a_k \right) \right)$ and $\left( m, v\left( a_m \right) \right)$ belong to the Newton polygon of $\h{}$ that and has slope $0$.
     Then
     \begin{enumerate}
       \item \label{item:smaller_slope_length_valuation} 
@@ -391,121 +371,40 @@
       \item \label{item:bigger_slope_length_valuation} 
       $v\left( m - k \right) 
         = 
-        v\left( a_n \right) - v\left( a_m \right)
+        v\left( a_n \right)
+        %  - v\left( a_m \right)
         % =
         % v\left( a_n \right) - v\left( a_k \right)
         .$
     \end{enumerate}
   \end{lemma}
   \begin{proof}
-    Assume that $\alpha$ is one of the \ex roots of $\h{}$ with valuation $0$.
-    Condition \ref{eq:valuation_inequality_condition} implies the equalities 
-    \[
+    Condition \ref{eq:valuation_inequality_condition} in the definition of $k$-magnetism and $ m $-magnetism implies the equalities 
+    \begin{equation}
+      \label{eq:raw_valuation_equality}
       v\left( \h{k,n}\left( \alpha \right) \right) = 
       v\left( \h{k,m}\left( \alpha \right) \right)
       \quad \text{and} \quad
       v\left( \h{m,n}\left( \alpha \right) \right) = 
       v\left( \h{m,k}\left( \alpha \right) \right)
-    \]
-    which in turn imply respectively that
+      .
+    \end{equation}
+    To simplify it, note that by our assumptions regarding the Newton polygon of $\h{}$ it follows that $v\left( a_n \right) > v\left( a_m \right) = v\left( a_k \right)$, and that since we also assume that $\h{}$ is \aredex polynomial and thus intagral and primitive over $R$, it follows that $v\left( a_m \right) = v\left( a_k \right) = 0$. 
+    Substituting these two facts into equation \ref{eq:raw_valuation_equality}, as well as the assumption that $v\left( \alpha \right) = 0$, gives the equalities
     \begin{gather}
-      v\left( m - k \right) = v\left( n - k \right) + v\left( a_n \right) - v\left( a_m \right) 
+      v\left( m - k \right) = v\left( n - k \right) + v\left( a_n \right) 
       \label{eq:first_relation_between_slope_length_valuations}
       \\
       \notag
       \text{ and } 
       \\
-      v\left( m - k \right) = v\left( n - m \right) + v\left( a_n \right) - v\left( a_k \right) 
+      v\left( m - k \right) = v\left( n - m \right) + v\left( a_n \right) 
       \label{eq:second_relation_between_slope_length_valuations}
     \end{gather}
-    However, since $v\left( a_m \right) = v\left( a_k \right)$, these two equalities imply together that $v\left( n - k \right) = v\left( n - m \right)$.
-    Since $1 = \gcd\left( n - m, n - k \right)$, it follows that $v\left( n - k \right) = v\left( n - m \right) = 0$, proving item \ref{item:smaller_slope_length_valuation}.
+    which together imply that $v\left( n - k \right) = v\left( n - m \right)$.
+    Since $1 = \gcd\left( n - m, n - k \right)$, it hence follows that $v\left( n - k \right) = v\left( n - m \right) = 0$, proving item \ref{item:smaller_slope_length_valuation}.
     Substituting back in either equation \ref{eq:first_relation_between_slope_length_valuations} or equation \ref{eq:second_relation_between_slope_length_valuations} proves item \ref{item:bigger_slope_length_valuation}.
   \end{proof}
-
-  % In light of the previous lemma, we make the following:
-  % \begin{definition}
-  %   We say that $\h{}$ is an \textbf{\nredir{n}} polynomial if 
-  %   \begin{enumerate}
-  %     \item 
-  %     % \label{item:smaller_slope_length_valuation} 
-  %     $v\left( n - k \right) = v\left( a_m \right) = v\left( n - m \right) = v\left( a_k \right) = 0$.
-  %     \item 
-  %     % \label{item:bigger_slope_length_valuation} 
-  %     $v\left( m - k \right) 
-  %       = 
-  %       v\left( a_n \right)
-  %       .$
-  %   \end{enumerate} 
-  % \end{definition}
-
-  % As the name ferromagnetic suggests, Lemme \ref{lem:slope_length_valuation} shows that every \nredex{n} polynomial is also \nredir{n}.
-  %   (Historically, the term ferromagnetic was used in Physics to describe any material that is easily magnetized.
-  %   Following the work of Louis Néel, for which he won the 1970 Physics Nobel Prize, this is not the way it is used today, but this is the context in which the analogy and the choice of the name should be understood. \editorial{add source?})
-  % We now analyze under which conditions an \nredir{n} polynomial is also \nredex{n}.
-  % % \begin{lemma}
-  % %   Assume that $\h{}$ is an \nredex{n} polynomial.
-    
-  % % \end{lemma}
-  % \begin{lemma}
-  %   \label{lem:escaping_image_equivalence}
-  %   Assume that $\h{}$ is an \nredir{n} polynomial and that $v\left( \alpha \right) = 0$.
-  %   Then $\alpha$ is \es{k} if and only if the image of $\alpha^{n - m}$ in $\overline{\kappa}^\times$ is equal to the image of $-\frac{m - k}{k - n}\frac{a_m}{a_n}$ in $\kappa^\times \hookrightarrow \overline{\kappa}^\times$.  
-  %   % \[
-  %   %   v\left( \alpha^{n - m} - \frac{m - k}{k - n}\frac{a_m}{a_n} \right) > 0 
-  %   % \]
-  % \end{lemma}
-  % \begin{proof}
-  %   By definition, $\alpha$ is \es{k} if and only if
-  %   \[
-  %     0 < v\left( 1 + \frac{\h{k,m}\left( \alpha \right)}{\h{k,n}\left( \alpha \right)} \right)
-  %      = 
-  %      v\left(  
-  %       1 + \frac{(m - k) a_m \alpha^m}{(n - k) a_n \alpha^n}
-  %      \right)
-  %   \]
-  %   % However, one of two cases occurs:
-  %   % \begin{itemize}
-  %   %   \item $v\left( a_n \right) = v\left( a_m \right)$ from which it follows that $v\left( \alpha \right) = 0$.
-  %   %   \item $v\left( a_n \right) > v\left( a_m \right)$ from which it follows by the definition of an \nredir{n} polynomial that $v\left( m - k \right) = v\left( a_n \right) - v\left( a_m \right) > 0$, and thus  
-  %   %   \[
-  %   %     0 = 
-  %   %     % v\left( 1 \right) = 
-  %   %     v\left( m - k \right) + v\left( a_m \right) - v\left( a_n \right) + \left( m - n \right) v\left( \alpha \right)
-  %   %     =
-  %   %     \left( m - n \right) v\left( \alpha \right)
-  %   %     ,
-  %   %   \] 
-  %   %   from which it follows again that $v\left( \alpha \right) = 0$.
-  %   % \end{itemize} 
-  %   % In both cases, 
-  %   We can now multiply the above inequality by $\alpha^{n - m}$ to get 
-  %   \[
-  %     0 < v\left( \alpha^{n - m} + \frac{m - k}{k - n}\frac{a_m}{a_n} \right),
-  %   \]
-  %   which is equivalent to the image of $\alpha^{n - m}$ in $\overline{\kappa}^\times$ is equal to the image of $-\frac{m - k}{k - n}\frac{a_m}{a_n}$ in $\kappa^\times \hookrightarrow \overline{\kappa}^\times$.
-  % \end{proof}
-
-  % Assume now that $\h{}$ is an \nredir{n} polynomial.
-  % Since $1 = \gcd\left( n - m, n - k \right)$, there is a unique $u \in \kappa^\times$ such that
-  % \begin{equation}
-  %   \label{eq:unique_u}
-  %   u^{n - m} = \frac{m - k}{k - n}\frac{a_m}{a_n} \in \kappa^\times
-  %   \quad \text{and} \quad
-  %   u^{n - k} = \frac{k - m}{m - n}\frac{a_k}{a_n} \in \kappa^\times.
-  % \end{equation}
-  % Thus we make the following
-  % \begin{definition}
-  %   We define $u\left( \h{} \right)$ to be the unique member of $\kappa^\times$ satisfying condition \ref{eq:unique_u}.
-  % \end{definition}
-  % \begin{lemma}
-  %   \label{lem:magnetic_roots_image}
-  %   Assume that $v\left( \alpha \right) = 0$.
-  %   Then $\alpha$ is a \ex root of $\h{}$ if and only if its image in $\overline{\kappa}^\times$ is $u\left( \h{} \right)$.
-  % \end{lemma}
-  % \begin{proof}
-  %   By Lemma \ref{lem:two_escaping_implies_ex}, $\alpha$ is \ex, if and only if it is \es{m} and \es{k}, which is equivalent by Lemma \ref{lem:escaping_image_equivalence} and the choice of $u$ to the image of $\alpha$ in $\overline{\kappa}$ being equal to $u$.
-  % \end{proof}
 
   \subsubsection{The equal valuation case \editorial{(think of a better name?)}}
   Assume now that $v\left( a_n \right) = v\left( a_m \right) = v\left( a_k \right) = 0$ and that $\h{}$ is \aredex polynomial.
@@ -515,7 +414,7 @@
     $\alpha$ is \anex root of $\h{}$ if and only if $v\left( \h{}'\left( \alpha \right) \right) > 0$.
   \end{lemma}
   \begin{proof}
-    Since the Newton polygon of $\h{}$ has only segments of slope $0$, $v\left( \alpha \right) = 0$.
+    Since the Newton polygon of $\h{}$ has only segments and its slope is $0$, $v\left( \alpha \right) = 0$.
     Therefore, since $1 = \gcd\left( m - n, k - n \right)$, it follows that 
     \[
       \min\left\{  
@@ -533,7 +432,7 @@
   \begin{proof}
     % Assume that it has \anex root.
     % Then by Lemma \ref{lem:scalability} and Lemma \ref{lem:reduction} we can assume that it has \anex above $1$, and hence, 
-    By Corollary \ref{cor:ex_disk} all of its \ex roots are above $1$.
+    By Corollary \ref{cor:ex_disk} all of its \ex roots lie above $1$.
     Therefore, it suffices to show that $1 \in \kappa$ is not a triple root of $\h{}$.
     However if it was it would have been a double root of 
     \[
@@ -543,7 +442,7 @@
       =
       x^k \left( a_m x^{m - k} + a_k \right) 
     \] 
-    contradicting the reducedness of $\left( a_m x^{m - k} + a_k \right) \leq \kappa\left[ x, x^{-1} \right]$ which follows form the fact that $v\left( m - k \right) = 0$ which follows in turn from Lemma \ref{lem:slope_length_valuation} and the fact that $\h{}$ is an \es{n} reduced polynomial.
+    contradicting the reducedness of $\left( a_m x^{m - k} + a_k \right) \leq \kappa\left[ x, x^{-1} \right]$ which follows form the fact that $v\left( m - k \right) = 0$ which follows in turn from Lemma \ref{lem:slope_length_valuation} whose conditions we assume above.
   \end{proof}
 
   \begin{corollary}
@@ -556,7 +455,7 @@
   %   If $v_p\left( ab \right) = 0$ then the inertia group at any place above $p$ acts on the roots of $f$ either trivially or as a single transposition.
   % \end{corollary}
 \subsubsection{The non equal valuation case \editorial{(think of a better name?)}}
-  Assume now that $\h{}$ is an \nredex{n} polynomial with 
+  Assume now that $\h{}$ is an \redex polynomial with    
   \[
     v\left( m - k \right) = v\left( a_n \right) > 0.
   \]
@@ -596,7 +495,7 @@
       \right)^{p^{v\left( m - k \right)}}
       \in \kappa\left[ x \right]
     \]
-    and $\left( a_m^{\left( p^{-v\left( m - k \right)} \right)} x^{\frac{m - k}{p^{v\left( m - k \right)}}} + a_k^{\left( p^{-v\left( m - k \right)} \right)} \right) \leq \kappa\left[ x, x^{-1} \right]$ is reduced.
+    and $\left( a_m^{\left( p^{-v\left( m - k \right)} \right)} x^{\frac{m - k}{p^{v\left( m - k \right)}}} + a_k^{\left( p^{-v\left( m - k \right)} \right)} \right) \subseteq`' \kappa\left[ x, x^{-1} \right]$ is reduced.
     % \editorial{
     %   Note that $a_m^{\left( p^{-v\left( m - k \right)} \right)} x^{\frac{m - k}{p^{v\left( m - k \right)}}} + a_k^{\left( p^{-v\left( m - k \right)} \right)}$ is not necesarilly a polynomial as the exponent of $x$ might be negative. 
     %   Is it clear what I mean by it being separable?
@@ -605,7 +504,7 @@
     %   The more conceptual one is just by thinking of them as the corresponding geometrical terms applied to the variety cut out by that Laurent polynomial out of pucture affine line above the relevant base field.
     %   Shall I clarify any of this somewhere in the text?
     % }
-    Therefore, since we assume here that $\h{}$ is \nredex{n} and in particular integral over $R$, it follows that $\h{}$ has exactly $p^{v\left( m - k \right)}$ roots in $\overline{\F}$ lying over $1$, which means, according to Corollary \ref{cor:ex_disk}, that $\h{}$ has exactly $p^{v\left( m - k \right)}$ \ex roots.
+    Therefore, since we assume here that $\h{}$ is \aredex polynomial and in particular integral over $R$, it follows that $\h{}$ has exactly $p^{v\left( m - k \right)}$ roots in $\overline{\F}$ lying over $1$, which means, according to Corollary \ref{cor:ex_disk}, that $\h{}$ has exactly $p^{v\left( m - k \right)}$ \ex roots.
   \end{proof}
   We denote by $\D_\alpha$ the different ideal of $\h{}\left( \alpha \right)$ and deduce from Lemma \ref{lem:counting_ex_roots} the following
   \begin{corollary}
