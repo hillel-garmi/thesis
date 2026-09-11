@@ -544,6 +544,7 @@
     and hence either $v\left( m-n \right) = 0$ in which case $v\left( \alpha \h{}'\left( \alpha \right) \right) \leq v\left( a_m \alpha^m \right)$ or $v\left( k - n \right) = 0$ in which case $v\left( \alpha \h{}'\left( \alpha \right) \right) \leq v\left( a_k \alpha^k \right)$.
   \end{proof}
   \begin{corollary}
+    \label{cor:es_bound}
     If $\alpha$ is a non \ex root of $\h{}$ then
     \[
       v\left( \alpha \h{}'\left( \alpha \right) \right) 
@@ -588,7 +589,24 @@
         a_m \alpha^m,
         a_k \alpha^k
       \right\}
+      .
     \end{align*} 
+  \end{proof}
+
+  Just like in the case of \ref{lem:slope_length_valuation}, the condition that $\alpha$ is a non \ex root of $\h{}$ is just as general as the condition of the following
+  \begin{corollary}
+    If $\alpha$ is a non \ex root of $\h{}$, and the segment connecting the points $\left( m, v\left( a_m \right) \right)$ and $\left( n, v\left( a_n \right) \right)$ belong to the Newton polygon of $\h{}$ and its slope is $-v\left( \alpha \right)$, then
+    \[
+      v\left( \alpha \h{}'\left( \alpha \right) \right) 
+      \leq
+      v\left( a_k \right) + \frac{k}{n - m}v\left( \frac{a_m}{a_n} \right)
+    \]
+  \end{corollary}
+  \begin{proof}
+    Let $j = n,k,m$. 
+    $v\left( a_j \alpha^j \right)$ is the $y$-coordinate of the intersection point of the $x$-axis with the line that passes through the point $\left( j, v\left( a_j \right) \right)$ and that has slope $-v\left( \alpha \right)$, i.e., that is parallel to the segment connecting the points $\left( m, v\left( a_m \right) \right)$ and $\left( n, v\left( a_n \right) \right)$.
+    This line is weakly above the segment connecting the points $\left( m, v\left( a_m \right) \right)$ and $\left( n, v\left( a_n \right) \right)$.
+    Therefore, $j = k$ gives the maximum value of $v\left( a_j \alpha^j \right)$ and hence the result follows from Corollary \ref{cor:es_bound}.
   \end{proof}
 
   \begin{corollary}
