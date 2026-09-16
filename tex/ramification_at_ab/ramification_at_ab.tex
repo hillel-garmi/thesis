@@ -344,8 +344,8 @@
   \begin{proof}
     The equivalence of conditions \ref{item:coherence} and \ref{item:symmetric} follows by direct computation.
     If condition \ref{item:ex} holds then so does \ref{item:coherence} by Corollary \ref{cor:ex_disk}.
-    Assume conversely that condition holds.
-    Then by Corollary \ref{cor:ex_disk} $\h{}$ is parto of \anex pair and hence by Lemma \ref{lem:ex_lift} condition \ref{item:ex} holds.
+    Assume conversely that condition \ref{item:coherence} holds.
+    Then by Corollary \ref{cor:ex_disk} $\h{}$ is part of \anex pair and hence by Lemma \ref{lem:ex_lift} condition \ref{item:ex} holds.
   \end{proof} 
       
   \subsection{Reduced magnetic roots}
@@ -455,7 +455,7 @@
   %   If $v_p\left( ab \right) = 0$ then the inertia group at any place above $p$ acts on the roots of $f$ either trivially or as a single transposition.
   % \end{corollary}
 \subsubsection{The non equal valuation case \editorial{(think of a better name?)}}
-  Assume now that $\h{}$ is an \redex polynomial with    
+  Assume now that $\h{}$ is a \redex polynomial with    
   \[
     v\left( m - k \right) = v\left( a_n \right) > 0.
   \]
@@ -495,7 +495,7 @@
       \right)^{p^{v\left( m - k \right)}}
       \in \kappa\left[ x \right]
     \]
-    and $\left( a_m^{\left( p^{-v\left( m - k \right)} \right)} x^{\frac{m - k}{p^{v\left( m - k \right)}}} + a_k^{\left( p^{-v\left( m - k \right)} \right)} \right) \subseteq`' \kappa\left[ x, x^{-1} \right]$ is reduced.
+    and $\left( a_m^{\left( p^{-v\left( m - k \right)} \right)} x^{\frac{m - k}{p^{v\left( m - k \right)}}} + a_k^{\left( p^{-v\left( m - k \right)} \right)} \right) \subseteq \kappa\left[ x, x^{-1} \right]$ is reduced.
     % \editorial{
     %   Note that $a_m^{\left( p^{-v\left( m - k \right)} \right)} x^{\frac{m - k}{p^{v\left( m - k \right)}}} + a_k^{\left( p^{-v\left( m - k \right)} \right)}$ is not necesarilly a polynomial as the exponent of $x$ might be negative. 
     %   Is it clear what I mean by it being separable?
@@ -519,6 +519,15 @@
     Then, $1-e^{-1} + v\left( e \right)$ is a well known upper bound on the valuation of $\Deta$, the different of $\Q_p\left( \alpha \right)$ over $\Q_p$ (see for example \cite[Remark 1 to Proposition 13 of Chapter. III \S 7]{SerreLocalFields}).
     However, $1 - e^{-1} + v\left( e \right) \leq 1 - p^{-\maxpval} + \maxpval$ and hence the result follows. 
   \end{proof}
+
+  % \subsection{Summerizing ramification data at \ex roots}
+  % \begin{corollary}
+  %   If $\h{}$ has \anex root, then:
+  %   \begin{enumerate}
+  %     \item If the points $(n, v(a_n)), \left( k, v(a_k) \right)$ then $\left( m, v(a_m) \right)$ are collinear and the inertia group acts on the roots of $\h{}$ as a single transposition.
+  %     \item If the points $(n, v(a_n)), \left( k, v(a_k) \right)$ and $\left( m, v(a_m) \right)$ are not collinear then 
+  %   \end{enumerate}
+  % \end{corollary}
 
   \subsection{The derivative at non \ex roots}
   \begin{lemma}
