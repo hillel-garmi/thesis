@@ -1,0 +1,63 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\section{Examples}
+\subsection{$\lcm\left( a,b \right) = 1$}
+
+\subsection{$\lcm\left( a,b \right) = 2$}
+\subsubsection{$\left| a \right| = 2, \left| b \right| = 1$}
+\begin{lemma}
+  Assume that $n > 7$.
+  Then one of two cases occurs:
+  \begin{enumerate}
+    \item $f\left( 1 \right)f\left( -1 \right) \neq 0$ and $f$ is irreducible.
+    \item $f\left( 1 \right)f\left( -1 \right) = 0$ and $f$ factors into $x \pm 1$ times an irreducible factor.
+  \end{enumerate}
+\end{lemma}
+\begin{proof}
+  From \cite[p. 248]{filaseta2002irreducibility} it follows that the non cyclotomic part of $f$ is irreducible.
+  However, if $\zeta$ is a root of unity and 
+  $
+    \left| \zeta^n \pm 1 \right| = \left| 2\zeta^k \right|
+  $
+  then 
+  $
+    \zeta^n,\zeta^k \in \left\{ \pm 1 \right\}
+  $
+  and hence $\zeta = \pm 1$.
+  Moreover, it is easy to see that $\pm 1$ can not both be roots of $f$ and that neither of them is a double root and hence the cyclotomic part of $f$ is either $1$ or $x \pm 1$.
+\end{proof}
+\begin{lemma}
+  $\Q\left( i \right)$ can not be embedded into $\Q\left[ x \right]/ \left( f \right)$.
+\end{lemma}
+\begin{proof}
+  Assume first that $f\left( 1 \right)f\left( -1 \right) \neq 0$ and hence $f$ is irreducible.
+  It suffices to show that $f$ has a real root.
+  However, for $f$ to not have a real root, $n$ must be even $k$ must be odd and $b$ must be $1$ and it can be verified that in such a case $0 = f\left( 1 \right)f\left( -1 \right)$ which is a contradiction.
+  
+  Assume now that $f\left( 1 \right)f\left( -1 \right) = 0$ and let $g$ be the non-linear factor of $f$.
+  For $g$ to not have a real root, $n$ must be odd, however in this case $f$ is separable over $\F_2$ and hence so does $g$ and hence $L$ is an unramified above $2$ and in particular can not contain $\Q\left( i \right)$.
+\end{proof}
+
+\subsubsection{$\left| a \right| = 1, \left| b \right| = 2$}
+\begin{lemma}
+  % Assume that $b$ is prime in $\Z$.
+  Let $K$ be a number field and $\pi \in \O_K$ a prime for which 
+  \[
+    1 = \gcd\left( k, v_{\left( \pi \right)}\left( b \right) \right)
+    \quad 
+    \text{ and }
+    \quad
+    0 = v_{\left( \pi \right)}\left( b \right)
+  \]
+  Then one of two cases occurs
+  \begin{enumerate}
+    \item $f\left( 1 \right)f\left( -1 \right) \neq 0$ and $f$ is irreducible over $K$.
+    \item $f\left( 1 \right)f\left( -1 \right) = 0$ and $f$ factors into $x \pm 1$ times a polynomial that is irreducible over $K$.
+  \end{enumerate}
+\end{lemma}
+\begin{proof}
+  Assume that $f = f_0 f_1$ for some monic $f_0, f_1 \in K\left[ x \right]$.
+  By considering the Newton polygon of $f$ with respect to $\pi$ it follows that 
+\end{proof}
+\end{document}

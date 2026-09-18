@@ -264,7 +264,7 @@
     \end{enumerate}
   \end{lemma}
   \begin{proof}
-    According to Corollary \ref{cor:ex_disk}, $\pi\left( \alpha \right) = \q{n}{m}^r \q{m}{k}^s$ when $r$ and $s$ are as defined in Lemma \ref{cor:ex_equivalent_conditions}.
+    According to Corollary \ref{cor:ex_disk}, $\pi\left( \alpha \right) = \q{n}{m}^r \q{m}{k}^s$ when $r$ and $s$ are as defined in Lemma \ref{cor:ex_disk}.
     Since $\q{n}{m}^r \q{m}{k}^s \in \rpu$, we can choose $q \in \F$ for which $\pi\left( q \right) = \q{n}{m}^r \q{m}{k}^s$.
     Therefore, $\pi\left( q^{-1}\alpha \right) = 1$ and in particular $v\left( q^{-1}\alpha \right) = 0$.
     Since $\h{}\left( qx \right)$ is a trinomial, its Newton polygon has at most two segments, and hence the set of valuations of its roots is of cardinality at most $2$.
@@ -363,7 +363,7 @@
   Therefore, no loss of generality arrieses from replacing the condition that $\alpha$ is \anex root of $\h{}$ with the condition of the following
   \begin{lemma}
     \label{lem:slope_length_valuation}
-    Assume that $\alpha$ is \aredex root of $\h{}$ and that the segment connecting the points $\left( k, v\left( a_k \right) \right)$ and $\left( m, v\left( a_m \right) \right)$ belong to the Newton polygon of $\h{}$ that and has slope $0$.
+    Assume that $\alpha$ is \aredex root of $\h{}$ and that the segment connecting the points $\left( k, v\left( a_k \right) \right)$ and $\left( m, v\left( a_m \right) \right)$ belong to the Newton polygon of $\h{}$ and has slope $0$.
     Then
     \begin{enumerate}
       \item \label{item:smaller_slope_length_valuation} 
@@ -405,6 +405,7 @@
     Since $1 = \gcd\left( n - m, n - k \right)$, it hence follows that $v\left( n - k \right) = v\left( n - m \right) = 0$, proving item \ref{item:smaller_slope_length_valuation}.
     Substituting back in either equation \ref{eq:first_relation_between_slope_length_valuations} or equation \ref{eq:second_relation_between_slope_length_valuations} proves item \ref{item:bigger_slope_length_valuation}.
   \end{proof}
+  According to item \ref{item:bigger_slope_length_valuation} of Lemma \ref{lem:slope_length_valuation} we can classify the \redex polynomials into two kinds:
 
   \subsubsection{The equal valuation case \editorial{(think of a better name?)}}
   Assume now that $v\left( a_n \right) = v\left( a_m \right) = v\left( a_k \right) = 0$ and that $\h{}$ is \aredex polynomial.
@@ -552,6 +553,30 @@
     $
     and hence either $v\left( m-n \right) = 0$ in which case $v\left( \alpha \h{}'\left( \alpha \right) \right) \leq v\left( a_m \alpha^m \right)$ or $v\left( k - n \right) = 0$ in which case $v\left( \alpha \h{}'\left( \alpha \right) \right) \leq v\left( a_k \alpha^k \right)$.
   \end{proof}
+
+  Just like in the case of \ref{lem:slope_length_valuation}, the condition that $\alpha$ is a non \ex root of $\h{}$ is just as general as the condition of the following
+  \begin{corollary}
+    If $\alpha$ is a non \ex root of $\h{}$, and the segment connecting the points $\left( m, v\left( a_m \right) \right)$ and $\left( n, v\left( a_n \right) \right)$ belong to the Newton polygon of $\h{}$ and its slope is $-v\left( \alpha \right)$, then one of two cases occurs:
+    \begin{enumerate}
+      \item 
+      $$
+        v\left( \alpha \h{}'\left( \alpha \right) \right)
+        \leq 
+        \frac{
+          n v\left( a_m \right) - m v\left( a_n \right)
+        }{
+          n - m
+        }.
+      $$
+      \item  
+    \end{enumerate}
+    \[
+      v\left( \alpha \h{}'\left( \alpha \right) \right) 
+      \leq
+      v\left( a_k \right) + \frac{k}{n - m}v\left( \frac{a_m}{a_n} \right)
+    \]
+  \end{corollary}
+
   \begin{corollary}
     \label{cor:es_bound}
     If $\alpha$ is a non \ex root of $\h{}$ then
@@ -619,22 +644,52 @@
   \end{proof}
 
   \begin{corollary}
-    If $\alpha$ is a non \ex root of $\h{}$, $a_n = 1$ and $m = 0$ then:
+    If $\alpha$ is a non \ex root of $f$, then:
       \begin{enumerate}
-        \item The Newton polygon of $\h{}$ has only one segment and $v\left( \embeddedroot \h{}'\left( \embeddedroot \right) \right) \leq v\left( a_k \right) + \frac{k}{n}v\left( a_0 \right)$.
-        \item $\embeddedroot$ is associated with the leftmost segment of the Newton polygon of $\h{}$ and $v\left( \embeddedroot \h{}'\left( \embeddedroot \right) \right) \leq \frac{n}{k} v\left( \frac{a_0}{a_k} \right)$
-        \item $\embeddedroot$ is associated with the rightmost segment of the Newton polygon of $\h{}$ and $v\left( \embeddedroot \h{}'\left( \embeddedroot \right) \right) \leq v\left( a_0 \right)$.
+        \item The Newton polygon of $f$ has only one segment and $v\left( \embeddedroot f'\left( \embeddedroot \right) \right) \leq v\left( a \right) + \frac{k}{n}v\left( b \right)$.
+        \item $\embeddedroot$ is associated with the leftmost segment of the Newton polygon of $f$ and $v\left( \embeddedroot f'\left( \embeddedroot \right) \right) \leq \frac{n}{k} v\left( \frac{b}{a} \right)$
+        \item $\embeddedroot$ is associated with the rightmost segment of the Newton polygon of $f$ and $v\left( \embeddedroot f'\left( \embeddedroot \right) \right) \leq v\left( b \right)$.
       \end{enumerate}
   \end{corollary}
   \begin{corollary}
-    If $\alpha$ is a non \ex root of $\h{}$ then one of the following occurs:
+    If $\alpha$ is a non \ex root of $f$ then one of the following occurs:
       \begin{enumerate}
-        \item The Newton polygon of $\h{}$ has only one segment and $v\left( \h{}'\left( \embeddedroot \right) \right) \leq v\left( a_k \right) + \frac{k - 1}{n}v\left( a_0 \right)$.
-        \item $\embeddedroot$ is associated with the leftmost segment of the Newton polygon of $\h{}$ and $v\left( \h{}'\left( \embeddedroot \right) \right) \leq \frac{n - 1}{k} v\left( \frac{a_0}{a_k} \right)$
-        \item $\embeddedroot$ is associated with the rightmost segment of the Newton polygon of $\h{}$ and $v\left( \h{}'\left( \embeddedroot \right) \right) \leq v\left( a_0 \right) - \frac{1}{n - k}v\left( a_k \right)$.
+        \item The Newton polygon of $f$ has only one segment and $v\left( f'\left( \embeddedroot \right) \right) \leq v\left( a \right) + \frac{k - 1}{n}v\left( b \right)$.
+        \item $\embeddedroot$ is associated with the leftmost segment of the Newton polygon of $f$ and $v\left( f'\left( \embeddedroot \right) \right) \leq \frac{n - 1}{k} v\left( \frac{b}{a} \right)$
+        \item $\embeddedroot$ is associated with the rightmost segment of the Newton polygon of $f$ and $v\left( f'\left( \embeddedroot \right) \right) \leq v\left( b \right) - \frac{1}{n - k}v\left( a \right)$.
       \end{enumerate}
   \end{corollary}
   \subsection{The discriminant}
+  Let 
+  \[
+    A\left( f, p, d \right) = 
+    \begin{cases}
+      d v_p\left( a \right) + \ppart{a} - 1 
+      & 
+      v_p\left( b \right) = 0 \text{ and } v_p\left( n \right) = v_p\left( a \right) 
+      \\ 
+      d \left( v_p\left( a \right) + \frac{k-1}{n}v_p\left( b \right) \right) 
+      &  
+      \begin{pmatrix}
+        \begin{pmatrix}
+          v_p\left( b \right) > 0 \text{ or } v_p\left( n \right) \neq v_p\left( a \right)
+        \end{pmatrix}
+        \\
+        \text{ and } N_p\left( f \right) \text{ has one segment } 
+      \end{pmatrix} \\
+      \left( 2n - k - 1 \right)v_p\left( b \right) + \ppart{b} - 1 
+      & 
+      v_p\left( a \right) = 0 \text{ and } v_p\left( n - k \right) = v_p\left( b \right)
+      \\
+      \left( 2n - k - 1 \right)v_p\left( b \right) - n v_p\left( a \right) 
+      & 
+      \begin{pmatrix}
+        v_p\left( a \right) > 0  \text{ or } v_p\left( n - k \right) \neq v_p\left( b \right)
+        \\
+        \text{ and } N_p\left( f \right) \text{ has two segments }
+      \end{pmatrix}
+    \end{cases}
+  \]
   Recall that we use $g$ to denote some factor of $f$.
   \begin{lemma}
     
