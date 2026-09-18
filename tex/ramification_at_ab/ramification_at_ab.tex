@@ -554,28 +554,91 @@
     and hence either $v\left( m-n \right) = 0$ in which case $v\left( \alpha \h{}'\left( \alpha \right) \right) \leq v\left( a_m \alpha^m \right)$ or $v\left( k - n \right) = 0$ in which case $v\left( \alpha \h{}'\left( \alpha \right) \right) \leq v\left( a_k \alpha^k \right)$.
   \end{proof}
 
-  Just like in the case of \ref{lem:slope_length_valuation}, the condition that $\alpha$ is a non \ex root of $\h{}$ is just as general as the condition of the following
-  \begin{corollary}
-    If $\alpha$ is a non \ex root of $\h{}$, and the segment connecting the points $\left( m, v\left( a_m \right) \right)$ and $\left( n, v\left( a_n \right) \right)$ belong to the Newton polygon of $\h{}$ and its slope is $-v\left( \alpha \right)$, then one of two cases occurs:
-    \begin{enumerate}
-      \item 
-      $$
-        v\left( \alpha \h{}'\left( \alpha \right) \right)
-        \leq 
-        \frac{
-          n v\left( a_m \right) - m v\left( a_n \right)
-        }{
-          n - m
-        }.
-      $$
-      \item  
-    \end{enumerate}
-    \[
+  Just like in the case of Lemma \ref{lem:slope_length_valuation}, the condition that $\alpha$ is a non \ex root of $\h{}$ is just as general as the condition of the following
+  \begin{lemma}
+    If $\alpha$ is a non \ex root of $\h{}$, and the segment connecting the points $\left( m, v\left( a_m \right) \right)$ and $\left( n, v\left( a_n \right) \right)$ belong to the Newton polygon of $\h{}$ and its slope is $-v\left( \alpha \right)$, then
+    either
+    \begin{gather}
+      v\left( \alpha \h{}'\left( \alpha \right) \right)
+      \leq 
+      \frac{
+        n v\left( a_m \right) - m v\left( a_n \right)
+      }{
+        n - m
+      }
+      \label{item:non_k_es}
+      \\
+      \text{ or }
+      \nonumber
+      \\
+      v\left( n - m \right) 
+      >
+      0
+      \quad
+      \text{ and }
+      \quad
       v\left( \alpha \h{}'\left( \alpha \right) \right) 
       \leq
-      v\left( a_k \right) + \frac{k}{n - m}v\left( \frac{a_m}{a_n} \right)
-    \]
-  \end{corollary}
+      v\left( a_k \right) + \frac{k}{n - m}v\left( \frac{a_m}{a_n} \right).
+      \label{item:k_es} 
+    \end{gather}
+    % one of two cases occurs:
+    % \begin{enumerate}
+    %   \item \label{item:non_k_es}
+    %   $$
+    %     v\left( \alpha \h{}'\left( \alpha \right) \right)
+    %     \leq 
+    %     \frac{
+    %       n v\left( a_m \right) - m v\left( a_n \right)
+    %     }{
+    %       n - m
+    %     }.
+    %   $$
+    %   \item \label{item:k_es} 
+    %   % All of the following hold:
+    %   % \begin{enumerate}[label=(\alph*)]
+    %   %   % \item \label{subitem:k_es} 
+    %   %   % $\alpha$ is a \es{k} root of $\h{}$.
+    %   %   \item  
+    %     $$
+    %       v\left( n - m \right) 
+    %       >
+    %       0
+    %       % \frac{
+    %       %   \left( n - m \right)v\left( a_k \right) 
+    %       %   + 
+    %       %   \left( m - k \right)v\left( a_n \right)
+    %       %   +
+    %       %   \left( k - n \right)v\left( a_m \right)
+    %       % }{
+    %       %   n - m
+    %       % } 
+    %       % v\left( a_k \right) - v\left( a_m \right) + \frac{k - m}{n - m} v\left( \frac{a_m}{a_n} \right)
+    %       % .
+    %     % $$
+    %     % or equivalently, $v\left( n - m \right)$ is larger than the $y$-axis difference between the line containing the points $\left( m, v\left( a_m \right) \right)$ and $\left( n, v\left( a_n \right) \right)$ and the line parallel to it that passes through the point $\left( k, v\left( a_k \right) \right)$.
+    %     % \item 
+    %     % $$
+    %       \quad
+    %       \text{ and }
+    %       \quad
+    %       v\left( \alpha \h{}'\left( \alpha \right) \right) 
+    %       \leq
+    %       v\left( a_k \right) + \frac{k}{n - m}v\left( \frac{a_m}{a_n} \right).
+    %     $$
+    %   % \end{enumerate}
+    % \end{enumerate}
+  \end{lemma}
+  \begin{proof}
+    Assume that case \ref{item:non_k_es} does not hold.
+    We will show that case \ref{item:k_es} does.
+    One can verify that the bound of case \ref{item:non_k_es} equals to $v\left( a_m \alpha^m \right) = v\left( a_n \alpha^n \right)$.
+    Therefore according to Lemma \ref{lem:n_es_bound}, $\alpha$ is a \es{k} root. 
+    Since $\alpha$ is assumed to not be \ex, it hence follows, according to Lemma \ref{lem:two_escaping_implies_ex} that it is neither \es{m} nor \es{n}.
+    Consequently, 
+    $$v\left( \alpha \h{}'\left( \alpha \right) \right) \leq v\left( \left( n - m \right)a_n \alpha^n \right) = v\left( \left( n - m \right)a_m \alpha^m \right).$$
+    For this inequality to coexist with $\alpha$ being neither \es{m} nor \es{n} and the mentioned fact that the bound of case \ref{item:non_k_es} equals to $v\left( a_m \alpha^m \right) = v\left( a_n \alpha^n \right)$, $v\left( n - m \right)$ must be positive.
+  \end{proof}
 
   \begin{corollary}
     \label{cor:es_bound}
