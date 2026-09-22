@@ -52,12 +52,13 @@
 \newcommand{\maxpval}{\max\left( v_p\left( a \right), v_p\left( b \right) \right)}
 \newcommand{\minpval}{\min\left( v_p\left( a \right), v_p\left( b \right) \right)}
 \newcommand{\maxppart}{p^{\maxpval}}
-\newcommand{\exrootscountbound}{p^{v_p\left( ab \right)}}
+\newcommand{\exrtscntbndval}{\max\left( v_p\left( a \right), v_p\left( b / a \right) \right)}
+\newcommand{\exrootscountbound}{p^{\exrtscntbndval}}
 \newcommand{\minppart}{p^{\minpval}}
 % \newcommand{\maxppart}{\ppart{\lcm\left( a,b \right)}}
 \newcommand{\minpnorm}{\pnorm{\lcm\left( a,b \right)}}
 % \newcommand{\diffbnd}{1 - \minpnorm + \maxpval}
-\newcommand{\diffbnd}{1 + v_p\left( ab \right)}
+\newcommand{\diffbnd}{1 + \exrtscntbndval}
 \newcommand{\error}{\maxppart - 1}
 % \newcommand{\asmptbnd}{\deg L \cdot \maxpval}
 \newcommand{\discbnd}{\deg L \cdot \maxpval + \error}

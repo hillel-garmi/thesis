@@ -489,7 +489,7 @@
 
   \begin{corollary}\label{cor:ex_bound}
     Assume that $p| ab$.
-    Then $f$ has at most $\ppart{ab}$ \ex roots above $\Q_p$ and for each such root $\alpha$, 
+    Then $f$ has at most $\exrootscountbound$ \ex roots above $\Q_p$ and for each such root $\alpha$, 
     \[
       v_p\left( \Deta \right) \leq \diffbnd.
     \]
@@ -506,7 +506,7 @@
     In particular it follows that $\alpha$ has at most $\exrootscountbound$ conjugates above $\Q_p$ and hence its ramification degree is at most $\exrootscountbound$.
     Denote this ramification degree by $e$.
     Then, $1-e^{-1} + v_p\left( e \right)$ is a well known upper bound on the valuation of $\Deta$, the different of $\Q_p\left( \alpha \right)$ over $\Q_p$ (see for example \cite[Remark 1 to Proposition 13 of Chapter. III \S 7]{SerreLocalFields}).
-    However, $$1 - e^{-1} + v_p\left( e \right) \leq 1 + v_p\left( e \right) \leq 1 + v_p\left( p^{v_p\left( ab \right)} \right) = 1 + v_p\left( ab \right)$$ and hence the result follows.
+    However, $$1 - e^{-1} + v_p\left( e \right) \leq 1 + v_p\left( e \right) \leq 1 + v_p\left( \exrootscountbound \right) = 1 + \exrtscntbndval$$ and hence the result follows.
   \end{proof}
 
   % \subsection{Summerizing ramification data at \ex roots}
@@ -661,7 +661,13 @@
     \[
       v_p\left( \disc\left( L \right) \right)
       \leq
-      nv_p\left( ab \right) + \exrootscountbound.
+      nv_p\left( ab \right) + \exrootscountbound
+    \]
+    and if the Newton polygon of $f$ consists of two segments of different slopes then  
+    \[
+      v_p\left( \disc\left( L \right) \right)
+      \leq
+      nv_p\left( b \right) + \exrootscountbound
     \]
     % and if $\deg\left( g \right) > \exrootscountbound$ then $g$ has at least one root $\alpha$ for which 
     % \[
@@ -683,15 +689,19 @@
     \]
     and therefore by Corollary \ref{cor:ex_bound},    
     \begin{align*}
+      &
       v_p\left( \disc\left( L \right) \right)
       =
-      &
       \sum_{\alpha} v_p\left( \Deta \right)
-      \leq
+      \leq 
+      \\
+      &
       \left( n - \exrootscountbound \right) v_p\left( ab \right)
       +
       \exrootscountbound \left( \diffbnd \right)
       \leq
+      \\
+      &
       nv_p\left( ab \right) + \exrootscountbound
       .
     \end{align*}
@@ -719,22 +729,27 @@
     \]
     Therefore, according to Corollary \ref{cor:ex_bound},    
     \begin{align*}
-      v_p\left( \disc\left( L \right) \right)
-      =
       &
+      v_p\left( \disc\left( L \right) \right)
+      = 
       \sum_{\alpha} v_p\left( \Deta \right)
       \leq
+      \\
+      &
       \left( n - \exrootscountbound \right) v_p\left( b \right)
       +
       \exrootscountbound \left( \diffbnd \right)
       \leq
-      nv_p\left( ab \right) + \exrootscountbound
+      \\
+      &
+      nv_p\left( b \right) + \exrootscountbound
       .
     \end{align*}
 
 
     Assume finally that the Newton polygon of $f$ consists of two segments of different slopes and that $v\left( n - k \right) = 0$.
-    Then, according to condition \ref{item:k_es} of Corollary \ref{cor:explicit_non_ex_bound}, for each non \ex root $\alpha$ of $f$ whose valuation is equal to minus the slope of the rightmost segment of the Newton polygon of $f$,
+    Note that in this case according to Lemma \ref{lem:slope_length_valuation} the valuation of the \ex roots of $f$ is minus the slope of the leftmost segment of the Newton polygon of $f$. 
+    Therefore, according to condition \ref{item:k_es} of Corollary \ref{cor:explicit_non_ex_bound}, for each root $\alpha$ of $f$ whose valuation is equal to minus the slope of the rightmost segment of the Newton polygon of $f$,
     \[
       v_p\left( \Deta \right) 
       \leq
@@ -746,9 +761,9 @@
         n - k
       }
       =
-      \frac{n v_p\left( a \right)}{n - k}
+      \frac{n}{n - k}v_p\left( a \right)
     \]
-    and according to condition \ref{item:non_k_es} of Corollary \ref{cor:explicit_non_ex_bound} for each non \ex root $\alpha$ of $f$ whose valuation is equal to minus the slope of the leftmost segment of the Newton polygon of $f$,
+    Similarly, according to condition \ref{item:non_k_es} of Corollary \ref{cor:explicit_non_ex_bound} for each non \ex root $\alpha$ of $f$ whose valuation is equal to minus the slope of the leftmost segment of the Newton polygon of $f$,
     \[
       v_p\left( \Deta \right) 
       \leq
@@ -760,17 +775,43 @@
     \]
     Therefore, according to Corollary \ref{cor:ex_bound},    
     \begin{align*}
+      &
       v_p\left( \disc\left( L \right) \right)
       =
-      &
       \sum_{\alpha} v_p\left( \Deta \right)
       \leq
-      \left( n - \exrootscountbound \right) v_p\left( b \right)
+      \\
+      &
+      \left( n - k \right)\frac{n}{ n - k } v_p\left( a \right)
       +
+      \left( k - \exrootscountbound \right) \frac{n}{k} v_p\left( b / a \right)
+      +
+      \\
+      &
       \exrootscountbound \left( \diffbnd \right)
       \leq
+      \\
+      &
       nv_p\left( ab \right) + \exrootscountbound
       .
     \end{align*}
+    However, it can be shown, since the Newton polygon of $f$ has two segments of different slopes, that
+    \[
+      \exrootscountbound \leq \frac{n}{k} v_p\left( b / a \right)
+    \]
+    and hence the previous inequality implies that
+    \[
+      v_p\left( \disc\left( L \right) \right)
+      \leq
+      \left( n - k \right)\frac{n}{ n - k } v_p\left( a \right)
+      +
+      k \frac{n}{k} v_p\left( b / a \right)
+      +
+      \exrootscountbound
+      =
+      % \\
+      % & 
+      n v_p\left( b \right) + \exrootscountbound
+    \]
   \end{proof}
 \end{document}
