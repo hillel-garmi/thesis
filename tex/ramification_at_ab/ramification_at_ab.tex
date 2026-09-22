@@ -47,7 +47,7 @@
   Note that 
   \begin{align}
     \label{eq:valuation_inequality_condition}
-    & v\left( \h{n}\left( \alpha \right) \right) 
+    & v\left( \alpha\h{n}\left( \alpha \right) \right) 
     > 
     \min\left\{  
       v\left( \h{n,m}\left( \alpha \right) \right), 
@@ -63,6 +63,7 @@
   i.e. if and only if 
   \begin{equation}
     \label{eq:principal_unit_condition}
+    \q{n}{m} :=
     -\frac{\h{n,m}\left( \alpha \right)}{\h{n,k}\left( \alpha \right)}
     =
     -\frac{
@@ -72,20 +73,16 @@
     }
     \text{ is a principal unit.}
   \end{equation}
-  To state the last condition in a more useful language, we will introduce some more notation: 
-  Let $\pu$ and $\rpu$ be the groups of principal units in $\overline{\F}$ and $\F$ respectively, i.e the groups of elements in the respective fields whose difference from $1$ has positive valuation. 
-  Let 
-  \[
-    \pi: \overline{\F}^\times \to \frac{\overline{\F}^\times}{\pu}
-  \]
-  the canonical quotient map and let 
-  \[
-    \q{n}{m} = -\frac{
-      \left( m - n \right)a_m
-    }{
-      \left( k - n \right)a_k
-    }
-  \]
+  To state the last condition in a more useful language, we make the following
+  \begin{definition}
+    \label{def:pi}
+    Let $\pu$ be the groups of principal units in $\overline{\F}$, i.e the groups of elements in the respective fields whose difference from $1$ has positive valuation. 
+    Let 
+    \[
+      \pi: \overline{\F}^\times \to \frac{\overline{\F}^\times}{\pu}
+    \]
+    be the canonical quotient map. 
+  \end{definition} 
   In this language condtion \ref{eq:principal_unit_condition} can be stated as
   \begin{equation}
     \label{eq:mod_principal_units_condition}
@@ -97,19 +94,21 @@
   Since $\F\left[ x, x^{-1} \right]^\times = \F^\times x^{\Z}$, if condition \ref{eq:mod_principal_units_condition} holds for $h{}$ then it also holds for any polynomial in the ideal $\left( \h{} \right)$.
   Thus, we can make the following
   \begin{definition}
-    If the equivalent conditions \ref{eq:valuation_inequality_condition}, \ref{eq:valuation_positivity_condition}, \ref{eq:principal_unit_condition} and \ref{eq:mod_principal_units_condition} hold, we say that $\left( \alpha, \left( \h{} \right) \right)$ is an \textbf{\es{n}} pair.
-    % , or just \es{n} when $\h{}$ is clear from context
-    We say that $\left( \alpha, \left( \h{} \right) \right)$ is \textbf{\anex} pair
+    If the equivalent conditions \ref{eq:valuation_inequality_condition}, \ref{eq:valuation_positivity_condition}, \ref{eq:principal_unit_condition} and \ref{eq:mod_principal_units_condition} hold, we say that $\pi\left( \alpha \right)$ is an \textbf{\es{n}} disk of $\left( \h{} \right)$.
+    % , or just \es{n} when $\left( \h{} \right)$ is clear from context
+    We say that $\pi\left( \alpha \right)$ is \textbf{\anex} disk of $\left( \h{} \right)$
     % or just \anex root when $\h{}$ is clear from context
     if it is \es{n}, \es{m} and \es{k}.
-    In many cases we write $\h{}$ instead of $\left( \h{} \right)$, and if $\alpha$ is also a root of $\h{}$ we say that it is \anex (respectively an \es{n}) root of $\h{}$.
+    In many cases we write $\h{}$ instead of $\left( \h{} \right)$, and if $\alpha$ is also a root of $\h{}$ we say that it is \textbf{\anex (respectively an \es{n}) root of $\h{}$}.
   \end{definition}
-  We use the analogy of magnetism because, as explained above, for a magnetic root $\alpha$ $v\left( \h{}'\left( \alpha \right) \right)$ is bigger than, i.e., in the metric induced by $v$, $\alpha$ is on avarage closer to its conjugates than, one might expect by bounding the valuations of $\h{i,j}$ for each pair of distinct $i,j \in \left\{ m,n,k \right\}$.
+  We use the analogy of magnetism because, as explained above, for a magnetic root $\alpha$ $v\left( \h{}'\left( \alpha \right) \right)$ is bigger than, i.e., in the metric induced by $v$, $\alpha$ is on avarage closer to its conjugates than one might expect by bounding the valuations of $\h{i,j}$ for each pair of distinct $i,j \in \left\{ m,n,k \right\}$.
+  We use the term disk because each fiber of $\pi$ is a disk in the metric induced by $v$. 
 
   \begin{lemma}
     \label{lem:scalability}
-    Let $\expair$ be \anex pair, $a \in \F^\times$ and $\delta =\pm 1$.
-    Then $\left( a\alpha^\delta, \h{}\left( x^\delta / \alpha \right) \right)$ is \anex pair.
+    Assume that $\pi\left( \alpha \right)$ is \anex disk of $\h{}$.
+    Fix $a \in \F^\times$ and $\delta =\pm 1$.
+    Then $\pi\left( a\alpha^\delta \right)$ is \anex disk of $\h{}\left( x^\delta / \alpha \right)$.
   \end{lemma}
   \begin{proof}
     Let $u\left( x \right)$ be $a x^\delta $.
@@ -118,13 +117,13 @@
     \[
       \left( \h{} \circ u^{-1} \right)_{\delta m,\delta n}\left( u\left( \alpha \right) \right) = \left( \h{} \right)_{m,n}\left( \alpha \right)
     \]
-    and the rest follows from opening the definition of \ex roots.
+    and the rest follows from opening the definition of \ex disks.
   \end{proof}
 
   \begin{lemma}
     \label{lem:two_escaping_implies_ex}
-    If $\expair$ is \es{n} and \es{m}
-    then it is \ex.
+    If $\pi\left( \alpha \right)$ is \es{n} and \es{m} disk of $\h{}$, 
+    then it is \anex disk of $\h{}$.
   \end{lemma}
   \begin{proof}
     It can be verified that 
@@ -209,7 +208,7 @@
   \end{proof}
   \begin{corollary}
     \label{cor:ex_disk}
-    There are $r,s \in \Z$ depenfing only on $n-m$ and $m-k$, such that $\expair$ is \ex if and only if $\pi\left( \alpha \right)$ solves the equation
+    There are $r,s \in \Z$ depenfing only on $n-m$ and $m-k$, such that $\pi\left( \alpha \right)$ is \anex disk of $\h{}$ if and only if it solves the $\Z$-linear equation
     \begin{equation}
       \label{eq:ex}
       \begin{bmatrix}
@@ -224,7 +223,7 @@
     \end{equation}
   \end{corollary}
   \begin{proof}
-    Another way to state Lemma \ref{lem:two_escaping_implies_ex} is that condition $\alpha$ is \anex root of $\h{}$ if and only if $\pi\left( \alpha \right)$ solves the $\Z$-linear equation
+    Another way to state Lemma \ref{lem:two_escaping_implies_ex} is that $\pi\left( \alpha \right)$ is \anex disk of $\h{}$ if and only if it solves the $\Z$-linear equation
     \begin{equation}
       \label{eq:raw_ex_equation}
       \begin{bmatrix}
@@ -253,10 +252,10 @@
   
   \begin{lemma}
     \label{lem:reduction}
-    If $\expair$ is \anex pair, then there is a $u \in \F^\times x^{\pm 1}$ such that: 
+    If $\pi\left( \alpha \right)$ is \anex disk of $\h{}$, then there is a $u \in \F^\times x^{\pm 1}$ such that : 
     \begin{enumerate}
       \item 
-      $\pi\left( u\left( \alpha \right) \right) = 1$.
+      $\pi\left( 1 \right)$ is \anex disk of $\h{} \circ u^{-1}$.
       % \item 
       % $u\left( \alpha \right)$ is \anex root of $u\left( \h{} \right)$.
       \item 
@@ -264,20 +263,21 @@
     \end{enumerate}
   \end{lemma}
   \begin{proof}
-    According to Corollary \ref{cor:ex_disk}, $\pi\left( \alpha \right) = \q{n}{m}^r \q{m}{k}^s$ when $r$ and $s$ are as defined in Lemma \ref{cor:ex_disk}.
-    Since $\q{n}{m}^r \q{m}{k}^s \in \rpu$, we can choose $q \in \F$ for which $\pi\left( q \right) = \q{n}{m}^r \q{m}{k}^s$.
+    According to Corollary \ref{cor:ex_disk}, $\pi\left( \alpha \right) = \q{n}{m}^r \q{m}{k}^s$ when $r$ and $s$ are as defined in Corollary \ref{cor:ex_disk}.
+    Set $q = \q{n}{m}^r \q{m}{k}^s$.
     Therefore, $\pi\left( q^{-1}\alpha \right) = 1$ and in particular $v\left( q^{-1}\alpha \right) = 0$.
     Since $\h{}\left( qx \right)$ is a trinomial, its Newton polygon has at most two segments, and hence the set of valuations of its roots is of cardinality at most $2$.
     Hence, as we have already shown that $0$ is in the set of valuations of roots of $\h{}$, it follows that this set is either non negative or non positive.
-    We can set $\delta = 1$ in the first plave and $\delta = -1$ in the second place (and either of them if both cases hold) and verify that the lemma holds for $u = q x^\delta$.
+    We can set $\delta = 1$ in the first plave and $\delta = -1$ in the second place (and either of them if both cases hold) and set $u = q x^\delta$.
+    Then $\h{} \circ u^{-1}$ is integral over $R$ and $\pi\left( 1 \right)$ is \anex disk of $\h{} \circ u^{-1}$ according to Lemma \ref{lem:scalability}.
   \end{proof}
   
   \begin{lemma}
     \label{lem:ex_lift}
-    If $\h{}$ is part of \anex pair then it has \anex root.  
+    If $\h{}$ has \anex disk then it has \anex root.  
   \end{lemma}
   \begin{proof}
-    By Lemma \ref{lem:scalability} and Lemma \ref{lem:reduction} we can assume without loss of generality that $\left( 1, \h{} \right)$ is \anex pair and that $\h{}$ is integral over $R$.
+    By Lemma \ref{lem:reduction} we can assume without loss of generality that $\h{}$ is integral over $R$ and that $\pi\left( 1 \right)$ is \anex disk of it.
     In this situation, it suffices to show that $1$ lifts to a root of $\h{}$, or equivalently, by the integrality of $\h{}$, that $\h{}\left( 1 \right) = 0 \in \kappa$.
     Indeed, by condition \ref{eq:mod_principal_units_condition}
     \begin{align*}
@@ -296,61 +296,52 @@
       .
     \end{align*}
   \end{proof}
+  \directorscut{
 
-  \begin{corollary}
-    \label{cor:ex_equivalent_conditions}
-    The following conditions are equivalent:
-    \begin{enumerate}
-      \item \label{item:ex}
-      $\h{}$ has \anex root.
-      \item \label{item:coherence}
-      $
-        \pi\left(  
-          \q{n}{m}^{n-m}
-        \right)
-        =
-        \pi\left(  
-          \q{m}{k}^{m-k}
-        \right)
-      $.
-      \item \label{item:symmetric}
-      $
-      \pi\left( 
-          a_n^{m - k} 
-          a_m^{k - n}
-          a_k^{n - m}
-          \right) 
-        = 
+    \begin{corollary}
+      \label{cor:ex_equivalent_conditions}
+      The following conditions are equivalent:
+      \begin{enumerate}
+        \item \label{item:ex}
+        $\h{}$ has \anex root.
+        \item \label{item:coherence}
+        $
+          \pi\left(  
+            \q{n}{m}^{n-m}
+          \right)
+          =
+          \pi\left(  
+            \q{m}{k}^{m-k}
+          \right)
+        $.
+        \item \label{item:symmetric}
+        $
         \pi\left( 
-          \left( n - m \right)^{n - m} 
-          \left( m - k \right)^{m - k} 
-          \left( k - n \right)^{k - n} 
-          \right)      
-          $.       
-    \end{enumerate}
-    % If they hold, then there is a (unique) $\qh \in \rpu$ for which a root $\alpha$ of $\h{}$ is \ex if and only if $\pi\left( \alpha \right) = \qh$.
-    % \begin{enumerate}[label=(\alph*)]
-    %   \item \label{item:group_generated_by_qh}
-    %   $
-    %   \left\langle \qh \right\rangle 
-    %   = 
-    %   \left\langle \q{n}{m}, \q{m}{k} \right\rangle
-    %   \subseteq 
-    %   \rpu
-    %   .$
-    %   \item A root $\alpha$ of $\h{}$ is \ex if and only if $\pi\left( \alpha \right) = \qh$.
-    % \end{enumerate}
-  \end{corollary}
-  \begin{proof}
-    The equivalence of conditions \ref{item:coherence} and \ref{item:symmetric} follows by direct computation.
-    If condition \ref{item:ex} holds then so does \ref{item:coherence} by Corollary \ref{cor:ex_disk}.
-    Assume conversely that condition \ref{item:coherence} holds.
-    Then by Corollary \ref{cor:ex_disk} $\h{}$ is part of \anex pair and hence by Lemma \ref{lem:ex_lift} condition \ref{item:ex} holds.
-  \end{proof} 
+            a_n^{m - k} 
+            a_m^{k - n}
+            a_k^{n - m}
+            \right) 
+          = 
+          \pi\left( 
+            \left( n - m \right)^{n - m} 
+            \left( m - k \right)^{m - k} 
+            \left( k - n \right)^{k - n} 
+            \right)      
+            $.       
+      \end{enumerate}
+    \end{corollary}
+    \begin{proof}
+      The equivalence of conditions \ref{item:coherence} and \ref{item:symmetric} follows by direct computation.
+      If condition \ref{item:ex} holds then so does \ref{item:coherence} by Corollary \ref{cor:ex_disk}.
+      Assume conversely that condition \ref{item:coherence} holds.
+      Then by Corollary \ref{cor:ex_disk} $\h{}$ has \anex disk and hence by Lemma \ref{lem:ex_lift} condition \ref{item:ex} holds.
+    \end{proof} 
+  }
       
   \subsection{Reduced magnetic roots}
   In light of Lemma \ref{lem:reduction} we make the following
   \begin{definition}
+    \label{def:aredex}
     We say that $\alpha$ ia \textbf{\aredex root} of $\h{}$ and that $\h{}$ is \\ \textbf{\aredex polynomial} if:
     \begin{enumerate}
       \item $\alpha$ is \anex root of $h$.
@@ -407,7 +398,7 @@
   \end{proof}
   According to item \ref{item:bigger_slope_length_valuation} of Lemma \ref{lem:slope_length_valuation} we can classify the \redex polynomials into two kinds:
 
-  \subsubsection{The equal valuation case \editorial{(think of a better name?)}}
+  \subsubsection{The equal valuation case}
   Assume now that $v\left( a_n \right) = v\left( a_m \right) = v\left( a_k \right) = 0$ and that $\h{}$ is \aredex polynomial.
 
   \begin{lemma}
@@ -452,10 +443,13 @@
   \begin{proof}
     It suffices to show that $\h{}$ has at most $2$ roots $\alpha$ at which $v\left( \h{}'\left( \alpha \right) \right) > 0$, or equivalently, according to Lemma \ref{lem:magnetism_away_from_ab}, to show that $\h{}$ has at most two \ex roots, which is true by Lemma \ref{lem:2_magnetic_roots}. 
   \end{proof}
+  \begin{corollary}
+    If $v_p\left( ab \right) = 0$ for any rational prime $p$, then the inertia group at any place above $p$ acts on the roots of $f$ either trivially or as a single transposition.
+  \end{corollary}
   % \begin{corollary}
   %   If $v_p\left( ab \right) = 0$ then the inertia group at any place above $p$ acts on the roots of $f$ either trivially or as a single transposition.
   % \end{corollary}
-\subsubsection{The non equal valuation case \editorial{(think of a better name?)}}
+\subsubsection{The non equal valuation case}
   Assume now that $\h{}$ is a \redex polynomial with    
   \[
     v\left( m - k \right) = v\left( a_n \right) > 0.
@@ -463,27 +457,9 @@
   It follows in particular that $p := {\rm char}\left( \kappa \right) > 0$ and we assume moreover that $\kappa$ is perfect.
   \begin{lemma}
     \label{lem:counting_ex_roots}
-    $\h{}$ has exactly $p^{v\left( m - k \right)}$ \ex roots.
+    $\h{}$ has exactly $p^{v\left( m - k \right)} = p^{v\left( a_n \right)}$ \ex roots.
   \end{lemma}
-  \begin{proof}
-    % The fact that $u\left( \h{} \right)$ satisfies condition \ref{eq:unique_u} by definition, can be utilized
-    % \directorscut{
-    %   as follows
-    %   \begin{align*}
-    %     & 
-    %     u\left( \h{} \right)^{-n}\h{}\left( u\left( \h{} \right) \right) 
-    %     = 
-    %     a_m u\left( \h{} \right)^{m-n} + a_k u\left( \h{} \right)^{k-n} 
-    %     =
-    %     a_n \frac{k - n}{m - k} + a_n \frac{m - n}{k - m} 
-    %     =
-    %     -a_n
-    %     =
-    %     0 \in \kappa, 
-    %   \end{align*}
-    % }
-    % to show that it is a root of $\h{}$ in $\kappa$.
-    % Moreover, we can show that the multiplicity of $u\left( \h{} \right)$ as a root of $\h{}$ is exactly $p^{v\left( m - k \right)}$ since 
+  \begin{proof} 
     \[
       \h{} 
       = 
@@ -496,7 +472,7 @@
       \right)^{p^{v\left( m - k \right)}}
       \in \kappa\left[ x \right]
     \]
-    and $\left( a_m^{\left( p^{-v\left( m - k \right)} \right)} x^{\frac{m - k}{p^{v\left( m - k \right)}}} + a_k^{\left( p^{-v\left( m - k \right)} \right)} \right) \subseteq \kappa\left[ x, x^{-1} \right]$ is reduced.
+    and $\left( a_m^{\left( p^{-v\left( m - k \right)} \right)} x^{\frac{m - k}{p^{v\left( m - k \right)}}} + a_k^{\left( p^{-v\left( m - k \right)} \right)} \right) \subseteq \kappa\left[ x, x^{-1} \right]$ is reduced\directorscut{, indeed, the polynomial generating this ideal has exactly $\frac{m - k}{p^{v\left( m - k \right)}}$ distinct roots in $\overline{\kappa}$}.
     % \editorial{
     %   Note that $a_m^{\left( p^{-v\left( m - k \right)} \right)} x^{\frac{m - k}{p^{v\left( m - k \right)}}} + a_k^{\left( p^{-v\left( m - k \right)} \right)}$ is not necesarilly a polynomial as the exponent of $x$ might be negative. 
     %   Is it clear what I mean by it being separable?
@@ -507,18 +483,30 @@
     % }
     Therefore, since we assume here that $\h{}$ is \aredex polynomial and in particular integral over $R$, it follows that $\h{}$ has exactly $p^{v\left( m - k \right)}$ roots in $\overline{\F}$ lying over $1$, which means, according to Corollary \ref{cor:ex_disk}, that $\h{}$ has exactly $p^{v\left( m - k \right)}$ \ex roots.
   \end{proof}
-  We denote by $\D_\alpha$ the different ideal of $\h{}\left( \alpha \right)$ and deduce from Lemma \ref{lem:counting_ex_roots} the following
-  \begin{corollary}
-    If $\alpha$ is a magnetic root of $\h{}$, then
-    $$v\left( \D_\alpha \right) \leq 1 - p^{-v\left( a_n \right)} + v\left( a_n \right).$$
+
+  Let $p$ be a rational prime.
+  We denote by $\D_\alpha$ the different ideal of $\Q_p\left( \alpha \right)$ for each $\alpha \in \overline{\Q_p}$ and deduce from Lemma \ref{lem:counting_ex_roots} the following
+
+  \begin{corollary}\label{cor:ex_bound}
+    Assume that $p| ab$.
+    Then $f$ has at most $\ppart{ab}$ \ex roots above $\Q_p$ and for each such root $\alpha$, 
+    \[
+      v_p\left( \Deta \right) \leq \diffbnd.
+    \]
   \end{corollary}
   \begin{proof}
-    By Corollary \ref{cor:ex_disk} the image of $\alpha$ in $\overline{\kappa}$ is $1$, and so is the image of any other \ex root of $\h{}$.
-    However, by Lemma \ref{lem:counting_ex_roots}, $\h{}$ has at most $p^{v\left( m - k \right)}$ \ex roots, and in praticular at most $p^{v\left( m - k \right)}$ whose image in $\overline{\kappa}$ is $1$.
-    Therefore, the ramification degree of $\alpha$ is at most $p^{v\left( m - k \right)}$.
+    Let $\alpha$ be \anex root of $f$ (if there is no such root then the result is trivial).
+    According to Corollary \ref{cor:ex_disk}, $\pi\left( \alpha \right)$ is the only \ex disk and it belongs to $\pi\left( \Q^\times \right)$ (recall Definition \ref{def:pi} for $\pi$).
+    In particular, the valuation of the \ex roots is a (unique) integer.
+    If that integer is at least $1$, then the number of \ex roots can not exceed the maximal height difference between two vertices of the Newton polygon of $f$, which is clearly less than $\exrootscountbound$.
+    Assume then that the valuation of the \ex roots is $0$.
+    Then, by Lemma \ref{lem:scalability} we can assume without loss of generality that $f$ is \aredex polynomial.
+    In particular exactly one of the coefficients $a$ and $b$ has positive valuation, and according to Lemma \ref{lem:counting_ex_roots}, the number of \ex roots of $f$ is bounded by $p$ raised to the valuation of that coefficient, which is exactly $\exrootscountbound$.
+
+    In particular it follows that $\alpha$ has at most $\exrootscountbound$ conjugates above $\Q_p$ and hence its ramification degree is at most $\exrootscountbound$.
     Denote this ramification degree by $e$.
-    Then, $1-e^{-1} + v\left( e \right)$ is a well known upper bound on the valuation of $\Deta$, the different of $\Q_p\left( \alpha \right)$ over $\Q_p$ (see for example \cite[Remark 1 to Proposition 13 of Chapter. III \S 7]{SerreLocalFields}).
-    However, $1 - e^{-1} + v\left( e \right) \leq 1 - p^{-\maxpval} + \maxpval$ and hence the result follows. 
+    Then, $1-e^{-1} + v_p\left( e \right)$ is a well known upper bound on the valuation of $\Deta$, the different of $\Q_p\left( \alpha \right)$ over $\Q_p$ (see for example \cite[Remark 1 to Proposition 13 of Chapter. III \S 7]{SerreLocalFields}).
+    However, $$1 - e^{-1} + v_p\left( e \right) \leq 1 + v_p\left( e \right) \leq 1 + v_p\left( p^{v_p\left( ab \right)} \right) = 1 + v_p\left( ab \right)$$ and hence the result follows.
   \end{proof}
 
   % \subsection{Summerizing ramification data at \ex roots}
@@ -608,75 +596,181 @@
   \begin{corollary}
     \label{cor:explicit_non_ex_bound}
     If $\alpha$ is a non \ex root of $\h{}$, and the segment connecting the points $\left( m, v\left( a_m \right) \right)$ and $\left( n, v\left( a_n \right) \right)$ belong to the Newton polygon of $\h{}$ and its slope is $-v\left( \alpha \right)$, then
-    either
     \begin{gather}
+      v\left( \alpha \h{}'\left( \alpha \right) \right) 
+      \leq
+      v\left( a_k \right) + \frac{k}{n - m}v\left( \frac{a_m}{a_n} \right)
+      \label{item:k_es}
+    \end{gather}
+    and 
+    \begin{gather}
+      \text{either }
+      \quad
+      v\left( n - m \right) 
+      >
+      0
+      \quad
+      \text{ or }
+      \quad
       v\left( \alpha \h{}'\left( \alpha \right) \right)
       \leq 
       \frac{
         n v\left( a_m \right) - m v\left( a_n \right)
       }{
         n - m
-      }
+      }.
       \label{item:non_k_es}
-      \\
-      \text{ or }
-      \nonumber
-      \\
-      v\left( n - m \right) 
-      >
-      0
-      \quad
-      \text{ and }
-      \quad
-      v\left( \alpha \h{}'\left( \alpha \right) \right) 
-      \leq
-      v\left( a_k \right) + \frac{k}{n - m}v\left( \frac{a_m}{a_n} \right).
-      \label{item:k_es} 
     \end{gather}
   \end{corollary}
   \begin{proof}
-    It can be verified that the bound on $v\left( \alpha \h{}'\left( \alpha \right) \right)$ presented in condition \ref{item:non_k_es} equals to $v\left( a_m \alpha^m \right) = v\left( a_n \alpha^n \right)$ and that the one presnted in condition \ref{item:k_es} equals to $v\left( a_k \alpha^k \right)$.
-    Therefore, corollary \ref{cor:non_ex_bound} implies that if the first bound does not hold then the latter does.
-    Thus, it suffices to show that in that case $v\left( n - m \right) > 0$.
-    Assume then that the first condition fails.
-    Then, according to Lemma \ref{lem:non_es_bound}, $\alpha$ is \es{k} and hence, since it is assumed to not be \ex, according to Lemma \ref{lem:two_escaping_implies_ex} $\alpha$ is neither \es{m} nor \es{n}.
-    Consequently, 
-    $$v\left( \alpha \h{}'\left( \alpha \right) \right) \leq v\left( \left( n - m \right)a_n \alpha^n \right) = v\left( \left( n - m \right)a_m \alpha^m \right).$$
-    For this inequality to coexist with $\alpha$ being neither \es{m} nor \es{n} and the mentioned fact that the bound of case \ref{item:non_k_es} equals to $v\left( a_m \alpha^m \right) = v\left( a_n \alpha^n \right)$, $v\left( n - m \right)$ must be positive.
+    For each $j \in \left\{ k,n,m \right\}$, $v\left( a_j \alpha^j \right)$ is the $y$-coordinate of the intersection with the $y$-axis of the line of slope $-v\left( \alpha \right)$ passing through the point $\left( j, v\left( a_j \right) \right)$.
+    Since the Newton polygon of $\h{}$ contains the segment connecting the points $\left( m, v\left( a_m \right) \right)$ and $\left( n, v\left( a_n \right) \right)$, the point $\left( k, v\left( a_k \right) \right)$ lies above the line containing this segment.
+    However, the slope of this line is $-v\left( \alpha \right)$, and hence among the lines of slope $-v\left( \alpha \right)$ passing through the points $\left( j, v\left( a_j \right) \right)$ for $j \in \left\{ k,n,m \right\}$, the one passing through $\left( k, v\left( a_k \right) \right)$ has the largest intersection with the $y$-axis.
+    Therefore, according to Corollary \ref{cor:non_ex_bound}, $v\left( \alpha \h{}'\left( \alpha \right) \right) \leq v\left( a_k \alpha^k \right)$, and it can be verified that $v\left( a_k \alpha^k \right)$ equals to the bound presented in condition \ref{item:k_es}.
+
+    To prove condition \ref{item:non_k_es}, assume that $v\left( n - m \right) = 0$ and we will prove that the required bound on $v\left( \alpha \h{}'\left( \alpha \right) \right)$ holds.
+    Since $\alpha$ is assumed to be non-magnetic, according to Lemma \ref{lem:two_escaping_implies_ex} it is either \es{m} or \es{n}.
+    By the criterion \ref{eq:valuation_inequality_condition} for \es{n}, it follows that in the first case 
+    $$
+      v\left( \alpha \h{}'\left( \alpha \right) \right) 
+      \leq 
+      v\left( \h{m,n}\left( \alpha \right) \right)
+      =
+      v\left( \left( n - m \right) a_n \alpha^n \right)
+      =
+      v\left( a_n \alpha^n \right)
+    $$
+    and in the second case
+    $$
+      v\left( \alpha \h{}'\left( \alpha \right) \right) 
+      \leq 
+      v\left( \h{n,m}\left( \alpha \right) \right)
+      =
+      v\left( \left( m - n \right) a_m \alpha^m \right)
+      =
+      v\left( a_n \alpha^n \right)
+    $$
+    and it can be verified that both $v\left( a_n \alpha^n \right)$ and $v\left( a_m \alpha^m \right)$ are equal to the bounf on $v\left( \alpha\h{}'\left( \alpha \right) \right)$ presented in condition \ref{item:non_k_es}.
   \end{proof}
   \subsection{The discriminant}
-  Let 
-  \[
-    A\left( f, p, d \right) = 
-    \begin{cases}
-      d v_p\left( a \right) + \ppart{a} - 1 
-      & 
-      v_p\left( b \right) = 0 \text{ and } v_p\left( n \right) = v_p\left( a \right) 
-      \\ 
-      d \left( v_p\left( a \right) + \frac{k-1}{n}v_p\left( b \right) \right) 
-      &  
-      \begin{pmatrix}
-        \begin{pmatrix}
-          v_p\left( b \right) > 0 \text{ or } v_p\left( n \right) \neq v_p\left( a \right)
-        \end{pmatrix}
-        \\
-        \text{ and } N_p\left( f \right) \text{ has one segment } 
-      \end{pmatrix} \\
-      \left( 2n - k - 1 \right)v_p\left( b \right) + \ppart{b} - 1 
-      & 
-      v_p\left( a \right) = 0 \text{ and } v_p\left( n - k \right) = v_p\left( b \right)
-      \\
-      \left( 2n - k - 1 \right)v_p\left( b \right) - n v_p\left( a \right) 
-      & 
-      \begin{pmatrix}
-        v_p\left( a \right) > 0  \text{ or } v_p\left( n - k \right) \neq v_p\left( b \right)
-        \\
-        \text{ and } N_p\left( f \right) \text{ has two segments }
-      \end{pmatrix}
-    \end{cases}
-  \]
-  Recall that we use $g$ to denote some factor of $f$.
-  \begin{lemma}
-    
-  \end{lemma} 
+  Fix a rational prime $p$.
+  Recall that we denote by $g$ an arbitrary factor of $f$, by $L$ the field $\Q\left[ x \right] / \left( g \right)$ and by $\Deta$ the different ideal of the image of $L$ in $\overline{\Q_p}$ under the embedding that maps $x$ to $\alpha$.
+  \begin{proposition}
+    Assume that $p | ab$.
+    Then
+    \[
+      v_p\left( \disc\left( L \right) \right)
+      \leq
+      nv_p\left( ab \right) + \exrootscountbound.
+    \]
+    % and if $\deg\left( g \right) > \exrootscountbound$ then $g$ has at least one root $\alpha$ for which 
+    % \[
+    %   v_p\left( \Deta \right) < v_p\left( ab \right).
+    % \]
+  \end{proposition}
+  \begin{proof}
+    We divide now into three cases.
+    Assume first that the Newton polygon of $f$ consists of a single segment.
+    Then, by condition \ref{item:k_es} of Corollary \ref{cor:explicit_non_ex_bound}, for each non \ex root $\alpha$ of $f$,
+    \[
+      v_p\left( \Deta \right) 
+      \leq
+      v_p\left( \alpha f'\left( \alpha \right) \right)
+      \leq
+      v_p\left( a \right) + \frac{k}{n} v_p\left( b \right)
+      \leq
+      v_p\left( ab \right)
+    \]
+    and therefore by Corollary \ref{cor:ex_bound},    
+    \begin{align*}
+      v_p\left( \disc\left( L \right) \right)
+      =
+      &
+      \sum_{\alpha} v_p\left( \Deta \right)
+      \leq
+      \left( n - \exrootscountbound \right) v_p\left( ab \right)
+      +
+      \exrootscountbound \left( \diffbnd \right)
+      \leq
+      nv_p\left( ab \right) + \exrootscountbound
+      .
+    \end{align*}
+
+    Assume now that the Newton polygon of $f$ consists of two segments of different slopes and that $v\left( k \right) = 0$.
+    Then, according to condition \ref{item:k_es} of Corollary \ref{cor:explicit_non_ex_bound}, for each non \ex root $\alpha$ of $f$ whose valuation is equal to minus the slope of the rightmost segment of the Newton polygon of $f$,
+    \[
+      v_p\left( \Deta \right) 
+      \leq
+      v_p\left( \alpha f'\left( \alpha \right) \right)
+      \leq
+      v_p\left( b \right) + \frac{0}{n - k}v_p\left( a \right)
+      =
+      v_p\left( b \right)
+    \]
+    and according to condition \ref{item:non_k_es} of Corollary \ref{cor:explicit_non_ex_bound} for each non \ex root $\alpha$ of $f$ whose valuation is equal to minus the slope of the leftmost segment of the Newton polygon of $f$,
+    \[
+      v_p\left( \Deta \right) 
+      \leq
+      v_p\left( \alpha f'\left( \alpha \right) \right)
+      \leq
+      \frac{k v_p\left( b \right) - 0 v_p\left( a \right)}{k - 0}
+      =
+      v_p\left( b \right)
+    \]
+    Therefore, according to Corollary \ref{cor:ex_bound},    
+    \begin{align*}
+      v_p\left( \disc\left( L \right) \right)
+      =
+      &
+      \sum_{\alpha} v_p\left( \Deta \right)
+      \leq
+      \left( n - \exrootscountbound \right) v_p\left( b \right)
+      +
+      \exrootscountbound \left( \diffbnd \right)
+      \leq
+      nv_p\left( ab \right) + \exrootscountbound
+      .
+    \end{align*}
+
+
+    Assume finally that the Newton polygon of $f$ consists of two segments of different slopes and that $v\left( n - k \right) = 0$.
+    Then, according to condition \ref{item:k_es} of Corollary \ref{cor:explicit_non_ex_bound}, for each non \ex root $\alpha$ of $f$ whose valuation is equal to minus the slope of the rightmost segment of the Newton polygon of $f$,
+    \[
+      v_p\left( \Deta \right) 
+      \leq
+      v_p\left( \alpha f'\left( \alpha \right) \right)
+      \leq
+      \frac{
+        n v_p\left( a \right) - kv_p\left( 1 \right)
+      }{
+        n - k
+      }
+      =
+      \frac{n v_p\left( a \right)}{n - k}
+    \]
+    and according to condition \ref{item:non_k_es} of Corollary \ref{cor:explicit_non_ex_bound} for each non \ex root $\alpha$ of $f$ whose valuation is equal to minus the slope of the leftmost segment of the Newton polygon of $f$,
+    \[
+      v_p\left( \Deta \right) 
+      \leq
+      v_p\left( \alpha f'\left( \alpha \right) \right)
+      \leq
+      v_p\left( 1 \right) + \frac{n}{k} v_p\left( \frac{b}{a } \right)
+      =
+      \frac{n}{k} v_p\left( \frac{b}{a } \right)
+    \]
+    Therefore, according to Corollary \ref{cor:ex_bound},    
+    \begin{align*}
+      v_p\left( \disc\left( L \right) \right)
+      =
+      &
+      \sum_{\alpha} v_p\left( \Deta \right)
+      \leq
+      \left( n - \exrootscountbound \right) v_p\left( b \right)
+      +
+      \exrootscountbound \left( \diffbnd \right)
+      \leq
+      nv_p\left( ab \right) + \exrootscountbound
+      .
+    \end{align*}
+  \end{proof}
 \end{document}
