@@ -2,23 +2,69 @@
 
 \begin{document}
 \section{Examples}
+\begin{lemma}
+  % Assume that $b$ is prime in $\Z$.
+  Let $K$ be either $\Q$ or an imaginary quadratic field, $\pi$ a prime in $\O_K$ and $\vpi$ the $\pi$-adic valuation. 
+  Assume that:
+  \begin{enumerate}
+    \item $a = \pm 1$.
+    \item $b$ is, up to a unit, a non trivial power $\pi$ (and is still in $\Z$).
+    \item $1 = \gcd\left( k, \vpi\left( b \right) \right)$.
+  \end{enumerate}
+  Then one of two cases occurs
+  \begin{enumerate}
+    \item $f$ is irreducible over $K$.
+    \item $\left| b \right| = 2$ and $f$ factors into $x \pm 1$ times a polynomial that is irreducible over $K$.
+  \end{enumerate}
+\end{lemma}
+\begin{proof}
+  Firstly, note that by considering the Newton polygon of $f$ with respect to $\pi$ it follows that $f$ has $k$ roots (counted with possible multiplicity, here and in the sequel of the proof) whose $\pi$-adic valuation is $\vpi\left( b \right) / k$ and the rest are of $\pi$-adic valuation $0$.
+  Therefore, for any irreducible factor $f_0$ of $f$, either all or none of the $k$ roots of positive valuation are also roots of $f_0$.
+  We claim that it suffices to prove that in the latter case $b = \pm 2$ and $f_0 = x \pm 1$.
+  Indeed, assume it is proven. 
+  Note that $1$ and $-1$ can not both be roots of $f$ and non of them can be a multiple root.
+  Therefore, $f$ can have at most one irreducible factor besides the one annihilating the roots of positive valuation, and if such a factor exists then it must be $x \pm 1$ and $b$ must be $\pm 2$.
+
+  Let then $f_0$ be an irreducible factor of $f$ that does not annihilate any of the roots of $f$ with positive $\pi$-adic valuation.
+  The valuation of the free coefficient of $f_0$, which we shall denote by $b_0$, must then be $0$.
+  However $b_0$ divides $b$, and hence since $b$ is assumed to be a $\pi$-power it follows that $b_0$ is a unit.
+  Since $K$ was assumed to be either $\Q$ or an imaginary quadratic field it follows that $b_0$ is a root of unity.
+  Then, since $b_0$ is a root of unity, $f_0$ has at last one root, say $\alpha$, within the complex unit disk.
+  By the triangle inequality it thus follows
+  \[
+    \left| b \right| \leq \left| \alpha^n \right| + \left| \alpha^k \right| \leq 2
+  \]
+  and hence since we assume that $\left| b \right| > 1$ it follows that $\left| b \right| = 2$, as we set to prove, and hence that 
+  \[
+    \alpha^k = \alpha^n = \pm 1.
+  \]
+  Since $1 = \gcd\left( k,n \right)$ it follows that $\alpha = \pm 1$, i.e. that $f_0 = x \pm 1$ completing our proof.
+\end{proof}
 \begin{center}
-\begin{tabular}{ |c|c| } 
+\begin{tabular}{ |c|c|c| } 
   \hline
-  $ab$ & Minimal fields satisfying the conditions of Lemma \ref{lem:fields_not_embeddable}  \\
+  $ab$ 
+  &
+  \makecell{Minimal number fields satisfying \\ the conditions of Lemma \ref{lem:fields_not_embeddable}} 
+   & 
+   \makecell{
+    Next root discriminant realized by a
+    \\  
+    minimal number field unramified away from $ab$
+  } \\
   \hline
-  $2$ & $\Q\left( \sqrt{-1} \right)$ \\ 
-  $3$ & $\Q\left( \sqrt{-3} \right)$ \\ 
-  $4$ & $\Q\left( \sqrt{-1} \right), \Q\left( \sqrt{2} \right), \Q\left( \sqrt{-2} \right)$ \\
-  $5$ & $\Q\left( \sqrt{5} \right)$ \\ 
+  $2$ & $\Q\left( \sqrt{-1} \right)$ & $2^{3/2}$ \\ 
+  $3$ & $\Q\left( \sqrt{-3} \right)$ & $3^{4/3}$\\ 
+  $4$ & $\Q\left( \sqrt{-1} \right), \Q\left( \sqrt{2} \right), \Q\left( \sqrt{-2} \right)$ & $> 5.989$ \\
+  $5$ & $\Q\left( \sqrt{5} \right)$ & $> 5.989$ \\ 
 \hline
 \end{tabular}
 \end{center}
 \begin{lemma}
   \label{lem:fields_not_embeddable}
-  Assume that $\left| ab \right| \leq 4$ and that $\Q \subsetneq K$ is a number field that is unramified away from $ab$ for which 
+  Assume that $\left| ab \right| \leq 5$ and that $\Q \subsetneq K$ is a number field that is unramified away from $ab$ for which 
   \[
-    v_p\left( \rd K \right) \leq v_p\left( a \right) + v_p\left( b \right).
+    v_p\left( \rd K \right) \leq v_p\left( ab \right).
   \]
   Then $K$ can not be embedded into $\Q\left[ x \right]/ \left( f \right)$.
 \end{lemma}
@@ -60,28 +106,8 @@
   However, for $f$ to not have a real root, $n$ must be even $k$ must be odd and $b$ must be $1$ and it can be verified that in such a case $0 = f\left( 1 \right)f\left( -1 \right)$ which is a contradiction.
   
   Assume now that $f\left( 1 \right)f\left( -1 \right) = 0$ and let $g$ be the non-linear factor of $f$.
-  For $g$ to not have a real root, $n$ must be odd, however in this case $f$ is separable over $\F_2$ and hence so does $g$ and hence $L$ is an unramified above $2$ and in particular can not contain $\Q\left( i \right)$.
+  For $g$ to not have a real root, $n$ must be odd, however in this case $f$ is separable over ${\F}_2$ and hence so does $g$ and hence $L$ is an unramified above $2$ and in particular can not contain $\Q\left( i \right)$.
 \end{proof}
 
 \subsubsection{$\left| a \right| = 1, \left| b \right| = 2$}
-\begin{lemma}
-  % Assume that $b$ is prime in $\Z$.
-  Let $K$ be a number field and $\pi \in \O_K$ a prime for which 
-  \[
-    1 = \gcd\left( k, v_{\left( \pi \right)}\left( b \right) \right)
-    \quad 
-    \text{ and }
-    \quad
-    0 = v_{\left( \pi \right)}\left( b \right)
-  \]
-  Then one of two cases occurs
-  \begin{enumerate}
-    \item $f\left( 1 \right)f\left( -1 \right) \neq 0$ and $f$ is irreducible over $K$.
-    \item $f\left( 1 \right)f\left( -1 \right) = 0$ and $f$ factors into $x \pm 1$ times a polynomial that is irreducible over $K$.
-  \end{enumerate}
-\end{lemma}
-\begin{proof}
-  Assume that $f = f_0 f_1$ for some monic $f_0, f_1 \in K\left[ x \right]$.
-  By considering the Newton polygon of $f$ with respect to $\pi$ it follows that 
-\end{proof}
 \end{document}
