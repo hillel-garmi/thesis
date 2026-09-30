@@ -8,7 +8,7 @@
 *.blg
 *.run.xml
 *.pdf
-*.bash
+# *.bash
 *.toc
 *.out
 *.snm
