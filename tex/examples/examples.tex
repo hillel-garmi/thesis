@@ -2,44 +2,69 @@
 
 \begin{document}
 \section{Examples}
+Recall that for each rational prime $p$ we view $\overline{\Q}$ as a subfield of $\overline{\Q_p}$ and denote by $v_p$ the valuation of $\overline{\Q_p}$.
 \begin{lemma}
-  % Assume that $b$ is prime in $\Z$.
-  Let $K$ be either $\Q$ or an imaginary quadratic field, $\pi$ a prime in $\O_K$ and $\vpi$ the $\pi$-adic valuation. 
-  Assume that:
+  Let $K$ be a Galois number field and $p$ a rational prime and assume that:
   \begin{enumerate}
     \item $a = \pm 1$.
-    \item $b$ is, up to a unit, a non trivial power of $\pi$ (and is still in $\Z$).
-    \item $1 = \gcd\left( k, \vpi\left( b \right) \right)$.
+    \item $b$ is, up to a unit, a non trivial power of $p$.
+    \item $p$ does not split in $K$.
+    \item \label{item:valuation_coprimality}$
+      1 = \gcd\left( 
+        k, 
+        v_p\left( b \right) \cdot \left[ v_p\left( K \right): \Z \right]
+      \right)
+    $.
+    \item $n > 2$.
   \end{enumerate}
   Then one of two cases occurs
   \begin{enumerate}
     \item $f$ is irreducible over $K$.
-    \item $\left| b \right| = 2$ and $f$ factors into $x \pm 1$ times a polynomial that is irreducible over $K$.
+    \item $b = \pm 2$ and $f$ factors into $x \pm 1$ times a polynomial that is irreducible over $K$.
   \end{enumerate}
 \end{lemma}
 \begin{proof}
-  Firstly, note that by considering the Newton polygon of $f$ with respect to $\pi$ it follows that $f$ has $k$ roots (counted with possible multiplicity, here and in the sequel of the proof) whose $\pi$-adic valuation is $\vpi\left( b \right) / k$ and the rest are of $\pi$-adic valuation $0$.
-  Therefore, for any irreducible factor $f_0$ of $f$, either all or none of the $k$ roots of positive valuation are also roots of $f_0$.
-  We claim that it suffices to prove that in the latter case $b = \pm 2$ and $f_0 = x \pm 1$.
-  Indeed, assume it is proven. 
-  Note that $1$ and $-1$ can not both be roots of $f$ and non of them can be a multiple root.
-  Therefore, $f$ can have at most one irreducible factor besides the one annihilating the roots of positive valuation, and if such a factor exists then it must be $x \pm 1$ and $b$ must be $\pm 2$.
+  Firstly, note that by considering the Newton polygon of $f$ with respect to $p$ it follows that $f$ has $k$ roots (counted with possible multiplicity, here and in the sequel of the proof) whose $p$-adic valuation is $v_p\left( b \right) / k$ and the rest are of $p$-adic valuation $0$.
+  Therefore, the $y$-coordinates of the vertices of the Newton polygon of any factor of $f$ in $K\left[ x \right]$ is in $\frac{v_p\left( b \right)}{k} \Z \cap v_p\left( K \right)$ which according to \ref{item:valuation_coprimality} is $v_p\left( b \right)\Z$ and hence any such factor annihilates either non or all of the $k$ positive valuation roots of $f$.
+  Let then $f_0 \in K\left[ X \right]$ be an irreducible monic factor of $f$ that annihilates all of the $k$ positive valuation roots of $f$ and let $f_1 = f_0 / f_1$.
+  It suffices to show that either $f / f_0$, or $b = \pm 2$ and $f / f_0 = x \pm 1$.
+  
+  % To do so, we claim, it is enough to prove that all of the roots of $f_1$ are either $1$ or $-1$.
+  % Indeed, assume it is proven.
+  % If $f_1$ in fact has no roots at all we are done since $f_0$ is irreducible.
+  % Otherwise, since $1$ and $-1$ can not both be roots of $f$ and none of them can be a double root of it, it follows that $f_1 = x \pm 1$ and from the triangle inequality it follows that $\left| b \right| \leq 2$ and hence since $b$ was assumed to be a non trivial $p$-power it follows that $b = \pm 2$ as required.
 
-  Let then $f_0$ be an irreducible factor of $f$ that does not annihilate any of the roots of $f$ with positive $\pi$-adic valuation.
-  The valuation of the free coefficient of $f_0$, which we shall denote by $b_0$, must then be $0$.
-  However $b_0$ divides $b$, and hence since $b$ is assumed to be a $\pi$-power it follows that $b_0$ is a unit.
-  Since $K$ was assumed to be either $\Q$ or an imaginary quadratic field it follows that $b_0$ is a root of unity.
-  Then, since $b_0$ is a root of unity, $f_0$ has at last one root, say $\alpha$, within the complex unit disk.
+  We will first show that $f / f_0$ is in $\Q\left[ x \right]$ and we will do so by showing that $f_0$ is in $\Q\left[ x \right]$.
+  Let $\sigma \in \Gal\left( \overline{\Q}/ \Q \right)$ be an automorphism of $\overline{\Q}$ and denote by $\sigma$ also the induced automorphism of $\overline{\Q}\left[ x \right]$.
+  It suffices to show that $\sigma\left( f_0 \right) = f_0$.
+  Since $f$ does not split in $K$, $\sigma\left( f_0 \right)$ is also an irreducible factor $f$ with $k$ roots of positive $p$-adic valuation. 
+  However, as mentioned $f$ has only $k$ such roots and hence it has at most one such irreducible factor and hence indeed $f_0 = \sigma\left( f_0 \right)$.
+
+  If $f / f_0 = 1$ we are done.
+  Assume otherwise and let $f_1$ be some factor of $f / f_0$ that is irreducible in $\Q\left[ x \right]$ and denote by $b_0$ and $b_1$ the free coefficients of $f_0$ and $f_1$ respectively.
+  Since $f_0$ annihilates all of the positive $p$-adic valuation roots of $f$ it follows that $v_p\left( b_0 \right) = v_p\left( b \right)$, and hence, since $b_0 b_1$ divides $b$ in $\Z$ and since $b$ is assumed to be a $p$-power up to a unit, it follows that $b_1$ is a rational unit, i.e. that $b_1 = \pm 1$.
+  Then $f_1$ has at last one root, say $\alpha$, within the closed complex unit disk.
   By the triangle inequality it thus follows
   \[
-    \left| b \right| \leq \left| \alpha^n \right| + \left| \alpha^k \right| \leq 2
+    \left| b \right| \leq \left| \alpha^n \right| + \left| a\alpha^k \right| \leq 2
   \]
-  and hence since we assume that $\left| b \right| > 1$ it follows that $\left| b \right| = 2$, as we set to prove, and hence that 
+  and hence since we assume that $b$ is up to a unit a non trivial power of $p$ it follows that $b = \pm 2$, as we set to prove, and hence that 
   \[
     \alpha^k = \alpha^n = \pm 1.
   \]
-  Since $1 = \gcd\left( k,n \right)$ it follows that $\alpha = \pm 1$, i.e. that $f_0 = x \pm 1$ completing our proof.
+  Since $1 = \gcd\left( k,n \right)$ it follows that $\alpha = \pm 1$ or equivalently, since $f_1$ is assumed to be irreducible that $f_1 = x \pm 1$.
+  Finally, since $1$ and $=-1$ can not both be roots of $f$ and since none of them can be a double root of $f$ it follows that $f / f_0 = x \pm 1$ completing our proof.
 \end{proof}
+
+\begin{lemma}
+  Let $p$ be a rational prime and assume that 
+  \begin{enumerate}
+    \item $a = \pm 1$.
+    \item $b$ is up to a unit a non trivial power of $p$.
+    \item 
+  \end{enumerate}
+\end{lemma}
+
 \begin{center}
 \begin{tabular}{ |c|c|c| } 
   \hline
