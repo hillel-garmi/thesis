@@ -1,0 +1,25 @@
+{
+    "name": "LaTeX (TeX Live)",
+    "image": "texlive/texlive:latest",
+    "mounts": [
+        {
+            "source": "build-${devcontainerId}",
+            "target": "${containerWorkspaceFolder}/build",
+            "type": "volume"
+        }
+    ],
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:2": {
+            "username": "texlive"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "James-Yu.latex-workshop"
+            ]
+        }
+    },
+    "onCreateCommand": "sudo chown -R texlive:texlive build",
+    "remoteUser": "texlive"
+}
