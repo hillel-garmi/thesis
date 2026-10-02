@@ -4,6 +4,7 @@
 \section{Examples}
 Recall that for each rational prime $p$ we view $\overline{\Q}$ as a subfield of $\overline{\Q_p}$ and denote by $v_p$ the valuation of $\overline{\Q_p}$.
 \begin{lemma}
+  \label{lem:no_splitting_irreducibility}
   Let $K$ be a Galois number field and $p$ a rational prime and assume that:
   \begin{enumerate}
     \item $a = \pm 1$.
@@ -26,7 +27,7 @@ Recall that for each rational prime $p$ we view $\overline{\Q}$ as a subfield of
 \begin{proof}
   Firstly, note that by considering the Newton polygon of $f$ with respect to $p$ it follows that $f$ has $k$ roots (counted with possible multiplicity, here and in the sequel of the proof) whose $p$-adic valuation is $v_p\left( b \right) / k$ and the rest are of $p$-adic valuation $0$.
   Therefore, the $y$-coordinates of the vertices of the Newton polygon of any factor of $f$ in $K\left[ x \right]$ is in $\frac{v_p\left( b \right)}{k} \Z \cap v_p\left( K \right)$ which according to \ref{item:valuation_coprimality} is $v_p\left( b \right)\Z$ and hence any such factor annihilates either non or all of the $k$ positive valuation roots of $f$.
-  Let then $f_0 \in K\left[ X \right]$ be an irreducible monic factor of $f$ that annihilates all of the $k$ positive valuation roots of $f$ and let $f_1 = f_0 / f_1$.
+  Let then $f_0 \in K\left[ X \right]$ be an irreducible monic factor of $f$ that annihilates all of the $k$ positive valuation roots of $f$.
   It suffices to show that either $f / f_0$, or $b = \pm 2$ and $f / f_0 = x \pm 1$.
   
   % To do so, we claim, it is enough to prove that all of the roots of $f_1$ are either $1$ or $-1$.
@@ -46,7 +47,7 @@ Recall that for each rational prime $p$ we view $\overline{\Q}$ as a subfield of
   Then $f_1$ has at last one root, say $\alpha$, within the closed complex unit disk.
   By the triangle inequality it thus follows
   \[
-    \left| b \right| \leq \left| \alpha^n \right| + \left| a\alpha^k \right| \leq 2
+    \left| b \right| \leq \left| \alpha^n \right| + \left| \alpha^k \right| \leq 2
   \]
   and hence since we assume that $b$ is up to a unit a non trivial power of $p$ it follows that $b = \pm 2$, as we set to prove, and hence that 
   \[
@@ -55,20 +56,194 @@ Recall that for each rational prime $p$ we view $\overline{\Q}$ as a subfield of
   Since $1 = \gcd\left( k,n \right)$ it follows that $\alpha = \pm 1$ or equivalently, since $f_1$ is assumed to be irreducible that $f_1 = x \pm 1$.
   Finally, since $1$ and $=-1$ can not both be roots of $f$ and since none of them can be a double root of $f$ it follows that $f / f_0 = x \pm 1$ completing our proof.
 \end{proof}
+% Recall that we use $g$ to denote an arbitrary rational factor of $f$.
+% \begin{corollary}
+%   In the settings of Lemma \ref{lem:no_splitting_irreducibility}, $K$ can not be embedded into $\Q\left[ x \right]/ \left( g \right)$.
+%   \qed
+% \end{corollary}
+% \begin{proof}
+% \end{proof}
+% Recall that a Kroneckerian field is a number field that is either totally real or a quadratic extension of a totally real number field.
+% \begin{lemma}
+%   Let $K/\Q$ be a quadratic field extension and $p \neq 0$ a rational prime and assume that: 
+%   \begin{enumerate}
+%     \item $p = \pm a = \pm b$.
+%     \item $n > 2$.
+%   \end{enumerate}
+%   Then $f$ is irreducible over $K$.
+% \end{lemma}
+% \begin{proof}
+%   Let $\sigma \in \Gal\left( \overline{\Q} / \Q \right)$ be a lift of the non trivial automorphism of $K$ to $\overline{\Q}$.
+%   View $\overline{\Q}$ as a subfield of $\C$ and let $\overline{\left( - \right)}$ denote the complex conjugation.
+%   Since $f$ is irreducible over $\Q$, the only way it can factor over $K$ is as $f = f_0 \sigma\left( f_0 \right)$ for some irreducible $f_0 \in K\left[ x \right]$.
+%   Assume toward a contradiction that this is the case.
+  
+%   Note that for any polynomial $h \in K\left[ x \right]$, the free coefficient of $h \cdot \overline{h \circ x^{-1}}$ is the square of the Euclidean norm of $h$.
+%   In particular, since 
+%   % Note that 
+%   \[
+%     f \cdot \overline{f \circ x^{-1}} = 
+%     \left( f_0 \cdot \overline{\sigma\left( f_0 \right) \circ x^{-1}} \right)
+%     \cdot 
+%     \overline{\left( f_0 \cdot \overline{\sigma\left( f_0 \right) \circ x^{-1}} \right) \circ x^{-1}}
+%   \]
+%   it follows that
+%   \[
+%     2p^2 + 1 
+%     = 
+%     \left\lVert f \right\rVert^2
+%     =
+%     \left\lVert f_0 \cdot \overline{\sigma\left( f_0 \right) \circ x^{-1}} \right\rVert^2
+%   \]
+%   On the other hand, by ramification theory, $p$ must ramify in $K$ and $f_0$ must be Eisenstein with respect to $\sqrt{p\O_K}$.
+%   Therefore, all of the coefficients of $f_0 \cdot \overline{\sigma\left( f_0 \right) \circ x^{-1}}$ except for the free one have $p$-adic valuation at least $1/2$.
+%   % Therefore, if we denote 
+%   % \[
+%   %   f_0 = x^{n/2} + \sum_{j = 0}^{d} c_j x^{i_j} 
+%   % \] 
+%   % for some $d < n / 2$ and $i_0 < i_1 < \ldots < i_d < n / 2$ and $0 \neq c_j \in K$, we may deduce that  
+%   % \[
+%   %   \overline{f} \cdot \left( f \circ x^{-1} \right) = 
+%   %   \overline{\overline{f_0} \cdot \left( \sigma\left( f_0 \right) \circ x^{-1} \right)}
+%   %   \cdot 
+%   %   \left( \left( \overline{f_0} \cdot \left( \sigma\left( f_0 \right) \circ x^{-1} \right) \right) \circ x^{-1} \right)
+%   % \]
+
+%   By considering the Newton polygon of $f$ with respect to $2$ it follows that all of the roots of $f$ have $2$-adic valuation $1 / n$.
+%   Assume toward a contradiction that $f$ is reducible over $K$.
+
+% \end{proof}
 
 \begin{lemma}
-  Let $p$ be a rational prime and assume that 
-  \begin{enumerate}
-    \item $a = \pm 1$.
-    \item $b$ is up to a unit a non trivial power of $p$.
-    \item 
-  \end{enumerate}
+  Assume that $\left| a \right| = \left| b \right| = 2$ and that $n > 4$.
+  Then $f$ is irreducible over $\Q\left( i \right)$ where $i = \sqrt{-1}$.
 \end{lemma}
+\begin{proof}
+  Denote by $\overline{\left( - \right)}$ the non trivial automorphism of $\Q\left( i \right)$.
+  Assume toward a contradiction that $f$ is reducible over $\Q\left( i \right)$.
+  Since it is integral and irreducible over $\Z$, it must factor as $f = f_0 \overline{f_0}$ for some irreducible 
+  \[
+    f_0 = x^{n/2} + \sum_{j = 0}^{n/2 - 1} c_j x^j \in \Z\left[ i \right]\left[ x \right]
+    .
+  \]
+  
+  For any polynomial $h \in K\left[ x \right]$, the Euclidean norm of $h$ is denoted by $\left\lVert h \right\rVert$ and defined to be the Euclidean norm of the coefficients' vector of $h$, which also happens to be the square root of the free coefficient of $h\left( x \right) \overline{h \left( x^{-1} \right)}$.
+  In particular, since 
+  \[
+    f\left( x \right) \cdot \overline{f \left( x^{-1} \right)} 
+    =
+    f_0\left( x \right)f_0\left( x^{-1} \right) \cdot 
+    \overline{\left( f_0\left( x \right)f_0\left( x^{-1} \right) \right) \circ x^{-1}}
+  \]
+  it follows that
+  \begin{equation}
+    \label{eq:euclidean_norm}
+    9
+    = 
+    \left\lVert f \right\rVert^2
+    =
+    \left\lVert f_0\left( x \right)f_0\left( x^{-1} \right) \right\rVert^2.
+  \end{equation}
+
+  On the other hand, from ramification theory, it follows that $f_0$ is Eisenstein with respect to the prime ideal $\left( 1 + i \right) \subseteq \Z\left[ i \right]$, and hence $v_{2}\left( c_i \right) \geq 1/2$ for each $i = 0, \ldots, n / 2 - 1$ and $v_2\left( c_0 \right) = 1/2$.
+  A direct calculation thus shows that for each $0 \leq j < n / 2$ for which $v_2\left( c_j \right) = 1/2$, the $2$-adic valuation of the $j$-th and the $-j$-th coefficients of $f_0\left( x \right)f_0\left( x^{-1} \right)$ is $1/2$ as well, and in particular the squared absolute value of each of these coefficients is at least $2$.
+  Therefore, to derive a contradiction to \eqref{eq:euclidean_norm} it suffices to show that there are at least three such $j$-values. 
+
+  Since $2 = c_0 \overline{c_0}$, $0$ is one such $j$-value.
+  We will deduce that there are at least two more such $j$-values by using twice the fact that for any $\alpha \in \Z\left[ i \right]$ of $2$-adic valuation $1/2$, 
+  $$\alpha + \overline{\alpha} \equiv 2 \mod \left( 2 + 2i \right).$$
+  Indeed, since $n$ is not coprime to $n/2$, it follows that $n/2 \neq k$ and hence the $n/2$-th coefficient of $f$ is $0$.
+  However, the $n/2$-th coefficient of $f$ can be expressed as
+  \[
+    c_0 + \overline{c_0} + \sum_{j = 1}^{n/2 - 1} c_j \overline{c_{n/2 - j}} 
+    \equiv
+    c_0 + \overline{c_0} + c_{n/4} \overline{c_{n/4}}
+    \equiv
+    2 + c_{n/4} \overline{c_{n/4}}    
+    % = 
+    % \sum_{j = 1}^{n/2 - 1} c_j \overline{c_{n/2 - j}}
+    \mod \left( 2 + 2i \right)
+  \]
+  when $c_{n/4}$ is to be interpreted as $0$ if $n/4$ is not an integer.
+  However, for the $n/2$-th coefficient of $f$ to be $0$, it must in particular be congruent to $0$ modulo $\left( 2 + 2i \right)$ implying that $$c_{n/4} \overline{c_{n/4}} \equiv 2 \mod \left( 2 + 2i \right)$$ and hence $v_2\left( c_{n/4} \right) = 1/2$ and $n/4$ is a second such $j$-value.
+  Since $n > 4$, $n$ and $n/4$ are also not coprime and hence the same argument can be repeated to show that $n/8$ is a third such $j$-value, concluding the desired contradiction.
+  
+  % We utilize this fact to show by induction 
+  % Therefore, the $n/2$-th coefficient of $f_0 \overline{f_0}$ is 
+  % In particular, $\pm 2 = b = c_0 \overline{c_0}$ and hence $c_0 = \pm 1 \pm i$.
+  % Consider now the $n/2$-th coefficient of $f_0 \overline{f_0}$ which equales 
+  % \[
+  %   \sum_{j = 1}^{n/2 - 1} c_j \overline{c_{n/2 - j}} + c_0 \overline{c_{n/2}} + c_{n/2} \overline{c_0}
+  % \]
+
+\end{proof}
+
+\begin{lemma}
+  \label{lem:imprimitivity_finite_obstruction}
+  Let $K$ be a number field.
+  Assume that there is an integer $m \in \Z$ and a prime $p$ not dividing $a b$ such that $K$ has no embedding into $\Q_p$ and 
+  \[
+    v_p\left( f\left( m \right) \right) = 1
+  \]
+  Then $K$ cannot be a subfield of $\Q\left[ x \right] / \left( f \right)$.
+\end{lemma}
+\begin{proof}
+  Since $p$ does not divide $a$, it does not ramify in $K$ according to Corollary \ref{cor:ramification_only_over_primes_dividing_a}, and hence since $K$ has no embedding into $\Q_p$, $K$ has no embedding into any purely ramified extension of $\Q_p$.
+  Therefore, to show that $K$ can not be a subfield of $\Q\left[ x \right] / \left( f \right)$, it suffices to show that $f$ has a root that is contained in a purely ramified extension of $\Q_p$.
+  Indeed, let $e$ be the multiplicity of $m$ as a root of $f$ modulo $p$.
+  Then there is a factorization 
+    \[
+      \pi\left( f \right) = \left( x-m \right)^e \overline{g} \in \F_p\left[ x \right]
+    \]
+    for some $\overline{g} \in \F_p\left[ x \right]$ that is coprime to $\left( x-m \right)$ where $\pi : \Z_p\left[ x \right] \to \F_p\left[ x \right]$ is the quotient map.
+    By hensel's lemma, there is a factorization
+    \[
+      f = h g \in \Z_p\left[ x \right]
+    \]
+    where $\pi\left( h \right) = \left( x-m \right)^e$ and $\pi\left( g \right) = \overline{g}$.
+    Consider now the polynomial 
+    \[
+      f\left( x + m \right) = 
+      h\left( x + m \right)g\left( x + m \right) = x^n + \sum_{i=0}^{n-1} c_i x^i \in \Z\left[ x \right]  
+    \]
+    Then 
+    \[
+      v_p\left( c_0 \right) = v_p\left( f\left( m \right) \right) = 1
+    \]
+    and 
+    \[
+      \pi\left( f\left( x + m \right) \right) = 
+      \pi\left( h\left( x + m \right) \right) \pi\left( g\left( x + m \right) \right) =
+      x^e \overline{g}\left( x + m \right) \in \F_p\left[ x \right]
+    \]
+    and hence 
+    \[
+      v_p\left( c_i \right) \geq 1
+    \]
+    for all $i < e$.
+    Therefore, the Newton polygon of $f\left( x + m \right)$ with respect to $p$ has a single segment of negative and its slope is at most $1/e$ in absolute value.
+    Therefore, $f\left( x + m \right)$ has a root, call it $\beta$, whose $p$-valuation is at most $1/e$.
+    Therefore, since the set of roots of $f\left( x + m \right)$ that reduce to $0$ modulo $p$ is exactly the set of roots of $h\left( x + m \right)$, whose degree is $e$, it follows that the ramification degree of $\beta$ over $\Q_p$ is exactly its over all algebraic degree over $\Q_p$ and hence $\Q_p\left( \beta \right) / \Q_p$ is purely ramified.
+    This shows that there is an embedding, in particular the one extending the assignment $x \mapsto \beta$, of $\Q\left[ x \right] / \left( f \right)$ into a purely ramified extension of $\Q_p$  
+\end{proof}
+
+
+\begin{lemma}
+  \label{lem:fields_not_embeddable}
+  Assume that $\left| ab \right| \leq 5$ and that $\Q \subsetneq K$ is a number field that is unramified away from $ab$ for which 
+  \[
+    v_p\left( \rd K \right) \leq v_p\left( ab \right).
+  \]
+  Then $K$ can not be embedded into $\Q\left[ x \right]/ \left( f \right)$.
+\end{lemma}
+\begin{proof}
+  
+\end{proof}
 
 \begin{center}
 \begin{tabular}{ |c|c|c| } 
   \hline
-  $ab$ 
+  $\left| ab \right|$ 
   &
   \makecell{Minimal number fields satisfying \\ the conditions of Lemma \ref{lem:fields_not_embeddable}} 
    & 
@@ -85,17 +260,6 @@ Recall that for each rational prime $p$ we view $\overline{\Q}$ as a subfield of
 \hline
 \end{tabular}
 \end{center}
-\begin{lemma}
-  \label{lem:fields_not_embeddable}
-  Assume that $\left| ab \right| \leq 5$ and that $\Q \subsetneq K$ is a number field that is unramified away from $ab$ for which 
-  \[
-    v_p\left( \rd K \right) \leq v_p\left( ab \right).
-  \]
-  Then $K$ can not be embedded into $\Q\left[ x \right]/ \left( f \right)$.
-\end{lemma}
-\begin{proof}
-  
-\end{proof}
 
 \subsection{$\lcm\left( a,b \right) = 1$}
 

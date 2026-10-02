@@ -38,11 +38,12 @@
   We can combine this result with the bound on the discriminant to get an effective sufficient condition for the Galois group of $L$ to be the full symmetric group:
   \begin{thm}
     \label{thm:criterion}
-    Assume that there is a constant $C_p > v_p\left( ab \right)$ for each prime $p|ab$, such that $L$ has no subextension $K$ satisfying both of the following conditions: 
+    Assume that there is a constant $C_p > v_p\left( ab \right)$ for each prime $p|ab$, such that the only subextension $K \subseteq L$ satisfying both  
     \begin{enumerate}
-      \item $v_p\left( \rd\left( K \right) \right) < C_p$ for each $p|ab$,
-      \item $K$ is ramified only above primes dividing $ab$.
+      \item $v_p\left( \rd\left( K \right) \right) < C_p$ for each $p|ab$, and
+      \item $K$ is unramified away from $ab$,
     \end{enumerate} 
+    is $K$.
     Assume that
     \[
       \deg g > \max_{p| ab}\left( \frac{n v_p\left( ab \right) + \exrootscountbound}{C_p} \right)
@@ -51,7 +52,7 @@
   \end{thm}
   \begin{proof}
     We will show that the conditions of Corollary \ref{thm:strategy} hold.
-    Let $K$ be a number field ramified only above primes dividing $ab$.
+    Let $K$ be a number field unramified away from $ab$.
     Assume towards a contradiction that $K \subseteq L$.
     The inequality in the statement of the theorem is equivalent to the statement that 
     \[
