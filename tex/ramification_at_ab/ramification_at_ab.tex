@@ -83,7 +83,7 @@
     \]
     be the canonical quotient map. 
   \end{definition} 
-  In this language condtion \ref{eq:principal_unit_condition} can be stated as
+  In this language condtion \cref{eq:principal_unit_condition} can be stated as
   \begin{equation}
     \label{eq:mod_principal_units_condition}
     \pi\left(  
@@ -91,10 +91,10 @@
     \right) = 
     \pi\left( \alpha^{k - m} \right)
   \end{equation}
-  Since $\F\left[ x, x^{-1} \right]^\times = \F^\times x^{\Z}$, if condition \ref{eq:mod_principal_units_condition} holds for $h{}$ then it also holds for any polynomial in the ideal $\left( \h{} \right)$.
+  Since $\F\left[ x, x^{-1} \right]^\times = \F^\times x^{\Z}$, if \cref{eq:mod_principal_units_condition} holds for $h{}$ then it also holds for any polynomial in the ideal $\left( \h{} \right)$.
   Thus, we can make the following
   \begin{definition}
-    If the equivalent conditions \ref{eq:valuation_inequality_condition}, \ref{eq:valuation_positivity_condition}, \ref{eq:principal_unit_condition} and \ref{eq:mod_principal_units_condition} hold, we say that $\pi\left( \alpha \right)$ is an \textbf{\es{n}} disk of $\left( \h{} \right)$.
+    If the equivalent conditions \cref{eq:valuation_inequality_condition}, \cref{eq:valuation_positivity_condition}, \cref{eq:principal_unit_condition} and \cref{eq:mod_principal_units_condition} hold, we say that $\pi\left( \alpha \right)$ is an \textbf{\es{n}} disk of $\left( \h{} \right)$.
     % , or just \es{n} when $\left( \h{} \right)$ is clear from context
     We say that $\pi\left( \alpha \right)$ is \textbf{\anex} disk of $\left( \h{} \right)$
     % or just \anex root when $\h{}$ is clear from context
@@ -130,7 +130,7 @@
     \[
       1 = \q{n}{m} \q{m}{k} \q{k}{n}
     \]
-    and hence, the result follows from condition \ref{eq:mod_principal_units_condition}.
+    and hence, the result follows from \cref{eq:mod_principal_units_condition}.
     % \[
     %   \q{k}{n} 
     %   = 
@@ -223,7 +223,7 @@
     \end{equation}
   \end{corollary}
   \begin{proof}
-    Another way to state Lemma \ref{lem:two_escaping_implies_ex} is that $\pi\left( \alpha \right)$ is \anex disk of $\h{}$ if and only if it solves the $\Z$-linear equation
+    Another way to state Lemma \cref{lem:two_escaping_implies_ex} is that $\pi\left( \alpha \right)$ is \anex disk of $\h{}$ if and only if it solves the $\Z$-linear equation
     \begin{equation}
       \label{eq:raw_ex_equation}
       \begin{bmatrix}
@@ -240,7 +240,7 @@
     \[
       r(n - m) + s(m - k) = 1.
     \]
-    Therefore, multiplying both sides of equation \ref{eq:raw_ex_equation} by 
+    Therefore, multiplying both sides of \cref{eq:raw_ex_equation} by 
     \[
       \begin{bmatrix}
         r & s \\
@@ -263,13 +263,13 @@
     \end{enumerate}
   \end{lemma}
   \begin{proof}
-    According to Corollary \ref{cor:ex_disk}, $\pi\left( \alpha \right) = \q{n}{m}^r \q{m}{k}^s$ when $r$ and $s$ are as defined in Corollary \ref{cor:ex_disk}.
+    According to \cref{cor:ex_disk}, $\pi\left( \alpha \right) = \q{n}{m}^r \q{m}{k}^s$ when $r$ and $s$ are as defined in \cref{cor:ex_disk}.
     Set $q = \q{n}{m}^r \q{m}{k}^s$.
     Therefore, $\pi\left( q^{-1}\alpha \right) = 1$ and in particular $v\left( q^{-1}\alpha \right) = 0$.
     Since $\h{}\left( qx \right)$ is a trinomial, its Newton polygon has at most two segments, and hence the set of valuations of its roots is of cardinality at most $2$.
     Hence, as we have already shown that $0$ is in the set of valuations of roots of $\h{}$, it follows that this set is either non negative or non positive.
     We can set $\delta = 1$ in the first plave and $\delta = -1$ in the second place (and either of them if both cases hold) and set $u = q x^\delta$.
-    Then $\h{} \circ u^{-1}$ is integral over $R$ and $\pi\left( 1 \right)$ is \anex disk of $\h{} \circ u^{-1}$ according to Lemma \ref{lem:scalability}.
+    Then $\h{} \circ u^{-1}$ is integral over $R$ and $\pi\left( 1 \right)$ is \anex disk of $\h{} \circ u^{-1}$ according to \cref{lem:scalability}.
   \end{proof}
   
   \begin{lemma}
@@ -277,9 +277,9 @@
     If $\h{}$ has \anex disk then it has \anex root.  
   \end{lemma}
   \begin{proof}
-    By Lemma \ref{lem:reduction} we can assume without loss of generality that $\h{}$ is integral over $R$ and that $\pi\left( 1 \right)$ is \anex disk of it.
+    By \cref{lem:reduction} we can assume without loss of generality that $\h{}$ is integral over $R$ and that $\pi\left( 1 \right)$ is \anex disk of it.
     In this situation, it suffices to show that $1$ lifts to a root of $\h{}$, or equivalently, by the integrality of $\h{}$, that $\h{}\left( 1 \right) = 0 \in \kappa$.
-    Indeed, by condition \ref{eq:mod_principal_units_condition}
+    Indeed, by \cref{eq:mod_principal_units_condition}
     \begin{align*}
       \h{}\left( 1 \right) 
       = 
@@ -331,15 +331,15 @@
       \end{enumerate}
     \end{corollary}
     \begin{proof}
-      The equivalence of conditions \ref{item:coherence} and \ref{item:symmetric} follows by direct computation.
-      If condition \ref{item:ex} holds then so does \ref{item:coherence} by Corollary \ref{cor:ex_disk}.
-      Assume conversely that condition \ref{item:coherence} holds.
-      Then by Corollary \ref{cor:ex_disk} $\h{}$ has \anex disk and hence by Lemma \ref{lem:ex_lift} condition \ref{item:ex} holds.
+      The equivalence of \cref{item:coherence} and \cref{item:symmetric} follows by direct computation.
+      If \cref{item:ex} holds then so does \cref{item:coherence} by \cref{cor:ex_disk}.
+      Assume conversely that \cref{item:coherence} holds.
+      Then by \cref{cor:ex_disk} $\h{}$ has \anex disk and hence by \cref{lem:ex_lift} \cref{item:ex} holds.
     \end{proof} 
   }
       
   \subsection{Reduced magnetic roots}
-  In light of Lemma \ref{lem:reduction} we make the following
+  In light of \cref{lem:reduction} we make the following
   \begin{definition}
     \label{def:aredex}
     We say that $\alpha$ ia \textbf{\aredex root} of $\h{}$ and that $\h{}$ is \\ \textbf{\aredex polynomial} if:
@@ -370,7 +370,7 @@
     \end{enumerate}
   \end{lemma}
   \begin{proof}
-    Condition \ref{eq:valuation_inequality_condition} in the definition of $k$-magnetism and $ m $-magnetism implies the equalities 
+    \cref{eq:valuation_inequality_condition} in the definition of $k$-magnetism and $ m $-magnetism implies the equalities 
     \begin{equation}
       \label{eq:raw_valuation_equality}
       v\left( \h{k,n}\left( \alpha \right) \right) = 
@@ -381,7 +381,7 @@
       .
     \end{equation}
     To simplify it, note that by our assumptions regarding the Newton polygon of $\h{}$ it follows that $v\left( a_n \right) > v\left( a_m \right) = v\left( a_k \right)$, and that since we also assume that $\h{}$ is \aredex polynomial and thus intagral and primitive over $R$, it follows that $v\left( a_m \right) = v\left( a_k \right) = 0$. 
-    Substituting these two facts into equation \ref{eq:raw_valuation_equality}, as well as the assumption that $v\left( \alpha \right) = 0$, gives the equalities
+    Substituting these two facts into \cref{eq:raw_valuation_equality}, as well as the assumption that $v\left( \alpha \right) = 0$, gives the equalities
     \begin{gather}
       v\left( m - k \right) = v\left( n - k \right) + v\left( a_n \right) 
       \label{eq:first_relation_between_slope_length_valuations}
@@ -393,10 +393,10 @@
       \label{eq:second_relation_between_slope_length_valuations}
     \end{gather}
     which together imply that $v\left( n - k \right) = v\left( n - m \right)$.
-    Since $1 = \gcd\left( n - m, n - k \right)$, it hence follows that $v\left( n - k \right) = v\left( n - m \right) = 0$, proving item \ref{item:smaller_slope_length_valuation}.
-    Substituting back in either equation \ref{eq:first_relation_between_slope_length_valuations} or equation \ref{eq:second_relation_between_slope_length_valuations} proves item \ref{item:bigger_slope_length_valuation}.
+    Since $1 = \gcd\left( n - m, n - k \right)$, it hence follows that $v\left( n - k \right) = v\left( n - m \right) = 0$, proving \cref{item:smaller_slope_length_valuation}.
+    Substituting back in either \cref{eq:first_relation_between_slope_length_valuations} or \cref{eq:second_relation_between_slope_length_valuations} proves \cref{item:bigger_slope_length_valuation}.
   \end{proof}
-  According to item \ref{item:bigger_slope_length_valuation} of Lemma \ref{lem:slope_length_valuation} we can classify the \redex polynomials into two kinds:
+  According to \cref{item:bigger_slope_length_valuation} of \cref{lem:slope_length_valuation} we can classify the \redex polynomials into two kinds:
 
   \subsubsection{The equal valuation case}
   Assume now that $v\left( a_n \right) = v\left( a_m \right) = v\left( a_k \right) = 0$ and that $\h{}$ is \aredex polynomial.
@@ -414,7 +414,7 @@
         v\left( \h{n,k}\left( \alpha \right) \right)
       \right\} = 0
     \]
-    and hence the result follows from condition \ref{eq:valuation_inequality_condition} defining magnetism.
+    and hence the result follows from \cref{eq:valuation_inequality_condition} defining magnetism.
   \end{proof}
 
   \begin{lemma}
@@ -423,8 +423,8 @@
   \end{lemma}
   \begin{proof}
     % Assume that it has \anex root.
-    % Then by Lemma \ref{lem:scalability} and Lemma \ref{lem:reduction} we can assume that it has \anex above $1$, and hence, 
-    By Corollary \ref{cor:ex_disk} all of its \ex roots lie above $1$.
+    % Then by \cref{lem:scalability} and \cref{lem:reduction} we can assume that it has \anex above $1$, and hence, 
+    By \cref{cor:ex_disk} all of its \ex roots lie above $1$.
     Therefore, it suffices to show that $1 \in \kappa$ is not a triple root of $\h{}$.
     However if it was it would have been a double root of 
     \[
@@ -434,7 +434,7 @@
       =
       x^k \left( a_m x^{m - k} + a_k \right) 
     \] 
-    contradicting the reducedness of $\left( a_m x^{m - k} + a_k \right) \leq \kappa\left[ x, x^{-1} \right]$ which follows form the fact that $v\left( m - k \right) = 0$ which follows in turn from Lemma \ref{lem:slope_length_valuation} whose conditions we assume above.
+    contradicting the reducedness of $\left( a_m x^{m - k} + a_k \right) \leq \kappa\left[ x, x^{-1} \right]$ which follows form the fact that $v\left( m - k \right) = 0$ which follows in turn from \cref{lem:slope_length_valuation} whose conditions we assume above.
   \end{proof}
 
   \begin{corollary}
@@ -442,7 +442,7 @@
     The inertia group acts on the roots of $\h{}$ either trivially or as a single transposition.
   \end{corollary}
   \begin{proof}
-    It suffices to show that $\h{}$ has at most $2$ roots $\alpha$ at which $v\left( \h{}'\left( \alpha \right) \right) > 0$, or equivalently, according to Lemma \ref{lem:magnetism_away_from_ab}, to show that $\h{}$ has at most two \ex roots, which is true by Lemma \ref{lem:2_magnetic_roots}. 
+    It suffices to show that $\h{}$ has at most $2$ roots $\alpha$ at which $v\left( \h{}'\left( \alpha \right) \right) > 0$, or equivalently, according to \cref{lem:magnetism_away_from_ab}, to show that $\h{}$ has at most two \ex roots, which is true by \cref{lem:2_magnetic_roots}. 
   \end{proof}
   \begin{corollary}
     If $v_p\left( ab \right) = 0$ for any rational prime $p$, then the inertia group at any place above $p$ acts on the roots of $f$ either trivially or as a single transposition.
@@ -482,11 +482,11 @@
     %   The more conceptual one is just by thinking of them as the corresponding geometrical terms applied to the variety cut out by that Laurent polynomial out of pucture affine line above the relevant base field.
     %   Shall I clarify any of this somewhere in the text?
     % }
-    Therefore, since we assume here that $\h{}$ is \aredex polynomial and in particular integral over $R$, it follows that $\h{}$ has exactly $p^{v\left( m - k \right)}$ roots in $\overline{\F}$ lying over $1$, which means, according to Corollary \ref{cor:ex_disk}, that $\h{}$ has exactly $p^{v\left( m - k \right)}$ \ex roots.
+    Therefore, since we assume here that $\h{}$ is \aredex polynomial and in particular integral over $R$, it follows that $\h{}$ has exactly $p^{v\left( m - k \right)}$ roots in $\overline{\F}$ lying over $1$, which means, according to \cref{cor:ex_disk}, that $\h{}$ has exactly $p^{v\left( m - k \right)}$ \ex roots.
   \end{proof}
 
   Let $p$ be a rational prime.
-  We denote by $\D_\alpha$ the different ideal of $\Q_p\left( \alpha \right)$ for each $\alpha \in \overline{\Q_p}$ and deduce from Lemma \ref{lem:counting_ex_roots} the following
+  We denote by $\D_\alpha$ the different ideal of $\Q_p\left( \alpha \right)$ for each $\alpha \in \overline{\Q_p}$ and deduce from \cref{lem:counting_ex_roots} the following
 
   \begin{corollary}\label{cor:ex_bound}
     Assume that $p| ab$.
@@ -497,12 +497,12 @@
   \end{corollary}
   \begin{proof}
     Let $\alpha$ be \anex root of $f$ (if there is no such root then the result is trivial).
-    According to Corollary \ref{cor:ex_disk}, $\pi\left( \alpha \right)$ is the only \ex disk and it belongs to $\pi\left( \Q^\times \right)$ (recall Definition \ref{def:pi} for $\pi$).
+    According to \cref{cor:ex_disk}, $\pi\left( \alpha \right)$ is the only \ex disk and it belongs to $\pi\left( \Q^\times \right)$ (recall \cref{def:pi} for $\pi$).
     In particular, the valuation of the \ex roots is a (unique) integer.
     If that integer is at least $1$, then the number of \ex roots can not exceed the maximal height difference between two vertices of the Newton polygon of $f$, which is clearly less than $\exrootscountbound$.
     Assume then that the valuation of the \ex roots is $0$.
-    Then, by Lemma \ref{lem:scalability} we can assume without loss of generality that $f$ is \aredex polynomial.
-    In particular exactly one of the coefficients $a$ and $b$ has positive valuation, and according to Lemma \ref{lem:counting_ex_roots}, the number of \ex roots of $f$ is bounded by $p$ raised to the valuation of that coefficient, which is exactly $\exrootscountbound$.
+    Then, by \cref{lem:scalability} we can assume without loss of generality that $f$ is \aredex polynomial.
+    In particular exactly one of the coefficients $a$ and $b$ has positive valuation, and according to \cref{lem:counting_ex_roots}, the number of \ex roots of $f$ is bounded by $p$ raised to the valuation of that coefficient, which is exactly $\exrootscountbound$.
 
     In particular it follows that $\alpha$ has at most $\exrootscountbound$ conjugates above $\Q_p$ and hence its ramification degree is at most $\exrootscountbound$.
     Denote this ramification degree by $e$.
@@ -557,8 +557,8 @@
     \]
   \end{corollary}
   \begin{proof}
-    By Lemma \ref{lem:two_escaping_implies_ex} we can assume without loss of generality that $\alpha$ is neither an \es{n} root of $\h{}$ nor an \es{m} root of $\h{}$.
-    Therefore, it follows from Lemma \ref{lem:non_es_bound} that 
+    By Lemma \cref{lem:two_escaping_implies_ex} we can assume without loss of generality that $\alpha$ is neither an \es{n} root of $\h{}$ nor an \es{m} root of $\h{}$.
+    Therefore, it follows from \cref{lem:non_es_bound} that 
     \begin{align*}
       v\left( \alpha \h{}'\left( \alpha \right) \right)
       \leq
@@ -593,7 +593,7 @@
     \end{align*} 
   \end{proof}
 
-  Just like in the case of Lemma \ref{lem:slope_length_valuation}, the condition that $\alpha$ is a non \ex root of $\h{}$ is just as general as the condition of the following
+  Just like in the case of \cref{lem:slope_length_valuation}, the condition that $\alpha$ is a non \ex root of $\h{}$ is just as general as the condition of the following
   \begin{corollary}
     \label{cor:explicit_non_ex_bound}
     If $\alpha$ is a non \ex root of $\h{}$, and the segment connecting the points $\left( m, v\left( a_m \right) \right)$ and $\left( n, v\left( a_n \right) \right)$ belong to the Newton polygon of $\h{}$ and its slope is $-v\left( \alpha \right)$, then
@@ -627,11 +627,11 @@
     For each $j \in \left\{ k,n,m \right\}$, $v\left( a_j \alpha^j \right)$ is the $y$-coordinate of the intersection with the $y$-axis of the line of slope $-v\left( \alpha \right)$ passing through the point $\left( j, v\left( a_j \right) \right)$.
     Since the Newton polygon of $\h{}$ contains the segment connecting the points $\left( m, v\left( a_m \right) \right)$ and $\left( n, v\left( a_n \right) \right)$, the point $\left( k, v\left( a_k \right) \right)$ lies above the line containing this segment.
     However, the slope of this line is $-v\left( \alpha \right)$, and hence among the lines of slope $-v\left( \alpha \right)$ passing through the points $\left( j, v\left( a_j \right) \right)$ for $j \in \left\{ k,n,m \right\}$, the one passing through $\left( k, v\left( a_k \right) \right)$ has the largest intersection with the $y$-axis.
-    Therefore, according to Corollary \ref{cor:non_ex_bound}, $v\left( \alpha \h{}'\left( \alpha \right) \right) \leq v\left( a_k \alpha^k \right)$, and it can be verified that $v\left( a_k \alpha^k \right)$ equals to the bound presented in condition \ref{item:k_es}.
+    Therefore, according to \cref{cor:non_ex_bound}, $v\left( \alpha \h{}'\left( \alpha \right) \right) \leq v\left( a_k \alpha^k \right)$, and it can be verified that $v\left( a_k \alpha^k \right)$ equals to the bound presented in \cref{item:k_es}.
 
-    To prove condition \ref{item:non_k_es}, assume that $v\left( n - m \right) = 0$ and we will prove that the required bound on $v\left( \alpha \h{}'\left( \alpha \right) \right)$ holds.
-    Since $\alpha$ is assumed to be non-magnetic, according to Lemma \ref{lem:two_escaping_implies_ex} it is either \es{m} or \es{n}.
-    By the criterion \ref{eq:valuation_inequality_condition} for \es{n}, it follows that in the first case 
+    To prove \cref{item:non_k_es}, assume that $v\left( n - m \right) = 0$ and we will prove that the required bound on $v\left( \alpha \h{}'\left( \alpha \right) \right)$ holds.
+    Since $\alpha$ is assumed to be non-magnetic, according to Lemma \cref{lem:two_escaping_implies_ex} it is either \es{m} or \es{n}.
+    By the criterion \cref{eq:valuation_inequality_condition} for \es{n}, it follows that in the first case 
     $$
       v\left( \alpha \h{}'\left( \alpha \right) \right) 
       \leq 
@@ -651,13 +651,13 @@
       =
       v\left( a_n \alpha^n \right)
     $$
-    and it can be verified that both $v\left( a_n \alpha^n \right)$ and $v\left( a_m \alpha^m \right)$ are equal to the bounf on $v\left( \alpha\h{}'\left( \alpha \right) \right)$ presented in condition \ref{item:non_k_es}.
+    and it can be verified that both $v\left( a_n \alpha^n \right)$ and $v\left( a_m \alpha^m \right)$ are equal to the bounf on $v\left( \alpha\h{}'\left( \alpha \right) \right)$ presented in \cref{item:non_k_es}.
   \end{proof}
   \subsection{The discriminant}
   Fix a rational prime $p$.
   Recall that we denote by $g$ an arbitrary factor of $f$, by $L$ the field $\Q\left[ x \right] / \left( g \right)$ and by $\Deta$ the different ideal of the image of $L$ in $\overline{\Q_p}$ under the embedding that maps $x$ to $\alpha$.
   \begin{proposition}
-    \label{cor:discriminant_bound}
+    \label{prop:discriminant_bound}
     Assume that $p | ab$.
     Then
     \[
@@ -679,7 +679,7 @@
   \begin{proof}
     We divide now into three cases.
     Assume first that the Newton polygon of $f$ consists of a single segment.
-    Then, by condition \ref{item:k_es} of Corollary \ref{cor:explicit_non_ex_bound}, for each non \ex root $\alpha$ of $f$,
+    Then, by \cref{item:k_es} of \cref{cor:explicit_non_ex_bound}, for each non \ex root $\alpha$ of $f$,
     \[
       v_p\left( \Deta \right) 
       \leq
@@ -689,7 +689,7 @@
       \leq
       v_p\left( ab \right)
     \]
-    and therefore by Corollary \ref{cor:ex_bound},    
+    and therefore by \cref{cor:ex_bound},    
     \begin{align*}
       &
       v_p\left( \disc\left( L \right) \right)
@@ -709,7 +709,7 @@
     \end{align*}
 
     Assume now that the Newton polygon of $f$ consists of two segments of different slopes and that $v\left( k \right) = 0$.
-    Then, according to condition \ref{item:k_es} of Corollary \ref{cor:explicit_non_ex_bound}, for each non \ex root $\alpha$ of $f$ whose valuation is equal to minus the slope of the rightmost segment of the Newton polygon of $f$,
+    Then, according to \cref{item:k_es} of \cref{cor:explicit_non_ex_bound}, for each non \ex root $\alpha$ of $f$ whose valuation is equal to minus the slope of the rightmost segment of the Newton polygon of $f$,
     \[
       v_p\left( \Deta \right) 
       \leq
@@ -719,7 +719,7 @@
       =
       v_p\left( b \right)
     \]
-    and according to condition \ref{item:non_k_es} of Corollary \ref{cor:explicit_non_ex_bound} for each non \ex root $\alpha$ of $f$ whose valuation is equal to minus the slope of the leftmost segment of the Newton polygon of $f$,
+    and according to \cref{item:non_k_es} of \cref{cor:explicit_non_ex_bound} for each non \ex root $\alpha$ of $f$ whose valuation is equal to minus the slope of the leftmost segment of the Newton polygon of $f$,
     \[
       v_p\left( \Deta \right) 
       \leq
@@ -729,7 +729,7 @@
       =
       v_p\left( b \right)
     \]
-    Therefore, according to Corollary \ref{cor:ex_bound},    
+    Therefore, according to \cref{cor:ex_bound},    
     \begin{align*}
       &
       v_p\left( \disc\left( L \right) \right)
@@ -750,8 +750,8 @@
 
 
     Assume finally that the Newton polygon of $f$ consists of two segments of different slopes and that $v\left( n - k \right) = 0$.
-    Note that in this case according to Lemma \ref{lem:slope_length_valuation} the valuation of the \ex roots of $f$ is minus the slope of the leftmost segment of the Newton polygon of $f$. 
-    Therefore, according to condition \ref{item:k_es} of Corollary \ref{cor:explicit_non_ex_bound}, for each root $\alpha$ of $f$ whose valuation is equal to minus the slope of the rightmost segment of the Newton polygon of $f$,
+    Note that in this case according to \cref{lem:slope_length_valuation} the valuation of the \ex roots of $f$ is minus the slope of the leftmost segment of the Newton polygon of $f$. 
+    Therefore, according to \cref{item:k_es} of \cref{cor:explicit_non_ex_bound}, for each root $\alpha$ of $f$ whose valuation is equal to minus the slope of the rightmost segment of the Newton polygon of $f$,
     \[
       v_p\left( \Deta \right) 
       \leq
@@ -765,7 +765,7 @@
       =
       \frac{n}{n - k}v_p\left( a \right)
     \]
-    Similarly, according to condition \ref{item:non_k_es} of Corollary \ref{cor:explicit_non_ex_bound} for each non \ex root $\alpha$ of $f$ whose valuation is equal to minus the slope of the leftmost segment of the Newton polygon of $f$,
+    Similarly, according to \cref{item:non_k_es} of \cref{cor:explicit_non_ex_bound} for each non \ex root $\alpha$ of $f$ whose valuation is equal to minus the slope of the leftmost segment of the Newton polygon of $f$,
     \[
       v_p\left( \Deta \right) 
       \leq
@@ -775,7 +775,7 @@
       =
       \frac{n}{k} v_p\left( \frac{b}{a } \right)
     \]
-    Therefore, according to Corollary \ref{cor:ex_bound},    
+    Therefore, according to \cref{cor:ex_bound},    
     \begin{align*}
       &
       v_p\left( \disc\left( L \right) \right)

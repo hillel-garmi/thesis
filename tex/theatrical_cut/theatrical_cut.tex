@@ -810,7 +810,7 @@ As promised, we now utilize the previous lemma to bound the $v_p\left( \D_\eta \
 
 We now utilize this lemma to finally obtain a bound on the $p$-adic valuation of the discriminant of $L$:
 \begin{corollary}
-  \label{cor:discriminant_bound}
+  \label{prop:discriminant_bound}
   Assume that $n > v_p\left( b \right)$.
   Then
   \[
@@ -832,14 +832,14 @@ We now utilize this lemma to finally obtain a bound on the $p$-adic valuation of
 
 % Before continuing with the proof of Theorem \ref{thm:criterion}, we will record a slight improvement to the previous corollary that will be useful in the analysis of some of the cases in the next section:
 % \begin{corollary}
-%   \label{cor:discriminant_bound_Eisenstein}
+%   \label{prop:discriminant_bound_Eisenstein}
 %   If $f$ is Eisenstein at $p$ and $n > v_p\left( b \right)$, then
 %   \[
 %     v_p\left( \d\left( L \right) \right) \leq \deg L \cdot \maxpval
 %   \]
 % \end{corollary}
 % \begin{proof}
-%   Since the $p$-adic valuations of both $a$ and $b$ are positive, it follows that in Lemma \ref{lem:valuation_of_derivative} only the first and third case might hold, and hence in Lemma \ref{lem:different_valuation} only the first case might hold, and hence the sum in the proof of Corollary \ref{cor:discriminant_bound} is bounded by $\deg L \cdot \maxpval$.
+%   Since the $p$-adic valuations of both $a$ and $b$ are positive, it follows that in Lemma \ref{lem:valuation_of_derivative} only the first and third case might hold, and hence in Lemma \ref{lem:different_valuation} only the first case might hold, and hence the sum in the proof of Corollary \ref{prop:discriminant_bound} is bounded by $\deg L \cdot \maxpval$.
 % \end{proof}
 
 \subsection{Proof of the effective condition}
@@ -879,7 +879,7 @@ Finally we can prove a sufficient condition for the Galois group of $L$ to be th
     & \deg L \cdot C_p > \deg L \cdot \left( v_p\left( a \right) + \frac{\ppart{a} - 1}{\deg L} \right) = \\
     & \deg L \cdot v_p\left( a \right) + \ppart{a} - 1 
   \end{align*}
-  which is a contradiction to corollary \ref{cor:discriminant_bound}.
+  which is a contradiction to \cref{prop:discriminant_bound}.
 \end{proof}
 
 \section{Application Examples}
