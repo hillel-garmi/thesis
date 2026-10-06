@@ -1,10 +1,19 @@
 \newif\ifdirectorscut
 \newif\ifeditorial
+\newif\iftableofcontents
 
 \documentclass[oneside, 12pt]{article}
 \usepackage{commands}
 
 \begin{document}
+  \title{
+    Galois Groups of Trinomials with Small Coefficients
+  }
+  \author{Hilel Garmi}
+  \maketitle
+  \iftableofcontents
+    \tableofcontents
+  \fi
   % \part{New Setup}
   % \part{The Theatrical Cut}
   \subfile{introduction/introduction.tex}
