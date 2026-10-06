@@ -16,3 +16,4 @@
 *.venv~
 *.vrb
 *.synctex(busy)
+tex/config.sty
