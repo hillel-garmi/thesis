@@ -374,20 +374,21 @@ Collecting all the above lemmas we can present the following
 \end{proof}
 
 \begin{proof}[Proof of \cref{thm:main}]
-  In all of the cases the conjunction of \cref{thm:criterion} and \cref{lem:fields_not_embeddable} implies that any irreducible factor of $f$ has a symmetric Galois group.
-  Therefore, it only remains to analyze the factorization of $f$ over $\Q$ in each case, and the interaction between the Galois groups of the irreducible factors in those cases in which $f$ is reducible over $\Q$.
-
-  Assume that $\left| ab \right| = 1$.
+  Assume first that $\left| ab \right| = 1$.
+  In this case we can use \cref{thm:strategy} directly to conclude that the Galois group of any irreducible factor of $f$ is symmetric.
   As was shown by Ljunggren \cite{Ljungren1960}, either $f$ is irreducible over $\Q$ or it factors into $x^2 \pm x + 1$ times an irreducible factor, say $g$.
   Therefore, it only remains to show that if $f$ is reducible over $\Q$ then the splitting field of $g$ over $\Q$ is linearly disjoint from the splitting field of $x^2 \pm x + 1$ over $\Q$, i.e. from $\Q\left( \sqrt{-3} \right)$.
   To do that in turn, it suffices to show that $3$ is unramified in $\Q\left[ x \right] / \left( g \right)$, for which it suffices to show that $g$ is separable over $\mathbb{F}_3$.
   However, we have already established in \cref{cor:inertia_group_acts_as_transposition_external_settings} that $f$ has at most one double root in $\overline{\mathbb{F}_3}$, and hence, since $x^2 \pm x + 1$ has a double root there, $g$ can not have any.
 
-  If $\left| ab \right| = 2$ then according to \cref{lem:fields_not_embeddable} $f$ is either irreducible over $\Q$ or it factors into $x \pm 1$ times an irreducible factor.
-  In both cases, the result is clearly true.
+  In the rest of the cases $\left| ab \right|$ is a non trivial power of a prime which we shall denote by $p$ and \cref{lem:fields_not_embeddable} implies that we can apply \cref{thm:criterion} with $C_p$ being the value recorded in the third column of \cref{table} for the corresponding value of $\left| ab \right|$.
+
+  If $\left| ab \right| = 2$ then according to \cref{lem:no_splitting_irreducibility} applied to $K=\Q$ and according to \cref{lem:factorization_of_f}, $f$ is either irreducible over $\Q$ or it factors into $x \pm 1$ times an irreducible factor.
+  In both cases, it suffices to show that the Galois group of the unique non linear irreducible factor of $f$, which we shall denote by $g$, is $S_{\deg \left( g \right)}$.
+  However, $\deg g \geq n - 1$ and hence a quick calculation verifies that the inequality in \cref{thm:criterion} is satisfied for $n > 8$ and hence the Galois group of $g$ is $S_{\deg \left( g \right)}$ as required.
 
   In the third item in the statement of \cref{thm:main} either $f$ is an Eisenstein polynomial with respect to $2$ and hence irreducible over $\Q$, or $\left| a \right| = 1$ and $\left| b \right| = 3,4,5$, in which case it follows from \cref{lem:no_splitting_irreducibility} that $f$ is irreducible over $\Q$ as well.
-
   In the last item, we deliberately assume that $f$ is irreducible over $\Q$. 
+  Therefore, in all of the remaining cases, we can evaluate the inequality in \cref{thm:criterion} with $\deg g = n$, and a quick calculation shows that it is satisfied for $n > 8$ and thus the Galois group of $f$ is $S_n$ and our proof is complete.
 \end{proof}
 \end{document}
