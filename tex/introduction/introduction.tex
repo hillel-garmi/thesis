@@ -1,0 +1,99 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\section{Introduction}
+Let $f$ be a polynomial of the form $x^n + a x^k + b$ with $n > k > 0, a, b \in \Z \backslash \left\{ 0 \right\}$ and $1 = \gcd\left( n,k \right)$.
+% Denote by $\Gal\left( f \right)$ the Galois group of $f$ over $\Q$, i.e. the Galois group of the splitting field of $f$ over $\Q$.
+% For each $d \in \N$ denote 
+The main main result of this paper is the following:
+\begin{thm}
+  \label{thm:main}
+  Assume that $n > 8$.
+
+  \begin{matrix}
+    \text{If }
+    \left| ab \right| = 1 
+   & \text{ then }
+    &
+    \Gal\left( f \right)
+    \cong
+    \begin{cases}
+      S_{n-2} \times S_2 & \text{if } f\left( \zeta_3 \right) = 0 \\
+      S_n & \text{otherwise}
+    \end{cases}
+    \\ \\
+    \text{If }
+    \left| ab \right| = 2 
+    &\text{ then }
+    &
+    \Gal\left( f \right)
+    \cong
+    \begin{cases}
+        S_{n-1} & \text{if } f\left( 1 \right)f\left( -1 \right) = 0 \\
+        S_n & \text{otherwise}
+    \end{cases}
+    \\ \\
+    \text{If }
+    \left( a,b \right) \in 
+    \left\{ 
+      \begin{matrix}
+      \left( \pm 1, \pm 3 \right),
+      \left( \pm 1, \pm 4 \right), \\
+      \left( \pm 2, \pm 2 \right),
+      \left( \pm 1, \pm 5 \right)
+      \end{matrix}
+      \right\} 
+    &\text{ then }
+    &
+    \Gal\left( f \right) \cong S_{n}
+    \\ \\
+    \text{If } \ 
+    \begin{pmatrix}
+      \left( a,b \right) \in \left\{  
+        \left( \pm 3, \pm 1 \right),
+        \left( \pm 4, 1 \right),
+        \left( \pm 5, 1 \right) 
+      \right\}
+      \\
+      \text{and } f \text{ is irreducible over } \Q
+    \end{pmatrix}
+    &\text{ then}  
+    & \Gal\left( f \right) \cong S_{n}
+    .
+  \end{matrix}
+  % \begin{enumerate}
+  %   % \item If $\left| ab \right| \leq 5$ and 
+  %   \item If $\left| ab \right| = 1$ then 
+  %   \[
+  %     \Gal\left( f \right)
+  %     \cong
+  %     \begin{cases}
+  %       S_{n-2} \times S_2 & \text{if } f\left( \zeta_3 \right) = 0 \\
+  %       S_n & \text{otherwise}
+  %     \end{cases}
+  %   \]
+  %   when $\zeta_3$ is a primitive $3$rd root of unity.
+  %   \item If $\left| ab \right| = 2$ then 
+  %   \[
+  %     \Gal\left( f \right)
+  %     \cong
+  %     \begin{cases}
+  %       S_{n-1} & \text{if } f\left( 1 \right)f\left( -1 \right) = 0 \\
+  %       S_n & \text{otherwise}
+  %     \end{cases}
+  %   \]
+  %   \item If
+  %   \[
+  %     \left( a,b \right) \in 
+  %     \left\{ 
+  %       \left( \pm 1, \pm 3 \right),
+  %       \left( \pm 1, \pm 4 \right),
+  %       \left( \pm 2, \pm 2 \right),
+  %       \left( \pm 1, \pm 5 \right)
+  %      \right\}
+  %   \]
+  %   then $\Gal\left( f \right) \cong S_{n}$.
+  %   \item If 
+  % \end{enumerate}
+\end{thm}
+\end{document}

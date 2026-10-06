@@ -52,15 +52,15 @@ To prove \cref{lem:fields_not_embeddable} we present a collection of obstruction
   According \cref{item:valuation_coprimality} this intersection of groups is $v_p\left( b \right)\Z$.
   Consequently, any factor of $f$ annihilates either non or all of the $k$ positive valuation roots of $f$.
   Let then $f_0 \in K\left[ X \right]$ be an irreducible monic factor of $f$ that annihilates all of the $k$ positive valuation roots of $f$.
-  It suffices to show that either $f / f_0$, or $b = \pm 2$ and $f / f_0 = x \pm 1$.
+  It suffices to show that either $f / f_0 = 1$, or $b = \pm 2$ and $f / f_0 = x \pm 1$.
   
   % To do so, we claim, it is enough to prove that all of the roots of $f_1$ are either $1$ or $-1$.
   % Indeed, assume it is proven.
   % If $f_1$ in fact has no roots at all we are done since $f_0$ is irreducible.
   % Otherwise, since $1$ and $-1$ can not both be roots of $f$ and none of them can be a double root of it, it follows that $f_1 = x \pm 1$ and from the triangle inequality it follows that $\left| b \right| \leq 2$ and hence since $b$ was assumed to be a non trivial $p$-power it follows that $b = \pm 2$ as required.
 
-  We will first show that $f / f_0$ is in $\Q\left[ x \right]$ and we will do so by showing that $f_0$ is in $\Q\left[ x \right]$.
-  Let $\sigma \in \Gal\left( \overline{\Q}/ \Q \right)$ be an automorphism of $\overline{\Q}$ and denote by $\sigma$ also the induced automorphism of $\overline{\Q}\left[ x \right]$.
+  We will first show that $f / f_0$ is in $\Q\left[ x \right]$ and consequently so is $f / f_0$.
+  Let $\sigma \in \Gal\left( \overline{\Q}/ \Q \right)$ be an automorphism of $\overline{\Q}$ and denote by $\sigma$ the induced automorphism of $\overline{\Q}\left[ x \right]$ as well.
   It suffices to show that $\sigma\left( f_0 \right) = f_0$.
   Since $f$ does not split in $K$, $\sigma\left( f_0 \right)$ is also an irreducible factor $f$ with $k$ roots of positive $p$-adic valuation. 
   However, as mentioned $f$ has only $k$ such roots and hence it has at most one such irreducible factor and hence indeed $f_0 = \sigma\left( f_0 \right)$.
@@ -69,11 +69,11 @@ To prove \cref{lem:fields_not_embeddable} we present a collection of obstruction
   Assume otherwise and let $f_1$ be some factor of $f / f_0$ that is irreducible in $\Q\left[ x \right]$ and denote by $b_0$ and $b_1$ the free coefficients of $f_0$ and $f_1$ respectively.
   Since $f_0$ annihilates all of the positive $p$-adic valuation roots of $f$ it follows that $v_p\left( b_0 \right) = v_p\left( b \right)$, and hence, since $b_0 b_1$ divides $b$ in $\Z$ and since $b$ is assumed to be a $p$-power up to a unit, it follows that $b_1$ is a rational unit, i.e. that $b_1 = \pm 1$.
   Then $f_1$ has at last one root, say $\alpha$, within the closed complex unit disk.
-  By the triangle inequality it thus follows
+  By the triangle inequality it thus follows that
   \[
     \left| b \right| \leq \left| \alpha^n \right| + \left| \alpha^k \right| \leq 2
   \]
-  and hence since we assume that $b$ is up to a unit a non trivial power of $p$ it follows that $b = \pm 2$, as we set to prove, and hence that 
+  and hence, since we assume that $b$ is up to a unit a non trivial power of $p$, it follows that $b = \pm 2$, as we set to prove, and hence that 
   \[
     \alpha^k = \alpha^n = \pm 1.
   \]
@@ -81,20 +81,6 @@ To prove \cref{lem:fields_not_embeddable} we present a collection of obstruction
   Finally, since $1$ and $=-1$ can not both be roots of $f$ and since none of them can be a double root of $f$ it follows that $f / f_0 = x \pm 1$ completing our proof.
 \end{proof}
 
-\begin{lemma}
-  \label{lem:Qi_not_embeddable_if_a1_b2}
-  Assume that $n > 3, \left| a \right| = 1, \left| b \right| = 2$.
-  Then $\Q\left( i \right)$ can not be embedded into $\Q\left[ x \right]/ \left( f \right)$.
-\end{lemma}
-\begin{proof}
-  If $n$ is even, then $k$ is odd and the result follows from \cref{lem:no_splitting_irreducibility} with $p = 2$.
-  Assume then that $n$ is odd and thus that $k$ is even.
-  If $f\left( 1 \right)f\left( -1 \right) \neq 0$ then according to \cref{lem:no_splitting_irreducibility} $f$ is irreducible over $\Q$ and hence $\Q\left[ x \right]/ \left( f \right)$ is a number field of an odd degree and hence can not contain $\Q\left( i \right)$.
-  Assume then that $f\left( 1 \right)f\left( -1 \right) = 0$.
-  According to \cref{lem:factorization_of_f} $f$ factors as $x \pm 1$ times an irreducible factor which we shall denote by $g$.
-  Since neither $1$ nor $-1$ can be a double root of $f$, it follows that $f$ has at least one additional real root which must be a root of $g$.
-  Therefore, $\Q\left( i \right)$ can not be embedded into $\Q\left[ x \right]/ \left( g \right)$ and in particular not into $\Q\left[ x \right]/ \left( f \right)$.
-\end{proof}
 % Recall that we use $g$ to denote an arbitrary rational factor of $f$.
 % \begin{corollary}
 %   In the settings of \cref{lem:no_splitting_irreducibility}, $K$ can not be embedded into $\Q\left[ x \right]/ \left( g \right)$.
@@ -269,6 +255,7 @@ To prove \cref{lem:fields_not_embeddable} we present a collection of obstruction
 \end{proof}
 
 \begin{lemma}
+  \label{lem:factorization_of_f}
   Assume that $n > 7, \left| a \right| = 2, \left| b \right| = 1$.
   Then one of two cases occurs:
   \begin{enumerate}
@@ -295,7 +282,7 @@ To prove \cref{lem:fields_not_embeddable} we present a collection of obstruction
   Then $\Q\left( i \right)$ can not be embedded into $\Q\left[ x \right]/ \left( f \right)$.
 \end{lemma}
 \begin{proof}
-  Assume first that $f\left( 1 \right)f\left( -1 \right) \neq 0$ and hence $f$ is irreducible.
+  Assume first that $f\left( 1 \right)f\left( -1 \right) \neq 0$ and hence by \cref{lem:factorization_of_f} $f$ is irreducible.
   It suffices to show that $f$ has a real root.
   However, for $f$ to not have a real root, $n$ must be even $k$ must be odd and $b$ must be $1$ and it can be verified that in such a case $0 = f\left( 1 \right)f\left( -1 \right)$ which is a contradiction.
   
@@ -304,6 +291,28 @@ To prove \cref{lem:fields_not_embeddable} we present a collection of obstruction
   However, in this case $f$ is separable over $\mathbb{F}_2$ and hence so does $g$ and hence $L:= \Q\left[ x \right] / \left( g \right)$ is unramified above $2$ and in particular can not contain $\Q\left( i \right)$.
 \end{proof}
 
+\begin{lemma}
+  \label{lem:Qi_not_embeddable_if_a1_b2}
+  Assume that $n > 3, \left| a \right| = 1, \left| b \right| = 2$.
+  Then $\Q\left( i \right)$ can not be embedded into $\Q\left[ x \right]/ \left( f \right)$.
+\end{lemma}
+\begin{proof}
+  If $k$ is odd the result follows from \cref{lem:no_splitting_irreducibility} with $p = 2$.
+  Assume then that $k$ is even and thus that $n$ is odd.
+  By considering the Newton polygon of $f$ with respect to $2$ it follows that $f$ has a root of $2$-adic valuation $0$, say $\alpha$.
+  If $f\left( 1 \right)f\left( -1 \right) \neq 0$ then according to \cref{lem:no_splitting_irreducibility} $f$ is irreducible over $\Q$ and hence $\Q\left[ x \right]/ \left( f \right)$ is a number field of an odd degree and hence can not contain $\Q\left( i \right)$.
+  Assume then that $f\left( 1 \right)f\left( -1 \right) = 0$.
+  According to \cref{lem:factorization_of_f} $f$ factors as $x \pm 1$ times an irreducible factor which we shall denote by $g$.
+  Then the $2$-adic valuation of the different ideal of $\Q\left[ x \right]/ \left( g \right)$ is bounded by 
+  \[
+    v_2\left( g'\left( \alpha \right) \right)
+    \leq
+    v_2\left( f'\left( \alpha \right) \right)
+    =
+    0.
+  \]
+  However, the different ideal of $\Q\left( i \right)$ is $\left( 2 \right)$ and hence $\Q\left( i \right)$ can not be embedded into $\Q\left[ x \right]/ \left( g \right)$ and hence neither into $\Q\left[ x \right]/ \left( f \right)$.
+\end{proof}
 
 \begin{table}
   % \begin{center}
@@ -364,5 +373,21 @@ Collecting all the above lemmas we can present the following
   Lastly, we treat the case $\left( a,b \right) = \left( \pm 5, 1 \right)$ and $K = \Q\left( \sqrt{5} \right)$. If $a = 5$ then we are done by by \cref{lem:imprimitivity_finite_obstruction} with $p = 5$ and $m = 1$, and if $a = -5$ then by \cref{lem:imprimitivity_finite_obstruction} with $p = 3$ and $m = 1$ our proof is complete.
 \end{proof}
 
+\begin{proof}[Proof of \cref{thm:main}]
+  In all of the cases the conjunction of \cref{thm:criterion} and \cref{lem:fields_not_embeddable} implies that any irreducible factor of $f$ has a symmetric Galois group.
+  Therefore, it only remains to analyze the factorization of $f$ over $\Q$ in each case, and the interaction between the Galois groups of the irreducible factors in those cases in which $f$ is reducible over $\Q$.
 
+  Assume that $\left| ab \right| = 1$.
+  As was shown by Ljunggren \cite{Ljungren1960}, either $f$ is irreducible over $\Q$ or it factors into $x^2 \pm x + 1$ times an irreducible factor, say $g$.
+  Therefore, it only remains to show that if $f$ is reducible over $\Q$ then the splitting field of $g$ over $\Q$ is linearly disjoint from the splitting field of $x^2 \pm x + 1$ over $\Q$, i.e. from $\Q\left( \sqrt{-3} \right)$.
+  To do that in turn, it suffices to show that $3$ is unramified in $\Q\left[ x \right] / \left( g \right)$, for which it suffices to show that $g$ is separable over $\mathbb{F}_3$.
+  However, we have already established in \cref{cor:inertia_group_acts_as_transposition_external_settings} that $f$ has at most one double root in $\overline{\mathbb{F}_3}$, and hence, since $x^2 \pm x + 1$ has a double root there, $g$ can not have any.
+
+  If $\left| ab \right| = 2$ then according to \cref{lem:fields_not_embeddable} $f$ is either irreducible over $\Q$ or it factors into $x \pm 1$ times an irreducible factor.
+  In both cases, the result is clearly true.
+
+  In the third item in the statement of \cref{thm:main} either $f$ is an Eisenstein polynomial with respect to $2$ and hence irreducible over $\Q$, or $\left| a \right| = 1$ and $\left| b \right| = 3,4,5$, in which case it follows from \cref{lem:no_splitting_irreducibility} that $f$ is irreducible over $\Q$ as well.
+
+  In the last item, we deliberately assume that $f$ is irreducible over $\Q$. 
+\end{proof}
 \end{document}
