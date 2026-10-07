@@ -3,9 +3,10 @@
 \begin{document}
 \section{Introduction}
 Let $f$ be a polynomial of the form $x^n + a x^k + b$ with $n > k > 0, a, b \in \Z \backslash \left\{ 0 \right\}$ and $1 = \gcd\left( n,k \right)$.
+For each $\ell \in \N$ let $\zeta_\ell$ be a primitive $\ell$-th root of unity.
 % Denote by $\Gal\left( f \right)$ the Galois group of $f$ over $\Q$, i.e. the Galois group of the splitting field of $f$ over $\Q$.
 % For each $d \in \N$ denote 
-The main result of this paper is the following:
+The first main result of this paper is the following:
 \begin{theorem}
   \label{thm:main}
   Assume that $n > 8$.
@@ -18,7 +19,10 @@ The main result of this paper is the following:
     \Gal\left( f \right)
     \cong
     \begin{cases}
-      S_{n-2} \times S_2 & \text{if } f\left( e^{2\pi i/3} \right) = 0 \\
+      S_{n-2} \times S_2 
+      & 
+      % \text{if } 
+      f\left( \zeta_3 \right)f\left( \zeta_6 \right) = 0 \\
       S_n & \text{otherwise}
     \end{cases}
     \\ \\
@@ -29,7 +33,10 @@ The main result of this paper is the following:
     \Gal\left( f \right)
     \cong
     \begin{cases}
-        S_{n-1} & \text{if } f\left( 1 \right)f\left( -1 \right) = 0 \\
+        S_{n-1} 
+        & 
+        % \text{if } 
+        f\left( 1 \right)f\left( -1 \right) = 0 \\
         S_n & \text{otherwise}
     \end{cases}
     \\ \\
@@ -97,5 +104,69 @@ The main result of this paper is the following:
   % \end{enumerate}
 \end{theorem}
 
-Informally, \cref{thm:main} states that the only obstructions to a permutation of the roots of a monic trinomial that does not vanish at $0$ and has small enough coefficients and a high enough degree, are for some of the roots to be roots of unity, or for the exponents of the trinomial to have a common factor.  
+Informally, \Cref{thm:main} states that 
+if $a$ and $b$ are small enough and $n$ is large enough, then the only obstruction to a permutation of the roots of $f$ is
+% the only obstructions to a permutation of the roots of a monic trinomial that does not vanish at $0$ and has small enough coefficients, high enough degree and coprime exponents,are 
+for some of them to be roots of unity.
+
+We prove \Cref{thm:main} by proving a more general result, that perhaps can be used to prove stronger versions of it in the future.
+To state it, we need to introduce some more definitions and notations that are used throughout the paper.
+Let $g$ be an irreducible factor of $f$ over $\Q$ and let $L = \Q\left[ x \right] / \left( g \right)$.
+Fix an algebraic closure $\overline{\Q}$ of $\Q$.
+For each prime $p \in \Z$ fix an embedding of $\overline{\Q}$ into an algebraic closure $\overline{\Q}_p$ of the field of $p$-adic numbers $\Q_p$, and denote by $v_p$ the $p$-adic valuation on $\overline{\Q}_p$.
+% Fix also an embedding of $\overline{\Q}_p$ into $\C$.
+For each number field $K$ let $\rd\left( K \right)$ denote the root discriminant of $K$, i.e. the $\left[ K : \Q \right]$-th root of the absolute value of the discriminant of $K$ over $\Q$.
+The more general result can then be stated as follows: 
+\begin{theorem}
+  \label{thm:criterion}
+  Assume that there is a constant $C_p > v_p\left( ab \right)$ for each prime $p|ab$, such that the only subextension $K \subseteq L$ satisfying both  
+  \begin{enumerate}
+    \item $v_p\left( \rd\left( K \right) \right) < C_p$ for each $p|ab$, and
+    \item $K$ is unramified away from $ab$,
+  \end{enumerate} 
+  is $\Q$.
+  Assume that 
+  % for each prime $p|ab$ 
+  \[
+    % C_p \deg g - n v_p\left( ab \right) > \exrootscountbound 
+    \deg g > \max_{p| ab}\left( \frac{n v_p\left( ab \right) + \exrootscountbound}{C_p} \right)
+    .
+  \] 
+  Then the Galois group of $g$ over $\Q$ is $S_{\deg L}$.
+\end{theorem} 
+% In other words, \Cref{thm:criterion} states that if both $n$ and $\deg g / n$ are large enough, then the only thing that can prevent the Galois group of $g$ from being symmetric is for $L$ to contain a subextension that is unramified away from $ab$ and has a small enough root discriminant.
+The reason that this result is effective, is that there are only finitely many number fields with root discriminant below some small enough bounds, as guaranteed for example by the work of Odlyzko \cite{OdlyzkoBoundsII} and as is made even more explicit by the LMFDB \cite{lmfdb}.
+
+A specific case of \Cref{thm:main} that is worth highlighting, and which prompted our own interest in the subject due to a recent result of Bary-Soroker, Shusterman, and Zannier \cite[Appendix A]{Soroker_appendix_2017}, is the case $f = x^n - 2x^{n-1} + 1$, in which $f$ factors into $x-1$ times the $\left( n-1 \right)$-th generalized {Fibonacci} polynomial
+\[
+  % g 
+  % = 
+  x^{n-1} - x^{n-2} - \ldots - x - 1,
+\] 
+which was proven to be irreducible by Miles \cite{Miles1960} and Wolfram \cite{Wolfram1998}.
+Martin \cite{MARTIN2004213} proved that the Galois group of this polynomial is $S_{n-1}$ for all odd $n$ and conjectured the same for all even $n$.
+An immediate corollary of \Cref{thm:main} is the following generalization of Martin's conjecture:
+\begin{corollary}
+  \label{cor:generalized_fibonacci}
+  The Galois group of 
+  \[
+    x^{n-1} + \ldots + x^k - x^{k-1} - \ldots - 1
+  \]
+  is $S_{n-1}$.
+\end{corollary}
+
+\Cref{thm:main}, \Cref{thm:criterion} and \Cref{cor:generalized_fibonacci} should all be understood in the context of recent developments in the field of explicit Hilbert irreducibility.
+By Hilbert's irreducibility theorem \cite{Hilbert}, we expect a general rational polynomials of degree $n$ to have Galois group $S_n$ over $\Q$.
+Nevertheless, giving explicit examples of such polynomials for all $n$ remained a difficult problem.
+Only 38 years after Hilbert's work was published, Schur \cite{schur1931affectless} showed that the Laguerre polynomials 
+\[
+  L_n^{\left( 0 \right)}\left( -x \right) = \sum_{k=0}^n \binom{n}{k} \frac{x^k}{k!}
+\]
+have Galois group $S_n$ for every $n$.
+Later, the same was proven for other families of generalized Laguerre polynomials, such as the Hermite polynomials, $L^{\left( \pm 1/2 \right)}_n$ \cite{schur1931affectless}, and the reverse Bessel polynomials, $L^{\left( -2n-1 \right)}_n$ \cite{grosswald1978bessel} \cite{filaseta2002irreducibility}.
+
+Note that in all of these examples, the height of the coefficients tend to infinity rather fast.
+Recent results, for example by Bary-Soroker, Koukoulopoulos and Kozma \cite{Bary_Soroker_2023} and by Breuillard and Varj\'{u} \cite{Breuillard_2019}, show that the probability that the Galois group of a polynomial is either $A_n$ or $S_n$, tends to 1 as $n$ tends to infinity even if the coefficients are distributed according to certain finitely supported probability measures.
+However, it appears that the only known example with a bounded height is the family of Selmer trinomials $f_n\left( x \right) = x^n - x - 1$ , which was shown to be irreducible by Selmer \cite{SelmerIrreducibility1956} and to have Galois group $S_n$ by Nart and Vila \cite{NartVila1979}. 
+
 \end{document}

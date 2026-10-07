@@ -35,24 +35,8 @@
   \end{proof}
 
   Recall that we use $\rd\left( K \right)$ to denote the root discriminant of a number field $K$.
-  We can combine this result with the bound on the discriminant to get an effective sufficient condition for the Galois group of $L$ to be the full symmetric group:
-  \begin{theorem}
-    \label{thm:criterion}
-    Assume that there is a constant $C_p > v_p\left( ab \right)$ for each prime $p|ab$, such that the only subextension $K \subseteq L$ satisfying both  
-    \begin{enumerate}
-      \item $v_p\left( \rd\left( K \right) \right) < C_p$ for each $p|ab$, and
-      \item $K$ is unramified away from $ab$,
-    \end{enumerate} 
-    is $\Q$.
-    Assume that for each prime $p|ab$ 
-    \[
-      C_p \deg g - n v_p\left( ab \right) > \exrootscountbound 
-      % \deg g > \max_{p| ab}\left( \frac{n v_p\left( ab \right) + \exrootscountbound}{C_p} \right)
-      .
-    \] 
-    Then the Galois group of $g$ over $\Q$ is $S_{\deg L}$.
-  \end{theorem}
-  \begin{proof}
+  We can combine this result with the bound on the discriminant to prove \cref{thm:criterion}:
+  \begin{proof}[Proof of \cref{thm:criterion}]
     We will show that the conditions of \cref{thm:strategy} hold.
     Let $K$ be a number field unramified away from $ab$.
     Assume towards a contradiction that $K \subseteq L$.
@@ -61,11 +45,12 @@
       C_p \leq v_p\left( \rd\left( K \right) \right) 
     \] 
     The inequality in the statement of the theorem is equivalent to
+    the statement that
     \[
       C_p > \frac{n v_p\left( ab \right) + \exrootscountbound}{\deg L}
       .
     \]
-    % for each $p|ab$.
+    for each $p|ab$.
     Therefore, if we denote by $d\left( L/K \right)$ the relative discriminant of $L$ over $K$, and by $N$ the norm from $K$ to $\Q$, then
     \begin{align*}
       & v_p\left( d\left( L \right) \right) = 
