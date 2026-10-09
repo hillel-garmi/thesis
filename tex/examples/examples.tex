@@ -14,7 +14,7 @@ To prove \cref{thm:main} we prove first the following
   \]
   Then either 
   \begin{enumerate}
-    \item $\left( a,b \right) = \left( \pm 4, \pm1 \right), \left( a,b \right) = \left( \pm 5, -1 \right)$, or
+    \item $\left( a,b \right) = \left( \pm 4, -1 \right), \left( a,b \right) = \left( \pm 5, -1 \right)$, or
     \item $K$ can not be embedded into $\Q\left[ x \right]/ \left( f \right)$.
   \end{enumerate}
 \end{proposition}
@@ -360,21 +360,17 @@ Collecting all the above lemmas we can present the following
   Therefore, all of these cases can be treated by \cref{lem:no_splitting_irreducibility} with $\left( p \right) = \sqrt{\left( b \right)}$.
 
   The cases $\left( a,b \right) = \left( \pm 2, \pm 2 \right)$ are resolved by \cref{lem:not_embeddable_Qi_if_a2_b2}.
-  In all of the remaining cases, namely $\left( a,b \right) = \left( \pm 3, \pm 1 \right), \left( \pm 5, 1 \right)$, $f$ has a real root allowing us to cross out all of the imaginary fields from \cref{table}.
-  Therefore, the only remaining obstacle is 
-  % the $\left( a,b \right) = \left( \pm 4, \pm 1 \right)$ with $K = \Q\left( \sqrt{2} \right)$ and 
-  the case $\left( a,b \right) = \left( \pm 5, \pm 1 \right)$ with $K = \Q\left( \sqrt{5} \right)$.
-  % We will treat first the case $\left( a,b \right) = \left( \pm 4, 1 \right)$ and $K = \Q\left( \sqrt{2} \right)$.
-  % If $n$ is odd then $f$ is separable over $\mathbb{F}_2$ and hence $\mathbb{F}_2\left[ x \right]/ \left( f \right) = \mathbb{F}_2 \otimes_\Z \Z\left[ x \right] / \left( f \right)$ is a reduced ring and in particular can not contain $\mathbb{F}_2 \otimes_{\Z} \O_K$.
-  % However, an embedding of $K$ into $\Q\left[ x \right]/ \left( f \right)$ would induce an embedding of $\mathbb{F}_2 \otimes_{\Z} \O_K$ into $\mathbb{F}_2 \otimes_\Z \Z\left[ x \right] / \left( f \right)$ which is impossible.
-  % Assume then that $n$ is even and thus that $k$ is odd.
-  % Assume first that $n \equiv 2 \mod 4$ and let $\alpha$ be a root of $f$.
-  % Then $v_2\left( \alpha \right) = 0$ and hence by a direct calculation $v_2\left( f'\left( \alpha \right) \right) = 1$.
-  % Therefore, the $2$-adic valuation of the different ideal of $\Q\left[ x \right]/ \left( f \right)$ is bounded by $1$ and hence $\Q\left( \sqrt{2} \right)$, the $2$-adic valuation of whose different ideal is $3/2$, can not be embedded into $\Q\left[ x \right]/ \left( f \right)$.
-  % Assume then that $n \equiv 0 \mod 4$.  
-  % By possibly replacing $f$ with $f\left( -x \right)$ we are free to assume that $a = 4$.
-  % Finally, this case can be dealt with by \cref{lem:imprimitivity_finite_obstruction} with $p = 5$ and either $m = 2$ if .
-  If $a = 5$ then we are done by by \cref{lem:imprimitivity_finite_obstruction} with $p = 7$ and $m = 1$, and if $a = -5$ then by \cref{lem:imprimitivity_finite_obstruction} with $p = 3$ and $m = 1$ our proof is complete.
+  In all of the remaining cases, namely $\left( a,b \right) = \left( \pm 3, \pm 1 \right), \left( \pm 4, 1 \right), \left( \pm 5, 1 \right)$, $f$ has a real root allowing us to cross out all of the imaginary fields from \cref{table}.
+  Therefore, the only remaining obstacles are $\left( a,b \right) = \left( \pm 4, 1 \right)$ with $K = \Q\left( \sqrt{2} \right)$ and $\left( a,b \right) = \left( \pm 5, 1 \right)$ with $K = \Q\left( \sqrt{5} \right)$.
+  
+  We will treat first the case $\left( a,b \right) = \left( \pm 4, 1 \right)$ and $K = \Q\left( \sqrt{2} \right)$.
+  If $n$ is odd then $f$ is separable over $\mathbb{F}_2$ and hence $\mathbb{F}_2\left[ x \right]/ \left( f \right) = \mathbb{F}_2 \otimes_\Z \Z\left[ x \right] / \left( f \right)$ is a reduced ring and in particular can not contain $\mathbb{F}_2 \otimes_{\Z} \O_K$.
+  However, an embedding of $K$ into $\Q\left[ x \right]/ \left( f \right)$ would induce an embedding of $\mathbb{F}_2 \otimes_{\Z} \O_K$ into $\mathbb{F}_2 \otimes_\Z \Z\left[ x \right] / \left( f \right)$ which is impossible.
+  Assume then that $n$ is even and thus that $k$ is odd.
+  Then by possibly replacing $f$ with $f\left( -x \right)$ we are free to assume that $a = 4$.
+  Finally, this case can be dealt with by \cref{lem:imprimitivity_finite_obstruction} with $p = 3$ and $m = 1$.
+
+  Lastly, we treat the case $\left( a,b \right) = \left( \pm 5, 1 \right)$ and $K = \Q\left( \sqrt{5} \right)$. If $a = 5$ then we are done by by \cref{lem:imprimitivity_finite_obstruction} with $p = 7$ and $m = 1$, and if $a = -5$ then by \cref{lem:imprimitivity_finite_obstruction} with $p = 3$ and $m = 1$ our proof is complete.
 \end{proof}
 
 \begin{proof}[Proof of \cref{thm:main}]

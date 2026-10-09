@@ -58,7 +58,7 @@ The first main result of this paper is the following:
     \begin{pmatrix}
       \left( a,b \right) \in \left\{  
         \left( \pm 3, \pm 1 \right),
-        % \left( \pm 4, 1 \right),
+        \left( \pm 4, 1 \right),
         \left( \pm 5, 1 \right) 
       \right\}
       \\
@@ -111,11 +111,11 @@ for some of them to be roots of unity.
 
 We prove \Cref{thm:main} by proving a more general result, that perhaps can be used to prove stronger versions of it in the future.
 To state it, we need to introduce some more definitions and notations that are used throughout the paper.
-Let $g$ be an irreducible factor of $f$ over $\Q$ and let $L = \Q\left[ x \right] / \left( g \right)$.
+Let $g$ be an irreducible factor of $f$ and let $L = \Q\left[ x \right] / \left( g \right)$.
 Fix an algebraic closure $\overline{\Q}$ of $\Q$.
 For each prime $p \in \Z$ fix an embedding of $\overline{\Q}$ into an algebraic closure $\overline{\Q}_p$ of the field of $p$-adic numbers $\Q_p$, and denote by $v_p$ the $p$-adic valuation on $\overline{\Q}_p$.
 % Fix also an embedding of $\overline{\Q}_p$ into $\C$.
-For each number field $K$ let $\rd\left( K \right)$ denote the root discriminant of $K$, i.e. the $\left[ K : \Q \right]$-th root of the absolute value of the discriminant of $K$ over $\Q$.
+For each number field $K$ let $\rd\left( K \right)$ denote the root discriminant of $K$, i.e. the $\left[ K : \Q \right]$-th root of the absolute value of the discriminant of $K$.
 The more general result can then be stated as follows: 
 \begin{theorem}
   \label{thm:criterion}
@@ -137,6 +137,8 @@ The more general result can then be stated as follows:
 % In other words, \Cref{thm:criterion} states that if both $n$ and $\deg g / n$ are large enough, then the only thing that can prevent the Galois group of $g$ from being symmetric is for $L$ to contain a subextension that is unramified away from $ab$ and has a small enough root discriminant.
 The reason that this result is effective, is that there are only finitely many number fields with root discriminant below some small enough bounds, as guaranteed for example by the work of Odlyzko \cite{OdlyzkoBoundsII} and as is made even more explicit by the LMFDB \cite{lmfdb}.
 
+
+
 A specific case of \Cref{thm:main} that is worth highlighting, and which prompted our own interest in the subject due to a recent result of Bary-Soroker, Shusterman, and Zannier \cite[Appendix A]{Soroker_appendix_2017}, is the case $f = x^n - 2x^{n-1} + 1$, in which $f$ factors into $x-1$ times the $\left( n-1 \right)$-th generalized {Fibonacci} polynomial
 \[
   % g 
@@ -156,7 +158,7 @@ An immediate corollary of \Cref{thm:main} is the following generalization of Mar
 \end{corollary}
 
 \Cref{thm:main}, \Cref{thm:criterion} and \Cref{cor:generalized_fibonacci} should all be understood in the context of recent developments in the field of explicit Hilbert irreducibility.
-By Hilbert's irreducibility theorem \cite{Hilbert}, we expect a general rational polynomials of degree $n$ to have Galois group $S_n$ over $\Q$.
+By Hilbert's irreducibility theorem \cite{Hilbert}, we expect a general rational polynomials of degree $n$ to have Galois group $S_n$.
 Nevertheless, giving explicit examples of such polynomials for all $n$ remained a difficult problem.
 Only 38 years after Hilbert's work was published, Schur \cite{schur1931affectless} showed that the Laguerre polynomials 
 \[
@@ -166,7 +168,26 @@ have Galois group $S_n$ for every $n$.
 Later, the same was proven for other families of generalized Laguerre polynomials, such as the Hermite polynomials, $L^{\left( \pm 1/2 \right)}_n$ \cite{schur1931affectless}, and the reverse Bessel polynomials, $L^{\left( -2n-1 \right)}_n$ \cite{grosswald1978bessel} \cite{filaseta2002irreducibility}.
 
 Note that in all of these examples, the height of the coefficients tend to infinity rather fast.
-Recent results, for example by Bary-Soroker, Koukoulopoulos and Kozma \cite{Bary_Soroker_2023} and by Breuillard and Varj\'{u} \cite{Breuillard_2019}, show that the probability that the Galois group of a polynomial is either $A_n$ or $S_n$, tends to 1 as $n$ tends to infinity even if the coefficients are distributed according to certain finitely supported probability measures.
+Recent results, for example by Bary-Soroker, Koukoulopoulos and Kozma \cite{Bary_Soroker_2023} and by Breuillard and Varj\'{u} \cite{Breuillard_2019}, show that the probability that the Galois group of a polynomial is either $A_n$ or $S_n$, tends to 1 as $n$ tends to infinity even if the coefficients are sampled out of some bounded sets of integers.
 However, it appears that the only known example with a bounded height is the family of Selmer trinomials $f_n\left( x \right) = x^n - x - 1$ , which was shown to be irreducible by Selmer \cite{SelmerIrreducibility1956} and to have Galois group $S_n$ by Nart and Vila \cite{NartVila1979}. 
+The mentioned family of $n$-th generalized Fibonacci polynomials is just one out of many families that we now know to have symmetric Galois group thanks to \Cref{thm:main}.
 
+\subsection{Proof strategy}
+Our work can be seen as a complement of the work of Osada \cite{Osada1987TheGG}, which provided conditions that guarantee that $\Gal\left( f \right) \simeq S_{\deg f}$.
+Osada's idea was that since a transitive permutation group that is generated by transpositions is symmetric, and since, as a consequence of Hermite-Minkowski Theorem, the Galois group of $f$ is generated by its inertia groups, it is enough to show that the inertia group at any non-archimedean place acts on the roots of $f$ either trivially or by a single transposition.
+In his work, Osada imposed some conditions on $f$ under which he was able to do exactly that.
+
+The work of Martin \cite{MARTIN2004213} used the same approach to prove his aforementioned result for odd $n$, and its failure for even $n$ provides an instructive example of the limitations of this approach.
+Indeed, for even $n$, 
+\[
+  x^n - 2x^{n-1} + 1 \equiv x^n + 1 \pmod{2}
+\] 
+and hence the inertia group of a place above $2$ does not act on the roots of $f$, or of some $g$ dividing $f$ for that matter, by a single transposition. 
+However, at any non-archimedean place away from $ab$, we can, and in this paper do, use Osada's approach to show that the inertia group acts on the roots of $f$ either trivially or by a single transposition.
+In this situation, rather than implying that the Galois group of $g$ over $\Q$ is symmetric, Hermite-Minkowski Theorem only implies that the Galois group of $g$ over the maximal subextension of $L = \Q\left[ x \right] / \left( g \right)$ that is unramified away from $ab$ is symmetric \editorial{maybe in a future version I will tweak the global section so that one of the lemmas there will say exactly that and I will be able to cross reference it here}.
+Thus, for the Galois group of $g$ over $\Q$ to be symmetric, it is enough to show that the only such subextension is $\Q$ itself.
+
+As is explained in more detail in \Cref{sec:global}, the above analysis implies that we can prove \Cref{thm:criterion} by proving a small enough bound on the $p$-adic valuation of the discriminant of $L$ for any prime $p | ab$.
+This is exctly what we do in \Cref{sec:local}, by bounding the valuation of the different ideal of a field extension generated by a root of $f$ over a general non-archimedean local field.
+This analysis was originally written to
 \end{document}
