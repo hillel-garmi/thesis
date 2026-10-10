@@ -1,7 +1,10 @@
 \documentclass[../main.tex]{subfiles}
 
 \begin{document}
-\section{Proof of \cref{thm:main}}
+\section{
+  \label{sec:examples}
+  Proof of \cref{thm:main}
+}
 Recall that for each finite or infinite rational place $\p$ we view $\overline{\Q}$ as a subfield of $\overline{\Q_\p}$ and denote by $v_\p$ the standard valuation of $\overline{\Q_p}$.
 We also denote $i = \sqrt{-1}$ viewed as an element of $\C$.
 To prove \cref{thm:main} we prove first the following
@@ -20,7 +23,7 @@ To prove \cref{thm:main} we prove first the following
 \end{proposition}
 \begin{remark}
   We chose the bound $\left| ab \right| \leq 5$ in \cref{lem:fields_not_embeddable} since the LMFDB \cite{lmfdb} has a complete list of all number fields with root discriminant at most $5.989$.
-  Statistical data suggests that \cref{lem:fields_not_embeddable} is true even without excluding the cases $\left( a,b \right) = \left( \pm4, \pm1 \right), \left( a,b \right) = \left( \pm 5, -1 \right)$, but we failed to prove it for $K = \Q\left( \sqrt{2} \right)$ in the first case and for $K = \Q\left( \sqrt{5} \right)$ in the second one.
+  Statistical data suggests that \cref{lem:fields_not_embeddable} is true even without excluding the cases $\left( a,b \right) = \left( \pm4, -1 \right), \left( a,b \right) = \left( \pm 5, -1 \right)$, but we failed to prove it for $K = \Q\left( \sqrt{2} \right)$ in the first case and for $K = \Q\left( \sqrt{5} \right)$ in the second one.
 \end{remark}
 
 To prove \cref{lem:fields_not_embeddable} we present a collection of obstructions to the embeddability of $K$ into $\Q\left[ x \right]/ \left( f \right)$.
@@ -264,7 +267,7 @@ To prove \cref{lem:fields_not_embeddable} we present a collection of obstruction
   \end{enumerate}
 \end{lemma}
 \begin{proof}
-  From \cite[p. 248]{filaseta2002irreducibility} it follows that the non cyclotomic part of $f$ is irreducible.
+  From \cite[p. 248]{Filaseta2019ComputationallyCP} it follows that the non cyclotomic part of $f$ is irreducible.
   However, if $\zeta$ is a root of unity and 
   $
     \left| \zeta^n \pm 1 \right| = \left| 2\zeta^k \right|
