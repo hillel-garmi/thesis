@@ -108,6 +108,7 @@ Informally, \Cref{thm:main} states that
 if $a$ and $b$ are small enough and $n$ is large enough, then the only obstruction to a permutation of the roots of $f$ is
 % the only obstructions to a permutation of the roots of a monic trinomial that does not vanish at $0$ and has small enough coefficients, high enough degree and coprime exponents,are 
 for some of them to be roots of unity.
+It should be noted that according to a result by Schinzel and Mikusi{\'n}ski \cite{Schinzel1964}, if $n > 2^{18}$ the irreducibility condition in the case $\left( a,b \right) = \left( \pm 3, \pm 1 \right)$ is redundant, and even in the case $\left( a,b \right) = \left( \pm 4, 1 \right)$ if $n > 2^{50}$ \editorial{I will think how to integrate this fact better into the paper in future versions, but I learned about it while writing the introduction and did not want to make too many changes at this point due to time considerations}.
 
 We prove \Cref{thm:main} by proving a more general result, that perhaps can be used to prove stronger versions of it in the future.
 To state it, we need to introduce some more definitions and notations that are used throughout the paper.
@@ -173,7 +174,8 @@ Recent results, for example by Bary-Soroker, Koukoulopoulos and Kozma \cite{Bary
 However, it appears that the only known example with a bounded height is the family of Selmer trinomials $f_n\left( x \right) = x^n - x - 1$ , which was shown to be irreducible by Selmer \cite{SelmerIrreducibility1956} and to have Galois group $S_n$ by Nart and Vila \cite{NartVila1979}. 
 The mentioned family of $n$-th generalized Fibonacci polynomials is just one out of many families that we now know to have symmetric Galois group thanks to \Cref{thm:main}.
 
-A related problem to the one of calculating the Galois group of trinomials with small coefficients, and one that appears as a more basic problem, is that of determining their factorization.
+% A related problem to the one of calculating the Galois group of trinomials with small coefficients, and one that appears as a more basic problem, is that of classifying their factorization.
+% Perhaps the most far reaching systematic classification was done by Filaseta, Murphy and Vincent \cite{Filaseta2019ComputationallyCP}, who classified the factorization of 
 
 
 \subsection{Proof Overview}
@@ -197,5 +199,11 @@ For conciseness, we chose to present the necessary result for the primes that do
 However, we note that the same result could have been proven in a much more direct manner, similar to the way Osada proved \cite[Lemma 3]{Osada1987TheGG}.
 
 To derive \Cref{thm:main} from \Cref{thm:criterion}, we prove in \Cref{sec:examples} different obstructions for the embeddability of number fields that are unramified away from $ab$ and have a small root discriminant, as well as a few lemmas thas helped us analyze the factorization of $f$ over $\Q$ and in a few cases, as detailed in $\Cref{thm:main}$, calculate the Galois group of $f$ without an irreducibility condition.
+
+\subsection{Acknowledgements and tools}
+I woule like to thank my advisor, Borys Kadets, for many helpful remarks and suggestions along the way.
+I used mainly SageMath and occasionally Magma for calculations and verifications.
+No LLM was used to derive any of the results presented in this paper.
+I did use GitHub Copilot for autocompletion and Gemini Pro for code generation, to find relevant literature and to translate some of it into English.
 
 \end{document}
