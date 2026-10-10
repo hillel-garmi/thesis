@@ -9,11 +9,68 @@ For each $\ell \in \N$ let $\zeta_\ell$ be a primitive $\ell$-th root of unity.
 The first main result of this paper is the following:
 \begin{theorem}
   \label{thm:main}
-  Assume that $n > 8$.
-
+  For sufficiently large $n$, the following is true
+  \\ \\
+  % \begin{matrix}
+  %   \text{If }
+  %   \left| ab \right| = 1 
+  %  & \text{ then }
+  %   &
+  %   \Gal\left( f \right)
+  %   \cong
+  %   \begin{cases}
+  %     S_{n-2} \times S_2 
+  %     & 
+  %     % \text{if } 
+  %     f\left( \zeta_3 \right)f\left( \zeta_6 \right) = 0 \\
+  %     S_n & \text{otherwise}
+  %   \end{cases}
+  %   \\ \\
+  %   \text{If }
+  %   \left| ab \right| = 2 
+  %   &\text{ then }
+  %   &
+  %   \Gal\left( f \right)
+  %   \cong
+  %   \begin{cases}
+  %       S_{n-1} 
+  %       & 
+  %       % \text{if } 
+  %       f\left( 1 \right)f\left( -1 \right) = 0 \\
+  %       S_n & \text{otherwise}
+  %   \end{cases}
+  %   \\ \\
+  %   \text{If }
+  %   \left( a,b \right) \in 
+  %   \left\{ 
+  %     \begin{matrix}
+  %     \left( \pm 1, \pm 3 \right),
+  %     \left( \pm 1, \pm 4 \right), \\
+  %     \left( \pm 2, \pm 2 \right),
+  %     \left( \pm 1, \pm 5 \right)
+  %     \end{matrix}
+  %     \right\} 
+  %   &\text{ then }
+  %   &
+  %   \Gal\left( f \right) \cong S_{n}
+  %   \\ \\
+  %   \text{If } \ 
+  %   \begin{pmatrix}
+  %     \left( a,b \right) \in \left\{  
+  %       \left( \pm 3, \pm 1 \right),
+  %       \left( \pm 4, 1 \right),
+  %       \left( \pm 5, 1 \right) 
+  %     \right\}
+  %     \\
+  %     \text{and } f \text{ is irreducible over } \Q
+  %   \end{pmatrix}
+  %   &\text{ then}  
+  %   & \Gal\left( f \right) \cong S_{n}
+  %   .
+  % \end{matrix}
   \begin{matrix}
     \text{If }
-    \left| ab \right| = 1 
+    \left| ab \right| \leq 3 
    & \text{ then }
     &
     \Gal\left( f \right)
@@ -23,31 +80,22 @@ The first main result of this paper is the following:
       & 
       % \text{if } 
       f\left( \zeta_3 \right)f\left( \zeta_6 \right) = 0 \\
+      S_{n-1} 
+      & 
+      % \text{if } 
+      f\left( 1 \right)f\left( -1 \right) = 0 \\
       S_n & \text{otherwise}
-    \end{cases}
-    \\ \\
-    \text{If }
-    \left| ab \right| = 2 
-    &\text{ then }
-    &
-    \Gal\left( f \right)
-    \cong
-    \begin{cases}
-        S_{n-1} 
-        & 
-        % \text{if } 
-        f\left( 1 \right)f\left( -1 \right) = 0 \\
-        S_n & \text{otherwise}
     \end{cases}
     \\ \\
     \text{If }
     \left( a,b \right) \in 
     \left\{ 
       \begin{matrix}
-      \left( \pm 1, \pm 3 \right),
-      \left( \pm 1, \pm 4 \right), \\
+      \left( \pm 1, \pm 4 \right),
       \left( \pm 2, \pm 2 \right),
-      \left( \pm 1, \pm 5 \right)
+      \\
+      \left( \pm 1, \pm 5 \right),
+      \left( \pm 5, 1 \right) 
       \end{matrix}
       \right\} 
     &\text{ then }
@@ -56,59 +104,39 @@ The first main result of this paper is the following:
     \\ \\
     \text{If } \ 
     \begin{pmatrix}
-      \left( a,b \right) \in \left\{  
-        \left( \pm 3, \pm 1 \right),
-        \left( \pm 4, 1 \right),
-        \left( \pm 5, 1 \right) 
-      \right\}
+      \left( a,b \right) = \left( \pm 4, 1 \right)
+      \text{and } 
       \\
-      \text{and } f \text{ is irreducible over } \Q
+      f \text{ is irreducible}
     \end{pmatrix}
     &\text{ then}  
     & \Gal\left( f \right) \cong S_{n}
     .
   \end{matrix}
-  % \begin{enumerate}
-  %   % \item If $\left| ab \right| \leq 5$ and 
-  %   \item If $\left| ab \right| = 1$ then 
-  %   \[
-  %     \Gal\left( f \right)
-  %     \cong
-  %     \begin{cases}
-  %       S_{n-2} \times S_2 & \text{if } f\left( \zeta_3 \right) = 0 \\
-  %       S_n & \text{otherwise}
-  %     \end{cases}
-  %   \]
-  %   when $\zeta_3$ is a primitive $3$rd root of unity.
-  %   \item If $\left| ab \right| = 2$ then 
-  %   \[
-  %     \Gal\left( f \right)
-  %     \cong
-  %     \begin{cases}
-  %       S_{n-1} & \text{if } f\left( 1 \right)f\left( -1 \right) = 0 \\
-  %       S_n & \text{otherwise}
-  %     \end{cases}
-  %   \]
-  %   \item If
-  %   \[
-  %     \left( a,b \right) \in 
-  %     \left\{ 
-  %       \left( \pm 1, \pm 3 \right),
-  %       \left( \pm 1, \pm 4 \right),
-  %       \left( \pm 2, \pm 2 \right),
-  %       \left( \pm 1, \pm 5 \right)
-  %      \right\}
-  %   \]
-  %   then $\Gal\left( f \right) \cong S_{n}$.
-  %   \item If 
-  % \end{enumerate}
+  \\ \\
+  % Specifically, the first item holds unless $n \leq 2^18$, $\left( a,b \right) = \left( \pm 3, pm 1 \right)$ and $f$ is reducible, and 
+  
+  above holds if either
+  \begin{enumerate}
+    \item $n > 2^{50}$,
+    \item $n > 2^{18}$ and $\left( a,b \right) \neq \left( \pm 5, 1 \right)$,
+    \item $n > 8$ and 
+    $
+      \left( a,b \right) \notin 
+      \left\{ 
+        \left( \pm 3, \pm 1 \right),
+        \left( \pm 5, 1 \right)
+      \right\}
+    $, or
+    \item $n > 8$ and $f$ is irreducible,
+  \end{enumerate}
 \end{theorem}
 
 Informally, \Cref{thm:main} states that 
 if $a$ and $b$ are small enough and $n$ is large enough, then the only obstruction to a permutation of the roots of $f$ is
 % the only obstructions to a permutation of the roots of a monic trinomial that does not vanish at $0$ and has small enough coefficients, high enough degree and coprime exponents,are 
 for some of them to be roots of unity.
-It should be noted that according to a result by Schinzel and Mikusi{\'n}ski \cite{Schinzel1964}, if $n > 2^{18}$ the irreducibility condition in the case $\left( a,b \right) = \left( \pm 3, \pm 1 \right)$ is redundant, and even in the case $\left( a,b \right) = \left( \pm 4, 1 \right)$ if $n > 2^{50}$ \editorial{I will think how to integrate this fact better into the paper in future versions, but I learned about it while writing the introduction and did not want to make too many changes at this point due to time considerations}.
+% It should be noted that according to a result by Schinzel and Mikusi{\'n}ski \cite{Schinzel1964}, if $n > 2^{18}$ the irreducibility condition in the case $\left( a,b \right) = \left( \pm 3, \pm 1 \right)$ is redundant, and even in the case $\left( a,b \right) = \left( \pm 4, 1 \right)$ if $n > 2^{50}$.
 
 We prove \Cref{thm:main} by proving a more general result, that perhaps can be used to prove stronger versions of it in the future.
 To state it, we need to introduce some more definitions and notations that are used throughout the paper.
@@ -198,7 +226,7 @@ This is exctly what we do in \Cref{sec:local}, by analyzing the valuation of the
 For conciseness, we chose to present the necessary result for the primes that do not divide $ab$, as a consequence of this much more complicated analysis that was originally written to tackle the problematic primes that divide $ab$.
 However, we note that the same result could have been proven in a much more direct manner, similar to the way Osada proved \cite[Lemma 3]{Osada1987TheGG}.
 
-To derive \Cref{thm:main} from \Cref{thm:criterion}, we prove in \Cref{sec:examples} different obstructions for the embeddability of number fields that are unramified away from $ab$ and have a small root discriminant, as well as a few lemmas thas helped us analyze the factorization of $f$ over $\Q$ and in a few cases, as detailed in $\Cref{thm:main}$, calculate the Galois group of $f$ without an irreducibility condition.
+To derive \Cref{thm:main} from \Cref{thm:criterion}, we prove in \Cref{sec:examples} different obstructions for the embeddability of number fields that are unramified away from $ab$ and have a small root discriminant, as well as a few lemmas that help us analyze the factorization of $f$ over $\Q$.
 
 \subsection{Acknowledgements and tools}
 I woule like to thank my advisor, Borys Kadets, for many helpful remarks and suggestions along the way.

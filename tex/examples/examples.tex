@@ -17,7 +17,7 @@ To prove \cref{thm:main} we prove first the following
   \]
   Then either 
   \begin{enumerate}
-    \item $\left( a,b \right) = \left( \pm 4, -1 \right), \left( a,b \right) = \left( \pm 5, -1 \right)$, or
+    \item $\left( a,b \right) \in \left\{ \left( \pm 4, -1 \right), \left( \pm 5, -1 \right) \right\}$, or
     \item $K$ can not be embedded into $\Q\left[ x \right]/ \left( f \right)$.
   \end{enumerate}
 \end{proposition}
@@ -393,8 +393,14 @@ Collecting all the above lemmas we can present the following
   In both cases, it suffices to show that the Galois group of the unique non linear irreducible factor of $f$, which we shall denote by $g$, is $S_{\deg \left( g \right)}$.
   However, $\deg g \geq n - 1$ and hence a quick calculation verifies that the inequality in \cref{thm:criterion} is satisfied for $n > 8$ and hence the Galois group of $g$ is $S_{\deg \left( g \right)}$ as required.
 
-  In the third item in the statement of \cref{thm:main} either $f$ is an Eisenstein polynomial with respect to $2$ and hence irreducible over $\Q$, or $\left| a \right| = 1$ and $\left| b \right| = 3,4,5$, in which case it follows from \cref{lem:no_splitting_irreducibility} that $f$ is irreducible over $\Q$ as well.
-  In the last item, we deliberately assume that $f$ is irreducible over $\Q$. 
+  We claim that in the rest of the cases $f$ is irreducible.
+  Indeed, either of the following cases occures:
+  \begin{enumerate}
+    \item $f$ is an Eisenstein polynomial.
+    \item $f$ $\left| a \right| = 1$ and $\left| b \right| = 3,4,5$, in which case it follows from \cref{lem:no_splitting_irreducibility} that $f$ is irreducible over $\Q$.
+    \item $\left| b \right| = 1$ and $\left| a \right| = 3,5$, in which Schinzel and Mikusi{\'n}ski \cite{Schinzel1964} proved that $f$ is irreducible if $n > 2^{18}, 2^{50}$ respectively.
+    \item $\left( a,b \right) = \left( \pm 4, 1 \right)$ in which case we deliberately assume that $f$ is irreducible.
+  \end{enumerate} 
   Therefore, in all of the remaining cases, we can evaluate the inequality in \cref{thm:criterion} with $\deg g = n$, and a quick calculation shows that it is satisfied for $n > 8$ and thus the Galois group of $f$ is $S_n$ and our proof is complete.
 \end{proof}
 \end{document}
