@@ -93,43 +93,55 @@ The first main result of this paper is the following:
       \begin{matrix}
       \left( \pm 1, \pm 4 \right),
       \left( \pm 2, \pm 2 \right),
+      \left( \pm 4, 1 \right),
       \\
       \left( \pm 1, \pm 5 \right),
-      \left( \pm 5, 1 \right) 
+      \left( \pm 5, 1 \right), 
       \end{matrix}
       \right\} 
     &\text{ then }
     &
     \Gal\left( f \right) \cong S_{n}
-    \\ \\
-    \text{If } \ 
-    \begin{pmatrix}
-      \left( a,b \right) = \left( \pm 4, 1 \right)
-      \text{and } 
-      \\
-      f \text{ is irreducible}
-    \end{pmatrix}
-    &\text{ then}  
-    & \Gal\left( f \right) \cong S_{n}
+    % \\ \\
+    % \text{If } \ 
+    % \begin{pmatrix}
+    %   \left( a,b \right) = \left( \pm 4, 1 \right)
+    %   \text{and } 
+    %   \\
+    %   f \text{ is irreducible}
+    % \end{pmatrix}
+    % &\text{ then}  
+    % & \Gal\left( f \right) \cong S_{n}
     .
   \end{matrix}
   \\ \\
   % Specifically, the first item holds unless $n \leq 2^18$, $\left( a,b \right) = \left( \pm 3, pm 1 \right)$ and $f$ is reducible, and 
   
-  above holds if either
+  Specifically, the above holds if $n > 8$ and $f$ is irreducible, or if either 
   \begin{enumerate}
-    \item $n > 2^{50}$,
-    \item $n > 2^{18}$ and $\left( a,b \right) \neq \left( \pm 5, 1 \right)$,
-    \item $n > 8$ and 
-    $
-      \left( a,b \right) \notin 
-      \left\{ 
-        \left( \pm 3, \pm 1 \right),
-        \left( \pm 5, 1 \right)
-      \right\}
-    $, or
-    \item $n > 8$ and $f$ is irreducible,
+    \item $\left| ab \right| = 1$,
+    \item $\left| ab \right| = 2$ and $n > 8$,
+    \item $\left| ab \right| = 3$ and $n > 2^{18}$, or 
+    \item $\left| ab \right| = 3$ and $n > 2^{50}$ 
   \end{enumerate}
+  % \begin{enumerate}
+  %   \item $n > 2^{50}$, and $\left( a,b \right) \neq \left( \pm 4, 1 \right)$,
+  %   \item $n > 2^{18}$ and $\left( a,b \right) \notin 
+  %     \left\{ 
+  %       \left( \pm 4, 1 \right),
+  %       \left( \pm 5, 1 \right)
+  %     \right\}$,
+  %   \item $n > 8$ and 
+  %   $
+  %     \left( a,b \right) \notin 
+  %     \left\{ 
+  %       \left( \pm 3, \pm 1 \right),
+  %       \left( \pm 4, 1 \right),
+  %       \left( \pm 5, 1 \right)
+  %     \right\}
+  %   $, or
+  %   \item $n > 8$ and $f$ is irreducible,
+  % \end{enumerate}
 \end{theorem}
 
 Informally, \Cref{thm:main} states that 
