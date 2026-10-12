@@ -3,11 +3,11 @@
 \begin{document}
 \section{
   \label{sec:examples}
-  Proof of \cref{thm:main}
+  Proof of \Cref{thm:main}
 }
 Recall that for each finite or infinite rational place $\p$ we view $\overline{\Q}$ as a subfield of $\overline{\Q_\p}$ and denote by $v_\p$ the standard valuation of $\overline{\Q_p}$.
 We also denote $i = \sqrt{-1}$ viewed as an element of $\C$.
-To prove \cref{thm:main} we prove first the following
+To prove \Cref{thm:main} we prove first the following
 
 \begin{proposition}
   \label{lem:fields_not_embeddable}
@@ -22,11 +22,11 @@ To prove \cref{thm:main} we prove first the following
   \end{enumerate}
 \end{proposition}
 \begin{remark}
-  We chose the bound $\left| ab \right| \leq 5$ in \cref{lem:fields_not_embeddable} since the LMFDB \cite{lmfdb} has a complete list of all number fields with root discriminant at most $5.989$.
-  Statistical data suggests that \cref{lem:fields_not_embeddable} is true even without excluding the cases $\left( a,b \right) = \left( \pm4, -1 \right), \left( a,b \right) = \left( \pm 5, -1 \right)$, but we failed to prove it for $K = \Q\left( \sqrt{2} \right)$ in the first case and for $K = \Q\left( \sqrt{5} \right)$ in the second one.
+  We chose the bound $\left| ab \right| \leq 5$ in \Cref{lem:fields_not_embeddable} since the LMFDB \cite{lmfdb} has a complete list of all number fields with root discriminant at most $5.989$.
+  Statistical data suggests that \Cref{lem:fields_not_embeddable} is true even without excluding the cases $\left( a,b \right) = \left( \pm4, -1 \right), \left( a,b \right) = \left( \pm 5, -1 \right)$, but we failed to prove it for $K = \Q\left( \sqrt{2} \right)$ in the first case and for $K = \Q\left( \sqrt{5} \right)$ in the second one.
 \end{remark}
 
-To prove \cref{lem:fields_not_embeddable} we present a collection of obstructions to the embeddability of $K$ into $\Q\left[ x \right]/ \left( f \right)$.
+To prove \Cref{lem:fields_not_embeddable} we present a collection of obstructions to the embeddability of $K$ into $\Q\left[ x \right]/ \left( f \right)$.
 
 \begin{lemma}
   \label{lem:no_splitting_irreducibility}
@@ -52,7 +52,7 @@ To prove \cref{lem:fields_not_embeddable} we present a collection of obstruction
 \begin{proof}
   Firstly, note that by considering the Newton polygon of $f$ with respect to $p$ it follows that $f$ has $k$ roots (counted with possible multiplicity, here and in the sequel of the proof) whose $p$-adic valuation is $v_p\left( b \right) / k$ and the rest are of $p$-adic valuation $0$.
   Therefore, the $y$-coordinates of the vertices of the Newton polygon of any factor of $f$ in $K\left[ x \right]$ is in $\frac{v_p\left( b \right)}{k} \Z \cap v_p\left( K \right)$. 
-  According \cref{item:valuation_coprimality} this intersection of groups is $v_p\left( b \right)\Z$.
+  According \Cref{item:valuation_coprimality} this intersection of groups is $v_p\left( b \right)\Z$.
   Consequently, any factor of $f$ annihilates either non or all of the $k$ positive valuation roots of $f$.
   Let then $f_0 \in K\left[ X \right]$ be an irreducible monic factor of $f$ that annihilates all of the $k$ positive valuation roots of $f$.
   It suffices to show that either $f / f_0 = 1$, or $b = \pm 2$ and $f / f_0 = x \pm 1$.
@@ -86,7 +86,7 @@ To prove \cref{lem:fields_not_embeddable} we present a collection of obstruction
 
 % Recall that we use $g$ to denote an arbitrary rational factor of $f$.
 % \begin{corollary}
-%   In the settings of \cref{lem:no_splitting_irreducibility}, $K$ can not be embedded into $\Q\left[ x \right]/ \left( g \right)$.
+%   In the settings of \Cref{lem:no_splitting_irreducibility}, $K$ can not be embedded into $\Q\left[ x \right]/ \left( g \right)$.
 %   \qed
 % \end{corollary}
 % \begin{proof}
@@ -154,7 +154,7 @@ To prove \cref{lem:fields_not_embeddable} we present a collection of obstruction
 \begin{proof}
   %The conditions on $p$ guarantee that $K$ has no embedding into $\Q_p$.
   To show that $K$ can not be a subfield of $\Q\left[ x \right] / \left( f \right)$, it suffices to show that $f$ has a root that is contained in a purely ramified extension of $\Q_p$.
-  Indeed, let $e$ be the multiplicity of $m$ as a root of $f$ modulo $p$.
+  Let then $e$ be the multiplicity of $m$ as a root of $f$ modulo $p$.
   Then there is a factorization 
     \[
       \pi\left( f \right) = \left( x-m \right)^e \overline{g} \in \mathbb{F}_p\left[ x \right]
@@ -288,7 +288,7 @@ To prove \cref{lem:fields_not_embeddable} we present a collection of obstruction
   Then $\Q\left( i \right)$ can not be embedded into $\Q\left[ x \right]/ \left( f \right)$.
 \end{lemma}
 \begin{proof}
-  Assume first that $f\left( 1 \right)f\left( -1 \right) \neq 0$ and hence by \cref{lem:factorization_of_f} $f$ is irreducible.
+  Assume first that $f\left( 1 \right)f\left( -1 \right) \neq 0$ and hence by \Cref{lem:factorization_of_f} $f$ is irreducible.
   It suffices to show that $f$ has a real root.
   However, for $f$ to not have a real root, $n$ must be even $k$ must be odd and $b$ must be $1$ and it can be verified that in such a case $0 = f\left( 1 \right)f\left( -1 \right)$ which is a contradiction.
   
@@ -303,12 +303,12 @@ To prove \cref{lem:fields_not_embeddable} we present a collection of obstruction
   Then $\Q\left( i \right)$ can not be embedded into $\Q\left[ x \right]/ \left( f \right)$.
 \end{lemma}
 \begin{proof}
-  If $k$ is odd the result follows from \cref{lem:no_splitting_irreducibility} with $p = 2$.
+  If $k$ is odd the result follows from \Cref{lem:no_splitting_irreducibility} with $p = 2$.
   Assume then that $k$ is even and thus that $n$ is odd.
   By considering the Newton polygon of $f$ with respect to $2$ it follows that $f$ has a root of $2$-adic valuation $0$, say $\alpha$.
-  If $f\left( 1 \right)f\left( -1 \right) \neq 0$ then according to \cref{lem:no_splitting_irreducibility} $f$ is irreducible over $\Q$ and hence $\Q\left[ x \right]/ \left( f \right)$ is a number field of an odd degree and hence can not contain $\Q\left( i \right)$.
+  If $f\left( 1 \right)f\left( -1 \right) \neq 0$ then according to \Cref{lem:no_splitting_irreducibility} $f$ is irreducible over $\Q$ and hence $\Q\left[ x \right]/ \left( f \right)$ is a number field of an odd degree and hence can not contain $\Q\left( i \right)$.
   Assume then that $f\left( 1 \right)f\left( -1 \right) = 0$.
-  According to \cref{lem:factorization_of_f} $f$ factors as $x \pm 1$ times an irreducible factor which we shall denote by $g$.
+  According to \Cref{lem:factorization_of_f} $f$ factors as $x \pm 1$ times an irreducible factor which we shall denote by $g$.
   Then the $2$-adic valuation of the different ideal of $\Q\left[ x \right]/ \left( g \right)$ is bounded by 
   \[
     v_2\left( g'\left( \alpha \right) \right)
@@ -331,7 +331,7 @@ To prove \cref{lem:fields_not_embeddable} we present a collection of obstruction
       Minimal number fields 
       % satisfying 
       % \\ 
-      % the conditions of \cref{lem:fields_not_embeddable}
+      % the conditions of \Cref{lem:fields_not_embeddable}
     } 
      & 
      \makecell{
@@ -347,26 +347,26 @@ To prove \cref{lem:fields_not_embeddable} we present a collection of obstruction
     $5$ & $\Q\left( \sqrt{5} \right)$ & $> 5.989$ \\ 
   \hline
   \end{tabular}
-  \caption{Minimal number fields satisfying the conditions of \cref{lem:fields_not_embeddable} and the next root discriminant realized by a minimal number field unramified away from $ab$ for each value of $\left| ab \right|$.}
+  \caption{Minimal number fields satisfying the conditions of \Cref{lem:fields_not_embeddable} and the next root discriminant realized by a minimal number field unramified away from $ab$ for each value of $\left| ab \right|$ according to \cite{lmfdb}.}
   \label{table}
   % \end{center}
 \end{table}
 
 Collecting all the above lemmas we can present the following
-\begin{proof}[Proof of \cref{lem:fields_not_embeddable}]
-  The second column of \cref{table} lists the minimal number fields satisfying the conditions of \cref{lem:fields_not_embeddable} for each value of $\left| ab \right|$.
-  It suffices to rule out the possibility of embedding each of these fields into $\Q\left[ x \right]/ \left( f \right)$, since an embedding of any other field satisfying the conditions of \cref{lem:fields_not_embeddable} would restrict to an embedding of one of these minimal fields.
+\begin{proof}[Proof of \Cref{lem:fields_not_embeddable}]
+  The second column of \Cref{table} lists the minimal number fields satisfying the conditions of \Cref{lem:fields_not_embeddable} for each value of $\left| ab \right|$.
+  It suffices to rule out the possibility of embedding each of these fields into $\Q\left[ x \right]/ \left( f \right)$, since an embedding of any other field satisfying the conditions of \Cref{lem:fields_not_embeddable} would restrict to an embedding of one of these minimal fields.
   
-  The cases $\left( a,b \right) = \left( \pm 2, \pm 1 \right)$ are ruled out by \cref{lem:Qi_not_embeddable_if_a2_b1} and the cases $\left( a,b \right) = \left( \pm 1, \pm 2 \right)$ by \cref{lem:Qi_not_embeddable_if_a1_b2}.
+  The cases $\left( a,b \right) = \left( \pm 2, \pm 1 \right)$ are ruled out by \Cref{lem:Qi_not_embeddable_if_a2_b1} and the cases $\left( a,b \right) = \left( \pm 1, \pm 2 \right)$ by \Cref{lem:Qi_not_embeddable_if_a1_b2}.
   
   Assume then that $\left| ab \right| > 2$.
   We shall first treat all of the caess in which $\left| a \right| = 1$.
-  In all of these cases, $f\left( 1 \right)f\left( -1 \right) \neq 0$ and hence $f$ is irreducible over $\Q$ according to \cref{lem:no_splitting_irreducibility}.
-  Therefore, and since all of the fields in \cref{table} are quadratic, we can assume that $n$ is even and thus that $k$ is odd.
-  Therefore, all of these cases can be treated by \cref{lem:no_splitting_irreducibility} with $\left( p \right) = \sqrt{\left( b \right)}$.
+  In all of these cases, $f\left( 1 \right)f\left( -1 \right) \neq 0$ and hence $f$ is irreducible over $\Q$ according to \Cref{lem:no_splitting_irreducibility}.
+  Therefore, and since all of the fields in \Cref{table} are quadratic, we can assume that $n$ is even and thus that $k$ is odd.
+  Therefore, all of these cases can be treated by \Cref{lem:no_splitting_irreducibility} with $\left( p \right) = \sqrt{\left( b \right)}$.
 
-  The cases $\left( a,b \right) = \left( \pm 2, \pm 2 \right)$ are resolved by \cref{lem:not_embeddable_Qi_if_a2_b2}.
-  In all of the remaining cases, namely $\left( a,b \right) = \left( \pm 3, \pm 1 \right), \left( \pm 4, 1 \right), \left( \pm 5, 1 \right)$, $f$ has a real root allowing us to cross out all of the imaginary fields from \cref{table}.
+  The cases $\left( a,b \right) = \left( \pm 2, \pm 2 \right)$ are resolved by \Cref{lem:not_embeddable_Qi_if_a2_b2}.
+  In all of the remaining cases, namely $\left( a,b \right) = \left( \pm 3, \pm 1 \right), \left( \pm 4, 1 \right), \left( \pm 5, 1 \right)$, $f$ has a real root allowing us to cross out all of the imaginary fields from \Cref{table}.
   Therefore, the only remaining obstacles are $\left( a,b \right) = \left( \pm 4, 1 \right)$ with $K = \Q\left( \sqrt{2} \right)$ and $\left( a,b \right) = \left( \pm 5, 1 \right)$ with $K = \Q\left( \sqrt{5} \right)$.
   
   We will treat first the case $\left( a,b \right) = \left( \pm 4, 1 \right)$ and $K = \Q\left( \sqrt{2} \right)$.
@@ -374,33 +374,33 @@ Collecting all the above lemmas we can present the following
   However, an embedding of $K$ into $\Q\left[ x \right]/ \left( f \right)$ would induce an embedding of $\mathbb{F}_2 \otimes_{\Z} \O_K$ into $\mathbb{F}_2 \otimes_\Z \Z\left[ x \right] / \left( f \right)$ which is impossible.
   Assume then that $n$ is even and thus that $k$ is odd.
   Then by possibly replacing $f$ with $f\left( -x \right)$ we are free to assume that $a = 4$.
-  Finally, this case can be dealt with by \cref{lem:imprimitivity_finite_obstruction} with $p = 3$ and $m = 1$.
+  Finally, this case can be dealt with by \Cref{lem:imprimitivity_finite_obstruction} with $p = 3$ and $m = 1$.
 
-  Lastly, we treat the case $\left( a,b \right) = \left( \pm 5, 1 \right)$ and $K = \Q\left( \sqrt{5} \right)$. If $a = 5$ then we are done by by \cref{lem:imprimitivity_finite_obstruction} with $p = 7$ and $m = 1$, and if $a = -5$ then by \cref{lem:imprimitivity_finite_obstruction} with $p = 3$ and $m = 1$ our proof is complete.
+  Lastly, we treat the case $\left( a,b \right) = \left( \pm 5, 1 \right)$ and $K = \Q\left( \sqrt{5} \right)$. If $a = 5$ then we are done by by \Cref{lem:imprimitivity_finite_obstruction} with $p = 7$ and $m = 1$, and if $a = -5$ then by \Cref{lem:imprimitivity_finite_obstruction} with $p = 3$ and $m = 1$ our proof is complete.
 \end{proof}
 
-\begin{proof}[Proof of \cref{thm:main}]
+\begin{proof}[Proof of \Cref{thm:main}]
   Assume first that $\left| ab \right| = 1$.
-  In this case we can use \cref{thm:strategy} directly to conclude that the Galois group of any irreducible factor of $f$ is symmetric.
+  In this case we can use \Cref{thm:strategy} directly to conclude that the Galois group of any irreducible factor of $f$ is symmetric.
   As was shown by Ljunggren \cite{Ljungren1960}, either $f$ is irreducible over $\Q$ or it factors into $x^2 \pm x + 1$ times an irreducible factor, say $g$.
   Therefore, it only remains to show that if $f$ is reducible over $\Q$ then the splitting field of $g$ over $\Q$ is linearly disjoint from the splitting field of $x^2 \pm x + 1$ over $\Q$, i.e. from $\Q\left( \sqrt{-3} \right)$.
   To do that in turn, it suffices to show that $3$ is unramified in $\Q\left[ x \right] / \left( g \right)$, for which it suffices to show that $g$ is separable over $\mathbb{F}_3$.
-  However, we have already established in \cref{cor:inertia_group_acts_as_transposition_external_settings} that $f$ has at most one double root in $\overline{\mathbb{F}_3}$, and hence, since $x^2 \pm x + 1$ has a double root there, $g$ can not have any.
+  However, we have already established in \Cref{cor:inertia_group_acts_as_transposition_external_settings} that $f$ has at most one double root in $\overline{\mathbb{F}_3}$, and hence, since $x^2 \pm x + 1$ has a double root there, $g$ can not have any.
 
-  In the rest of the cases $\left| ab \right|$ is a non trivial power of a prime which we shall denote by $p$ and \cref{lem:fields_not_embeddable} implies that we can apply \cref{thm:criterion} with $C_p$ being the value recorded in the third column of \cref{table} for the corresponding value of $\left| ab \right|$.
+  In the rest of the cases $\left| ab \right|$ is a non trivial power of a prime which we shall denote by $p$ and \Cref{lem:fields_not_embeddable} implies that we can apply \Cref{thm:criterion} with $C_p$ being the value recorded in the third column of \Cref{table} for the corresponding value of $\left| ab \right|$.
 
-  If $\left| ab \right| = 2$ then according to \cref{lem:no_splitting_irreducibility} applied to $K=\Q$ and according to \cref{lem:factorization_of_f}, $f$ is either irreducible over $\Q$ or it factors into $x \pm 1$ times an irreducible factor.
+  If $\left| ab \right| = 2$ then according to \Cref{lem:no_splitting_irreducibility} applied to $K=\Q$ and according to \Cref{lem:factorization_of_f}, $f$ is either irreducible over $\Q$ or it factors into $x \pm 1$ times an irreducible factor.
   In both cases, it suffices to show that the Galois group of the unique non linear irreducible factor of $f$, which we shall denote by $g$, is $S_{\deg \left( g \right)}$.
-  However, $\deg g \geq n - 1$ and hence a quick calculation verifies that the inequality in \cref{thm:criterion} is satisfied for $n > 8$ and hence the Galois group of $g$ is $S_{\deg \left( g \right)}$ as required.
+  However, $\deg g \geq n - 1$ and hence a quick calculation verifies that the inequality in \Cref{thm:criterion} is satisfied for $n > 8$ and hence the Galois group of $g$ is $S_{\deg \left( g \right)}$ as required.
 
   We claim that in the rest of the cases $f$ is irreducible.
   Indeed, either of the following cases occures:
   \begin{enumerate}
     \item $f$ is an Eisenstein polynomial.
-    \item $\left| a \right| = 1$ and $\left| b \right| = 3,4,5$, in which case it follows from \cref{lem:no_splitting_irreducibility} that $f$ is irreducible over $\Q$.
+    \item $\left| a \right| = 1$ and $\left| b \right| = 3,4,5$, in which case it follows from \Cref{lem:no_splitting_irreducibility} that $f$ is irreducible over $\Q$.
     \item $\left| b \right| = 1$ and $\left| a \right| = 3,5$, in which Schinzel and Mikusi{\'n}ski \cite{Schinzel1964} proved that $f$ is irreducible if $n > 2^{18}, 2^{50}$ respectively.
     \item $\left( a,b \right) = \left( \pm 4, 1 \right)$ in which case Schinzel \cite{schinzel_1966} proved that $f$ is irreducible for sufficiently large $n$.
   \end{enumerate} 
-  Therefore, in all of the remaining cases, we can evaluate the inequality in \cref{thm:criterion} with $\deg g = n$, and a quick calculation shows that it is satisfied for $n > 8$ and thus the Galois group of $f$ is $S_n$ and our proof is complete.
+  Therefore, in all of the remaining cases, we can evaluate the inequality in \Cref{thm:criterion} with $\deg g = n$, and a quick calculation shows that it is satisfied for $n > 8$ and thus the Galois group of $f$ is $S_n$ and our proof is complete.
 \end{proof}
 \end{document}
