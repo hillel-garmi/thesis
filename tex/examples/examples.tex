@@ -62,10 +62,10 @@ To prove \cref{lem:fields_not_embeddable} we present a collection of obstruction
   % If $f_1$ in fact has no roots at all we are done since $f_0$ is irreducible.
   % Otherwise, since $1$ and $-1$ can not both be roots of $f$ and none of them can be a double root of it, it follows that $f_1 = x \pm 1$ and from the triangle inequality it follows that $\left| b \right| \leq 2$ and hence since $b$ was assumed to be a non trivial $p$-power it follows that $b = \pm 2$ as required.
 
-  We will first show that $f / f_0$ is in $\Q\left[ x \right]$ and consequently so is $f / f_0$.
+  We will first show that $f_0$ is in $\Q\left[ x \right]$ and consequently so is $f / f_0$.
   Let $\sigma \in \Gal\left( \overline{\Q}/ \Q \right)$ be an automorphism of $\overline{\Q}$ and denote by $\sigma$ the induced automorphism of $\overline{\Q}\left[ x \right]$ as well.
   It suffices to show that $\sigma\left( f_0 \right) = f_0$.
-  Since $f$ does not split in $K$, $\sigma\left( f_0 \right)$ is also an irreducible factor $f$ with $k$ roots of positive $p$-adic valuation. 
+  Since $p$ does not split in $K$, $\sigma\left( f_0 \right)$ is also an irreducible factor $f$ with $k$ roots of positive $p$-adic valuation. 
   However, as mentioned $f$ has only $k$ such roots and hence it has at most one such irreducible factor and hence indeed $f_0 = \sigma\left( f_0 \right)$.
 
   If $f / f_0 = 1$ we are done.
@@ -152,8 +152,8 @@ To prove \cref{lem:fields_not_embeddable} we present a collection of obstruction
   Then $K$ cannot be embedded into $\Q\left[ x \right] / \left( f \right)$.
 \end{lemma}
 \begin{proof}
-  The conditions on $p$ guarantee that $K$ has no embedding into $\Q_p$.
-  Therefore, to show that $K$ can not be a subfield of $\Q\left[ x \right] / \left( f \right)$, it suffices to show that $f$ has a root that is contained in a purely ramified extension of $\Q_p$.
+  %The conditions on $p$ guarantee that $K$ has no embedding into $\Q_p$.
+  To show that $K$ can not be a subfield of $\Q\left[ x \right] / \left( f \right)$, it suffices to show that $f$ has a root that is contained in a purely ramified extension of $\Q_p$.
   Indeed, let $e$ be the multiplicity of $m$ as a root of $f$ modulo $p$.
   Then there is a factorization 
     \[
