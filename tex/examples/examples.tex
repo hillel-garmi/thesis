@@ -160,7 +160,7 @@ To prove \Cref{lem:fields_not_embeddable} we present a collection of obstruction
       \pi\left( f \right) = \left( x-m \right)^e \overline{g} \in \mathbb{F}_p\left[ x \right]
     \]
     for some $\overline{g} \in \mathbb{F}_p\left[ x \right]$ that is coprime to $\left( x-m \right)$ where $\pi : \Z_p\left[ x \right] \to \mathbb{F}_p\left[ x \right]$ is the quotient map.
-    By hensel's lemma, there is a factorization
+    By Hensel's lemma, there is a factorization
     \[
       f = h g \in \Z_p\left[ x \right]
     \]
@@ -363,7 +363,7 @@ Collecting all the above lemmas we can present the following
   We shall first treat all of the caess in which $\left| a \right| = 1$.
   In all of these cases, $f\left( 1 \right)f\left( -1 \right) \neq 0$ and hence $f$ is irreducible over $\Q$ according to \Cref{lem:no_splitting_irreducibility}.
   Therefore, and since all of the fields in \Cref{table} are quadratic, we can assume that $n$ is even and thus that $k$ is odd.
-  Therefore, all of these cases can be treated by \Cref{lem:no_splitting_irreducibility} with $\left( p \right) = \sqrt{\left( b \right)}$.
+  Therefore, all of these cases can be treated by \Cref{lem:no_splitting_irreducibility} with $p$ being the unique prime factor of $b$.
 
   The cases $\left( a,b \right) = \left( \pm 2, \pm 2 \right)$ are resolved by \Cref{lem:not_embeddable_Qi_if_a2_b2}.
   In all of the remaining cases, namely $\left( a,b \right) = \left( \pm 3, \pm 1 \right), \left( \pm 4, 1 \right), \left( \pm 5, 1 \right)$, $f$ has a real root allowing us to cross out all of the imaginary fields from \Cref{table}.
@@ -376,7 +376,7 @@ Collecting all the above lemmas we can present the following
   Then by possibly replacing $f$ with $f\left( -x \right)$ we are free to assume that $a = 4$.
   Finally, this case can be dealt with by \Cref{lem:imprimitivity_finite_obstruction} with $p = 3$ and $m = 1$.
 
-  Lastly, we treat the case $\left( a,b \right) = \left( \pm 5, 1 \right)$ and $K = \Q\left( \sqrt{5} \right)$. If $a = 5$ then we are done by by \Cref{lem:imprimitivity_finite_obstruction} with $p = 7$ and $m = 1$, and if $a = -5$ then by \Cref{lem:imprimitivity_finite_obstruction} with $p = 3$ and $m = 1$ our proof is complete.
+  Lastly, we treat the case $\left( a,b \right) = \left( \pm 5, 1 \right)$ and $K = \Q\left( \sqrt{5} \right)$. If $a = 5$ then we are done by \Cref{lem:imprimitivity_finite_obstruction} with $p = 7$ and $m = 1$, and if $a = -5$ then by \Cref{lem:imprimitivity_finite_obstruction} with $p = 3$ and $m = 1$ our proof is complete.
 \end{proof}
 
 \begin{proof}[Proof of \Cref{thm:main}]
@@ -387,7 +387,7 @@ Collecting all the above lemmas we can present the following
   To do that in turn, it suffices to show that $3$ is unramified in $\Q\left[ x \right] / \left( g \right)$, for which it suffices to show that $g$ is separable over $\mathbb{F}_3$.
   However, we have already established in \Cref{cor:inertia_group_acts_as_transposition_external_settings} that $f$ has at most one double root in $\overline{\mathbb{F}_3}$, and hence, since $x^2 \pm x + 1$ has a double root there, $g$ can not have any.
 
-  In the rest of the cases $\left| ab \right|$ is a non trivial power of a prime which we shall denote by $p$ and \Cref{lem:fields_not_embeddable} implies that we can apply \Cref{thm:criterion} with $C_p$ being the value recorded in the third column of \Cref{table} for the corresponding value of $\left| ab \right|$.
+  In the rest of the cases $\left| ab \right|$ is a non trivial power of a prime which we shall denote by $p$ and hence \Cref{lem:fields_not_embeddable} implies that we can apply \Cref{thm:criterion} with $C_p$ being the value recorded in the third column of \Cref{table} for the corresponding value of $\left| ab \right|$.
 
   If $\left| ab \right| = 2$ then according to \Cref{lem:no_splitting_irreducibility} applied to $K=\Q$ and according to \Cref{lem:factorization_of_f}, $f$ is either irreducible over $\Q$ or it factors into $x \pm 1$ times an irreducible factor.
   In both cases, it suffices to show that the Galois group of the unique non linear irreducible factor of $f$, which we shall denote by $g$, is $S_{\deg \left( g \right)}$.
