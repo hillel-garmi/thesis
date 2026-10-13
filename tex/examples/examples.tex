@@ -84,64 +84,6 @@ To prove \Cref{lem:fields_not_embeddable} we present a collection of obstruction
   Finally, since $1$ and $=-1$ can not both be roots of $f$ and since none of them can be a double root of $f$ it follows that $f / f_0 = x \pm 1$ completing our proof.
 \end{proof}
 
-% Recall that we use $g$ to denote an arbitrary rational factor of $f$.
-% \begin{corollary}
-%   In the settings of \Cref{lem:no_splitting_irreducibility}, $K$ can not be embedded into $\Q\left[ x \right]/ \left( g \right)$.
-%   \qed
-% \end{corollary}
-% \begin{proof}
-% \end{proof}
-% Recall that a Kroneckerian field is a number field that is either totally real or a quadratic extension of a totally real number field.
-% \begin{lemma}
-%   Let $K/\Q$ be a quadratic field extension and $p \neq 0$ a rational prime and assume that: 
-%   \begin{enumerate}
-%     \item $p = \pm a = \pm b$.
-%     \item $n > 2$.
-%   \end{enumerate}
-%   Then $f$ is irreducible over $K$.
-% \end{lemma}
-% \begin{proof}
-%   Let $\sigma \in \Gal\left( \overline{\Q} / \Q \right)$ be a lift of the non trivial automorphism of $K$ to $\overline{\Q}$.
-%   View $\overline{\Q}$ as a subfield of $\C$ and let $\overline{\left( - \right)}$ denote the complex conjugation.
-%   Since $f$ is irreducible over $\Q$, the only way it can factor over $K$ is as $f = f_0 \sigma\left( f_0 \right)$ for some irreducible $f_0 \in K\left[ x \right]$.
-%   Assume toward a contradiction that this is the case.
-  
-%   Note that for any polynomial $h \in K\left[ x \right]$, the free coefficient of $h \cdot \overline{h \circ x^{-1}}$ is the square of the Euclidean norm of $h$.
-%   In particular, since 
-%   % Note that 
-%   \[
-%     f \cdot \overline{f \circ x^{-1}} = 
-%     \left( f_0 \cdot \overline{\sigma\left( f_0 \right) \circ x^{-1}} \right)
-%     \cdot 
-%     \overline{\left( f_0 \cdot \overline{\sigma\left( f_0 \right) \circ x^{-1}} \right) \circ x^{-1}}
-%   \]
-%   it follows that
-%   \[
-%     2p^2 + 1 
-%     = 
-%     \left\lVert f \right\rVert^2
-%     =
-%     \left\lVert f_0 \cdot \overline{\sigma\left( f_0 \right) \circ x^{-1}} \right\rVert^2
-%   \]
-%   On the other hand, by ramification theory, $p$ must ramify in $K$ and $f_0$ must be Eisenstein with respect to $\sqrt{p\O_K}$.
-%   Therefore, all of the coefficients of $f_0 \cdot \overline{\sigma\left( f_0 \right) \circ x^{-1}}$ except for the free one have $p$-adic valuation at least $1/2$.
-%   % Therefore, if we denote 
-%   % \[
-%   %   f_0 = x^{n/2} + \sum_{j = 0}^{d} c_j x^{i_j} 
-%   % \] 
-%   % for some $d < n / 2$ and $i_0 < i_1 < \ldots < i_d < n / 2$ and $0 \neq c_j \in K$, we may deduce that  
-%   % \[
-%   %   \overline{f} \cdot \left( f \circ x^{-1} \right) = 
-%   %   \overline{\overline{f_0} \cdot \left( \sigma\left( f_0 \right) \circ x^{-1} \right)}
-%   %   \cdot 
-%   %   \left( \left( \overline{f_0} \cdot \left( \sigma\left( f_0 \right) \circ x^{-1} \right) \right) \circ x^{-1} \right)
-%   % \]
-
-%   By considering the Newton polygon of $f$ with respect to $2$ it follows that all of the roots of $f$ have $2$-adic valuation $1 / n$.
-%   Assume toward a contradiction that $f$ is reducible over $K$.
-
-% \end{proof}
-
 \begin{lemma}
   \label{lem:imprimitivity_finite_obstruction}
   Let $K$ be a number field and let $p$ be a prime such that the inertia degree of any prime ideal of $K$ above $p$ is greater than $1$.
@@ -249,14 +191,6 @@ To prove \Cref{lem:fields_not_embeddable} we present a collection of obstruction
   when $c_{n/4}$ is to be interpreted as $0$ if $n/4$ is not an integer.
   However, for the $n/2$-th coefficient of $f$ to be $0$, it must in particular be congruent to $0$ modulo $\left( 2 + 2i \right)$ implying that $$c_{n/4} \overline{c_{n/4}} \equiv 2 \mod \left( 2 + 2i \right)$$ and hence $v_2\left( c_{n/4} \right) = 1/2$ and $n/4$ is a second such $j$-value.
   Since $n > 4$, $n$ and $n/4$ are also not coprime and hence the same argument can be repeated to show that $n/8$ is a third such $j$-value, concluding the desired contradiction.
-  
-  % We utilize this fact to show by induction 
-  % Therefore, the $n/2$-th coefficient of $f_0 \overline{f_0}$ is 
-  % In particular, $\pm 2 = b = c_0 \overline{c_0}$ and hence $c_0 = \pm 1 \pm i$.
-  % Consider now the $n/2$-th coefficient of $f_0 \overline{f_0}$ which equales 
-  % \[
-  %   \sum_{j = 1}^{n/2 - 1} c_j \overline{c_{n/2 - j}} + c_0 \overline{c_{n/2}} + c_{n/2} \overline{c_0}
-  % \]
 
 \end{proof}
 
@@ -360,7 +294,7 @@ Collecting all the above lemmas we can present the following
   The cases $\left( a,b \right) = \left( \pm 2, \pm 1 \right)$ are ruled out by \Cref{lem:Qi_not_embeddable_if_a2_b1} and the cases $\left( a,b \right) = \left( \pm 1, \pm 2 \right)$ by \Cref{lem:Qi_not_embeddable_if_a1_b2}.
   
   Assume then that $\left| ab \right| > 2$.
-  We shall first treat all of the caess in which $\left| a \right| = 1$.
+  We shall first treat all of the cases in which $\left| a \right| = 1$.
   In all of these cases, $f\left( 1 \right)f\left( -1 \right) \neq 0$ and hence $f$ is irreducible over $\Q$ according to \Cref{lem:no_splitting_irreducibility}.
   Therefore, and since all of the fields in \Cref{table} are quadratic, we can assume that $n$ is even and thus that $k$ is odd.
   Therefore, all of these cases can be treated by \Cref{lem:no_splitting_irreducibility} with $p$ being the unique prime factor of $b$.
@@ -394,7 +328,7 @@ Collecting all the above lemmas we can present the following
   However, $\deg g \geq n - 1$ and hence a quick calculation verifies that the inequality in \Cref{thm:criterion} is satisfied for $n > 8$ and hence the Galois group of $g$ is $S_{\deg \left( g \right)}$ as required.
 
   We claim that in the rest of the cases $f$ is irreducible.
-  Indeed, either of the following cases occures:
+  Indeed, either of the following cases occurs:
   \begin{enumerate}
     \item $f$ is an Eisenstein polynomial.
     \item $\left| a \right| = 1$ and $\left| b \right| = 3,4,5$, in which case it follows from \Cref{lem:no_splitting_irreducibility} that $f$ is irreducible over $\Q$.
