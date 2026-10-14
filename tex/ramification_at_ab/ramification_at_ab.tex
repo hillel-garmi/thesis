@@ -144,6 +144,30 @@
     \[
       1 = \q{n}{m} \q{m}{k} \q{k}{n}
     \]
+    \directorscut{
+      , indeed,
+      \[
+        \q{n}{m} \q{m}{k} \q{k}{n}
+        =
+        -\frac{
+          \left( m - n \right)a_m
+        }{
+          \left( k - n \right)a_k
+        }
+        \frac{
+          \left( k - m \right)a_k
+        }{
+          \left( n - m \right)a_n
+        }
+        \frac{
+          \left( n - k \right)a_n
+        }{
+          \left( m - k \right)a_m
+        }
+        =
+        1,
+      \] 
+    }
     and hence, the result follows from \cref{eq:mod_principal_units_condition}.
     % \[
     %   \q{k}{n} 
@@ -232,7 +256,7 @@
       = 
       \begin{bmatrix}
         \pi\left( \q{n}{m}^r \q{m}{k}^s \right) \\
-        \pi\left( \q{n}{m}^{-\left( m - k \right)} \q{m}{k}^{n - m} \right)
+        \pi\left( \q{n}{m}^{-\left( n - k \right)} \q{m}{k}^{k - m} \right)
       \end{bmatrix} .
     \end{equation}
   \end{corollary}
@@ -241,8 +265,8 @@
     \begin{equation}
       \label{eq:raw_ex_equation}
       \begin{bmatrix}
-        n - m \\
-        m - k
+        k - m \\
+        n - k
       \end{bmatrix} x 
       = 
       \begin{bmatrix}
@@ -250,15 +274,15 @@
         \pi\left( \q{m}{k} \right)
       \end{bmatrix}.
     \end{equation}
-    Since by assumption $n - m$ and $m - k$ are coprime, by the Euclidean algorithm there are $r,s \in \Z$ such that 
+    Since by assumption $k - m$ and $n - k$ are coprime, by the Euclidean algorithm there are $r,s \in \Z$ such that 
     \[
-      r(n - m) + s(m - k) = 1.
+      r(k - m) + s(n - k) = 1.
     \]
     Therefore, multiplying both sides of \cref{eq:raw_ex_equation} by 
     \[
       \begin{bmatrix}
         r & s \\
-        -\left( m - k \right) & n - m
+        -\left( n - k \right) & k - m
       \end{bmatrix}
     \]
     shows that it is equivalent to the required equation.
