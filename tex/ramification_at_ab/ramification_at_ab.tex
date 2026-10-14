@@ -437,14 +437,14 @@
   According to \Cref{item:bigger_slope_length_valuation} of \Cref{lem:slope_length_valuation} we can classify the \redex polynomials into two kinds:
 
   \subsubsection{The equal valuation case}
-  Through out this subsection assume that $v\left( a_n \right) = v\left( a_m \right) = v\left( a_k \right) = 0$ and that $\h{}$ is reduced magnetic polynomial.
+  Throughout this subsection assume that $v\left( a_n \right) = v\left( a_m \right) = v\left( a_k \right) = 0$ and that $\h{}$ is a reduced magnetic polynomial.
 
   \begin{lemma}
     \label{lem:magnetism_away_from_ab}
     $\alpha$ is \anex root of $\h{}$ if and only if $v\left( \h{}'\left( \alpha \right) \right) > 0$.
   \end{lemma}
   \begin{proof}
-    Since the Newton polygon of $\h{}$ has only segments and its slope is $0$, $v\left( \alpha \right) = 0$.
+    Since the Newton polygon of $\h{}$ has only segments of slope $0$, $v\left( \alpha \right) = 0$.
     Therefore, since $1 = \gcd\left( m - n, k - n \right)$, it follows that 
     \[
       \min\left\{  
@@ -500,7 +500,8 @@
     \label{lem:counting_ex_roots}
     $\h{}$ has exactly $p^{v\left( m - k \right)} = p^{v\left( a_n \right)}$ \ex roots.
   \end{lemma}
-  \begin{proof} 
+  \begin{proof}
+    When considered as a polynomial over $\kappa$, $\h{}$ satisfies 
     \[
       \h{} 
       = 
@@ -530,7 +531,7 @@
   \begin{proof}
     Let $\alpha$ be \anex root of $f$ (if there is no such root then the result is trivial).
     According to \Cref{cor:ex_disk}, $\pi\left( \alpha \right)$ is the only \ex disk and it belongs to $\pi\left( \Q^\times \right)$ (recall \cref{def:pi} for $\pi$).
-    In particular, the valuation of the \ex roots is a (unique) integer.
+    In particular, all of the \ex roots have the same valuation and that valuation is an integer.
     If that integer is at least $1$, then the number of \ex roots can not exceed the maximal height difference between two vertices of the Newton polygon of $f$, which is clearly less than $\exrootscountbound$.
     Assume then that the valuation of the \ex roots is $0$.
     Then, by \Cref{lem:scalability} we can assume without loss of generality that $f$ is \aredex polynomial.
@@ -723,7 +724,7 @@
       &
       \left( n - \exrootscountbound \right) v_p\left( ab \right)
       +
-      \exrootscountbound \left( \diffbnd \right)
+      \exrootscountbound \left( 1 + v_p\left( ab \right) \right)
       \leq
       \\
       &
@@ -731,7 +732,7 @@
       .
     \end{align*}
 
-    Assume now that the Newton polygon of $f$ consists of two segments of different slopes and that $v\left( k \right) = 0$.
+    Assume now that the Newton polygon of $f$ consists of two segments of different slopes and that $v_p\left( k \right) = 0$.
     Then, according to \cref{item:k_es} of \Cref{cor:explicit_non_ex_bound}, for each non \ex root $\alpha$ of $f$ whose valuation is equal to minus the slope of the rightmost segment of the Newton polygon of $f$,
     \[
       v_p\left( \Deta \right) 
@@ -763,7 +764,7 @@
       &
       \left( n - \exrootscountbound \right) v_p\left( b \right)
       +
-      \exrootscountbound \left( \diffbnd \right)
+      \exrootscountbound \left( 1 + v_p\left( b \right) \right)
       \leq
       \\
       &
@@ -772,9 +773,9 @@
     \end{align*}
 
 
-    Assume finally that the Newton polygon of $f$ consists of two segments of different slopes and that $v\left( n - k \right) = 0$.
-    Note that in this case according to \Cref{lem:slope_length_valuation} the valuation of the \ex roots of $f$ is minus the slope of the leftmost segment of the Newton polygon of $f$. 
-    Therefore, according to \cref{item:k_es} of \Cref{cor:explicit_non_ex_bound}, for each root $\alpha$ of $f$ whose valuation is equal to minus the slope of the rightmost segment of the Newton polygon of $f$,
+    Assume finally that the Newton polygon of $f$ consists of two segments of different slopes and that $v_p\left( n - k \right) = 0$.
+    Note that in this case according to \Cref{lem:slope_length_valuation} the valuation of the \ex roots of $f$, if they exist, is minus the slope of the leftmost segment of the Newton polygon of $f$. 
+    Therefore, according to \cref{item:non_k_es} of \Cref{cor:explicit_non_ex_bound}, for each root $\alpha$ of $f$ whose valuation is equal to minus the slope of the rightmost segment of the Newton polygon of $f$,
     \[
       v_p\left( \Deta \right) 
       \leq
@@ -788,7 +789,7 @@
       =
       \frac{n}{n - k}v_p\left( a \right)
     \]
-    Similarly, according to \cref{item:non_k_es} of \Cref{cor:explicit_non_ex_bound} for each non \ex root $\alpha$ of $f$ whose valuation is equal to minus the slope of the leftmost segment of the Newton polygon of $f$,
+    Similarly, according to \cref{item:k_es} of \Cref{cor:explicit_non_ex_bound} for each non \ex root $\alpha$ of $f$ whose valuation is equal to minus the slope of the leftmost segment of the Newton polygon of $f$,
     \[
       v_p\left( \Deta \right) 
       \leq
@@ -813,30 +814,35 @@
       +
       \\
       &
-      \exrootscountbound \left( \diffbnd \right)
+      \exrootscountbound \left( 1 + v_p\left( b / a \right) \right)
       \leq
       \\
       &
-      nv_p\left( ab \right) + \exrootscountbound
-      .
-    \end{align*}
-    However, it can be shown, since the Newton polygon of $f$ has two segments of different slopes, that
-    \[
-      \exrootscountbound \leq \frac{n}{k} v_p\left( b / a \right)
-    \]
-    and hence the previous inequality implies that
-    \[
-      v_p\left( \disc\left( L \right) \right)
+      nv_p\left( a \right) + k v_p\left( b / a \right) + \exrootscountbound
       \leq
-      \left( n - k \right)\frac{n}{ n - k } v_p\left( a \right)
-      +
-      k \frac{n}{k} v_p\left( b / a \right)
-      +
-      \exrootscountbound
-      =
-      % \\
-      % & 
-      n v_p\left( b \right) + \exrootscountbound
-    \]
+      \\
+      &
+      nv_p\left( b \right) + \exrootscountbound
+      \ .
+      \qedhere
+    \end{align*}
+    % However, it can be shown, since the Newton polygon of $f$ has two segments of different slopes, that
+    % \[
+    %   \exrootscountbound \leq \frac{n}{k} v_p\left( b / a \right)
+    % \]
+    % and hence the previous inequality implies that
+    % \[
+    %   v_p\left( \disc\left( L \right) \right)
+    %   \leq
+    %   \left( n - k \right)\frac{n}{ n - k } v_p\left( a \right)
+    %   +
+    %   k \frac{n}{k} v_p\left( b / a \right)
+    %   +
+    %   \exrootscountbound
+    %   =
+    %   % \\
+    %   % & 
+    %   n v_p\left( b \right) + \exrootscountbound
+    % \]
   \end{proof}
 \end{document}
