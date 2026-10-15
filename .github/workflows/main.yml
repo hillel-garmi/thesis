@@ -1,0 +1,12 @@
+name: arXiv pre-flight
+on: [push, pull_request]
+
+jobs:
+  arxiv-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: YuZh98/latex2arxiv@v1.2.0
+        with:
+          input: tex/        # directory of .tex sources, or a .zip path
+          main: main.tex       # optional; auto-detected from \documentclass
