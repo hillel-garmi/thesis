@@ -17,3 +17,10 @@
 *.vrb
 *.synctex(busy)
 tex/config.sty
+
+# Generated arXiv submission bundle and preview.
+/submission/
+/build/arxiv/
+/build/arxiv.zip
+/build/arxiv-preview.pdf
+/scripts/__pycache__/

@@ -1,6 +1,6 @@
 {
     "name": "LaTeX (TeX Live)",
-    "image": "texlive/texlive:latest",
+    "image": "texlive/texlive:TL2023-historic",
     "mounts": [
         {
             "source": "build-${devcontainerId}",
@@ -17,7 +17,9 @@
         "vscode": {
             "extensions": [
                 "James-Yu.latex-workshop",
-                "streetsidesoftware.code-spell-checker"
+                "streetsidesoftware.code-spell-checker",
+                "openai.chatgpt",
+                "github.vscode-github-actions"
             ]
         }
     },
