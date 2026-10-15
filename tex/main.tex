@@ -1,6 +1,5 @@
 \newif\ifdirectorscut
 \newif\ifeditorial
-\newif\iftableofcontents
 
 \documentclass[oneside, 12pt]{article}
 \usepackage{commands}
@@ -11,9 +10,6 @@
   }
   \author{Hilel Garmi}
   \maketitle
-  \iftableofcontents
-    \tableofcontents
-  \fi
   % \part{New Setup}
   % \part{The Theatrical Cut}
   \subfile{paper_abstract/paper_abstract.tex}

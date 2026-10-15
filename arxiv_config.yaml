@@ -4,10 +4,10 @@ commands_to_delete:
   - \directorscut
 
 # Remove command but KEEP its argument text
-commands_to_unwrap:
-  - \color{red}       # \color{red}text → text
-  - \textcolor{red}   # \textcolor{red}{text} → text
-  - \added            # \added{new text} → new text
+# commands_to_unwrap:
+#   - \color{red}       # \color{red}text → text
+#   - \textcolor{red}   # \textcolor{red}{text} → text
+#   - \added            # \added{new text} → new text
 
 # Remove entire environments
 # environments_to_delete:
@@ -15,5 +15,5 @@ commands_to_unwrap:
 
 # Raw regex (last resort — prefer the verbs above when they fit).
 replacements:
-  - pattern: '\if*\fi'
+  - pattern: '(?m)^[ \t]*\\newif[^\r\n]*(?:\r?\n|$)'
     replacement: ''
