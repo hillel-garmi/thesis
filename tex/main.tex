@@ -1,9 +1,6 @@
 \newif\ifdirectorscut
 \newif\ifeditorial
-
-% \directorscuttrue %comment out for the theatrical cut
-\editorialtrue %comment out for the theatrical cut
-% \tableofcontentstrue %comment out for the theatrical cut
+\newif\iftableofcontents
 
 \documentclass[oneside, 11pt]{article}
 \usepackage{commands}
@@ -15,6 +12,9 @@
   \author{Hilel Garmi}
   \date{}
   \maketitle
+  \iftableofcontents
+    \tableofcontents
+  \fi
   % \part{New Setup}
   % \part{The Theatrical Cut}
   \subfile{paper_abstract/paper_abstract.tex}
