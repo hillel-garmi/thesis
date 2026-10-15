@@ -5,7 +5,7 @@
   \label{sec:examples}
   Proof of \Cref{thm:main}
 }
-Recall that for each finite or infinite rational place $\p$ we view $\overline{\Q}$ as a subfield of $\overline{\Q_\p}$ and denote by $v_\p$ the standard valuation of $\overline{\Q_p}$.
+Recall that for each finite or infinite rational place $\p$ we view $\overline{\Q}$ as a subfield of $\overline{\Q_\p}$ and denote by $v_\p$ the standard valuation of $\overline{\Q_\p}$.
 We also denote $i = \sqrt{-1}$ viewed as an element of $\C$.
 To prove \Cref{thm:main} we prove first the following
 
@@ -18,6 +18,7 @@ To prove \Cref{thm:main} we prove first the following
   Then either 
   \begin{enumerate}
     \item $\left( a,b \right) \in \left\{ \left( \pm 4, -1 \right), \left( \pm 5, -1 \right) \right\}$, or
+    \item the non-cyclotomic part of $f$ is reducible over $\Q$,
     \item $K$ can not be embedded into $\Q\left[ x \right]/ \left( f \right)$.
   \end{enumerate}
 \end{proposition}
@@ -26,7 +27,7 @@ To prove \Cref{thm:main} we prove first the following
   Statistical data suggests that \Cref{lem:fields_not_embeddable} is true even without excluding the cases $\left( a,b \right) = \left( \pm4, -1 \right), \left( a,b \right) = \left( \pm 5, -1 \right)$, but we failed to prove it for $K = \Q\left( \sqrt{2} \right)$ in the first case and for $K = \Q\left( \sqrt{5} \right)$ in the second one.
 \end{remark}
 
-To prove \Cref{lem:fields_not_embeddable} we present a collection of obstructions to the embeddability of $K$ into $\Q\left[ x \right]/ \left( f \right)$.
+To prove \Cref{lem:fields_not_embeddable} we present a collection of obstructions to the embeddability of $K$ into $\Q\left[ x \right]/ \left( f \right)$, some in the form of irreducibility results which will also be used in the proof of \Cref{thm:main} directly.
 
 \begin{lemma}
   \label{lem:no_splitting_irreducibility}
@@ -128,7 +129,7 @@ To prove \Cref{lem:fields_not_embeddable} we present a collection of obstruction
     \]
     for all $i < e$.
     Therefore, the Newton polygon of $f\left( x + m \right)$ with respect to $p$ has a single segment of negative slope and its slope is at most $1/e$ in absolute value.
-    Therefore, $f\left( x + m \right)$ has a root, call it $\beta$, whose $p$-valuation is at most $1/e$.
+    Therefore, $f\left( x + m \right)$ has a root, call it $\beta$, whose $p$-adic valuation is at most $1/e$.
     Therefore, since the set of roots of $f\left( x + m \right)$ that reduce to $0$ modulo $p$ is exactly the set of roots of $h\left( x + m \right)$, whose degree is $e$, it follows that the ramification degree of $\beta$ over $\Q_p$ is exactly its over all algebraic degree over $\Q_p$ and hence $\Q_p\left( \beta \right) / \Q_p$ is purely ramified.
     This shows that there is an embedding, in particular the one extending the assignment $x \mapsto \beta$, of $\Q\left[ x \right] / \left( f \right)$ into a purely ramified extension of $\Q_p$  
 \end{proof}
@@ -140,7 +141,7 @@ To prove \Cref{lem:fields_not_embeddable} we present a collection of obstruction
   Then $f$ is irreducible over $\Q\left( i \right)$ where $i = \sqrt{-1}$.
 \end{lemma}
 \begin{remark}
-  The following proof is inspired by a technique that was used first, it seems by Ljunggren \cite{Ljungren1960} in another context and which I learned about from an expository paper by Conrad about the Irreducibility of $x^n - x - 1$ \cite{conradirreducibility}.
+  The following proof is inspired by a technique that was used first, it seems, by Ljunggren \cite{Ljungren1960} in another context and which I learned about from an expository paper by Conrad about the Irreducibility of $x^n - x - 1$ \cite{conradirreducibility}.
 \end{remark}
 \begin{proof}
   Denote by $\overline{\left( - \right)}$ the non trivial automorphism of $\Q\left( i \right)$.
@@ -191,7 +192,6 @@ To prove \Cref{lem:fields_not_embeddable} we present a collection of obstruction
   when $c_{n/4}$ is to be interpreted as $0$ if $n/4$ is not an integer.
   However, for the $n/2$-th coefficient of $f$ to be $0$, it must in particular be congruent to $0$ modulo $\left( 2 + 2i \right)$ implying that $$c_{n/4} \overline{c_{n/4}} \equiv 2 \mod \left( 2 + 2i \right)$$ and hence $v_2\left( c_{n/4} \right) = 1/2$ and $n/4$ is a second such $j$-value.
   Since $n > 4$, $n$ and $n/4$ are also not coprime and hence the same argument can be repeated to show that $n/8$ is a third such $j$-value, concluding the desired contradiction.
-
 \end{proof}
 
 \begin{lemma}
@@ -239,11 +239,13 @@ To prove \Cref{lem:fields_not_embeddable} we present a collection of obstruction
 \begin{proof}
   If $k$ is odd the result follows from \Cref{lem:no_splitting_irreducibility} with $p = 2$.
   Assume then that $k$ is even and thus that $n$ is odd.
-  By considering the Newton polygon of $f$ with respect to $2$ it follows that $f$ has a root of $2$-adic valuation $0$, say $\alpha$.
   If $f\left( 1 \right)f\left( -1 \right) \neq 0$ then according to \Cref{lem:no_splitting_irreducibility} $f$ is irreducible over $\Q$ and hence $\Q\left[ x \right]/ \left( f \right)$ is a number field of an odd degree and hence can not contain $\Q\left( i \right)$.
   Assume then that $f\left( 1 \right)f\left( -1 \right) = 0$.
-  According to \Cref{lem:factorization_of_f} $f$ factors as $x \pm 1$ times an irreducible factor which we shall denote by $g$.
-  Then the $2$-adic valuation of the different ideal of $\Q\left[ x \right]/ \left( g \right)$ is bounded by 
+  According to \Cref{lem:no_splitting_irreducibility} $f$ factors as $x \pm 1$ times an irreducible factor which we shall denote by $g$.
+
+  One of two cases occurs:
+  Assume first that $f$ has a root $\alpha$ of $2$-adic valuation $0$. 
+  Then the $2$-adic valuation of the different ideal of $L := \Q\left[ x \right]/ \left( g \right)$ is bounded by 
   \[
     v_2\left( g'\left( \alpha \right) \right)
     \leq
@@ -251,7 +253,32 @@ To prove \Cref{lem:fields_not_embeddable} we present a collection of obstruction
     =
     0.
   \]
-  However, the different ideal of $\Q\left( i \right)$ is $\left( 2 \right)$ and hence $\Q\left( i \right)$ can not be embedded into $\Q\left[ x \right]/ \left( g \right)$ and hence neither into $\Q\left[ x \right]/ \left( f \right)$.
+  However, the different ideal of $\Q\left( i \right)$ is $\left( 2 \right)$ and hence $\Q\left( i \right)$ can not be embedded into $L$ and hence neither into $\Q\left[ x \right]/ \left( f \right)$.
+
+  Assume now that all of the $n - 1$ roots of $g$ have positive $2$-adic valuation.
+  Let $\alpha$ be a root of $g$.
+  By considering the Newton polygon of $f$ with respect to $2$ it is clear that $v_2\left( \alpha \right) = \frac{1}{n - 1}$.
+  Then again, the $2$-adic valuation of the different ideal of $L$ is bounded by 
+  \[
+    v_2\left( g'\left( \alpha \right) \right)
+    \leq
+    v_2\left( f'\left( \alpha \right) \right)
+    =
+    1.
+  \]
+  However, the $2$-adic valuation of the different ideal of $\Q\left[ i \right]$ is also $1$.
+  Therefore, if we assume towards contradiction that there is an embedding $\Q\left( i \right) \hookrightarrow L$, it follows that $L$ is unramified over $\Q\left[ i \right]$ at $v_2$.
+  This is a contradiction to the mentioned fact that $v_2\left( \alpha \right) = \frac{1}{n - 1}$ since by assumption $n - 1 > 2$ which is the ramification degree of $\Q\left[ i \right]$ at $v_2$.
+  % By considering the Newton polygon of $f$ with respect to $2$ it follows that $f$ has a root of $2$-adic valuation $0$, say $\alpha$.
+  % Then the $2$-adic valuation of the different ideal of $\Q\left[ x \right]/ \left( g \right)$ is bounded by 
+  % \[
+  %   v_2\left( g'\left( \alpha \right) \right)
+  %   \leq
+  %   v_2\left( f'\left( \alpha \right) \right)
+  %   =
+  %   0.
+  % \]
+  % However, the different ideal of $\Q\left( i \right)$ is $\left( 2 \right)$ and hence $\Q\left( i \right)$ can not be embedded into $\Q\left[ x \right]/ \left( g \right)$ and hence neither into $\Q\left[ x \right]/ \left( f \right)$.
 \end{proof}
 
 \begin{table}
@@ -300,7 +327,8 @@ Collecting all the above lemmas we can present the following
   Therefore, all of these cases can be treated by \Cref{lem:no_splitting_irreducibility} with $p$ being the unique prime factor of $b$.
 
   The cases $\left( a,b \right) = \left( \pm 2, \pm 2 \right)$ are resolved by \Cref{lem:not_embeddable_Qi_if_a2_b2}.
-  In all of the remaining cases, namely $\left( a,b \right) = \left( \pm 3, \pm 1 \right), \left( \pm 4, 1 \right), \left( \pm 5, 1 \right)$, $f$ has a real root allowing us to cross out all of the imaginary fields from \Cref{table}.
+  In all of the remaining cases, namely $\left( a,b \right) = \left( \pm 3, \pm 1 \right), \left( \pm 4, 1 \right), \left( \pm 5, 1 \right)$, no root of unity can be a root of $f$ and hence, assuming that the non-cyclotomic part of $f$ is irreducible, $f$ must also be irreducible.
+  Additionally, $f$ has a real root, and hence, since it is irreducible, we can cross out all of the imaginary fields from \Cref{table}.
   Therefore, the only remaining obstacles are $\left( a,b \right) = \left( \pm 4, 1 \right)$ with $K = \Q\left( \sqrt{2} \right)$ and $\left( a,b \right) = \left( \pm 5, 1 \right)$ with $K = \Q\left( \sqrt{5} \right)$.
   
   We will treat first the case $\left( a,b \right) = \left( \pm 4, 1 \right)$ and $K = \Q\left( \sqrt{2} \right)$.
