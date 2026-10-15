@@ -17,5 +17,5 @@ commands_to_delete:
 replacements:
   - pattern: '(?m)^[ \t]*\\newif[^\r\n]*(?:\r?\n|$)'
     replacement: ''
-  - pattern: '\\usepackage{config}'
+  - pattern: '\\usepackage\{config\}'
     replacement: ''
