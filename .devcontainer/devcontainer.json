@@ -11,7 +11,8 @@
     "features": {
         "ghcr.io/devcontainers/features/common-utils:2": {
             "username": "texlive"
-        }
+        },
+        "ghcr.io/devcontainers/features/git:1": {}
     },
     "customizations": {
         "vscode": {
