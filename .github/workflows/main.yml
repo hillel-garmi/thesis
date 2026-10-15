@@ -7,7 +7,12 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - uses: YuZh98/latex2arxiv@v1.2.0
+        id: clean
         with:
           input: tex/        # directory of .tex sources, or a .zip path
           main: main.tex       # optional; auto-detected from \documentclass
           flatten: true         # optional; default false; flatten the directory structure
+          dry-run: false        # optional; default false; don't actually create the .zip
+      - uses: softprops/action-gh-release@v3
+        with:
+          files: ${{ steps.clean.outputs.cleaned-zip }}
