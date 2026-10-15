@@ -17,3 +17,4 @@
 *.vrb
 *.synctex(busy)
 tex/config.sty
+latex2arxiv-output/
