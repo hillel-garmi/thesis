@@ -10,7 +10,8 @@
     ],
     "features": {
         "ghcr.io/devcontainers/features/common-utils:2": {
-            "username": "texlive"
+            "username": "texlive",
+            "installSsl": false
         }
     },
     "customizations": {
